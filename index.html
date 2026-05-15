@@ -220,15 +220,23 @@ ${i}`),b(i)}function $e(n,e=!1){return Qo(Lo(n),An(),Pn(),e)}class Ko extends fe
 
 </style></head><body><state-css-variables><state-dark-theme-css-overrides><div id="backdrop"><page-skip><page-transition><div id="page" aria-live="polite"><header hidden></header><article></article><warning-list></warning-list><footer hidden></footer><error-handler></error-handler><page-skip-indicator></page-skip-indicator></div></page-transition></page-skip></div></state-dark-theme-css-overrides></state-css-variables><external-fonts></external-fonts><noscript>This requires JavaScript.</noscript></body><tw-storydata name="rPhone" startnode="1" creator="Twine" creator-version="2.12.0" format="Chapbook" format-version="2.3.1" ifid="C9767237-F3CD-4823-9E0B-A753FC120540" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 html, body, #page, #passages {
-    font-family: Helvetica, Arial, sans-serif; !important;
+  	font-family: Helvetica, Arial, sans-serif; !important;
+  	max-height: 10dvh; !important;
 }
 
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="775,0" size="100,100">circle: 0
+#page footer {
+    padding-bottom: 50px;
+}
+
+#page header {
+    padding-top: 10px;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="775,0" size="100,100">circle: 0
 happy: 5
-config.header.center: &quot;The rPhone dilemma&quot;
-config.footer.left: &quot;Happiness: {happy}&quot;
-config.footer.right: &quot;Circularity: {circle}&quot;
+config.header.center: &quot;The Happiness Dilemma&quot;
+config.footer.left: &quot; &quot;
+config.footer.right: &quot; &quot;
+config.footer.center: &quot; &quot;
 --
 
 In this game, you are the new mayor of the city and can decide about which laws and policies should be enacted.
@@ -256,9 +264,13 @@ This helps save resources, reduce waste, and protect the environment.
 
 &lt;/div&gt;
 
-~~[[What makes people happy?]]~~</tw-passagedata><tw-passagedata pid="3" name="Ok, let&#39;s start!" tags="" position="850,175" size="100,100">You will be presented three options for new policies at a time and need to choose one of them. Your choice may have an effect on the happiness of the people in your town and  on the economy.
+~~[[What makes people happy?]]~~</tw-passagedata><tw-passagedata pid="3" name="Ok, let&#39;s start!" tags="" position="850,175" size="100,100">config.footer.left: &quot;Happiness: {happy}&quot;
+config.footer.right: &quot;Circularity: {circle}&quot;
+--
 
-The circularity of the economy and the happiness of people are measured in numbers. As you see below, the circularity index is zero, so your current economy is not circular at all. The people are medium happy (the happiness index is 5).
+You will be presented three options for new policies at a time and need to choose one of them. Your choice may have an effect on the happiness of the people in your town and  on the economy.
+
+The **circularity of the economy** and the **happiness of people** are measured in numbers. As you see below, the circularity index is zero, so your current economy is not circular at all. The people are medium happy (the happiness index is 5).
 
 Can you increase both?
 
@@ -268,7 +280,7 @@ Can you increase both?
 
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="4" name="What makes people happy?" tags="" position="1000,125" size="100,100">People are happy if the demand of phones is met, so when everyone who wants to own a phone, actually owns a phone. Phone users are happy when their phones work well, are easy to use, protect their data, and can do the things they need. Phones should not be too expensive or break easily. 
+</tw-passagedata><tw-passagedata pid="4" name="What makes people happy?" tags="" position="1000,125" size="100,100">People are happy when everyone who wants to own a phone, actually owns a phone. Phone users are happy when their phones work well, are easy to use, protect their data, and can do the things they need. Phones should not be too expensive or break easily. 
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 
