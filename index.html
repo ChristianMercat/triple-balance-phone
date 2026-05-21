@@ -277,7 +277,7 @@ config.footer.left: &quot; &quot;
 config.footer.right: &quot; &quot;
 config.footer.center: &quot; &quot;
 --
-In this game, you are the new mayor of the city and can decide about which laws and policies should be enacted. 
+In this game, you are the new mayor of the city and can decide about &lt;span style=&quot;background-color: cyan;&quot;&gt;laws and policies&lt;/span&gt;, invest in research for &lt;span style=&quot;background-color: yellow;&quot;&gt;new technologies&lt;/span&gt; or deal with events. 
 
 Your goal is to create a circular smartphone economy, while at the same time keeping people happy.
 
@@ -314,7 +314,7 @@ Can you increase both?
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 
-[[First round of decisions]]
+[[Continue-&gt;Tech]]
 
 &lt;/div&gt;
 
@@ -367,57 +367,69 @@ People might be happy about a recycle bonus because they can save money and feel
 
 Your chosen policy will stay in effect. You can choose an additional one now.
 
-[[SCHOOL REPAIR CAFÉ]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[SCHOOL REPAIR CAFÉ]]&lt;/span&gt;
 (New school subject: &quot;Introduction to Cell Phone Repair&quot;.)
 
-[[PHONE SUBSCRIPTION]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[PHONE SUBSCRIPTION]]&lt;/span&gt;
 (A new phone every year.)
 
-[[ONE-PHONE LAW]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[ONE-PHONE LAW]]&lt;/span&gt;
 (Only one cell phone per person.)</tw-passagedata><tw-passagedata pid="9" name="SCHOOL REPAIR CAFÉ" tags="" position="850,675" size="100,100">circle: circle + 1
 config.footer.center: &quot;&quot;
 --
 ...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
-[if happy &lt; 1]
+[if happy ==0]
 [[Continue-&gt;Game over]]
 
-[else]
+[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[[Continue-&gt;NewTech1]]
+
+[if happy &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;2]]
+[continue]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="PHONE SUBSCRIPTION" tags="" position="975,675" size="100,100">happy: happy + 1
 circle: circle - 2
 config.footer.center: &quot;&quot;
 --
 ...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
-[if happy &lt; 1]
+[if happy ==0]
 [[Continue-&gt;Game over]]
 
-[else]
+[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[[Continue-&gt;NewTech1]]
+
+[if happy &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;2]]
+[continue]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="ONE-PHONE LAW" tags="" position="725,675" size="100,100">happy: happy - 2
 circle: circle + 1
 config.footer.center: &quot;&quot;
 --
 ...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
-[if happy &lt; 1]
+[if happy ==0]
 [[Continue-&gt;Game over]]
 
-[else]
+[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[[Continue-&gt;NewTech1]]
+
+[if happy &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;2]]
+[continue]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="2" tags="" position="850,800" size="100,100">config.footer.center: &quot;Round 3/6&quot;
 --
 
 Choose one of the possible new policies by clicking on it.
 
-[[BYOD]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[BYOD]]&lt;/span&gt;
 (Bring Your Own Device. Secure second profile instead of work phone.)
 
-[[YOUTH PROTECTION]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[YOUTH PROTECTION]]&lt;/span&gt;
 (Cell phones only from the age of 18.)
 
-[[SERVICE CONTRACT]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[SERVICE CONTRACT]]&lt;/span&gt;
 (Cell phone repair insurance.)</tw-passagedata><tw-passagedata pid="13" name="BYOD" tags="" position="850,925" size="100,100">circle: circle + 1
 config.footer.center: &quot;&quot;
 --
@@ -455,13 +467,13 @@ config.footer.center: &quot;&quot;
 
 Choose one of the possible new policies by clicking on it.
 
-[[DON&#39;T PHONE AND DRIVE]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[DON&#39;T PHONE AND DRIVE]]&lt;/span&gt;
 (High penalties for using a phone while driving.)
 
-[[SUSTAINABLE DEVICES ACT]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[SUSTAINABLE DEVICES ACT]]&lt;/span&gt;
 (Phones must have easily removable and recyclable components.)
 
-[[RETURN DEPOSIT]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[RETURN DEPOSIT]]&lt;/span&gt;
 (Mandatory deposit when buying a new phone, to ensure recycling.)</tw-passagedata><tw-passagedata pid="17" name="DON&#39;T PHONE AND DRIVE" tags="" position="850,1200" size="100,100">happy: happy - 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
@@ -499,13 +511,13 @@ config.footer.center: &quot;&quot;
 
 Choose one of the possible new policies by clicking on it.
 
-[[NO EXPLOITATIVE FEATURES]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[NO EXPLOITATIVE FEATURES]]&lt;/span&gt;
 (Limit game design elements that manipulate players into addictive behavior.)
 
-[[CONSUMPTION LIMIT]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[CONSUMPTION LIMIT]]&lt;/span&gt;
 (Users can only buy a new phone every three years.)
 
-[[BIO PHONE]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[BIO PHONE]]&lt;/span&gt;
 (Tax advantages for building phones with biodegradable components.)</tw-passagedata><tw-passagedata pid="21" name="NO EXPLOITATIVE FEATURES" tags="" position="850,1475" size="100,100">happy: happy + 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
@@ -515,10 +527,12 @@ config.footer.center: &quot;&quot;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[[Continue-&gt;NewTech2]]
+
+[if happy &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;5]]
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="22" name="CONSUMPTION LIMIT" tags="" position="975,1475" size="100,100">happy: happy - 2
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="CONSUMPTION LIMIT" tags="" position="975,1475" size="100,100">happy: happy - 2
 circle: circle + 2
 config.footer.center: &quot;&quot;
 --
@@ -527,7 +541,10 @@ config.footer.center: &quot;&quot;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[[Continue-&gt;NewTech2]]
+
+[if happy &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;5]]
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="23" name="BIO PHONE" tags="" position="725,1475" size="100,100">circle: circle + 1
@@ -538,7 +555,10 @@ config.footer.center: &quot;&quot;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[[Continue-&gt;NewTech2]]
+
+[if happy &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;5]]
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="24" name="5" tags="" position="850,1600" size="100,100">config.footer.center: &quot;Round 6/6&quot;
@@ -546,25 +566,25 @@ config.footer.center: &quot;&quot;
 
 Choose one of the possible new policies by clicking on it. (This will be the last round.)
 
-[[LIMIT ONLINE FOOTPRINT ]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[LIMIT ONLINE FOOTPRINT ]]&lt;/span&gt;
 (Default digital minimalism features (e.g., screen time locks, usage reports).)
 
-[[UNLOCK]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[UNLOCK]]&lt;/span&gt;
 (Requires all phones over 2 years old to be legally unlockable.)
 
-[[CLOSED-LOOP LAW]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[CLOSED-LOOP LAW]]&lt;/span&gt;
 (Manufacturers must use 15% recycled materials from old phones.)</tw-passagedata><tw-passagedata pid="25" name="First round of decisions" tags="" position="850,300" size="100,100">config.footer.center: &quot;Round 1/6&quot;
 --
 
 Choose one of the possible new policies by clicking on it.
 
-[[EXTREME ECO-TAX]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[EXTREME ECO-TAX]]&lt;/span&gt;
 (High fees for environmental impact.)
 
-[[MOBILE DETOX DAY]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[MOBILE DETOX DAY]]&lt;/span&gt;
 (On Saturdays, all phones remain off.)
 
-[[RECYCLE BONUS]]
+&lt;span style=&quot;background-color: cyan;&quot;&gt;[[RECYCLE BONUS]]&lt;/span&gt;
 (Swap old phone for new one.)</tw-passagedata><tw-passagedata pid="26" name="LIMIT ONLINE FOOTPRINT " tags="" position="850,1725" size="100,100">happy: happy - 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
@@ -579,7 +599,10 @@ nextPassage: &quot;Final results&quot;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[[Continue-&gt;NewTech3]]
+
+[if happy &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;Final results]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="UNLOCK" tags="" position="975,1725" size="100,100">happy: happy + 1
 circle: circle + 1
@@ -595,7 +618,10 @@ nextPassage: &quot;Final results&quot;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[[Continue-&gt;NewTech3]]
+
+[if happy &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;Final results]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="CLOSED-LOOP LAW" tags="" position="725,1725" size="100,100">circle: circle + 1
 config.footer.center: &quot;&quot;
@@ -606,9 +632,243 @@ config.footer.center: &quot;&quot;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
+[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[[Continue-&gt;NewTech3]]
+
+[if happy &gt; 0 &amp;&amp; tech == 0]
+[[Continue-&gt;Final results]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Final results" tags="" position="850,1850" size="100,100">
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;b&gt;Your legislative period is over&lt;/b&gt;.&lt;br&gt; 
+Find out about your achievements in office.&lt;br&gt;
+&lt;img src=&quot;images/government.png&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+
+[[Continue-&gt;End]]
+
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="30" name="Game over" tags="" position="1300,1575" size="100,100">config.header.right: &quot; &quot;
+config.footer.center: &quot;[[Restart |Start]]&quot;
+--
+**The People Revolt**
+
+The city no longer trusts your leadership. Angry citizens and political rivals have pushed you out of office.
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/game_over.png&quot; style=&quot;height:50px;&quot;&gt;
+
+**Game Over!**
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="Tech" tags="" position="675,175" size="100,100">tech:0
+--
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/government.png&quot; style=&quot;height:80px; position:relative; top:5px; right:10px;&quot;&gt;Welcome to office!
+&lt;/div&gt;
+
+Would you like to invest in research for &lt;span style=&quot;background-color: yellow;&quot;&gt;new technologies&lt;/span&gt;?
+
+Each new technology you invest in, will decrease the happiness by one point now. However, later on, people might be (even more) happy when new technologies become available.
+
+How many new technolgies would you like to invest in?
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[[0-&gt;First round of decisions]], [[1-&gt;Tech1]]	,      [[2-&gt;Tech2]]   or    [[3-&gt;Tech3]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="32" name="Tech1" tags="" position="350,300" size="100,100">happy: happy - 1
+tech: 1
+--
+
+&lt;img src=&quot;images/tech1.png&quot; style=&quot;height:100px; position:relative; top:5px; right:10px;&quot;&gt;Researchers are working on a &lt;span style=&quot;background-color: yellow;&quot;&gt;new technology&lt;/span&gt; now.&lt;br&gt;It will become available at a later point of your legislative period.
+
+Now you can start the first of six rounds of decisions about which &lt;span style=&quot;background-color: cyan;&quot;&gt;policies&lt;/span&gt; to enact.
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+
+[[Continue-&gt;First round of decisions]]
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="Tech2" tags="" position="475,300" size="100,100">happy: happy - 2
+tech: 2
+--
+
+Researchers are working on two &lt;span style=&quot;background-color: yellow;&quot;&gt;new technologies&lt;/span&gt; now. &lt;img src=&quot;images/tech2.png&quot; style=&quot;height:100px; position:relative; top:5px; left:10px;&quot;&gt;&lt;br&gt;
+They will become available at a later point. This might happen at two different times during your legislative period.
+
+Now you can start the first of six rounds of decisions about which &lt;span style=&quot;background-color: cyan;&quot;&gt;policies&lt;/span&gt; to enact.
+&lt;div style=&quot;text-align:center;&quot;&gt;
+
+[[Continue-&gt;First round of decisions]]
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="34" name="Tech3" tags="" position="600,300" size="100,100">happy: happy - 3
+tech: 3
+--
+
+Researchers are working on three &lt;span style=&quot;background-color: yellow;&quot;&gt;new technologies&lt;/span&gt; now. &lt;img src=&quot;images/tech3.png&quot; style=&quot;height:100px; position:relative; top:5px; left:10px;&quot;&gt;&lt;br&gt;
+They will become available at a later point. This might happen at three different times during your legislative period.
+
+Now you can start the first of six rounds of decisions about which &lt;span style=&quot;background-color: cyan;&quot;&gt;policies&lt;/span&gt; to enact.
+&lt;div style=&quot;text-align:center;&quot;&gt;
+
+[[Continue-&gt;First round of decisions]]
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="NewTech1" tags="" position="550,625" size="100,100">Your research investment pays off now: **A &lt;span style=&quot;background-color: yellow;&quot;&gt;new technology&lt;/span&gt; is ready!**&lt;br&gt;
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/tech3.png&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+
+[[Continue-&gt;NewTech1a]]
+
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="36" name="MAGNETIC BREAK-APART" tags="" position="425,800" size="100,100">happy: happy +1
+circle: circle + 1
+tech: tech -1
+config.footer.center: &quot;&quot;
+--
+...explanation text...
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;2]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="37" name="NEW TRIPLE-DIAMOND GLASS" tags="" position="300,800" size="100,100">happy: happy +2
+circle: circle + 1
+tech: tech -1
+config.footer.center: &quot;&quot;
+--
+...explanation text...
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;2]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="38" name="LOW-ORBIT SIGNAL MESH" tags="" position="550,800" size="100,100">happy: happy +1
+tech: tech -1
+config.footer.center: &quot;&quot;
+--
+...explanation text...
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;2]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="39" name="NewTech2" tags="" position="575,1525" size="100,100">Your research investment pays off again: **A &lt;span style=&quot;background-color: yellow;&quot;&gt;new technology&lt;/span&gt; is ready!**&lt;br&gt;
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/tech2.png&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+
+[[Continue-&gt;NewTech2a]]
+
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="40" name="NewTech1a" tags="" position="375,650" size="100,100">You can choose one of the new technologies by clicking on it.
+
+&lt;span style=&quot;background-color: yellow;&quot;&gt;[[MAGNETIC BREAK-APART]]&lt;/span&gt;
+(Phone safely splits into modular pieces upon impact.)
+
+&lt;span style=&quot;background-color: yellow;&quot;&gt;[[NEW TRIPLE-DIAMOND GLASS]]&lt;/span&gt;
+(Strong protection thanks to Elephant™ diamond glass.)
+
+&lt;span style=&quot;background-color: yellow;&quot;&gt;[[LOW-ORBIT SIGNAL MESH]]&lt;/span&gt;
+(Satellite-powered uninterrupted high-speed phone service worldwide.)</tw-passagedata><tw-passagedata pid="41" name="NewTech2a" tags="" position="425,1525" size="100,100">You can choose one of the new technologies by clicking on it.
+
+&lt;span style=&quot;background-color: yellow;&quot;&gt;[[SMART BINS]]&lt;/span&gt;
+(Trash bins log when a phone is deposited via RFID.)
+
+&lt;span style=&quot;background-color: yellow;&quot;&gt;[[REGENERATIVE PORT MATRIX]]&lt;/span&gt;
+(A port technology where connectors physically regenerate when worn down.)
+
+&lt;span style=&quot;background-color: yellow;&quot;&gt;[[SELF-DESTRUCT ]]&lt;/span&gt;
+(Destruction of sensitive data when theft is detected.)</tw-passagedata><tw-passagedata pid="42" name="SMART BINS" tags="" position="450,1650" size="100,100">circle: circle + 1
+tech: tech -1
+config.footer.center: &quot;&quot;
+--
+...explanation text...
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;5]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="43" name="REGENERATIVE PORT MATRIX" tags="" position="575,1650" size="100,100">happy: happy +1
+circle: circle + 1
+tech: tech -1
+config.footer.center: &quot;&quot;
+--
+...explanation text...
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;5]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="44" name="SELF-DESTRUCT " tags="" position="325,1650" size="100,100">happy: happy +1
+tech: tech -1
+config.footer.center: &quot;&quot;
+--
+...explanation text...
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;5]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="45" name="NewTech3" tags="" position="600,1775" size="100,100">Your research investment pays off again: **A &lt;span style=&quot;background-color: yellow;&quot;&gt;new technology&lt;/span&gt; is ready!**&lt;br&gt;
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/tech1.png&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+
+[[Continue-&gt;NewTech3a]]
+
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="46" name="NewTech3a" tags="" position="450,1775" size="100,100">You can choose one of the new technologies by clicking on it.
+
+&lt;span style=&quot;background-color: yellow;&quot;&gt;[[MODULAR SMARTPHONE]]&lt;/span&gt;
+(Easily replaceable standard components.)
+
+&lt;span style=&quot;background-color: yellow;&quot;&gt;[[NEW SELF-CHARGING BATTERY]]&lt;/span&gt;
+(Battery recharges from ambient energy.)
+
+&lt;span style=&quot;background-color: yellow;&quot;&gt;[[SMART-SHATTERING]]&lt;/span&gt;
+(Polymer casings that decompose when exposed to a specific wavelength.)</tw-passagedata><tw-passagedata pid="47" name="MODULAR SMARTPHONE" tags="" position="450,1900" size="100,100">happy: happy +1
+circle: circle +2
+tech: tech -1
+config.footer.center: &quot;&quot;
+--
+...explanation text...
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
 [else]
 [[Continue-&gt;Final results]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Final results" tags="" position="850,1850" size="100,100">config.header.right: &quot; &quot;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="48" name="NEW SELF-CHARGING BATTERY" tags="" position="575,1900" size="100,100">happy: happy +1
+tech: tech -1
+config.footer.center: &quot;&quot;
+--
+...explanation text...
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;Final results]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="49" name="SMART-SHATTERING" tags="" position="325,1900" size="100,100">circle: circle +1
+tech: tech -1
+config.footer.center: &quot;&quot;
+--
+...explanation text...
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;Final results]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="50" name="End" tags="" position="850,1975" size="100,100">config.header.right: &quot; &quot;
 config.footer.center: &quot;[[Restart |Start]]&quot;
 --
 Your results:
@@ -638,18 +898,4 @@ Your policies managed the dilemma between a circular economy and happy people we
 The values for Happiness and Circularity have a difference greater than 5. This shows how hard it is to manage the dilemma  between a circular economy and happy people.
 
 [if happy &lt; 5 || circle &lt;5]
-Try again to reach your goal of a circular economy and happy people.
-
-
-</tw-passagedata><tw-passagedata pid="30" name="Game over" tags="" position="1300,1575" size="100,100">config.header.right: &quot; &quot;
-config.footer.center: &quot;[[Restart |Start]]&quot;
---
-**The People Revolt**
-
-The city no longer trusts your leadership. Angry citizens and political rivals have pushed you out of office.
-
-&lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/game_over.png&quot; style=&quot;height:50px;&quot;&gt;
-
-**Game Over!**
-&lt;/div&gt;</tw-passagedata></tw-storydata></html>
+Try again to reach your goal of a circular economy and happy people.</tw-passagedata></tw-storydata></html>
