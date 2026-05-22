@@ -1,6 +1,7 @@
 # The Happiness Dilemma
 
 An interactive text-based adventure created with Twine. It explores the dilemma of a circular smartphone economy and the happiness of phone users.
+
 [Play online](https://imaginary.github.io/math4sustainability-R-strategies-dilemmas/)
 
 ## Credits
