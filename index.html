@@ -342,9 +342,9 @@ You are the new mayor of the city!
 config.footer.left: `&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; :   {happy}`
 config.footer.right: `&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :   {circle}`
 --
-You will need to take decisions for your city. Your choice may have an effect on the **happiness of the people** in your town and on the **circularity of the economy**.
+Each of your decisions may have an effect on the **happiness of the people** in your town and on the **circularity of the economy**.
 
-As you see below, the circularity index (&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;) is zero, so your current economy is not circular at all. The people are medium happy (&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; is 5). Make sure it never gets to zero, or you will be thrown out of office!
+As you see below, the circularity index (&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;) is zero, so your current economy is not circular at all. It cannot get worse. The people are medium happy (&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; is 5). Make sure it never gets to zero, or you will be thrown out of office!
 
 Can you increase both?
 
@@ -386,8 +386,8 @@ A mobile detox day might be good for a circular economy because people use their
 
 [else]
 [[Continue-&gt;Next decision round]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="RECYCLE BONUS" tags="" position="725,425" size="100,100">happy: happy + 1
-circle: circle - 1
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="RECYCLE BONUS" tags="" position="725,1200" size="100,100">happy: happy + 1
+circle: Math.max(0, circle - 1)
 config.footer.center: &quot;&quot;
 --
 People might be happy about a recycle bonus because they can save money and feel good about recycling instead of simply throwing phones in the trash. However, it can be bad for a circular economy because it may encourage people to throw away their phones too quickly just to get money or discounts for a new one.
@@ -397,7 +397,7 @@ People might be happy about a recycle bonus because they can save money and feel
 [[Continue-&gt;Game over]]
 
 [else]
-[[Continue-&gt;Next decision round]]
+[[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Next decision round" tags="" position="850,550" size="100,100">config.footer.center: &quot;Round 2/6&quot;
 --
 
@@ -425,7 +425,7 @@ config.footer.center: &quot;&quot;
 [[Continue-&gt;2]]
 [continue]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="PHONE SUBSCRIPTION" tags="" position="975,675" size="100,100">happy: happy + 1
-circle: circle - 2
+circle: Math.max(0, circle - 2)
 config.footer.center: &quot;&quot;
 --
 ...explanation text...
@@ -509,8 +509,8 @@ Choose one of the possible new policies by clicking on it.
 &lt;span class=&quot;policy&quot;&gt;[[SUSTAINABLE DEVICES ACT]]&lt;/span&gt;
 (Phones must have easily removable and recyclable components.)
 
-&lt;span class=&quot;policy&quot;&gt;[[RETURN DEPOSIT]]&lt;/span&gt;
-(Mandatory deposit when buying a new phone, to ensure recycling.)</tw-passagedata><tw-passagedata pid="17" name="DON&#39;T PHONE AND DRIVE" tags="" position="850,1200" size="100,100">happy: happy - 1
+&lt;span class=&quot;policy&quot;&gt;[[RECYCLE BONUS]]&lt;/span&gt;
+(Swap old phone for new one.)</tw-passagedata><tw-passagedata pid="17" name="DON&#39;T PHONE AND DRIVE" tags="" position="850,1200" size="100,100">happy: happy - 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
 --
@@ -531,7 +531,7 @@ config.footer.center: &quot;&quot;
 
 [else]
 [[Continue-&gt;4]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="RETURN DEPOSIT" tags="" position="725,1200" size="100,100">happy: happy - 1
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="RETURN DEPOSIT" tags="" position="725,425" size="100,100">happy: happy - 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
 --
@@ -541,7 +541,7 @@ config.footer.center: &quot;&quot;
 [[Continue-&gt;Game over]]
 
 [else]
-[[Continue-&gt;4]]
+[[Continue-&gt;Next decision round]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="4" tags="" position="850,1350" size="100,100">config.footer.center: &quot;Round 5/6&quot;
 --
 
@@ -620,8 +620,8 @@ Choose one of the possible new policies by clicking on it.
 &lt;span class=&quot;policy&quot;&gt;[[MOBILE DETOX DAY]]&lt;/span&gt;
 (On Saturdays, all phones remain off.)
 
-&lt;span class=&quot;policy&quot;&gt;[[RECYCLE BONUS]]&lt;/span&gt;
-(Swap old phone for new one.)</tw-passagedata><tw-passagedata pid="26" name="LIMIT ONLINE FOOTPRINT " tags="" position="850,1725" size="100,100">happy: happy - 1
+&lt;span class=&quot;policy&quot;&gt;[[RETURN DEPOSIT]]&lt;/span&gt;
+(Mandatory deposit when buying a new phone, to ensure recycling.)</tw-passagedata><tw-passagedata pid="26" name="LIMIT ONLINE FOOTPRINT " tags="" position="850,1725" size="100,100">happy: happy - 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
 [if happy &lt; 1]
@@ -896,37 +896,53 @@ config.footer.center: &quot;&quot;
 
 [else]
 [[Continue-&gt;Final results]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="50" name="End" tags="" position="850,1975" size="100,100">config.header.right: &quot; &quot;
-config.footer.center: &quot;[[Restart |Start]]&quot;
---
-Your results:
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="50" name="End" tags="" position="850,1975" size="100,100">
+[if happy &lt; 4]
+&lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are not too **happy** with your choices.
 
-[if happy &lt; 3]
-People are not too happy with your choices.
+[if happy &gt; 3 &amp;&amp; happy &lt; 7]
+&lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The **happiness** of the people did not change much.
 
-[if happy &gt; 2 &amp;&amp; happy &lt;7]
-The happiness of the people did not change much.
+[if happy &gt;6 &amp;&amp; happy &lt; 9]
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are quite **happy** with your choices.
 
-[if happy &gt;6]
-People are quite happy with your choices.
+[if happy &gt; 8]
+&lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are very **happy** with your choices. **Congratulations!**
 
 [if circle &lt; 3]
-Your choices were not efficient in building a circular economy.
+&lt;img src=&quot;images/very-bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;Your choices did not really improve the **circularity** of the economy.
 
-[if circle &gt;2 &amp;&amp; circle &lt;6]
-You have improved the circularity of the economy a bit.
+[if circle &gt; 2 &amp;&amp; circle &lt; 5]
+&lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;Your choices were not very efficient in building a **circular** economy.
 
-[if circle &gt;5]
-You improved the circularity of the economy. Congratulations!
+[if circle &gt; 4 &amp;&amp; circle &lt;7]
+&lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You have improved the **circularity** of the economy a bit.
 
-[if happy &gt; 5 &amp;&amp; circle &gt;5]
-Your policies managed the dilemma between a circular economy and happy people well. Maybe, it is not such a big dilemma after all.
+[if circle &gt; 6 &amp;&amp; circle &lt; 9]
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You have improved the **circularity** of the economy.
 
-[if Math.abs(happy - circle) &gt; 4]
-The values for Happiness and Circularity have a difference greater than 5. This shows how hard it is to manage the dilemma  between a circular economy and happy people.
+[if circle &gt; 8]
+&lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You improved the **circularity** of the economy significantly. **Congratulations!**
 
-[if happy &lt; 5 || circle &lt;5]
-Try again to reach your goal of a circular economy and happy people.</tw-passagedata><tw-passagedata pid="51" name="Continue" tags="" position="925,50" size="100,100">You can decide about &lt;span class=&quot;policy&quot;&gt;laws and policies&lt;/span&gt;, invest in research for &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; or deal with &lt;span class=&quot;event&quot;&gt;events&lt;/span&gt; *(not yet implemented)*. 
+[if Math.abs(happy - circle) &lt; 2]
+&lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The Happiness and Circularity values are very close. No **dilemma** in sight! **Congratulations!**
+
+[if Math.abs(happy - circle) &gt; 1 &amp;&amp; Math.abs(happy - circle) &lt; 5]
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The Happiness and Circularity values are not too far from each other. You managed the **dilemma** well.
+
+[if Math.abs(happy - circle) &gt; 4 &amp;&amp; Math.abs(happy - circle) &lt; 7]
+&lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The values for Happiness and Circularity are quite different. This shows how hard it is to manage the **dilemma** between a circular economy and happy people.
+
+[if Math.abs(happy - circle) &gt; 6 &amp;&amp; Math.abs(happy - circle) &lt; 9]
+&lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The values for Happiness and Circularity are very different. You could have managed the **dilemma** much better.
+
+[if Math.abs(happy - circle) &gt; 8]
+&lt;img src=&quot;images/very-bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The values for Happiness and Circularity are compltely opposite each other. You reached the highest difference between the two! What a **dilemma**!
+
+[if happy &gt; 0]
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[[Continue-&gt;Very end]]
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="51" name="Continue" tags="" position="925,50" size="100,100">You can decide about &lt;span class=&quot;policy&quot;&gt;laws and policies&lt;/span&gt;, invest in research for &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; or deal with &lt;span class=&quot;event&quot;&gt;events&lt;/span&gt; *(not yet implemented)*. 
 
 Your goal is to create a circular smartphone economy, while at the same time keeping people happy.
 
@@ -954,4 +970,41 @@ How many new technolgies would you like to invest in?
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [[1-&gt;Tech1]]	,      [[2-&gt;Tech2]]   or    [[3-&gt;Tech3]]
-&lt;/div&gt;</tw-passagedata></tw-storydata></html>
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="54" name="Very end" tags="" position="1000,2025" size="100,100">config.header.right: &quot; &quot;
+config.footer.center: &quot;[[Credits]]&quot;
+final: circle + happy - Math.abs(happy - circle)
+--
+&lt;div style=&quot;text-align:center;&quot;&gt;
+[if final &gt; 17]
+&lt;img src=&quot;images/very-good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+You have reached the highest score. **Congratulations!** &lt;br&gt;
+There are actually two possible ways to reach this score. Can you find the other one?
+
+[if final &gt; 11 &amp;&amp; final &lt;18]
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+Your choices managed the dilemma between a circular economy and happy people well. Maybe, it is not such a big dilemma after all.
+
+[if final &gt; 7 &amp;&amp; final &lt;12]
+&lt;img src=&quot;images/neutral.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+You did ok in managing the dilemma between a circular economy and happy people well. Try to do better in your next legislative period.
+
+[if final &gt; 2 &amp;&amp; final &lt;8]
+&lt;img src=&quot;images/bad.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+Try again to reach your goal of a circular economy and happy people.
+
+[if final &lt;3]
+&lt;img src=&quot;images/bad.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+You barely survived this legislative period. Try again to reach your goal of a circular economy and happy people.
+
+[if final &gt; 0]
+[[Restart |Start]]
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="55" name="Credits" tags="" position="1175,2075" size="100,100">config.header.right: &quot; &quot;
+config.footer.center: &quot;[[Restart |Start]]&quot;
+--
+This game was developed by  IMAGINARY gGmbH © 2026.
+
+Gameplay and text: Bianca Violet
+
+Illustrations: Ariel Kahtan
+
+&lt;span style=&quot;font-size:12px;&quot;&gt;This work is part of the Erasmus+ project Math4Sustainability and co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them. Project number 2024-1-DE03-KA220-SCH-000246047.&lt;/span&gt;</tw-passagedata></tw-storydata></html>
