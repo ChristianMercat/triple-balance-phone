@@ -354,7 +354,7 @@ Can you increase both?
 
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="4" name="What makes people happy?" tags="" position="1075,175" size="100,100">&lt;img src=&quot;images/good.png&quot; style=&quot;height:50px; position:relative; top:5px;&quot;&gt; People are happy when everyone who wants to own a phone, actually owns a phone. Phone users are happy when their phones work well, are easy to use, protect their data, and can do the things they need. Phones should not be too expensive or break easily. 
+</tw-passagedata><tw-passagedata pid="4" name="What makes people happy?" tags="" position="1075,175" size="100,100">&lt;img src=&quot;images/good.png&quot; style=&quot;height:50px; position:relative; top:5px;&quot;&gt; People are happy when everyone who wants to own a phone, actually owns a phone, phones work well, are easy to use, and user data is protected. Phones should not be too expensive or break easily. Any government spending, such as funding research, may reduce public happiness in the short term.
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 
@@ -365,30 +365,55 @@ Can you increase both?
 ~~&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px; right:15px&quot;&gt;[[What is a circular economy?]]~~</tw-passagedata><tw-passagedata pid="5" name="EXTREME ECO-TAX" tags="" position="850,425" size="100,100">happy: happy - 2
 circle: circle + 2
 config.footer.center: &quot;&quot;
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) + 1
 --
 An extreme eco tax can be good for a circular economy because it makes new phones much more expensive, so people are encouraged to keep, repair, and reuse their old phones instead of buying new ones all the time. However, people might not be happy about it because phones become more expensive to buy, and some people may feel it is unfair or too costly.
 
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[[Continue-&gt;Event1]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[[Continue-&gt;Event2]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[[Continue-&gt;Event3]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;Next decision round]]
+
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="MOBILE DETOX DAY" tags="" position="975,425" size="100,100">circle: circle + 1
 config.footer.center: &quot;&quot;
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) + 1
 --
 A mobile detox day might be good for a circular economy because people use their phones less, which can make phones last longer and reduce the need to buy new ones so often.
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[[Continue-&gt;Event1]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[[Continue-&gt;Event2]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[[Continue-&gt;Event3]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;Next decision round]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="RECYCLE BONUS" tags="" position="725,1200" size="100,100">happy: happy + 1
+
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="7" name="RECYCLE BONUS" tags="" position="725,1200" size="100,100">happy: happy + 1
 circle: Math.max(0, circle - 1)
 config.footer.center: &quot;&quot;
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
 --
 People might be happy about a recycle bonus because they can save money and feel good about recycling instead of simply throwing phones in the trash. However, it can be bad for a circular economy because it may encourage people to throw away their phones too quickly just to get money or discounts for a new one.
 
@@ -396,7 +421,16 @@ People might be happy about a recycle bonus because they can save money and feel
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[[Continue-&gt;Event1B]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[[Continue-&gt;Event2B]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[[Continue-&gt;Event3B]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Next decision round" tags="" position="850,550" size="100,100">config.footer.center: &quot;Round 2/6&quot;
 --
@@ -468,35 +502,65 @@ Choose one of the possible new policies by clicking on it.
 &lt;span class=&quot;policy&quot;&gt;[[SERVICE CONTRACT]]&lt;/span&gt;
 (Cell phone repair insurance.)</tw-passagedata><tw-passagedata pid="13" name="BYOD" tags="" position="850,925" size="100,100">circle: circle + 1
 config.footer.center: &quot;&quot;
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) +1
 --
 ...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[[Continue-&gt;Event1A]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[[Continue-&gt;Event2A]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[[Continue-&gt;Event3A]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="YOUTH PROTECTION" tags="" position="975,925" size="100,100">happy: happy - 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
 --
 ...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[[Continue-&gt;Event1A]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[[Continue-&gt;Event2A]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[[Continue-&gt;Event3A]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="SERVICE CONTRACT" tags="" position="725,925" size="100,100">happy: happy + 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) +1
 --
 ...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[[Continue-&gt;Event1A]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[[Continue-&gt;Event2A]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[[Continue-&gt;Event3A]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="3" tags="" position="850,1075" size="100,100">config.footer.center: &quot;Round 4/6&quot;
 --
@@ -513,35 +577,68 @@ Choose one of the possible new policies by clicking on it.
 (Swap old phone for new one.)</tw-passagedata><tw-passagedata pid="17" name="DON&#39;T PHONE AND DRIVE" tags="" position="850,1200" size="100,100">happy: happy - 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
 --
 ...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[[Continue-&gt;Event1B]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[[Continue-&gt;Event2B]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[[Continue-&gt;Event3B]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="SUSTAINABLE DEVICES ACT" tags="" position="975,1200" size="100,100">circle: circle + 1
 config.footer.center: &quot;&quot;
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
 --
 ...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[[Continue-&gt;Event1B]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[[Continue-&gt;Event2B]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[[Continue-&gt;Event3B]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="RETURN DEPOSIT" tags="" position="725,425" size="100,100">happy: happy - 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) +1
 --
 ...explanation text...
+
 &lt;div style=&quot;text-align:center;&quot;&gt;
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[[Continue-&gt;Event1]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[[Continue-&gt;Event2]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[[Continue-&gt;Event3]]
+
+[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;Next decision round]]
+
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="4" tags="" position="850,1350" size="100,100">config.footer.center: &quot;Round 5/6&quot;
 --
 
@@ -706,7 +803,7 @@ Would you like to invest in research for &lt;span class=&quot;tech&quot;&gt;new 
 tech: 1
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech1.png&quot; style=&quot;height:200px; position:relative; top:5px; right:10px;&quot;&gt;
+&lt;img src=&quot;images/tech1.jpg&quot; style=&quot;height:150px; position:relative; top:5px; right:10px;&quot;&gt;
 
 Researchers are working on a &lt;span class=&quot;tech&quot;&gt;new technology&lt;/span&gt; now.&lt;br&gt;It will become available at a later point of your legislative period.
 
@@ -716,7 +813,7 @@ Researchers are working on a &lt;span class=&quot;tech&quot;&gt;new technology&l
 tech: 2
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech2.png&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/tech2.jpg&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 Researchers are working on two &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; now. &lt;br&gt;
 
@@ -728,7 +825,7 @@ They will become available at a later point of your legislative period.
 tech: 3
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech3.png&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/tech3.jpg&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 Researchers are working on three &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; now. &lt;br&gt;
 
@@ -739,7 +836,7 @@ They will become available at a later point of your legislative period.
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="NewTech1" tags="" position="525,625" size="100,100">Your research investment pays off now: **A &lt;span class=&quot;tech&quot;&gt;new technology&lt;/span&gt; is ready!**&lt;br&gt;
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech3.png&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/tech3.jpg&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 [[Continue-&gt;NewTech1a]]
 
@@ -784,7 +881,7 @@ config.footer.center: &quot;&quot;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="39" name="NewTech2" tags="" position="575,1525" size="100,100">Your research investment pays off again: **A &lt;span class=&quot;tech&quot;&gt;new technology&lt;/span&gt; is ready!**&lt;br&gt;
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech2.png&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/tech2.jpg&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 [[Continue-&gt;NewTech2a]]
 
@@ -846,7 +943,7 @@ config.footer.center: &quot;&quot;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="45" name="NewTech3" tags="" position="600,1775" size="100,100">Your research investment pays off again: **A &lt;span class=&quot;tech&quot;&gt;new technology&lt;/span&gt; is ready!**&lt;br&gt;
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech1.png&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/tech1.jpg&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 [[Continue-&gt;NewTech3a]]
 
@@ -898,7 +995,7 @@ config.footer.center: &quot;&quot;
 [[Continue-&gt;Final results]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="50" name="End" tags="" position="850,1975" size="100,100">
 [if happy &lt; 4]
-&lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are not too **happy** with your choices.
+&lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are not very **happy** with your choices.
 
 [if happy &gt; 3 &amp;&amp; happy &lt; 7]
 &lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The **happiness** of the people did not change much.
@@ -919,10 +1016,10 @@ config.footer.center: &quot;&quot;
 &lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You have improved the **circularity** of the economy a bit.
 
 [if circle &gt; 6 &amp;&amp; circle &lt; 9]
-&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You have improved the **circularity** of the economy.
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You have improved the **circularity** of the economy significantly.
 
 [if circle &gt; 8]
-&lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You improved the **circularity** of the economy significantly. **Congratulations!**
+&lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You improved the **circularity** of the economy tremendously. **Congratulations!**
 
 [if Math.abs(happy - circle) &lt; 2]
 &lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The Happiness and Circularity values are very close. No **dilemma** in sight! **Congratulations!**
@@ -942,7 +1039,7 @@ config.footer.center: &quot;&quot;
 [if happy &gt; 0]
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [[Continue-&gt;Very end]]
-&lt;/span&gt;</tw-passagedata><tw-passagedata pid="51" name="Continue" tags="" position="925,50" size="100,100">You can decide about &lt;span class=&quot;policy&quot;&gt;laws and policies&lt;/span&gt;, invest in research for &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; or deal with &lt;span class=&quot;event&quot;&gt;events&lt;/span&gt; *(not yet implemented)*. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="51" name="Continue" tags="" position="925,50" size="100,100">You can decide about &lt;span class=&quot;policy&quot;&gt;laws and policies&lt;/span&gt;, invest in research for &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; or deal with &lt;span class=&quot;event&quot;&gt;events&lt;/span&gt;. 
 
 Your goal is to create a circular smartphone economy, while at the same time keeping people happy.
 
@@ -966,7 +1063,7 @@ You can now start the first round.
 
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="53" name="Techa" tags="" position="500,150" size="100,100">Each new technology you invest in, will decrease the happiness by one point now. However, later on, people might be (even more) happy when new technologies become available.
 
-How many new technolgies would you like to invest in?
+How many new technologies would you like to invest in?
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [[1-&gt;Tech1]]	,      [[2-&gt;Tech2]]   or    [[3-&gt;Tech3]]
@@ -978,7 +1075,6 @@ final: circle + happy - Math.abs(happy - circle)
 [if final &gt; 17]
 &lt;img src=&quot;images/very-good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
 You have reached the highest score. **Congratulations!** &lt;br&gt;
-There are actually two possible ways to reach this score. Can you find the other one?
 
 [if final &gt; 11 &amp;&amp; final &lt;18]
 &lt;img src=&quot;images/good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
@@ -1007,4 +1103,326 @@ Gameplay and text: Bianca Violet
 
 Illustrations: Ariel Kahtan
 
-&lt;span style=&quot;font-size:12px;&quot;&gt;This work is part of the Erasmus+ project Math4Sustainability and co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them. Project number 2024-1-DE03-KA220-SCH-000246047.&lt;/span&gt;</tw-passagedata></tw-storydata></html>
+&lt;span style=&quot;font-size:12px;&quot;&gt;This work is part of the Erasmus+ project Math4Sustainability and co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them. Project number 2024-1-DE03-KA220-SCH-000246047.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="56" name="Event1" tags="" position="1175,425" size="100,100">
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+An &lt;span class=&quot;event&quot;&gt;EVENT&lt;/span&gt; happens:&lt;br&gt;
+&lt;b&gt;FIRE AT E-WASTE SORTING PLANT&lt;/b&gt;
+
+One of the largest recycling plants is about to burn down.
+
+Your Choice: 
+
+&lt;span class=&quot;event&quot;&gt;[[Pay One Happiness to put out the fire.-&gt;OutFire]]&lt;/span&gt;
+
+&lt;span class=&quot;event&quot;&gt;[[Do nothing.-&gt;Fire]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="57" name="Event2" tags="" position="1500,425" size="100,100">
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+An &lt;span class=&quot;event&quot;&gt;EVENT&lt;/span&gt; happens:&lt;br&gt;
+&lt;b&gt;GLOBAL REPAIR PARTS MARKET COLLAPSE&lt;/b&gt;
+
+A major supplier of generic spare parts is about to go bankrupt.
+
+Your Choice: 
+
+&lt;span class=&quot;event&quot;&gt;[[Do nothing.-&gt;bankrupt]]&lt;/span&gt;
+
+&lt;span class=&quot;event&quot;&gt;[[Pay one Happiness to provide financial support.-&gt;save]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="58" name="OutFire" tags="" position="1175,550" size="100,100">happy: happy - 1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+The firefighters were successful, and the fire was stopped before it could cause more damage to the recycling plant. 
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;Next decision round]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="59" name="Fire" tags="" position="1300,550" size="100,100">circle: circle - 1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+The recycling plant burns down, reducing the city&#39;s ability to recycle old smartphones and materials.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;Next decision round]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="60" name="save" tags="" position="1500,550" size="100,100">happy: happy - 1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+Your financial aid kept the supplier operating, ensuring that affordable spare parts remain available for repairs.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;Next decision round]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="61" name="bankrupt" tags="" position="1625,550" size="100,100">circle: circle - 1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+The supplier goes bankrupt, making spare parts harder to find and repairs more expensive.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;Next decision round]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="62" name="Event1A" tags="" position="1250,925" size="100,100">
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+An &lt;span class=&quot;event&quot;&gt;EVENT&lt;/span&gt; happens:&lt;br&gt;
+&lt;b&gt;NEW PINEAPPLE PHONE&lt;/b&gt;
+
+New cell phone model with popular features is about to be launched.
+
+Your Choice: 
+
+&lt;span class=&quot;event&quot;&gt;[[Support the launch.-&gt;Support]]&lt;/span&gt;
+
+&lt;span class=&quot;event&quot;&gt;[[Promote longer phone use.-&gt;Reduce]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="63" name="Event2A" tags="" position="1525,925" size="100,100">&lt;div style=&quot;text-align:center;&quot;&gt;
+An &lt;span class=&quot;event&quot;&gt;EVENT&lt;/span&gt; happens:&lt;br&gt;
+&lt;b&gt;PRICE DROP&lt;/b&gt;
+
+A technological breakthrough makes new phones extremely cheap.
+
+Your Choice: 
+
+&lt;span class=&quot;event&quot;&gt;[[Do nothing.-&gt;cheap]]&lt;/span&gt;
+
+&lt;span class=&quot;event&quot;&gt;[[Protect repair and reuse.-&gt;protect]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="64" name="Support" tags="" position="1250,1050" size="100,100">happy: happy + 1
+circle: circle -1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+People are excited about the latest technology, but more old phones may be replaced sooner.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;3]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="65" name="Reduce" tags="" position="1400,1050" size="100,100">happy: happy - 1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+Fewer phones are replaced, but some citizens are disappointed they cannot easily get the newest features.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;3]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="66" name="cheap" tags="" position="1525,1050" size="100,100">happy: happy + 1
+circle: circle -1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+Now, more people can afford a phone, but older devices are replaced more quickly.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;3]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="67" name="protect" tags="" position="1650,1050" size="100,100">happy: happy - 1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+You added tax to the cheap phones to encourage citizens to keep using their current phones. Phone lifetimes stay longer, but people are not happy about the new tax.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;3]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="68" name="Event1B" tags="" position="1250,1200" size="100,100">
+&lt;div style=&quot;text-align:center;&quot;&gt;
+An &lt;span class=&quot;event&quot;&gt;EVENT&lt;/span&gt; happens:&lt;br&gt;
+&lt;b&gt;TOXIC WASTE&lt;/b&gt;
+
+New materials cause toxic waste during recycling.
+
+Your Choice: 
+
+&lt;span class=&quot;event&quot;&gt;[[Continue recycling as usual.-&gt;toxic]]&lt;/span&gt;
+
+&lt;span class=&quot;event&quot;&gt;[[Introduce stricter regulations.-&gt;regulate]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="69" name="Event2B" tags="" position="1525,1200" size="100,100">
+&lt;div style=&quot;text-align:center;&quot;&gt;
+An &lt;span class=&quot;event&quot;&gt;EVENT&lt;/span&gt; happens:&lt;br&gt;
+&lt;b&gt;FEAR OF DATA THEFT&lt;/b&gt;
+
+A viral news story makes people afraid to give away or recycle old devices.
+
+Your Choice: 
+
+&lt;span class=&quot;event&quot;&gt;[[Do nothing.-&gt;nothing]]&lt;/span&gt;
+
+&lt;span class=&quot;event&quot;&gt;[[Launch a public information campaign.-&gt;info]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="70" name="toxic" tags="" position="1250,1325" size="100,100">happy: happy - 2
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+Recycling operations keep running despite the risks. Materials are still recovered, but toxic waste may harm the environment and public health.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;4]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="71" name="regulate" tags="" position="1375,1325" size="100,100">circle: circle - 1
+happy: happy -1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+Safer recycling methods and waste treatment are now required. Recycling becomes cleaner and safer, but costs increase (making people unhappy) and fewer materials may be processed in the short term.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;4]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="72" name="nothing" tags="" position="1550,1325" size="100,100">circle: circle - 1
+happy: happy - 1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+Fear continues to spread, and fewer phones are reused, repaired, or recycled.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;4]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="73" name="info" tags="" position="1675,1325" size="100,100">circle: circle + 1
+happy: happy + 1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+People feel more secure about their personal information, and more citizens are willing to donate, reuse, and recycle their old phones instead of keeping them unused at home.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;4]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="74" name="Event3" tags="" position="1775,425" size="100,100">
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+An &lt;span class=&quot;event&quot;&gt;EVENT&lt;/span&gt; happens:&lt;br&gt;
+&lt;b&gt;MINIMALIST TECH MOVEMENT&lt;/b&gt;
+
+A global minimalism trend encourages people to own fewer devices.
+
+Your Choice: 
+
+&lt;span class=&quot;event&quot;&gt;[[Encourage consumer spending.-&gt;spending]]&lt;/span&gt;
+
+&lt;span class=&quot;event&quot;&gt;[[Promote the minimalism trend.-&gt;minimalism]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="75" name="spending" tags="" position="1775,550" size="100,100">
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+You promote the benefits of new technology and device upgrades. Your actions result in no changes for the happiness or circularity.
+
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;Next decision round]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="76" name="minimalism" tags="" position="1900,550" size="100,100">circle: circle + 1
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+People are encouraged to buy fewer devices and use them longer. Circularity increases because fewer new phones are needed.
+
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;Next decision round]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="77" name="Event3A" tags="" position="1825,925" size="100,100">
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+An &lt;span class=&quot;event&quot;&gt;EVENT&lt;/span&gt; happens:&lt;br&gt;
+&lt;b&gt;GLOBAL CHIP CRISIS&lt;/b&gt;
+
+Cell phone production decreases. New cell phones will get much more expensive.
+
+Your Choice: 
+
+&lt;span class=&quot;event&quot;&gt;[[Support repair and reuse.-&gt;RR]]&lt;/span&gt;
+
+&lt;span class=&quot;event&quot;&gt;[[Subsidize new phone purchases.-&gt;subsidize]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="78" name="RR" tags="" position="1825,1050" size="100,100">happy: happy - 1
+circle: circle + 2
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+You encourage citizens to repair, reuse, and buy refurbished phones. Circularity increases significantly, but some people are frustrated by the lack of new devices.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;3]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="79" name="subsidize" tags="" position="1950,1050" size="100,100">
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+You helped to reduce the cost of new phones for consumers. People remain as happy as before the chip crisis. Circularity does not change. 
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;3]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="80" name="Event3B" tags="" position="1825,1200" size="100,100">
+&lt;div style=&quot;text-align:center;&quot;&gt;
+An &lt;span class=&quot;event&quot;&gt;EVENT&lt;/span&gt; happens:&lt;br&gt;
+&lt;b&gt;GLOBAL RECESSION&lt;/b&gt;
+
+People have less disposable income.
+
+Your Choice: 
+
+&lt;span class=&quot;event&quot;&gt;[[Support circular solutions.-&gt;circular]]&lt;/span&gt;
+
+&lt;span class=&quot;event&quot;&gt;[[Offer consumer purchase support.-&gt;purchase]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="81" name="circular" tags="" position="1825,1325" size="100,100">circle: circle + 2
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+You provide incentives for repairing, reusing, and buying refurbished phones.
+People remain as happy, because they can access affordable devices despite the recession, while circularity increases because phones and components stay in use longer.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;4]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="82" name="purchase" tags="" position="1950,1325" size="100,100">
+--
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+You help citizens buy new phones through vouchers or tax reductions.
+People remain as happy, because they still have access to new devices despite the recession. Circularity does not change as replacement rates stay the same.
+
+[if happy &lt; 1]
+[[Continue-&gt;Game over]]
+
+[else]
+[[Continue-&gt;4]]
+&lt;/div&gt;</tw-passagedata></tw-storydata></html>
