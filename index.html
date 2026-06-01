@@ -316,7 +316,7 @@ config.footer.right: &quot; &quot;
 config.footer.center: &quot; &quot;
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/government.png&quot; style=&quot;height:200px; position:relative; top:5px; right:1px;&quot;&gt;
+&lt;img src=&quot;images/government.webp&quot; style=&quot;height:200px; position:relative; top:5px; right:1px;&quot;&gt;
 
 Welcome to office!
 
@@ -328,9 +328,8 @@ You are the new mayor of the city!
 &lt;/div&gt;
 
 
-</tw-passagedata><tw-passagedata pid="2" name="What is a circular economy?" tags="" position="1100,50" size="100,100">A circular economy for smartphones means we keep phones useful for as long as possible instead of throwing them away quickly. One strategy is “reduce,” which means buying and using fewer new phones, while others include reusing, repairing, and recycling old phones and their materials. 
-
-&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:50px; position:relative; top:5px;&quot;&gt; This helps save resources, reduce waste, and protect the environment.
+</tw-passagedata><tw-passagedata pid="2" name="What is a circular economy?" tags="" position="1100,50" size="100,100">&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:50px; position:relative; top:5px;&quot;&gt;  
+A circular economy for smartphones means keeping phones useful for as long as possible instead of throwing them away quickly. Key strategies include &lt;b&gt;reduce&lt;/b&gt; (buy and use fewer new phones), &lt;b&gt;reuse&lt;/b&gt;, &lt;b&gt;repair&lt;/b&gt;, and &lt;b&gt;recycle&lt;/b&gt;, which help save resources and reduce waste.
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 
@@ -342,7 +341,7 @@ You are the new mayor of the city!
 config.footer.left: `&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; :   {happy}`
 config.footer.right: `&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :   {circle}`
 --
-Each of your decisions may have an effect on the **happiness of the people** in your town and on the **circularity of the economy**.
+Each of your decisions may have an effect on the **happiness of the people** in your city and on the **circularity of the economy**.
 
 As you see below, the circularity index (&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;) is zero, so your current economy is not circular at all. It cannot get worse. The people are medium happy (&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; is 5). Make sure it never gets to zero, or you will be thrown out of office!
 
@@ -354,7 +353,7 @@ Can you increase both?
 
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="4" name="What makes people happy?" tags="" position="1075,175" size="100,100">&lt;img src=&quot;images/good.png&quot; style=&quot;height:50px; position:relative; top:5px;&quot;&gt; People are happy when everyone who wants to own a phone, actually owns a phone, phones work well, are easy to use, and user data is protected. Phones should not be too expensive or break easily. Any government spending, such as funding research, may reduce public happiness in the short term.
+</tw-passagedata><tw-passagedata pid="4" name="What makes people happy?" tags="" position="1075,175" size="100,100">&lt;img src=&quot;images/good.png&quot; style=&quot;height:50px; position:relative; top:5px;&quot;&gt; People are happy when everyone who wants to own a phone, actually owns a phone, phones work well, are easy to use, and user data is protected. Phones should not be too expensive or break easily.
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 
@@ -364,49 +363,59 @@ Can you increase both?
 
 ~~&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px; right:15px&quot;&gt;[[What is a circular economy?]]~~</tw-passagedata><tw-passagedata pid="5" name="EXTREME ECO-TAX" tags="" position="850,425" size="100,100">happy: happy - 2
 circle: circle + 2
+money: money + 2
 config.footer.center: &quot;&quot;
 randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) + 1
 --
-An extreme eco tax can be good for a circular economy because it makes new phones much more expensive, so people are encouraged to keep, repair, and reuse their old phones instead of buying new ones all the time. However, people might not be happy about it because phones become more expensive to buy, and some people may feel it is unfair or too costly.
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+An extreme eco tax is good for a circular economy because it makes new phones more expensive, encouraging people to keep, repair, and reuse their old phones instead of buying new ones. However, people are less happy because prices increase. The city budget grows thanks to the additional tax revenue.
+
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 1]
 [[Continue-&gt;Event1]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 2]
 [[Continue-&gt;Event2]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 3]
 [[Continue-&gt;Event3]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;Next decision round]]
 
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="MOBILE DETOX DAY" tags="" position="975,425" size="100,100">circle: circle + 1
 config.footer.center: &quot;&quot;
 randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) + 1
 --
-A mobile detox day might be good for a circular economy because people use their phones less, which can make phones last longer and reduce the need to buy new ones so often.
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+A mobile detox day increases circularity because phones are used less and may last longer. Happiness remains unchanged because some people enjoy the phone-free day, while others feel restricted by it. The city budget remains unchanged.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 1]
 [[Continue-&gt;Event1]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 2]
 [[Continue-&gt;Event2]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 3]
 [[Continue-&gt;Event3]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;Next decision round]]
 
 &lt;/div&gt;
@@ -415,22 +424,28 @@ circle: Math.max(0, circle - 1)
 config.footer.center: &quot;&quot;
 randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
 --
-People might be happy about a recycle bonus because they can save money and feel good about recycling instead of simply throwing phones in the trash. However, it can be bad for a circular economy because it may encourage people to throw away their phones too quickly just to get money or discounts for a new one.
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+People might be happy about a recycle bonus because they can save money and feel good about recycling instead of simply throwing phones in the trash. However, it can be bad for a circular economy because it encourages people to throw away their phones too quickly just to get money or discounts for a new one.
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 1]
 [[Continue-&gt;Event1B]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 2]
 [[Continue-&gt;Event2B]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 3]
 [[Continue-&gt;Event3B]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Next decision round" tags="" position="850,550" size="100,100">config.footer.center: &quot;Round 2/6&quot;
 --
@@ -447,45 +462,66 @@ Your chosen policy will stay in effect. You can choose an additional one now.
 (Only one cell phone per person.)</tw-passagedata><tw-passagedata pid="9" name="SCHOOL REPAIR CAFÉ" tags="" position="850,675" size="100,100">circle: circle + 1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The new school subject increases circularity because more people can repair and keep phones longer. Happiness and city budget are not affected.
+
 [if happy ==0]
 [[Continue-&gt;Game over]]
 
-[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if tech &gt; 0 &amp;&amp; happy &gt; 0 &amp;&amp; money &gt;0]
 [[Continue-&gt;NewTech1]]
 
-[if happy &gt; 0 &amp;&amp; tech == 0]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;2]]
 [continue]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="PHONE SUBSCRIPTION" tags="" position="975,675" size="100,100">happy: happy + 1
 circle: Math.max(0, circle - 2)
+money: money +1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+A phone subscription decreases circularity because phones are replaced more often, increasing resource use and waste. Happiness increases because people regularly receive the latest devices. The city budget increases due to higher sales and tax revenue.
+
 [if happy ==0]
 [[Continue-&gt;Game over]]
 
-[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if tech &gt; 0 &amp;&amp; happy &gt; 0 &amp;&amp; money &gt;0]
 [[Continue-&gt;NewTech1]]
 
-[if happy &gt; 0 &amp;&amp; tech == 0]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;2]]
 [continue]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="ONE-PHONE LAW" tags="" position="725,675" size="100,100">happy: happy - 2
 circle: circle + 1
+money: money - 1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The One-Phone-Law increases circularity because fewer phones are purchased and used. Happiness decreases because people have less freedom to own multiple devices. The city budget decreases because fewer phones are sold, resulting in lower tax revenue.
+
 [if happy ==0]
 [[Continue-&gt;Game over]]
 
-[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if tech &gt; 0 &amp;&amp; happy &gt; 0 &amp;&amp; money &gt;0]
 [[Continue-&gt;NewTech1]]
 
-[if happy &gt; 0 &amp;&amp; tech == 0]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;2]]
 [continue]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="2" tags="" position="850,800" size="100,100">config.footer.center: &quot;Round 3/6&quot;
@@ -501,66 +537,86 @@ Choose one of the possible new policies by clicking on it.
 
 &lt;span class=&quot;policy&quot;&gt;[[SERVICE CONTRACT]]&lt;/span&gt;
 (Cell phone repair insurance.)</tw-passagedata><tw-passagedata pid="13" name="BYOD" tags="" position="850,925" size="100,100">circle: circle + 1
+money: money - 1
 config.footer.center: &quot;&quot;
 randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) +1
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Introducing BYOD increases circularity because the number of devices in use is reduced. People are a tiny bit more happy because they only need to carry one phone (the change is too small to be reflected in the index). The city budget decreases due to the cost of implementing the system and because fewer devices are sold, resulting in lower tax revenue.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 1]
 [[Continue-&gt;Event1A]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 2]
 [[Continue-&gt;Event2A]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 3]
 [[Continue-&gt;Event3A]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="YOUTH PROTECTION" tags="" position="975,925" size="100,100">happy: happy - 1
 circle: circle + 1
+money: money - 1
 config.footer.center: &quot;&quot;
 randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Introducing the Youth-Protection-Law increases circularity because fewer phones are purchased and used overall. Happiness decreases because young people lose access to smartphones and parents find communication more difficult. The city budget decreases because fewer phones are sold, resulting in lower tax revenue.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 1]
 [[Continue-&gt;Event1A]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 2]
 [[Continue-&gt;Event2A]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 3]
 [[Continue-&gt;Event3A]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="SERVICE CONTRACT" tags="" position="725,925" size="100,100">happy: happy + 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
 randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) +1
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Introducing cell phone repair insurance increases circularity because damaged phones are more likely to be repaired instead of replaced. Happiness increases because people can get their phones fixed at a lower cost. The city budget increases slightly due to higher repair activity and tax revenue, but by far less than one Megacoin.
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 1]
 [[Continue-&gt;Event1A]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 2]
 [[Continue-&gt;Event2A]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 3]
 [[Continue-&gt;Event3A]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="3" tags="" position="850,1075" size="100,100">config.footer.center: &quot;Round 4/6&quot;
 --
@@ -575,68 +631,80 @@ Choose one of the possible new policies by clicking on it.
 
 &lt;span class=&quot;policy&quot;&gt;[[RECYCLE BONUS]]&lt;/span&gt;
 (Swap old phone for new one.)</tw-passagedata><tw-passagedata pid="17" name="DON&#39;T PHONE AND DRIVE" tags="" position="850,1200" size="100,100">happy: happy - 1
-circle: circle + 1
 config.footer.center: &quot;&quot;
 randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; &lt;br&gt;
+Driving without phones has little direct effect on circularity because it does not significantly change how many phones are bought, repaired, or recycled. Happiness decreases because drivers face stricter rules and higher fines. The city budget remains largely unchanged because enforcement costs offset most of the revenue from penalties.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 1]
 [[Continue-&gt;Event1B]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 2]
 [[Continue-&gt;Event2B]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 3]
 [[Continue-&gt;Event3B]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="SUSTAINABLE DEVICES ACT" tags="" position="975,1200" size="100,100">circle: circle + 1
 config.footer.center: &quot;&quot;
 randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Introducing the Sustainable Device Act increases circularity because phones become easier to repair and recycle. Happiness remains unchanged because the policy has little direct impact on users. The city budget also remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; randomEvent == 1]
 [[Continue-&gt;Event1B]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 2]
 [[Continue-&gt;Event2B]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 3]
 [[Continue-&gt;Event3B]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="RETURN DEPOSIT" tags="" position="725,425" size="100,100">happy: happy - 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
 randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) +1
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+A mandatory deposit on new phones increases circularity because people are more likely to return their old phones for recycling and recover their deposit. However, happiness decreases because buying a new phone becomes more expensive upfront, even if the deposit is refunded later.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 1]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 1]
 [[Continue-&gt;Event1]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 2]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 2]
 [[Continue-&gt;Event2]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent == 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent == 3]
 [[Continue-&gt;Event3]]
 
-[if happy &gt; 0 &amp;&amp; randomEvent &gt; 3]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; randomEvent &gt; 3]
 [[Continue-&gt;Next decision round]]
 
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="4" tags="" position="850,1350" size="100,100">config.footer.center: &quot;Round 5/6&quot;
@@ -655,43 +723,64 @@ Choose one of the possible new policies by clicking on it.
 circle: circle + 1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Reducing addictive behavior increases circularity because people spend less time on their phones and feel less pressure to upgrade to newer devices. Happiness increases because people have more control over their screen time and are less exposed to addictive design practices. The city budget remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if tech &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; happy &gt; 0]
 [[Continue-&gt;NewTech2]]
 
-[if happy &gt; 0 &amp;&amp; tech == 0]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; tech == 0]
 [[Continue-&gt;5]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="CONSUMPTION LIMIT" tags="" position="975,1475" size="100,100">happy: happy - 2
 circle: circle + 2
+money: money - 1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Introducing a consumption limit increases circularity because phones are kept and used for longer. Happiness decreases because people have less freedom to upgrade whenever they want. The city budget decreases because fewer phones are sold, resulting in lower tax revenue.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if tech &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; happy &gt; 0]
 [[Continue-&gt;NewTech2]]
 
-[if happy &gt; 0 &amp;&amp; tech == 0]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; tech == 0]
 [[Continue-&gt;5]]
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="23" name="BIO PHONE" tags="" position="725,1475" size="100,100">circle: circle + 1
+money: money - 1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Introducing the Bio-Phone-Policy increases circularity because more phones are made from materials that have a lower environmental impact at the end of their life. Happiness remains largely unchanged because the policy has little direct effect on consumers. The city budget decreases because tax revenue is reduced.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if tech &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; happy &gt; 0]
 [[Continue-&gt;NewTech2]]
 
-[if happy &gt; 0 &amp;&amp; tech == 0]
+[if happy &gt; 0 &amp;&amp; money &gt;0 &amp;&amp; tech == 0]
 [[Continue-&gt;5]]
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="24" name="5" tags="" position="850,1600" size="100,100">config.footer.center: &quot;Round 6/6&quot;
@@ -700,7 +789,7 @@ config.footer.center: &quot;&quot;
 Choose one of the possible new policies by clicking on it. (This will be the last round.)
 
 &lt;span class=&quot;policy&quot;&gt;[[LIMIT ONLINE FOOTPRINT ]]&lt;/span&gt;
-(Default digital minimalism features (e.g., screen time locks, usage reports).)
+(Default digital minimalism features (e.g., screen time locks, usage reports).
 
 &lt;span class=&quot;policy&quot;&gt;[[UNLOCK]]&lt;/span&gt;
 (Requires all phones over 2 years old to be legally unlockable.)
@@ -721,54 +810,62 @@ Choose one of the possible new policies by clicking on it.
 (Mandatory deposit when buying a new phone, to ensure recycling.)</tw-passagedata><tw-passagedata pid="26" name="LIMIT ONLINE FOOTPRINT " tags="" position="850,1725" size="100,100">happy: happy - 1
 circle: circle + 1
 config.footer.center: &quot;&quot;
-[if happy &lt; 1]
-nextPassage: &quot;Game Over&quot;
-[else]
-nextPassage: &quot;Final results&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Limiting the online footprint increases circularity because people use their phones less and may even upgrade less often. Happiness decreases because users find the restrictions annoying or limiting. The city budget remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if tech &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; happy &gt; 0]
 [[Continue-&gt;NewTech3]]
 
-[if happy &gt; 0 &amp;&amp; tech == 0]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;Final results]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="UNLOCK" tags="" position="975,1725" size="100,100">happy: happy + 1
 circle: circle + 1
+money: money -1
 config.footer.center: &quot;&quot;
-[if happy &lt; 1]
-nextPassage: &quot;Game Over&quot;
-[else]
-nextPassage: &quot;Final results&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Introducing the Unlock-Policy increases circularity because older phones can be reused, resold, and kept in use for longer. Happiness increases because users have more freedom to choose networks and continue using their devices. The city budget decreases due to enforcement costs and lower sales of new phones, resulting in reduced tax revenue.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if tech &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; happy &gt; 0]
 [[Continue-&gt;NewTech3]]
 
-[if happy &gt; 0 &amp;&amp; tech == 0]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;Final results]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="CLOSED-LOOP LAW" tags="" position="725,1725" size="100,100">circle: circle + 1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The Closed-Loop-Law increases circularity because more materials are recovered and reused in new devices. Happiness remains unchanged because the policy has little direct impact on consumers. The city budget remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[if tech &gt; 0 &amp;&amp; happy &gt; 0]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if tech &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; happy &gt; 0]
 [[Continue-&gt;NewTech3]]
 
-[if happy &gt; 0 &amp;&amp; tech == 0]
+[if happy &gt; 0 &amp;&amp; money &gt; 0 &amp;&amp; tech == 0]
 [[Continue-&gt;Final results]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Final results" tags="" position="850,1850" size="100,100">
 --
@@ -776,44 +873,51 @@ config.footer.center: &quot;&quot;
 &lt;div style=&quot;text-align:center;&quot;&gt;
 &lt;b&gt;Your legislative period is over&lt;/b&gt;.&lt;br&gt; 
 Find out about your achievements in office.&lt;br&gt;
-&lt;img src=&quot;images/government.png&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/government.webp&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
 
 [[Continue-&gt;End]]
 
 &lt;/span&gt;</tw-passagedata><tw-passagedata pid="30" name="Game over" tags="" position="1300,1575" size="100,100">config.header.right: &quot; &quot;
-config.footer.center: &quot;[[Restart |Start]]&quot;
+config.footer.center: &quot;[[Restart|Start]]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;  [[Credits]]&quot;
 --
-**The People Revolt**
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/game_over.png&quot; style=&quot;height:50px;position:relative; top:10px;&quot;&gt;
+&lt;b&gt;The People Revolt&lt;/b&gt;
+&lt;img src=&quot;images/game_over.png&quot; style=&quot;height:50px;position:relative; top:10px;&quot;&gt;
 
 The city no longer trusts your leadership. Angry citizens and political rivals have pushed you out of office.
 
-&lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/game_over.png&quot; style=&quot;height:50px;&quot;&gt;
-
-**Game Over!**
+&lt;b&gt;Game &lt;/b&gt;
+&lt;img src=&quot;images/dead.webp&quot; style=&quot;height:50px;position:relative; top:20px;&quot;&gt;
+&lt;b&gt; Over!&lt;/b&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="Tech" tags="" position="675,175" size="100,100">tech:0
+money: 5
+config.footer.left: `&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; :   {happy}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; : {money}` 
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-Would you like to invest in research for &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt;?
-&lt;br&gt;
-&lt;img src=&quot;images/tech.webp&quot; style=&quot;height:117px; position:relative; top:5px; left:10px;&quot;&gt;
+The current &lt;b&gt;city budget&lt;/b&gt; is 5 Megacoins  (&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;). If it reaches zero, you will be removed from office!
 
-[[Yes-&gt;Techa]] or [[No-&gt;First]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="32" name="Tech1" tags="" position="350,300" size="100,100">happy: happy - 1
+Would you like to invest some of your budget in research for &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt;?
+&lt;br&gt;
+[[Yes-&gt;Techa]] &amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/tech.webp&quot; style=&quot;height:117px; position:relative; top:5px; left:0px;&quot;&gt;
+ [[No-&gt;First]]
+ 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="32" name="Tech1" tags="" position="350,300" size="100,100">money: money - 1
 tech: 1
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech1.jpg&quot; style=&quot;height:150px; position:relative; top:5px; right:10px;&quot;&gt;
+&lt;img src=&quot;images/tech1.webp&quot; style=&quot;height:150px; position:relative; top:5px; right:10px;&quot;&gt;
 
 Researchers are working on a &lt;span class=&quot;tech&quot;&gt;new technology&lt;/span&gt; now.&lt;br&gt;It will become available at a later point of your legislative period.
 
 [[Continue-&gt;First]]
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="Tech2" tags="" position="475,300" size="100,100">happy: happy - 2
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="Tech2" tags="" position="475,300" size="100,100">money: money - 2
 tech: 2
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech2.jpg&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/tech2.webp&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 Researchers are working on two &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; now. &lt;br&gt;
 
@@ -821,11 +925,11 @@ They will become available at a later point of your legislative period.
 
 [[Continue-&gt;First]]
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="34" name="Tech3" tags="" position="600,300" size="100,100">happy: happy - 3
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="34" name="Tech3" tags="" position="600,300" size="100,100">money: money - 3
 tech: 3
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech3.jpg&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/tech3.webp&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 Researchers are working on three &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; now. &lt;br&gt;
 
@@ -836,7 +940,7 @@ They will become available at a later point of your legislative period.
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="NewTech1" tags="" position="525,625" size="100,100">Your research investment pays off now: **A &lt;span class=&quot;tech&quot;&gt;new technology&lt;/span&gt; is ready!**&lt;br&gt;
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech3.jpg&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/tech3.webp&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 [[Continue-&gt;NewTech1a]]
 
@@ -845,9 +949,11 @@ circle: circle + 1
 tech: tech -1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The new Magnetic Break-Apart technology increases circularity because damaged parts can be replaced individually instead of replacing the entire phone. Happiness increases because phones become easier and cheaper to repair after accidents. The city budget remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
@@ -858,9 +964,11 @@ circle: circle + 1
 tech: tech -1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The new Elephant™ diamond glass technology increases circularity because phones are less likely to break and can stay in use for longer. People&#39;s happiness increases a lot because their precious phones can be more durable and face fewer repairs. The city budget remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
@@ -870,9 +978,10 @@ config.footer.center: &quot;&quot;
 tech: tech -1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&lt;br&gt;
+The new technology increases happiness because users can now stay connected anywhere in the world. Circularity remains unchanged because the technology does not directly affect how phones are produced, used, repaired, or recycled. The city budget remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
@@ -881,7 +990,7 @@ config.footer.center: &quot;&quot;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="39" name="NewTech2" tags="" position="575,1525" size="100,100">Your research investment pays off again: **A &lt;span class=&quot;tech&quot;&gt;new technology&lt;/span&gt; is ready!**&lt;br&gt;
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech2.jpg&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/tech2.webp&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 [[Continue-&gt;NewTech2a]]
 
@@ -907,9 +1016,10 @@ config.footer.center: &quot;&quot;
 tech: tech -1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The new Smart-Bin technology increases circularity because more phones can be identified and directed to proper recycling. Happiness remains unchanged because the technology has little direct impact on everyday phone use. The city budget also remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
@@ -920,9 +1030,11 @@ circle: circle + 1
 tech: tech -1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The new Regenerative-Port-Matrix technology increases circularity because charging ports last longer and phones need fewer repairs or replacements. Happiness increases because users experience fewer charging problems. The city budget remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
@@ -932,9 +1044,10 @@ config.footer.center: &quot;&quot;
 tech: tech -1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; &lt;br&gt;
+The Self-Destruct technology increases happiness because users feel their personal information is better protected. Circularity remains unchanged because the technology does not affect how phones are produced, repaired, or recycled. The city budget remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
@@ -943,7 +1056,7 @@ config.footer.center: &quot;&quot;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="45" name="NewTech3" tags="" position="600,1775" size="100,100">Your research investment pays off again: **A &lt;span class=&quot;tech&quot;&gt;new technology&lt;/span&gt; is ready!**&lt;br&gt;
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/tech1.jpg&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/tech1.webp&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 [[Continue-&gt;NewTech3a]]
 
@@ -961,9 +1074,11 @@ circle: circle +2
 tech: tech -1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The new Modular-Smartphone technology increases circularity significantly because phones become easier to repair, upgrade, and reuse. Happiness increases because repairs are simpler and less expensive. The city budget remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
@@ -971,11 +1086,14 @@ config.footer.center: &quot;&quot;
 [[Continue-&gt;Final results]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="48" name="NEW SELF-CHARGING BATTERY" tags="" position="575,1900" size="100,100">happy: happy +1
 tech: tech -1
+money: money + 1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The new technology of self-charging batteries increases happiness because phones need to be charged less often. Circularity remains unchanged because the technology does not significantly affect how phones are repaired, reused, or recycled. The city budget increases because less money is spent on energy, leaving more funds available for other purposes.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
@@ -985,63 +1103,64 @@ config.footer.center: &quot;&quot;
 tech: tech -1
 config.footer.center: &quot;&quot;
 --
-...explanation text...
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The new Smart-Shatttering technology increases circularity because phone casings can be more easily separated and processed at the end of a phone&#39;s life. Happiness remains unchanged because the technology has little direct effect on users. The city budget remains unchanged.
+
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
 [else]
 [[Continue-&gt;Final results]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="50" name="End" tags="" position="850,1975" size="100,100">
-[if happy &lt; 4]
+[if happy &lt; 3]
 &lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are not very **happy** with your choices.
 
-[if happy &gt; 3 &amp;&amp; happy &lt; 7]
+[if happy &gt; 2 &amp;&amp; happy &lt; 7]
 &lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The **happiness** of the people did not change much.
 
-[if happy &gt;6 &amp;&amp; happy &lt; 9]
+[if happy &gt; 6 &amp;&amp; happy &lt; 10]
 &lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are quite **happy** with your choices.
 
-[if happy &gt; 8]
+[if happy &gt; 9]
 &lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are very **happy** with your choices. **Congratulations!**
 
-[if circle &lt; 3]
+[if circle &lt; 4]
 &lt;img src=&quot;images/very-bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;Your choices did not really improve the **circularity** of the economy.
 
-[if circle &gt; 2 &amp;&amp; circle &lt; 5]
+[if circle &gt; 3 &amp;&amp; circle &lt; 5]
 &lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;Your choices were not very efficient in building a **circular** economy.
 
-[if circle &gt; 4 &amp;&amp; circle &lt;7]
-&lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You have improved the **circularity** of the economy a bit.
+[if circle &gt; 4 &amp;&amp; circle &lt; 8]
+&lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You have improved the **circularity** of the economy.
 
-[if circle &gt; 6 &amp;&amp; circle &lt; 9]
+[if circle &gt; 7 &amp;&amp; circle &lt; 11]
 &lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You have improved the **circularity** of the economy significantly.
 
-[if circle &gt; 8]
+[if circle &gt; 10]
 &lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You improved the **circularity** of the economy tremendously. **Congratulations!**
 
 [if Math.abs(happy - circle) &lt; 2]
 &lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The Happiness and Circularity values are very close. No **dilemma** in sight! **Congratulations!**
 
-[if Math.abs(happy - circle) &gt; 1 &amp;&amp; Math.abs(happy - circle) &lt; 5]
+[if Math.abs(happy - circle) &gt; 1 &amp;&amp; Math.abs(happy - circle) &lt; 4]
 &lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The Happiness and Circularity values are not too far from each other. You managed the **dilemma** well.
 
-[if Math.abs(happy - circle) &gt; 4 &amp;&amp; Math.abs(happy - circle) &lt; 7]
+[if Math.abs(happy - circle) &gt; 3 &amp;&amp; Math.abs(happy - circle) &lt; 7]
 &lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The values for Happiness and Circularity are quite different. This shows how hard it is to manage the **dilemma** between a circular economy and happy people.
 
 [if Math.abs(happy - circle) &gt; 6 &amp;&amp; Math.abs(happy - circle) &lt; 9]
 &lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The values for Happiness and Circularity are very different. You could have managed the **dilemma** much better.
 
 [if Math.abs(happy - circle) &gt; 8]
-&lt;img src=&quot;images/very-bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The values for Happiness and Circularity are compltely opposite each other. You reached the highest difference between the two! What a **dilemma**!
+&lt;img src=&quot;images/very-bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The values for Happiness and Circularity are completely opposite each other. What a **dilemma**!
 
 [if happy &gt; 0]
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [[Continue-&gt;Very end]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="51" name="Continue" tags="" position="925,50" size="100,100">You can decide about &lt;span class=&quot;policy&quot;&gt;laws and policies&lt;/span&gt;, invest in research for &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; or deal with &lt;span class=&quot;event&quot;&gt;events&lt;/span&gt;. 
 
-Your goal is to create a circular smartphone economy, while at the same time keeping people happy.
+Your goal is to create a circular smartphone economy, while at the same time keeping people happy and not exhausting the city budget.
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 
@@ -1061,34 +1180,34 @@ You can now start the first round.
 
 [[Continue-&gt;First round of decisions]]
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="53" name="Techa" tags="" position="500,150" size="100,100">Each new technology you invest in, will decrease the happiness by one point now. However, later on, people might be (even more) happy when new technologies become available.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="53" name="Techa" tags="" position="500,150" size="100,100">&lt;div style=&quot;text-align:center;&quot;&gt;
+Each &lt;span class=&quot;tech&quot;&gt;new technology&lt;/span&gt; you invest in costs 1 Megacoin. Your investment may improve people&#39;s happiness and the circularity. 
 
 How many new technologies would you like to invest in?
 
-&lt;div style=&quot;text-align:center;&quot;&gt;
 [[1-&gt;Tech1]]	,      [[2-&gt;Tech2]]   or    [[3-&gt;Tech3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="54" name="Very end" tags="" position="1000,2025" size="100,100">config.header.right: &quot; &quot;
 config.footer.center: &quot;[[Credits]]&quot;
-final: circle + happy - Math.abs(happy - circle)
+final: 2*circle + 2*happy - 2*Math.abs(happy - circle) + money
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-[if final &gt; 17]
+[if final &gt; 38]
 &lt;img src=&quot;images/very-good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
-You have reached the highest score. **Congratulations!** &lt;br&gt;
+You have reached one of the highest scores. **Congratulations!** &lt;br&gt;
 
-[if final &gt; 11 &amp;&amp; final &lt;18]
+[if final &gt; 23 &amp;&amp; final &lt;39]
 &lt;img src=&quot;images/good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
 Your choices managed the dilemma between a circular economy and happy people well. Maybe, it is not such a big dilemma after all.
 
-[if final &gt; 7 &amp;&amp; final &lt;12]
+[if final &gt; 14 &amp;&amp; final &lt;24]
 &lt;img src=&quot;images/neutral.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
 You did ok in managing the dilemma between a circular economy and happy people. Try to do better in your next legislative period.
 
-[if final &gt; 2 &amp;&amp; final &lt;8]
+[if final &gt; 9 &amp;&amp; final &lt;15]
 &lt;img src=&quot;images/bad.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
 Try again to reach your goal of a circular economy and happy people.
 
-[if final &lt;3]
+[if final &lt;10]
 &lt;img src=&quot;images/bad.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
 You barely survived this legislative period. Try again to reach your goal of a circular economy and happy people.
 
@@ -1113,7 +1232,7 @@ One of the largest recycling plants is about to burn down.
 
 Your Choice: 
 
-&lt;span class=&quot;event&quot;&gt;[[Pay One Happiness to put out the fire.-&gt;OutFire]]&lt;/span&gt;
+&lt;span class=&quot;event&quot;&gt;[[Put out the fire.-&gt;OutFire]]&lt;/span&gt;
 
 &lt;span class=&quot;event&quot;&gt;[[Do nothing.-&gt;Fire]]&lt;/span&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="57" name="Event2" tags="" position="1500,425" size="100,100">
@@ -1128,51 +1247,65 @@ Your Choice:
 
 &lt;span class=&quot;event&quot;&gt;[[Do nothing.-&gt;bankrupt]]&lt;/span&gt;
 
-&lt;span class=&quot;event&quot;&gt;[[Pay one Happiness to provide financial support.-&gt;save]]&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="58" name="OutFire" tags="" position="1175,550" size="100,100">happy: happy - 1
+&lt;span class=&quot;event&quot;&gt;[[Provide financial support.-&gt;save]]&lt;/span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="58" name="OutFire" tags="" position="1175,550" size="100,100">money: money - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-The firefighters were successful, and the fire was stopped before it could cause more damage to the recycling plant. 
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The firefighters were successful, and the fire was stopped before it could cause more damage to the recycling plant. Happiness and circularity are not affected, though the operation was paid from the city budget.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;Next decision round]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="59" name="Fire" tags="" position="1300,550" size="100,100">circle: circle - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-The recycling plant burns down, reducing the city&#39;s ability to recycle old smartphones and materials.
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The recycling plant burns down, reducing the city&#39;s ability to recycle old smartphones and materials. Therefore circularity decreases. People&#39;s happiness is not affected, neither is the city budget.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;Next decision round]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="60" name="save" tags="" position="1500,550" size="100,100">happy: happy - 1
+</tw-passagedata><tw-passagedata pid="60" name="save" tags="" position="1500,550" size="100,100">money: money - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-Your financial aid kept the supplier operating, ensuring that affordable spare parts remain available for repairs.
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Your financial aid (paid from the city budget) kept the supplier operating, ensuring that affordable spare parts remain available for repairs. People&#39;s happiness and circularity remain unaffected.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;Next decision round]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="61" name="bankrupt" tags="" position="1625,550" size="100,100">circle: circle - 1
+happy: happy - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-The supplier goes bankrupt, making spare parts harder to find and repairs more expensive.
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The supplier goes bankrupt, making spare parts harder to find and repairs more expensive. This results in lower happiness and lower circularity. The city budget is not affected.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;Next decision round]]
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="62" name="Event1A" tags="" position="1250,925" size="100,100">
@@ -1201,49 +1334,69 @@ Your Choice:
 &lt;span class=&quot;event&quot;&gt;[[Protect repair and reuse.-&gt;protect]]&lt;/span&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="64" name="Support" tags="" position="1250,1050" size="100,100">happy: happy + 1
 circle: circle -1
+money: money + 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-People are excited about the latest technology, but more old phones may be replaced sooner.
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+People are happy about the latest technology in the new Pineapple Phone, but more old phones are replaced sooner reducing the circularity. More new phones are sold, which generates additional tax revenue for the city budget.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="65" name="Reduce" tags="" position="1400,1050" size="100,100">happy: happy - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-Fewer phones are replaced, but some citizens are disappointed they cannot easily get the newest features.
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&lt;br&gt;
+Fewer phones are replaced with the new Pineapple Phone, so no negative effect on the circularity, but some citizens are disappointed they cannot easily get the newest features.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="66" name="cheap" tags="" position="1525,1050" size="100,100">happy: happy + 1
 circle: circle -1
+money: money - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-Now, more people can afford a phone, but older devices are replaced more quickly.
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+People are happy about lower prices, but older devices are replaced more quickly, reducing the circularity. Less tax is paid to the city, since products are cheaper, reducing the city budget.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="67" name="protect" tags="" position="1650,1050" size="100,100">happy: happy - 1
+money: money + 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-You added tax to the cheap phones to encourage citizens to keep using their current phones. Phone lifetimes stay longer, but people are not happy about the new tax.
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;br&gt;
+You added tax to the cheap phones to encourage citizens to keep using their current phones (as before, so no change to circularity). People are not happy about the new tax. Nevertheless, the city budget increases thanks to the additional tax revenue.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="68" name="Event1B" tags="" position="1250,1200" size="100,100">
 &lt;div style=&quot;text-align:center;&quot;&gt;
@@ -1269,52 +1422,69 @@ Your Choice:
 &lt;span class=&quot;event&quot;&gt;[[Do nothing.-&gt;nothing]]&lt;/span&gt;
 
 &lt;span class=&quot;event&quot;&gt;[[Launch a public information campaign.-&gt;info]]&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="70" name="toxic" tags="" position="1250,1325" size="100,100">happy: happy - 2
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="70" name="toxic" tags="" position="1250,1325" size="100,100">happy: happy - 1
+money: money - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-Recycling operations keep running despite the risks. Materials are still recovered, but toxic waste may harm the environment and public health.
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Recycling operations keep running despite the risks. Materials are still recovered, so no change in circularity. People are not happy because toxic waste may harm the environment and public health. Increased illness also places a financial burden on the city budget.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="71" name="regulate" tags="" position="1375,1325" size="100,100">circle: circle - 1
-happy: happy -1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-Safer recycling methods and waste treatment are now required. Recycling becomes cleaner and safer, but costs increase (making people unhappy) and fewer materials may be processed in the short term.
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Safer recycling methods and waste treatment are now required, but fewer materials may be processed in the short term resulting in lower circularity. People are as happy as before knowing about the toxic waste risk. It is more expensive for the recycling companies to follow the new regulations, however, the city budget is not affected.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="72" name="nothing" tags="" position="1550,1325" size="100,100">circle: circle - 1
 happy: happy - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-Fear continues to spread, and fewer phones are reused, repaired, or recycled.
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+Fear of data theft continues to spread, making people unhappy. Fewer phones are reused, repaired, or recycled, reducing the circularity.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="73" name="info" tags="" position="1675,1325" size="100,100">circle: circle + 1
 happy: happy + 1
+money: money -1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-People feel more secure about their personal information, and more citizens are willing to donate, reuse, and recycle their old phones instead of keeping them unused at home.
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+People are happy becasue they feel more secure about their personal information (even more than before the viral news story). They are willing to donate, reuse, and recycle their old phones instead of keeping them unused at home, increasing the circularity. The information campaign used money from the city budget.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;4]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="74" name="Event3" tags="" position="1775,425" size="100,100">
 
@@ -1329,29 +1499,37 @@ Your Choice:
 &lt;span class=&quot;event&quot;&gt;[[Encourage consumer spending.-&gt;spending]]&lt;/span&gt;
 
 &lt;span class=&quot;event&quot;&gt;[[Promote the minimalism trend.-&gt;minimalism]]&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="75" name="spending" tags="" position="1775,550" size="100,100">
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="75" name="spending" tags="" position="1775,550" size="100,100">money: money - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-You promote the benefits of new technology and device upgrades. Your actions result in no changes for the happiness or circularity.
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+You promote the benefits of new technology and device upgrades, using money from the city budget. Your actions keep the level of happiness and circularity unaffected.
 
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;Next decision round]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="76" name="minimalism" tags="" position="1900,550" size="100,100">circle: circle + 1
+money: money - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-People are encouraged to buy fewer devices and use them longer. Circularity increases because fewer new phones are needed.
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+The new trend encourages people to buy fewer devices and use them longer. Circularity increases because fewer new phones are needed. The city&#39;s tax income decreases, since less goods are bought.
 
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;Next decision round]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="77" name="Event3A" tags="" position="1825,925" size="100,100">
 
@@ -1368,26 +1546,35 @@ Your Choice:
 &lt;span class=&quot;event&quot;&gt;[[Subsidize new phone purchases.-&gt;subsidize]]&lt;/span&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="78" name="RR" tags="" position="1825,1050" size="100,100">happy: happy - 1
 circle: circle + 2
+money: money -1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-You encourage citizens to repair, reuse, and buy refurbished phones. Circularity increases significantly, but some people are frustrated by the lack of new devices.
+&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+You encourage citizens to repair, reuse, and buy refurbished phones. Circularity increases significantly, but some people are frustrated by the lack of new devices. Your campaign used money from the city budget.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;3]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="79" name="subsidize" tags="" position="1950,1050" size="100,100">
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="79" name="subsidize" tags="" position="1950,1050" size="100,100">money: money - 2
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-You helped to reduce the cost of new phones for consumers. People remain as happy as before the chip crisis. Circularity does not change. 
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+You helped to reduce the cost of new phones for consumers by putting in money from the city budget. People remain as happy as before the chip crisis. Circularity does not change. 
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="80" name="Event3B" tags="" position="1825,1200" size="100,100">
 &lt;div style=&quot;text-align:center;&quot;&gt;
@@ -1402,27 +1589,44 @@ Your Choice:
 
 &lt;span class=&quot;event&quot;&gt;[[Offer consumer purchase support.-&gt;purchase]]&lt;/span&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="81" name="circular" tags="" position="1825,1325" size="100,100">circle: circle + 2
+money: money - 1
 --
-
 &lt;div style=&quot;text-align:center;&quot;&gt;
-You provide incentives for repairing, reusing, and buying refurbished phones.
-People remain as happy, because they can access affordable devices despite the recession, while circularity increases because phones and components stay in use longer.
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/up.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; &lt;br&gt;
+You provide incentives (paid from the city budget) for repairing, reusing, and buying refurbished phones. People remain as happy, because they can access affordable devices despite the recession, while circularity increases because phones and components stay in use longer.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
-[[Continue-&gt;4]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="82" name="purchase" tags="" position="1950,1325" size="100,100">
---
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
 
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
+[[Continue-&gt;4]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="82" name="purchase" tags="" position="1950,1325" size="100,100">money: money - 1
+--
 &lt;div style=&quot;text-align:center;&quot;&gt;
-You help citizens buy new phones through vouchers or tax reductions.
-People remain as happy, because they still have access to new devices despite the recession. Circularity does not change as replacement rates stay the same.
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;br&gt;
+You help citizens buy new phones through vouchers or tax reductions, paid from the city budget. People remain as happy, because they still have access to new devices despite the recession. Circularity does not change as replacement rates stay the same.
 
 [if happy &lt; 1]
 [[Continue-&gt;Game over]]
 
-[else]
+[if happy &gt; 0 &amp;&amp; money == 0]
+[[Continue-&gt;Game over2]]
+
+[if happy &gt; 0 &amp;&amp; money &gt; 0]
 [[Continue-&gt;4]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="83" name="Game over2" tags="" position="1500,1575" size="100,100">config.header.right: &quot; &quot;
+config.footer.center: &quot;[[Restart|Start]]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;  [[Credits]]&quot;
+--
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;img src=&quot;images/no_money.webp&quot; style=&quot;height:70px;position:relative; top:20px;&quot;&gt;
+&lt;b&gt;City Budget Depleted&lt;/b&gt;
+
+Your policies pushed the city budget to zero. The city can no longer function, and you have been removed from office.&lt;br&gt;
+&lt;b&gt;Game &lt;/b&gt;
+&lt;img src=&quot;images/dead.webp&quot; style=&quot;height:50px;position:relative; top:20px;&quot;&gt;
+&lt;b&gt; Over!&lt;/b&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata></html>
