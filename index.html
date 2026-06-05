@@ -228,6 +228,7 @@ ${i}`),b(i)}function $e(n,e=!1){return Qo(Lo(n),An(),Pn(),e)}class Ko extends fe
 
 #page header {
     padding-top: 10px;
+    padding-bottom: 0px !important;
 }
 
 .policy {
@@ -307,14 +308,16 @@ sessionStorage.clear();
 
 </script><tw-passagedata pid="1" name="Start" tags="" position="775,0" size="100,100">circle: 0
 happy: 5
-config.header.center: `&lt;img src=&quot;images/happy_phone.png&quot; style=&quot;height:50px; position:relative; top:20px;&quot;&gt;The Happiness Dilemma`
+money: 5
+tech: 0
+config.header.center: `&lt;img src=&quot;images/happy_phone.png&quot; style=&quot;height:50px;position:relative; top:10px;&quot;&gt;&lt;span style=&quot;display:inline-block; margin-left:10px; line-height:0.9;&quot;&gt;&lt;span style=&quot;font-size:20px; font-weight:bold;&quot;&gt;Triple Balance&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px;&quot;&gt;The Phone Edition&lt;/span&gt;&lt;/span&gt;`
 config.header.right: &quot; &quot;
 config.footer.left: &quot; &quot;
-config.footer.right: &quot; &quot;
+config.footer.right: &quot;[[Skip Explanations-&gt;Tech]]&quot;
 config.footer.center: &quot; &quot;
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;img src=&quot;images/government.webp&quot; style=&quot;height:200px; position:relative; top:5px; right:1px;&quot;&gt;
+&lt;img src=&quot;images/government.webp&quot; style=&quot;height:150px; position:relative; top:5px; right:1px;&quot;&gt;
 
 Welcome to office!
 
@@ -326,6 +329,7 @@ You are the new mayor of the city!
 &lt;/div&gt;
 
 
+
 </tw-passagedata><tw-passagedata pid="2" name="What is a circular economy?" tags="" position="1100,50" size="100,100">&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:50px; position:relative; top:5px;&quot;&gt;  
 A circular economy for smartphones means keeping phones useful for as long as possible instead of throwing them away quickly. Key strategies include &lt;b&gt;reduce&lt;/b&gt; (buy and use fewer new phones), &lt;b&gt;reuse&lt;/b&gt;, &lt;b&gt;repair&lt;/b&gt;, and &lt;b&gt;recycle&lt;/b&gt;, which help save resources and reduce waste.
 
@@ -335,19 +339,18 @@ A circular economy for smartphones means keeping phones useful for as long as po
 
 &lt;/div&gt;
 
-~~&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:5px; right:12px; margin-right: 10px;&quot;&gt;[[What makes people happy?]]~~</tw-passagedata><tw-passagedata pid="3" name="Ok, let&#39;s start!" tags="" position="850,175" size="100,100">config.header.right: &quot;[[Restart |Start]]&quot;
-config.footer.left: `&lt;img src=&quot;images/good.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; :   {happy}`
-config.footer.right: `&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :   {circle}`
---
-Each of your decisions may have an effect on the **happiness of the people** in your city and on the **circularity of the economy**.
+~~&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:5px; right:12px; margin-right: 10px;&quot;&gt;[[What makes people happy?]]~~</tw-passagedata><tw-passagedata pid="3" name="Ok, let&#39;s start!" tags="" position="850,175" size="100,100">&lt;div style=&quot;text-align:center;&quot;&gt;
+As mayor, you must balance citizen &lt;b&gt;happiness&lt;/b&gt;, the city &lt;b&gt;budget&lt;/b&gt;, and the &lt;b&gt;circularity&lt;/b&gt; of the smartphone economy. 
 
-As you see below, the circularity index (&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;) is zero, so your current economy is not circular at all. It cannot get worse. The people are medium happy (&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; is 5). Make sure it never gets to zero, or you will be thrown out of office!
+&lt;img src=&quot;images/good.webp&quot; style=&quot;height:103px; position:relative; top:5px; left:0px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:103px; position:relative; top:5px; left:0px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:103px; position:relative; top:5px; left:0px;&quot;&gt;
 
-Can you increase both?
+Every decision may affect all three!
 
-&lt;div style=&quot;text-align:center;&quot;&gt;
 
-[[Continue-&gt;Tech]]
+
+[[Continue-&gt;Conditions]]
 
 &lt;/div&gt;
 
@@ -1420,7 +1423,7 @@ the policy has little direct impact on consumers&lt;br&gt;
 &lt;div style=&quot;text-align:center;&quot;&gt;
 &lt;b&gt;Your legislative period is over&lt;/b&gt;.&lt;br&gt; 
 Find out about your achievements in office.&lt;br&gt;
-&lt;img src=&quot;images/government.webp&quot; style=&quot;height:200px; position:relative; top:5px; left:10px;&quot;&gt;
+&lt;img src=&quot;images/government.webp&quot; style=&quot;height:150px; position:relative; top:5px; left:10px;&quot;&gt;
 
 [[Continue-&gt;End]]
 
@@ -1437,15 +1440,13 @@ The city no longer trusts your leadership. Angry citizens and political rivals h
 &lt;b&gt;Game &lt;/b&gt;
 &lt;img src=&quot;images/dead.webp&quot; style=&quot;height:50px;position:relative; top:20px;&quot;&gt;
 &lt;b&gt; Over!&lt;/b&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="Tech" tags="" position="675,175" size="100,100">tech:0
-money: 5
-config.footer.left: `&lt;img src=&quot;images/good.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; :   {happy}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; : {money}` 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="Tech" tags="" position="550,150" size="100,100">config.footer.left: `&lt;img src=&quot;images/good.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; :   {happy}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; : {money}` 
+config.header.right: &quot;[[Restart |Start]]&quot;
+config.footer.right: `&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :   {circle}`
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-The current &lt;b&gt;city budget&lt;/b&gt; is 5 Megacoins  (&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;). If it reaches zero, you will be removed from office!
-
 Would you like to invest some of your budget in research for &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt;?
-&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
 [[Yes-&gt;Techa]] &amp;nbsp;&amp;nbsp;
 &lt;img src=&quot;images/tech.webp&quot; style=&quot;height:117px; position:relative; top:5px; left:0px;&quot;&gt;
  [[No-&gt;First]]
@@ -1887,13 +1888,13 @@ phones can be more easily separated for recycling&lt;br&gt;
 [if happy &gt; 0]
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [[Continue-&gt;Very end]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="51" name="Continue" tags="" position="925,50" size="100,100">You can decide about &lt;span class=&quot;policy&quot;&gt;laws and policies&lt;/span&gt;, invest in research for &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; or deal with &lt;span class=&quot;event&quot;&gt;events&lt;/span&gt;. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="51" name="Continue" tags="" position="925,50" size="100,100">Your goal is to create a circular smartphone economy, while at the same time keeping people happy and not exhausting the city budget.
 
-Your goal is to create a circular smartphone economy, while at the same time keeping people happy and not exhausting the city budget.
+You can decide about &lt;span class=&quot;policy&quot;&gt;laws and policies&lt;/span&gt;, invest in research for &lt;span class=&quot;tech&quot;&gt;new technologies&lt;/span&gt; or may have to deal with &lt;span class=&quot;event&quot;&gt;events&lt;/span&gt;. 
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 
-[[Ok, let&#39;s start!]]   
+[[Continue-&gt;Ok, let&#39;s start!]]   
 
 &lt;/div&gt;
 
@@ -1909,7 +1910,7 @@ You can now start the first round.
 
 [[Continue-&gt;First round of decisions]]
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="53" name="Techa" tags="" position="500,150" size="100,100">&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="53" name="Techa" tags="" position="400,150" size="100,100">&lt;div style=&quot;text-align:center;&quot;&gt;
 Each &lt;span class=&quot;tech&quot;&gt;new technology&lt;/span&gt; you invest in costs 1 Megacoin. Your investment may improve people&#39;s happiness and the circularity. 
 
 How many new technologies would you like to invest in?
@@ -2870,4 +2871,48 @@ Your policies pushed the city budget to zero. The city can no longer function, a
 &lt;b&gt;Game &lt;/b&gt;
 &lt;img src=&quot;images/dead.webp&quot; style=&quot;height:50px;position:relative; top:20px;&quot;&gt;
 &lt;b&gt; Over!&lt;/b&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="84" name="Conditions" tags="" position="700,175" size="100,100">config.footer.left: `&lt;img src=&quot;images/good.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; :   {happy}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; : {money}` 
+config.footer.right: `&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :   {circle}`
+--
+Here are your starting conditions
+&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-top:12px; margin-bottom:10px; align-items:start;&quot;&gt;
+
+&lt;div style=&quot;white-space:nowrap;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; = 0
+&lt;/div&gt;
+
+&lt;div style=&quot;width:100%;&quot;&gt;
+The circularity index is zero, so your current economy is not circular at all. It cannot get worse.
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-bottom:10px; align-items:start;&quot;&gt;
+
+&lt;div style=&quot;white-space:nowrap;&quot;&gt;
+&lt;img src=&quot;images/good.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; = 5
+&lt;/div&gt;
+
+&lt;div style=&quot;width:100%;&quot;&gt;
+The people are medium happy, the happiness index is 5. Make sure it never gets to zero, or you will be thrown out of office!
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-bottom:10px; align-items:start;&quot;&gt;
+
+&lt;div style=&quot;white-space:nowrap;&quot;&gt;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; = 5
+&lt;/div&gt;
+
+&lt;div style=&quot;width:100%;&quot;&gt;
+The current city budget is 5 Megacoins. If it reaches zero, you will be removed from office!
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:center;&quot;&gt;
+
+
+[[Continue-&gt;Tech]]
+
 &lt;/div&gt;</tw-passagedata></tw-storydata></html>
