@@ -1842,48 +1842,88 @@ phones can be more easily separated for recycling&lt;br&gt;
 
 [else]
 [[Continue-&gt;Final results]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="50" name="End" tags="" position="850,1975" size="100,100">
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="50" name="End" tags="" position="850,1975" size="100,100">Here is the state of your city after your legislative period:
+&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-top:12px; margin-bottom:0px; align-items:center;&quot;&gt;
+
+&lt;div style=&quot;white-space:nowrap;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; = {circle}
+&lt;/div&gt;
+
+&lt;div style=&quot;width:100%; line-height:1;&quot;&gt;
+[if circle &lt; 4]
+Your choices did not really improve the **circularity** of the economy.
+[continue]
+[if circle &gt; 3 &amp;&amp; circle &lt; 5]
+Your choices were not very efficient in building a **circular** economy.
+[continue]
+[if circle &gt; 4 &amp;&amp; circle &lt; 8]
+You have improved the **circularity** of the economy.
+[continue]
+[if circle &gt; 7 &amp;&amp; circle &lt; 11]
+You have improved the **circularity** of the economy significantly.
+[continue]
+[if circle &gt; 10]
+You improved the **circularity** of the economy tremendously.
+[continue]
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-bottom:0px; align-items:center;&quot;&gt;
+
+&lt;div style=&quot;white-space:nowrap;&quot;&gt;
+&lt;img src=&quot;images/good.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; = {happy}
+&lt;/div&gt;
+
+&lt;div style=&quot;width:100%; line-height:1;&quot;&gt;
 [if happy &lt; 3]
-&lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are not very **happy** with your choices.
+People are not very **happy** with your choices.
+[continue]
 
 [if happy &gt; 2 &amp;&amp; happy &lt; 7]
-&lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The **happiness** of the people did not change much.
+The **happiness** of the people did not change much.
+[continue]
 
 [if happy &gt; 6 &amp;&amp; happy &lt; 10]
-&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are quite **happy** with your choices.
+People are quite **happy** with your choices.
+[continue]
 
 [if happy &gt; 9]
-&lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;People are very **happy** with your choices. **Congratulations!**
+People are very **happy** with your choices.
+[continue]
+&lt;/div&gt;
 
-[if circle &lt; 4]
-&lt;img src=&quot;images/very-bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;Your choices did not really improve the **circularity** of the economy.
+&lt;/div&gt;
 
-[if circle &gt; 3 &amp;&amp; circle &lt; 5]
-&lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;Your choices were not very efficient in building a **circular** economy.
+&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-bottom:0px; align-items:center;&quot;&gt;
 
-[if circle &gt; 4 &amp;&amp; circle &lt; 8]
-&lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You have improved the **circularity** of the economy.
+&lt;div style=&quot;white-space:nowrap;&quot;&gt;
+&lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; = {money}
+&lt;/div&gt;
 
-[if circle &gt; 7 &amp;&amp; circle &lt; 11]
-&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You have improved the **circularity** of the economy significantly.
+&lt;div style=&quot;width:100%; line-height:1;&quot;&gt;
+[if money &lt; 2]
+You barely managed not to go bankrupt.
+[continue]
 
-[if circle &gt; 10]
-&lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;You improved the **circularity** of the economy tremendously. **Congratulations!**
+[if money &gt; 1 &amp;&amp; money &lt; 5]
+You have less **money** left than what you started with.
+[continue]
 
-[if Math.abs(happy - circle) &lt; 2]
-&lt;img src=&quot;images/very-good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The Happiness and Circularity values are very close. No **dilemma** in sight! **Congratulations!**
+[if money &gt; 4 &amp;&amp; money &lt; 6]
+You spent as much **money** as you earned.
+[continue]
 
-[if Math.abs(happy - circle) &gt; 1 &amp;&amp; Math.abs(happy - circle) &lt; 4]
-&lt;img src=&quot;images/good.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The Happiness and Circularity values are not too far from each other. You managed the **dilemma** well.
+[if money &gt; 5]
+You earned more **money** than you spent.
+[continue]
+&lt;/div&gt;
 
-[if Math.abs(happy - circle) &gt; 3 &amp;&amp; Math.abs(happy - circle) &lt; 7]
-&lt;img src=&quot;images/neutral.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The values for Happiness and Circularity are quite different. This shows how hard it is to manage the **dilemma** between a circular economy and happy people.
+&lt;/div&gt;
 
-[if Math.abs(happy - circle) &gt; 6 &amp;&amp; Math.abs(happy - circle) &lt; 9]
-&lt;img src=&quot;images/bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The values for Happiness and Circularity are very different. You could have managed the **dilemma** much better.
 
-[if Math.abs(happy - circle) &gt; 8]
-&lt;img src=&quot;images/very-bad.png&quot; style=&quot;height:25px; position:relative; top:3px; right:5px;&quot;&gt;The values for Happiness and Circularity are completely opposite each other. What a **dilemma**!
+
+
 
 [if happy &gt; 0]
 &lt;div style=&quot;text-align:center;&quot;&gt;
@@ -1923,18 +1963,19 @@ final: 2*circle + happy - 2*Math.abs(happy - circle) + money
 &lt;div style=&quot;text-align:center;&quot;&gt;
 [if final &gt; 25]
 &lt;img src=&quot;images/very-good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
-You have reached one of the highest scores. **Congratulations!** &lt;br&gt;
+You have been an outstanding mayor. **Congratulations!** &lt;br&gt;
 
 [if final &gt; 16 &amp;&amp; final &lt;26]
 &lt;img src=&quot;images/good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
-Your choices managed the dilemma between a circular economy and happy people well. Maybe, it is not such a big dilemma after all.
+You have been a good mayor. 
 
 [if final &gt; 9 &amp;&amp; final &lt;17]
 &lt;img src=&quot;images/neutral.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
-You did ok in managing the dilemma between a circular economy and happy people. Try to do better in your next legislative period.
+You have been an avarage mayor. 
 
 [if final &gt; 5 &amp;&amp; final &lt;10]
 &lt;img src=&quot;images/bad.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+Youhave been a poor mayor. 
 Try again to reach your goal of a circular economy and happy people.
 
 [if final &lt;6]
@@ -1942,17 +1983,20 @@ Try again to reach your goal of a circular economy and happy people.
 You barely survived this legislative period. Try again to reach your goal of a circular economy and happy people.
 
 [if final &gt; -5]
-[[Restart |Start]]
+[[Run for mayor again|Start]]
 &lt;/span&gt;</tw-passagedata><tw-passagedata pid="55" name="Credits" tags="" position="1175,2075" size="100,100">config.header.right: &quot; &quot;
 config.footer.center: &quot;[[Restart |Start]]&quot;
 --
 This game was developed by  IMAGINARY gGmbH © 2026.
 
-Gameplay and text: Bianca Violet
+Gameplay and implementation: Bianca Violet
 
 Illustrations: Ariel Kahtan
+&lt;br&gt;
 
-&lt;span style=&quot;font-size:12px;&quot;&gt;This work is part of the Erasmus+ project Math4Sustainability and co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them. Project number 2024-1-DE03-KA220-SCH-000246047.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="56" name="Event1" tags="" position="1175,425" size="100,100">
+&lt;div style=&quot;font-size:12px; line-height:1.5; margin:0; padding:0.1;position:relative; top:50px;&quot;&gt;
+This work is part of the Erasmus+ project Math4Sustainability and co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them. Project number 2024-1-DE03-KA220-SCH-000246047.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="56" name="Event1" tags="" position="1175,425" size="100,100">
 
 &lt;div style=&quot;text-align:center;&quot;&gt;
 An &lt;span class=&quot;event&quot;&gt;EVENT&lt;/span&gt; happens:&lt;br&gt;
@@ -1981,10 +2025,22 @@ Your Choice:
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="58" name="OutFire" tags="" position="1175,550" size="100,100">money: money - 1
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;b&gt;The fire was stopped.&lt;/b&gt;&lt;br&gt;
+&lt;b&gt;You managed to stop the fire.&lt;/b&gt;&lt;br&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-top:12px; margin-bottom:10px; align-items:start;&quot;&gt;
+
+&lt;div style=&quot;white-space:nowrap;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/nochange.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;/div&gt;
+
+&lt;div style=&quot;width:100%;&quot;&gt;
+thanks to your action, the circularity did not decrease&lt;br&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-bottom:10px; align-items:start;&quot;&gt;
 
 &lt;div style=&quot;white-space:nowrap;&quot;&gt;
 &lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
@@ -2038,10 +2094,22 @@ less ability to recycle old smartphones and materials&lt;br&gt;
 </tw-passagedata><tw-passagedata pid="60" name="save" tags="" position="1500,550" size="100,100">money: money - 1
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;b&gt;The supplier keeps operating.&lt;/b&gt;&lt;br&gt;
+&lt;b&gt;Your aid keeps the supplier operating.&lt;/b&gt;&lt;br&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-top:12px; margin-bottom:10px; align-items:start;&quot;&gt;
+
+&lt;div style=&quot;white-space:nowrap;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/nochange.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;/div&gt;
+
+&lt;div style=&quot;width:100%;&quot;&gt;
+thanks to your action, the circularity did not decrease&lt;br&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-bottom:10px; align-items:start;&quot;&gt;
 
 &lt;div style=&quot;white-space:nowrap;&quot;&gt;
 &lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
@@ -2115,7 +2183,7 @@ New cell phone model with popular features is about to be launched.
 
 Your Choice: 
 
-&lt;span class=&quot;event&quot;&gt;[[Support the launch.-&gt;Support]]&lt;/span&gt;
+&lt;span class=&quot;event&quot;&gt;[[Do nothing.-&gt;Support]]&lt;/span&gt;
 
 &lt;span class=&quot;event&quot;&gt;[[Promote longer phone use.-&gt;Reduce]]&lt;/span&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="63" name="Event2A" tags="" position="1525,925" size="100,100">&lt;div style=&quot;text-align:center;&quot;&gt;
@@ -2186,7 +2254,7 @@ more new phones are sold, which generates additional tax revenue
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="65" name="Reduce" tags="" position="1400,1050" size="100,100">happy: happy - 1
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;b&gt;Restricted launch of the new Pineapple Phone&lt;/b&gt;&lt;br&gt;
+&lt;b&gt;You restrict the launch of the new Pineapple Phone.&lt;/b&gt;&lt;br&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-top:12px; margin-bottom:10px; align-items:start;&quot;&gt;
@@ -2410,7 +2478,7 @@ increased illness places a financial burden on the city budget
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="71" name="regulate" tags="" position="1375,1325" size="100,100">circle: Math.max(0, circle - 1)
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-&lt;b&gt;Safer recycling methods and waste treatment are now required.&lt;/b&gt;&lt;br&gt;
+&lt;b&gt;You require safer recycling methods and waste treatment.&lt;/b&gt;&lt;br&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-top:12px; margin-bottom:10px; align-items:start;&quot;&gt;
@@ -2574,6 +2642,18 @@ Your Choice:
 &lt;/div&gt;
 
 &lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-top:12px; margin-bottom:10px; align-items:start;&quot;&gt;
+
+&lt;div style=&quot;white-space:nowrap;&quot;&gt;
+&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;: &lt;img src=&quot;images/nochange.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;/div&gt;
+
+&lt;div style=&quot;width:100%;&quot;&gt;
+the positive effect is cancelled out by your actions&lt;br&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-bottom:10px; align-items:start;&quot;&gt;
 
 &lt;div style=&quot;white-space:nowrap;&quot;&gt;
 &lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :&amp;nbsp;&lt;img src=&quot;images/down.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
@@ -2874,7 +2954,7 @@ Your policies pushed the city budget to zero. The city can no longer function, a
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="84" name="Conditions" tags="" position="700,175" size="100,100">config.footer.left: `&lt;img src=&quot;images/good.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; :   {happy}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; : {money}` 
 config.footer.right: `&lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; :   {circle}`
 --
-Here are your starting conditions
+Here is the current state of your city:
 &lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-top:12px; margin-bottom:10px; align-items:start;&quot;&gt;
 
 &lt;div style=&quot;white-space:nowrap;&quot;&gt;
