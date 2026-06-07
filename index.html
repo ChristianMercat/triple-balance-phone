@@ -1843,7 +1843,7 @@ phones can be more easily separated for recycling&lt;br&gt;
 [else]
 [[Continue-&gt;Final results]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="50" name="End" tags="" position="850,1975" size="100,100">Here is the state of your city after your legislative period:
-&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-top:12px; margin-bottom:0px; align-items:center;&quot;&gt;
+&lt;div style=&quot;display:grid; grid-template-columns:80px 1fr; column-gap:20px; width:100%; margin-top:12px; margin-bottom:0px; align-items:center;&quot;&gt;
 
 &lt;div style=&quot;white-space:nowrap;&quot;&gt;
 &lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; = {circle}
@@ -1869,7 +1869,7 @@ You improved the **circularity** of the economy tremendously.
 
 &lt;/div&gt;
 
-&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-bottom:0px; align-items:center;&quot;&gt;
+&lt;div style=&quot;display:grid; grid-template-columns:80px 1fr; column-gap:20px; width:100%; margin-bottom:0px; align-items:center;&quot;&gt;
 
 &lt;div style=&quot;white-space:nowrap;&quot;&gt;
 &lt;img src=&quot;images/good.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; = {happy}
@@ -1895,7 +1895,7 @@ People are very **happy** with your choices.
 
 &lt;/div&gt;
 
-&lt;div style=&quot;display:grid; grid-template-columns:60px 1fr; column-gap:20px; width:100%; margin-bottom:0px; align-items:center;&quot;&gt;
+&lt;div style=&quot;display:grid; grid-template-columns:80px 1fr; column-gap:20px; width:100%; margin-bottom:0px; align-items:center;&quot;&gt;
 
 &lt;div style=&quot;white-space:nowrap;&quot;&gt;
 &lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; = {money}
@@ -1958,32 +1958,48 @@ How many new technologies would you like to invest in?
 [[1-&gt;Tech1]]	,      [[2-&gt;Tech2]]   or    [[3-&gt;Tech3]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="54" name="Very end" tags="" position="1000,2025" size="100,100">config.header.right: &quot; &quot;
 config.footer.center: &quot;[[Credits]]&quot;
-final: 2*circle + happy - 2*Math.abs(happy - circle) + money
+final: 2.5*circle + 1.5*happy + money
 --
 &lt;div style=&quot;text-align:center;&quot;&gt;
-[if final &gt; 25]
+[if final &gt; 50]
+&lt;img src=&quot;images/very-good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;img src=&quot;images/very-good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;img src=&quot;images/very-good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+**You&#39;ve hit the high score! Congratulations!**
+
+[if final &gt; 32.7 &amp;&amp; final &lt;50.1]
 &lt;img src=&quot;images/very-good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+Your score is {final} of 50. &lt;br&gt;&lt;br&gt;
 You have been an outstanding mayor. **Congratulations!** &lt;br&gt;
 
-[if final &gt; 16 &amp;&amp; final &lt;26]
+[if final &gt; 28.7 &amp;&amp; final &lt;32.6]
 &lt;img src=&quot;images/good.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+Your score is {final} of 50. &lt;br&gt;&lt;br&gt;
 You have been a good mayor. 
 
-[if final &gt; 9 &amp;&amp; final &lt;17]
+[if final &gt; 22.7 &amp;&amp; final &lt;28.6]
 &lt;img src=&quot;images/neutral.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+Your score is {final} of 50. &lt;br&gt;&lt;br&gt;
 You have been an avarage mayor. 
 
-[if final &gt; 5 &amp;&amp; final &lt;10]
+[if final &gt; 14.7 &amp;&amp; final &lt;22.6]
 &lt;img src=&quot;images/bad.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+Your score is {final} of 50. &lt;br&gt;&lt;br&gt;
 You have been a poor mayor. 
 
-[if final &lt;6]
+[if final &lt;14.6 &amp;&amp; final &gt;2]
 &lt;img src=&quot;images/bad.png&quot; style=&quot;height:50px; position:relative; top:3px; right:5px;&quot;&gt; &lt;br&gt;
+Your score is {final} of 50. &lt;br&gt;&lt;br&gt;
 You barely survived this legislative period.
+
 
 [if final &gt; -5]
 [[Run for office again|Start]]
-&lt;/span&gt;</tw-passagedata><tw-passagedata pid="55" name="Credits" tags="" position="1175,2075" size="100,100">config.header.right: &quot; &quot;
+&lt;/div&gt;
+
+&lt;div style=&quot;font-size:15px; text-align:right;&quot;&gt;
+&lt;br&gt;
+[[Learn more about the score-&gt;Score]]
+&lt;div style=&quot;text-align:right;&quot;&gt;
+</tw-passagedata><tw-passagedata pid="55" name="Credits" tags="" position="1175,2075" size="100,100">config.header.right: &quot; &quot;
 config.footer.center: &quot;[[Restart |Start]]&quot;
 --
 This game was developed by  IMAGINARY gGmbH © 2026.
@@ -1993,7 +2009,7 @@ Gameplay and implementation: Bianca Violet
 Illustrations: Ariel Kahtan
 &lt;br&gt;
 
-&lt;div style=&quot;font-size:12px; line-height:1.5; margin:0; padding:0.1;position:relative; top:50px;&quot;&gt;
+&lt;div style=&quot;font-size:12px; line-height:1.5; margin:0; padding:0.1;position:relative; top:40px;&quot;&gt;
 This work is part of the Erasmus+ project Math4Sustainability and co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them. Project number 2024-1-DE03-KA220-SCH-000246047.
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="56" name="Event1" tags="" position="1175,425" size="100,100">
 
@@ -2994,4 +3010,33 @@ The current city budget is 5 Megacoins. If it reaches zero, you will be removed 
 
 [[Continue-&gt;Tech]]
 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="85" name="Score" tags="" position="1000,2150" size="100,100">config.footer.center: &quot;[[Restart|Start]]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;  [[Credits]]&quot;
+--
+The score is calculated from the values for circularity, happiness and your left over budget. 
+
+Score = 2.5 * &lt;img src=&quot;images/circularity.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt; + 1.5 * &lt;img src=&quot;images/good.webp&quot; style=&quot;height:25px; position:relative; top:3px;&quot;&gt; + 1 * &lt;img src=&quot;images/money.webp&quot; style=&quot;height:25px; position:relative; top:5px;&quot;&gt;
+
+With the values from your current game, you reached:&lt;br&gt;
+Score = 2.5 * {circle} + 1.5 * {happy} + 1 * {money} = {final}
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+&lt;br&gt;
+[[Continue-&gt;more]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="86" name="more" tags="" position="1000,2275" size="100,100">The game contains many decision points where you choose between different options: Six rounds of &lt;span class=&quot;policy&quot;&gt;policy&lt;/span&gt; decisions, up to three rounds of &lt;span class=&quot;tech&quot;&gt;technology&lt;/span&gt; decisions, and up to three &lt;span class=&quot;event&quot;&gt;events&lt;/span&gt; are possible.
+
+Each sequence of decisions creates a unique path through the game, resulting in a large number of possible playthroughs.
+
+&lt;div style=&quot;text-align:center;&quot;&gt;
+Can you guess the magnitude of that number?
+&lt;br&gt;&lt;br&gt;
+[[Continue-&gt;reveal]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="87" name="reveal" tags="" position="1000,2400" size="100,100">config.footer.right: &quot; &quot;
+config.footer.left: &quot;Your score: {final}&quot;
+--
+&lt;div style=&quot;text-align:center;&quot;&gt;
+There are close to &lt;b&gt;4 million (3.824.020)&lt;/b&gt; different playthroughs.&lt;br&gt; 
+Find out how many there are to reach your score:&lt;br&gt;&lt;br&gt;
+
+
+&lt;img src=&quot;images/graph.webp&quot; style=&quot;height:250px;&quot;&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata></html>
