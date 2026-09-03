@@ -1,0 +1,11 @@
+{
+  "greeting": "Cześć, {{name}}!",
+
+  "inventory_one": "{{name}}, masz {{count}} jabłko.",
+  "inventory_few": "{{name}}, masz {{count}} jabłka.",
+  "inventory_many": "{{name}}, masz {{count}} jabłek.",
+  "inventory_other": "{{name}}, masz {{count}} jabłka.",
+
+  "next": "dalej",
+  "second": "druga"
+}

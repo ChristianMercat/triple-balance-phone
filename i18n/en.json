@@ -4,5 +4,13 @@
   "header.title": "Triple Balance",
   "header.subtitle": "The Phone Edition",
   "footer.skipExplanations": "Skip Explanations",
-  "common.continue": "Continue"
+  "common.continue": "Continue",
+
+  "greeting": "Hello, {{name}}!",
+
+  "inventory_one": "{{name}}, you have {{count}} apple.",
+  "inventory_other": "{{name}}, you have {{count}} apples.",
+
+  "next": "next",
+  "second": "second"
 }
