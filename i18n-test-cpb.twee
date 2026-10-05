@@ -1,0 +1,37 @@
+:: StoryTitle
+i18n-test-cpb
+
+:: StoryData
+{
+  "ifid": "F1604976-6268-4FDD-BC66-EC51A37A998E",
+  "format": "Chapbook",
+  "format-version": "2.3.1",
+  "start": "Start"
+}
+
+:: Start {"position":"675,275","size":"100,100"}
+playerName: "Anna"
+apples: 22
+money: 5
+config.header.center: '{translate text: "greeting", name: playerName}'
+config.footer.center: '{language selector}'
+--
+# {translate text: "greeting", name: playerName}
+
+{translate text: "inventory", name: playerName, count: apples}
+
+{translated link: "next", to: '[[next|Second]]'}
+
+:: Second {"position":"875,300","size":"100,100"}
+money: money - 1
+eventRoll: Math.floor(Math.random() * 4) + 1
+--
+{translate text: "second"}
+
+{translate text: "inventory", name: playerName, count: apples}
+
+Budget: {money}. Random event: {eventRoll}.
+
+Changing language must leave both values unchanged.
+
+{translated link: "next", to: '[[restart demo|Start]]'}
