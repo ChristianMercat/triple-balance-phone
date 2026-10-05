@@ -1,0 +1,1839 @@
+:: StoryTitle
+TriBalance3
+
+:: StoryData
+{
+  "ifid": "C9767237-F3CD-4823-9E0B-A753FC120540",
+  "format": "Chapbook",
+  "format-version": "2.3.1",
+  "start": "Start",
+  "zoom": 1
+}
+
+
+:: 1.1Fire {"position":"1300,550","size":"100,100"}
+circle: Math.max(0, circle - 1)
+--
+<div class="centered">
+<b>The recycling plant burns down.</b><br>
+</div>
+
+{effect row: "circularity", trend: "down", text: "less ability to recycle old smartphones and materials", first: true}
+
+{continue to: "Round2"}
+
+
+
+:: 1.1OutFire {"position":"1175,550","size":"100,100"}
+money: money - 1
+--
+<div class="centered">
+<b>You managed to stop the fire.</b><br>
+</div>
+
+{effect row: "circularity", trend: "unchanged", text: "thanks to your action, the circularity did not decrease", first: true}
+
+{effect row: "budget", trend: "down", text: "the operation was paid from the city budget"}
+
+{continue to: "Round2"}
+
+
+:: 1.2bankrupt {"position":"1625,550","size":"100,100"}
+circle: Math.max(0, circle - 1)
+happy: happy - 1
+--
+<div class="centered">
+<b>The supplier goes bankrupt.</b><br>
+</div>
+
+{effect row: "circularity", trend: "down", text: "fewer phones are repaired and kept in use", first: true}
+
+{effect row: "happiness", trend: "down", text: "repairs become more expensive and inconvenient"}
+
+{continue to: "Round2"}
+
+
+
+:: 1.2save {"position":"1500,550","size":"100,100"}
+money: money - 1
+--
+<div class="centered">
+<b>Your aid keeps the supplier operating.</b><br>
+</div>
+
+{effect row: "circularity", trend: "unchanged", text: "thanks to your action, the circularity did not decrease", first: true}
+
+{effect row: "budget", trend: "down", text: "financial aid was paid from the city budget"}
+
+{continue to: "Round2"}
+
+
+:: 1.3minimalism {"position":"1900,550","size":"100,100"}
+circle: circle + 1
+money: money - 1
+--
+<div class="centered">
+<b>People own fewer devices.</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "fewer new phones are needed", first: true}
+
+{effect row: "budget", trend: "down", text: "less tax revenue"}
+
+{continue to: "Round2"}
+
+
+:: 1.3spending {"position":"1775,550","size":"100,100"}
+money: money - 1
+--
+<div class="centered">
+<b>You promote new technology and upgrades.</b><br>
+</div>
+
+{effect row: "circularity", trend: "unchanged", text: "the positive effect is cancelled out by your actions", first: true}
+
+{effect row: "budget", trend: "down", text: "money from the city budget was used"}
+
+{continue to: "Round2"}
+
+
+:: 2.1Reduce {"position":"1400,1050","size":"100,100"}
+happy: happy - 1
+--
+<div class="centered">
+<b>You restrict the launch of the new Pineapple Phone.</b><br>
+</div>
+
+{effect row: "circularity", trend: "unchanged", text: "not too many phones in use are replaced with the new model", first: true}
+
+{effect row: "happiness", trend: "down", text: "people are disappointed they cannot easily get the newest features"}
+
+{continue to: "Round4"}
+
+
+:: 2.1Support {"position":"1250,1050","size":"100,100"}
+happy: happy + 1
+circle: Math.max(0, circle - 1)
+money: money + 1
+--
+<div class="centered">
+<b>Unrestricted launch of the new Pineapple Phone</b><br>
+</div>
+
+{effect row: "circularity", trend: "down", text: "more old phones are replaced sooner", first: true}
+
+{effect row: "happiness", trend: "up", text: "latest technology is available"}
+
+{effect row: "budget", trend: "up", text: "more new phones are sold, which generates additional tax revenue"}
+
+{continue to: "Round4"}
+
+
+:: 2.2cheap {"position":"1525,1050","size":"100,100"}
+happy: happy + 1
+circle: Math.max(0, circle - 1)
+money: money - 1
+--
+<div class="centered">
+<b>New phones are cheap.</b><br>
+</div>
+
+{effect row: "circularity", trend: "down", text: "older devices are replaced more quickly", first: true}
+
+{effect row: "happiness", trend: "up", text: "lower phone prices"}
+
+{effect row: "budget", trend: "down", text: "less tax is paid to the city, since products are cheaper"}
+
+{continue to: "Round4"}
+
+
+:: 2.2protect {"position":"1650,1050","size":"100,100"}
+happy: happy - 1
+money: money + 1
+--
+<div class="centered">
+<b>You added tax to the cheap phones.</b><br>
+</div>
+
+{effect row: "circularity", trend: "unchanged", text: "people buy as many phones as before", first: true}
+
+{effect row: "happiness", trend: "down", text: "new tax"}
+
+{effect row: "budget", trend: "up", text: "additional tax revenue"}
+
+{continue to: "Round4"}
+
+
+:: 2.3RR {"position":"1825,1050","size":"100,100"}
+happy: happy - 1
+circle: circle + 2
+money: money -1
+--
+<div class="centered">
+<b>You encourage citizens to repair, reuse, and buy refurbished phones.</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "fewer new phones are purchased", first: true}
+
+{effect row: "happiness", trend: "down", text: "lack of new devices"}
+
+{effect row: "budget", trend: "down", text: "the campaign used money from the city budget"}
+
+{continue to: "Round4"}
+
+
+:: 2.3subsidize {"position":"1950,1050","size":"100,100"}
+money: Math.max(0, money - 2)
+--
+<div class="centered">
+<b>You subsidize new phone purchases.</b><br>
+</div>
+
+{effect row: "happiness", trend: "unchanged", text: "people remain as happy as before the chip crisis", first: true}
+
+{effect row: "budget", trend: "down", text: "money from the city budget is used"}
+
+{continue to: "Round4"}
+
+
+:: 3.1regulate {"position":"1375,1325","size":"100,100"}
+circle: Math.max(0, circle - 1)
+--
+<div class="centered">
+<b>You require safer recycling methods and waste treatment.</b><br>
+</div>
+
+{effect row: "circularity", trend: "down", text: "fewer materials are processed in the short term", first: true}
+
+{effect row: "happiness", trend: "unchanged", text: "your measures prevent a change in happiness"}
+
+{effect row: "budget", trend: "unchanged", text: "recycling costs increase, but the city budget remains unchanged"}
+
+{continue to: "Round5"}
+
+
+:: 3.1toxic {"position":"1250,1325","size":"100,100"}
+happy: happy - 1
+money: money - 1
+--
+<div class="centered">
+<b>Recycling operations keep running despite the risks.</b><br>
+</div>
+
+{effect row: "circularity", trend: "unchanged", text: "materials are still recycled", first: true}
+
+{effect row: "happiness", trend: "down", text: "toxic waste harms the environment and public health"}
+
+{effect row: "budget", trend: "down", text: "increased illness places a financial burden on the city budget"}
+
+{continue to: "Round5"}
+
+
+:: 3.2info {"position":"1675,1325","size":"100,100"}
+circle: circle + 1
+happy: happy + 1
+money: money -1
+--
+<div class="centered">
+<b>You launched a public information campaign.</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "more phones are donated, reused, and recycled", first: true}
+
+{effect row: "happiness", trend: "up", text: "people feel more secure about their personal information (even more than before the event)"}
+
+{effect row: "budget", trend: "down", text: "the campaign used money from the city budget"}
+
+{continue to: "Round5"}
+
+
+:: 3.2nothing {"position":"1550,1325","size":"100,100"}
+circle: Math.max(0, circle - 1)
+happy: happy - 1
+--
+<div class="centered">
+<b>People are afraid to give away or recycle old devices.</b><br>
+</div>
+
+{effect row: "circularity", trend: "down", text: "fewer phones are reused, repaired, or recycled", first: true}
+
+{effect row: "happiness", trend: "down", text: "fear of data theft"}
+
+{continue to: "Round5"}
+
+
+:: 3.3circular {"position":"1825,1325","size":"100,100"}
+circle: circle + 2
+money: money - 1
+--
+<div class="centered">
+<b>You provide incentives for repair, reuse, and refurbishment.</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "phones and components stay in use longer", first: true}
+
+{effect row: "happiness", trend: "unchanged", text: "affordable devices are accessible despite the recession"}
+
+{effect row: "budget", trend: "down", text: "incentives are paid from the city budget"}
+
+{continue to: "Round5"}
+
+
+:: 3.3purchase {"position":"1950,1325","size":"100,100"}
+money: money - 1
+--
+<div class="centered">
+<b>You offer vouchers and tax reductions for new phones.</b><br>
+</div>
+
+{effect row: "circularity", trend: "unchanged", text: "replacement rates stay the same", first: true}
+
+{effect row: "happiness", trend: "unchanged", text: "people still have access to new devices despite the recession"}
+
+{effect row: "budget", trend: "down", text: "vouchers or tax reductions are paid from the city budget"}
+
+{continue to: "Round5"}
+
+
+:: BIO PHONE {"position":"725,1475","size":"100,100"}
+circle: circle + 1
+money: money - 1
+config.footer.center: ""
+--
+<div class="centered">
+<b>BIO PHONE</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "more environmentally friendly materials are used", first: true}
+
+{effect row: "budget", trend: "down", text: "tax revenue is reduced"}
+
+{continue with technology: "Round6", release: "NewTech2"}
+
+
+
+:: BYOD {"position":"850,925","size":"100,100"}
+circle: circle + 1
+money: money - 1
+config.footer.center: ""
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) +1
+--
+<div class="centered">
+<b>BYOD</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "the number of devices in use is reduced", first: true}
+
+{effect row: "happiness", trend: "unchanged", text: "people are slightly happier because they only need one phone (too little to affect the index)"}
+
+{effect row: "budget", trend: "down", text: "implementation costs and lower tax revenue from reduced device sales"}
+
+{continue with events: "Round4", group: 2}
+
+
+:: CLOSED-LOOP LAW {"position":"725,1725","size":"100,100"}
+circle: circle + 1
+config.footer.center: ""
+--
+<div class="centered">
+<b>CLOSED-LOOP LAW</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "more materials are recovered and reused in new devices", first: true}
+
+{effect row: "happiness", trend: "unchanged", text: "the policy has little direct impact on consumers"}
+
+{continue with technology: "End1", release: "NewTech3"}
+
+
+:: CONSUMPTION LIMIT {"position":"975,1475","size":"100,100"}
+happy: happy - 2
+circle: circle + 2
+money: money - 1
+config.footer.center: ""
+--
+<div class="centered">
+<b>NO EXPLOITATIVE FEATURES</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "phones are kept and used for longer", first: true}
+
+{effect row: "happiness", trend: "down", text: "people have less freedom to upgrade whenever they want"}
+
+{effect row: "budget", trend: "down", text: "fewer phones are sold, resulting in lower tax revenue"}
+
+{continue with technology: "Round6", release: "NewTech2"}
+
+
+
+:: DON'T PHONE AND DRIVE {"position":"850,1200","size":"100,100"}
+happy: happy - 1
+config.footer.center: ""
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
+--
+<div class="centered">
+<b>DON'T PHONE AND DRIVE</b><br>
+</div>
+
+{effect row: "circularity", trend: "unchanged", text: "has little effect on phone purchases, repairs, or recycling", first: true}
+
+{effect row: "happiness", trend: "down", text: "drivers face stricter rules and higher fines"}
+
+{effect row: "budget", trend: "unchanged", text: "enforcement costs offset most of the revenue from penalties"}
+
+{continue with events: "Round5", group: 3}
+
+
+:: EXTREME ECO-TAX {"position":"850,425","size":"100,100"}
+happy: happy - 2
+circle: circle + 2
+money: money + 2
+config.footer.center: ""
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) + 1
+--
+<div class="centered">
+<b>EXTREME ECO-TAX</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "keep, repair, and reuse old phones is encouraged", first: true}
+
+{effect row: "happiness", trend: "down", text: "prices increase"}
+
+{effect row: "budget", trend: "up", text: "additional tax revenue"}
+
+{continue with events: "Round2", group: 1}
+
+
+:: End.Credits {"position":"1175,2075","size":"100,100"}
+config.header.right: " "
+config.footer.right: " "
+config.footer.left: "[[Learn more about the score->End4]]"
+config.footer.center: "[[Restart |Start]]"
+--
+This game was developed by  IMAGINARY gGmbH © 2026.
+
+Gameplay and implementation: Bianca Violet
+
+Illustrations: Ariel Kahtan
+<br>
+
+<div style="font-size:12px; line-height:1.5; margin:0; padding:0.1;position:relative; top:40px;">
+This work is part of the Erasmus+ project Math4Sustainability and co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them. Project number 2024-1-DE03-KA220-SCH-000246047.
+</div>
+
+
+:: End1 {"position":"850,1850","size":"100,100"}
+
+--
+
+<div class="centered">
+<b>Your legislative period in Phonopolis is over</b>.<br> 
+Find out about your achievements in office.<br>
+<img src="images/government.webp" style="height:150px; position:relative; top:5px; left:10px;">
+
+[[Continue->End2]]
+
+</span>
+
+
+:: End2 {"position":"850,1975","size":"100,100"}
+Here is the state of Phonopolis after your legislative period:
+<div class="summary-row">
+
+<div class="summary-icons">
+<img src="images/circularity.webp" style="height:25px; position:relative; top:5px;"> = {circle}
+</div>
+
+<div class="summary-text">
+[if circle < 4]
+Your choices did not really improve the **circularity** of the economy.
+[continue]
+[if circle > 3 && circle < 5]
+Your choices were not very efficient in building a **circular** economy.
+[continue]
+[if circle > 4 && circle < 8]
+You have improved the **circularity** of the economy.
+[continue]
+[if circle > 7 && circle < 11]
+You have improved the **circularity** of the economy significantly.
+[continue]
+[if circle > 10]
+You improved the **circularity** of the economy tremendously.
+[continue]
+</div>
+
+</div>
+
+<div class="summary-row">
+
+<div class="summary-icons">
+<img src="images/good.webp" style="height:25px; position:relative; top:3px;"> = {happy}
+</div>
+
+<div class="summary-text">
+[if happy < 3]
+People are not very **happy** with your choices.
+[continue]
+
+[if happy > 2 && happy < 7]
+The **happiness** of the people did not change much.
+[continue]
+
+[if happy > 6 && happy < 10]
+People are quite **happy** with your choices.
+[continue]
+
+[if happy > 9]
+People are very **happy** with your choices.
+[continue]
+</div>
+
+</div>
+
+<div class="summary-row">
+
+<div class="summary-icons">
+<img src="images/money.webp" style="height:25px; position:relative; top:5px;"> = {money}
+</div>
+
+<div class="summary-text">
+[if money < 2]
+You barely managed not to go bankrupt.
+[continue]
+
+[if money > 1 && money < 5]
+You have less **money** left than what you started with.
+[continue]
+
+[if money > 4 && money < 6]
+You spent as much **money** as you earned.
+[continue]
+
+[if money > 5]
+You earned more **money** than you spent.
+[continue]
+</div>
+
+</div>
+
+
+
+
+
+[if happy > 0]
+<div class="centered">
+[[Continue->End3]]
+</div>
+
+
+:: End3 {"position":"1000,2025","size":"100,100"}
+config.header.right: " "
+config.footer.center: "[[Credits->End.Credits]]"
+final: 2.5*circle + 1.5*happy + money
+--
+<div class="centered">
+[if final > 50]
+<img src="images/very-good.png" style="height:50px; position:relative; top:3px; right:5px;"> <img src="images/very-good.png" style="height:50px; position:relative; top:3px; right:5px;"> <img src="images/very-good.png" style="height:50px; position:relative; top:3px; right:5px;"> <br>
+**You've hit the high score! Congratulations!**
+
+[if final > 32.7 && final <50.1]
+<img src="images/very-good.png" style="height:50px; position:relative; top:3px; right:5px;"> <br>
+Your score is {final} of 50. <br><br>
+You have been an outstanding mayor for Phonopolis. **Congratulations!** <br>
+
+[if final > 28.7 && final <32.6]
+<img src="images/good.png" style="height:50px; position:relative; top:3px; right:5px;"> <br>
+Your score is {final} of 50. <br><br>
+You have been a good mayor for Phonopolis. 
+
+[if final > 22.7 && final <28.6]
+<img src="images/neutral.png" style="height:50px; position:relative; top:3px; right:5px;"> <br>
+Your score is {final} of 50. <br><br>
+You have been an avarage mayor for Phonopolis. 
+
+[if final > 14.7 && final <22.6]
+<img src="images/bad.png" style="height:50px; position:relative; top:3px; right:5px;"> <br>
+Your score is {final} of 50. <br><br>
+You have been a poor mayor for Phonopolis. 
+
+[if final <14.6 && final >2]
+<img src="images/bad.png" style="height:50px; position:relative; top:3px; right:5px;"> <br>
+Your score is {final} of 50. <br><br>
+You barely survived this legislative period in Phonopolis.
+
+
+[if final > -5]
+[[Run for office again|Start]]
+</div>
+
+<div style="font-size:15px; text-align:right;">
+<br>
+[[Learn more about the score->End4]]
+<div style="text-align:right;">
+
+
+
+:: End4 {"position":"1000,2150","size":"100,100"}
+config.footer.left: " "
+config.footer.center: "[[Restart|Start]]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [[Credits->End.Credits]]"
+--
+The score is calculated from the values for circularity, happiness and your left over budget. 
+
+Score = 2.5 * <img src="images/circularity.webp" style="height:25px; position:relative; top:5px;"> + 1.5 * <img src="images/good.webp" style="height:25px; position:relative; top:3px;"> + 1 * <img src="images/money.webp" style="height:25px; position:relative; top:5px;">
+
+With the values from your current game, you reached:<br>
+Score = 2.5 * {circle} + 1.5 * {happy} + 1 * {money} = {final}
+
+<div class="centered">
+<br>
+[[Continue->End5]]
+</div>
+
+
+:: End5 {"position":"1000,2275","size":"100,100"}
+The game contains many decision points where you choose between different options: Six rounds of <span class="policy">policy</span> decisions, up to three rounds of <span class="tech">technology</span> decisions, and up to three <span class="event">events</span> are possible.
+
+Each sequence of decisions creates a unique path through the game, resulting in a large number of possible playthroughs.
+
+<div class="centered">
+Can you guess the magnitude of that number?
+<br><br>
+[[Continue->End6]]
+</div>
+
+
+:: End6 {"position":"1000,2400","size":"100,100"}
+config.footer.right: " "
+config.footer.left: "Your score: {final}"
+--
+<div class="centered">
+There are close to <b>4 million (3.824.020)</b> different playthroughs.<br> 
+Find out how many there are to reach your score:<br><br>
+
+
+<img src="images/graph.webp" style="height:250px;">
+</div>
+
+
+:: Event1.1 {"position":"1175,425","size":"100,100"}
+
+
+<div class="centered">
+An <span class="event">EVENT</span> happens:<br>
+<b>FIRE AT E-WASTE SORTING PLANT</b>
+
+One of the largest recycling plants in Phonopolis is about to burn down.
+
+Your Choice: 
+
+<span class="event">[[Put out the fire.->1.1OutFire]]</span>
+
+<span class="event">[[Do nothing.->1.1Fire]]</span>
+</div>
+
+
+:: Event1.2 {"position":"1500,425","size":"100,100"}
+
+
+<div class="centered">
+An <span class="event">EVENT</span> happens:<br>
+<b>GLOBAL REPAIR PARTS MARKET COLLAPSE</b>
+
+A major supplier of generic spare parts in Phonopolis is about to go bankrupt.
+
+Your Choice: 
+
+<span class="event">[[Do nothing.->1.2bankrupt]]</span>
+
+<span class="event">[[Provide financial support.->1.2save]]</span>
+</div>
+
+
+:: Event1.3 {"position":"1775,425","size":"100,100"}
+
+
+<div class="centered">
+An <span class="event">EVENT</span> happens:<br>
+<b>MINIMALIST TECH MOVEMENT</b>
+
+A global minimalism trend encourages people in Phonopolis to own fewer devices.
+
+Your Choice: 
+
+<span class="event">[[Encourage consumer spending.->1.3spending]]</span>
+
+<span class="event">[[Promote the minimalism trend.->1.3minimalism]]</span>
+</div>
+
+
+:: Event2.1 {"position":"1250,925","size":"100,100"}
+
+
+<div class="centered">
+An <span class="event">EVENT</span> happens:<br>
+<b>NEW PINEAPPLE PHONE</b>
+
+New cell phone model with popular features is about to be launched in Phonopolis.
+
+Your Choice: 
+
+<span class="event">[[Do nothing.->2.1Support]]</span>
+
+<span class="event">[[Promote longer phone use.->2.1Reduce]]</span>
+</div>
+
+
+:: Event2.2 {"position":"1525,925","size":"100,100"}
+<div class="centered">
+An <span class="event">EVENT</span> happens:<br>
+<b>PRICE DROP</b>
+
+A technological breakthrough makes new phones extremely cheap in Phonopolis.
+
+Your Choice: 
+
+<span class="event">[[Do nothing.->2.2cheap]]</span>
+
+<span class="event">[[Protect repair and reuse.->2.2protect]]</span>
+</div>
+
+
+:: Event2.3 {"position":"1825,925","size":"100,100"}
+
+
+<div class="centered">
+An <span class="event">EVENT</span> happens:<br>
+<b>GLOBAL CHIP CRISIS</b>
+
+Cell phone production decreases in Phonopolis. New cell phones will get much more expensive.
+
+Your Choice: 
+
+<span class="event">[[Support repair and reuse.->2.3RR]]</span>
+
+<span class="event">[[Subsidize new phone purchases.->2.3subsidize]]</span>
+</div>
+
+
+:: Event3.1 {"position":"1250,1200","size":"100,100"}
+
+<div class="centered">
+An <span class="event">EVENT</span> happens:<br>
+<b>TOXIC WASTE</b>
+
+New materials cause toxic waste during recycling.
+
+Your Choice: 
+
+<span class="event">[[Continue recycling as usual.->3.1toxic]]</span>
+
+<span class="event">[[Introduce stricter regulations.->3.1regulate]]</span>
+</div>
+
+
+:: Event3.2 {"position":"1525,1200","size":"100,100"}
+
+<div class="centered">
+An <span class="event">EVENT</span> happens:<br>
+<b>FEAR OF DATA THEFT</b>
+
+A viral news story in Phonopolis makes people afraid to give away or recycle old devices.
+
+Your Choice: 
+
+<span class="event">[[Do nothing.->3.2nothing]]</span>
+
+<span class="event">[[Launch a public information campaign.->3.2info]]</span>
+</div>
+
+
+:: Event3.3 {"position":"1825,1200","size":"100,100"}
+
+<div class="centered">
+An <span class="event">EVENT</span> happens:<br>
+<b>GLOBAL RECESSION</b>
+
+People in Phonopolis have less disposable income.
+
+Your Choice: 
+
+<span class="event">[[Support circular solutions.->3.3circular]]</span>
+
+<span class="event">[[Offer consumer purchase support.->3.3purchase]]</span>
+</div>
+
+
+:: Game over {"position":"1300,1575","size":"100,100"}
+config.header.right: " "
+config.footer.center: "[[Restart|Start]]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [[End.Credits]]"
+--
+<div class="centered">
+<img src="images/game_over.png" style="height:50px;position:relative; top:10px;">
+<b>The People Revolt</b>
+<img src="images/game_over.png" style="height:50px;position:relative; top:10px;">
+
+The city no longer trusts your leadership. Angry citizens and political rivals have pushed you out of office.
+
+<b>Game </b>
+<img src="images/dead.webp" style="height:50px;position:relative; top:20px;">
+<b> Over!</b>
+</div>
+
+
+:: Game over2 {"position":"1500,1575","size":"100,100"}
+config.header.right: " "
+config.footer.center: "[[Restart|Start]]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [[End.Credits]]"
+--
+<div class="centered">
+<img src="images/no_money.webp" style="height:70px;position:relative; top:20px;">
+<b>City Budget Depleted</b>
+
+Your policies pushed the city budget to zero. The city can no longer function, and you have been removed from office.<br>
+<b>Game </b>
+<img src="images/dead.webp" style="height:50px;position:relative; top:20px;">
+<b> Over!</b>
+</div>
+
+
+:: LIMIT ONLINE FOOTPRINT\  {"position":"850,1725","size":"100,100"}
+happy: happy - 1
+circle: circle + 1
+config.footer.center: ""
+--
+<div class="centered">
+<b>LIMIT ONLINE FOOTPRINT</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "people use phones less and upgrade less often", first: true}
+
+{effect row: "happiness", trend: "down", text: "users find the restrictions annoying or limiting"}
+
+{continue with technology: "End1", release: "NewTech3"}
+
+
+:: LOW-ORBIT SIGNAL MESH {"position":"550,800","size":"100,100"}
+happy: happy +1
+tech: tech -1
+config.footer.center: ""
+--
+<div class="centered">
+<b>LOW-ORBIT SIGNAL MESH</b><br>
+</div>
+
+{effect row: "happiness", trend: "up", text: "users can now stay connected anywhere in the world", first: true}
+
+{continue after technology: "Round3"}
+
+
+:: MAGNETIC BREAK-APART {"position":"425,800","size":"100,100"}
+happy: happy +1
+circle: circle + 1
+tech: tech -1
+config.footer.center: ""
+--
+<div class="centered">
+<b>MAGNETIC BREAK-APART</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "damaged parts can be replaced instead of the whole phone", first: true}
+
+{effect row: "happiness", trend: "up", text: "phones become easier and cheaper to repair after accidents"}
+
+{continue after technology: "Round3"}
+
+
+:: MOBILE DETOX DAY {"position":"975,425","size":"100,100"}
+circle: circle + 1
+config.footer.center: ""
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) + 1
+--
+<div class="centered">
+<b>MOBILE DETOX DAY</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "phones are used less and may last longer", first: true}
+
+{effect row: "happiness", trend: "unchanged", text: "some people enjoy the phone-free day, while others feel restricted by it"}
+
+
+{continue with events: "Round2", group: 1}
+
+
+
+:: MODULAR SMARTPHONE {"position":"450,1900","size":"100,100"}
+happy: happy +1
+circle: circle +2
+tech: tech -1
+config.footer.center: ""
+--
+<div class="centered">
+<b>MODULAR SMARTPHONE</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "phones become easier to repair, upgrade, and reuse", first: true}
+
+{effect row: "happiness", trend: "up", text: "repairs are simpler and less expensive"}
+
+{continue after technology: "End1"}
+
+
+:: NEW SELF-CHARGING BATTERY {"position":"575,1900","size":"100,100"}
+happy: happy +1
+tech: tech -1
+money: money + 1
+config.footer.center: ""
+--
+<div class="centered">
+<b>NEW SELF-CHARGING BATTERY</b><br>
+</div>
+
+{effect row: "happiness", trend: "up", text: "phones need to be charged less often", first: true}
+
+{effect row: "budget", trend: "up", text: "less money is spent on energy, leaving more funds available for other purposes"}
+
+{continue after technology: "End1"}
+
+
+:: NEW TRIPLE-DIAMOND GLASS {"position":"300,800","size":"100,100"}
+happy: happy +2
+circle: circle + 1
+tech: tech -1
+config.footer.center: ""
+--
+<div class="centered">
+<b>NEW TRIPLE-DIAMOND GLASS</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "phones are less likely to break and can stay in use for longer", first: true}
+
+{effect row: "happiness", trend: "up", text: "phones can be more durable and face fewer repairs"}
+
+
+{continue after technology: "Round3"}
+
+
+:: NO EXPLOITATIVE FEATURES {"position":"850,1475","size":"100,100"}
+happy: happy + 1
+circle: circle + 1
+config.footer.center: ""
+--
+<div class="centered">
+<b>NO EXPLOITATIVE FEATURES</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "people use phones less and upgrade less often", first: true}
+
+{effect row: "happiness", trend: "up", text: "people use their phones more mindfully"}
+
+{continue with technology: "Round6", release: "NewTech2"}
+
+
+:: NewTech1 {"position":"525,625","size":"100,100"}
+Your research investment pays off now: **A <span class="tech">new technology</span> is ready!**<br>
+
+<div class="centered">
+<img src="images/tech3.webp" style="height:150px; position:relative; top:5px; left:10px;">
+
+[[Continue->NewTech1a]]
+
+</span>
+
+
+:: NewTech1a {"position":"375,650","size":"100,100"}
+You can choose one of the new technologies by clicking on it.
+
+<span class="tech">[[MAGNETIC BREAK-APART]]</span>
+(Phone safely splits into modular pieces upon impact.)
+
+<span class="tech">[[NEW TRIPLE-DIAMOND GLASS]]</span>
+(Strong protection thanks to Elephant™ diamond glass.)
+
+<span class="tech">[[LOW-ORBIT SIGNAL MESH]]</span>
+(Satellite-powered uninterrupted high-speed phone service worldwide.)
+
+
+:: NewTech2 {"position":"575,1525","size":"100,100"}
+Your research investment pays off again: **A <span class="tech">new technology</span> is ready!**<br>
+
+<div class="centered">
+<img src="images/tech2.webp" style="height:150px; position:relative; top:5px; left:10px;">
+
+[[Continue->NewTech2a]]
+
+</span>
+
+
+:: NewTech2a {"position":"425,1525","size":"100,100"}
+You can choose one of the new technologies by clicking on it.
+
+<span class="tech">[[SMART BINS]]</span>
+(Trash bins log when a phone is deposited via RFID.)
+
+<span class="tech">[[REGENERATIVE PORT MATRIX]]</span>
+(A port technology where connectors physically regenerate when worn down.)
+
+<span class="tech">[[SELF-DESTRUCT]]</span>
+(Destruction of sensitive data when theft is detected.)
+
+
+:: NewTech3 {"position":"600,1775","size":"100,100"}
+Your research investment pays off again: **A <span class="tech">new technology</span> is ready!**<br>
+
+<div class="centered">
+<img src="images/tech1.webp" style="height:150px; position:relative; top:5px; left:10px;">
+
+[[Continue->NewTech3a]]
+
+</span>
+
+
+:: NewTech3a {"position":"450,1775","size":"100,100"}
+You can choose one of the new technologies by clicking on it.
+
+<span class="tech">[[MODULAR SMARTPHONE]]</span>
+(Easily replaceable standard components.)
+
+<span class="tech">[[NEW SELF-CHARGING BATTERY]]</span>
+(Battery recharges from ambient energy.)
+
+<span class="tech">[[SMART-SHATTERING]]</span>
+(Polymer casings that decompose when exposed to a specific wavelength.)
+
+
+:: ONE-PHONE LAW {"position":"725,675","size":"100,100"}
+happy: happy - 2
+circle: circle + 1
+money: money - 1
+config.footer.center: ""
+--
+<div class="centered">
+<b>ONE-PHONE LAW</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "fewer phones are purchased and used", first: true}
+
+{effect row: "happiness", trend: "down", text: "people have less freedom to own multiple devices"}
+
+{effect row: "budget", trend: "down", text: "fewer phones are sold, resulting in lower tax revenue"}
+
+{continue with technology: "Round3", release: "NewTech1"}
+
+
+:: PHONE SUBSCRIPTION {"position":"975,675","size":"100,100"}
+happy: happy + 1
+circle: Math.max(0, circle - 2)
+money: money +1
+config.footer.center: ""
+--
+<div class="centered">
+<b>PHONE SUBSCRIPTION</b><br>
+</div>
+
+{effect row: "circularity", trend: "down", text: "more phones are replaced and discarded", first: true}
+
+{effect row: "happiness", trend: "up", text: "people regularly receive the latest devices"}
+
+{effect row: "budget", trend: "up", text: "higher sales and tax revenue"}
+
+
+{continue with technology: "Round3", release: "NewTech1"}
+
+
+:: RECYCLE BONUS {"position":"725,1200","size":"100,100"}
+happy: happy + 1
+circle: Math.max(0, circle - 1)
+config.footer.center: ""
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
+--
+<div class="centered">
+<b>RECYCLE BONUS</b><br>
+</div>
+
+{effect row: "circularity", trend: "down", text: "encourages early phone replacement", first: true}
+
+{effect row: "happiness", trend: "up", text: "saving money and recycling responsibly"}
+
+<div class="centered">
+
+{continue with events: "Round5", group: 3}
+
+
+:: REGENERATIVE PORT MATRIX {"position":"575,1650","size":"100,100"}
+happy: happy +1
+circle: circle + 1
+tech: tech -1
+config.footer.center: ""
+--
+<div class="centered">
+<b>REGENERATIVE PORT MATRIX</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "phones need fewer repairs or replacements", first: true}
+
+{effect row: "happiness", trend: "up", text: "users experience fewer charging problems"}
+
+{continue after technology: "Round6"}
+
+
+:: RETURN DEPOSIT {"position":"725,425","size":"100,100"}
+happy: happy - 1
+circle: circle + 1
+config.footer.center: ""
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) +1
+--
+<div class="centered">
+<b>RETURN DEPOSIT</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "returning old phones for recycling is encouraged", first: true}
+
+{effect row: "happiness", trend: "down", text: "prices increase, even if the deposit is refunded later"}
+
+{continue with events: "Round2", group: 1}
+
+
+:: Round1 {"position":"850,300","size":"100,100"}
+config.footer.center: "Round 1/6"
+--
+
+Choose one of the possible new policies by clicking on it.
+
+<span class="policy">[[EXTREME ECO-TAX]]</span>
+(High fees for environmental impact.)
+
+<span class="policy">[[MOBILE DETOX DAY]]</span>
+(On Saturdays, all phones remain off.)
+
+<span class="policy">[[RETURN DEPOSIT]]</span>
+(Mandatory deposit when buying a new phone, to ensure recycling.)
+
+
+:: Round2 {"position":"850,550","size":"100,100"}
+config.footer.center: "Round 2/6"
+--
+
+Your chosen policy will stay in effect. You can choose an additional one now.
+
+<span class="policy">[[SCHOOL REPAIR CAFÉ]]</span>
+(New school subject: "Introduction to Cell Phone Repair".)
+
+<span class="policy">[[PHONE SUBSCRIPTION]]</span>
+(A new phone every year.)
+
+<span class="policy">[[ONE-PHONE LAW]]</span>
+(Only one cell phone per person.)
+
+
+:: Round3 {"position":"850,800","size":"100,100"}
+config.footer.center: "Round 3/6"
+--
+
+Choose one of the possible new policies by clicking on it.
+
+<span class="policy">[[BYOD]]</span>
+(Bring Your Own Device. Secure second profile instead of work phone.)
+
+<span class="policy">[[YOUTH PROTECTION]]</span>
+(Cell phones only from the age of 18.)
+
+<span class="policy">[[SERVICE CONTRACT]]</span>
+(Cell phone repair insurance.)
+
+
+:: Round4 {"position":"850,1075","size":"100,100"}
+config.footer.center: "Round 4/6"
+--
+
+Choose one of the possible new policies by clicking on it.
+
+<span class="policy">[[DON'T PHONE AND DRIVE]]</span>
+(High penalties for using a phone while driving.)
+
+<span class="policy">[[SUSTAINABLE DEVICES ACT]]</span>
+(Phones must have easily removable and recyclable components.)
+
+<span class="policy">[[RECYCLE BONUS]]</span>
+(Swap old phone for new one.)
+
+
+:: Round5 {"position":"850,1350","size":"100,100"}
+config.footer.center: "Round 5/6"
+--
+
+Choose one of the possible new policies by clicking on it.
+
+<span class="policy">[[NO EXPLOITATIVE FEATURES]]</span>
+(Limit game design elements that manipulate players into addictive behavior.)
+
+<span class="policy">[[CONSUMPTION LIMIT]]</span>
+(Users can only buy a new phone every three years.)
+
+<span class="policy">[[BIO PHONE]]</span>
+(Tax advantages for building phones with biodegradable components.)
+
+
+:: Round6 {"position":"850,1600","size":"100,100"}
+config.footer.center: "Round 6/6"
+--
+
+Choose one of the possible new policies by clicking on it. (This will be the last round.)
+
+<span class="policy">[[LIMIT ONLINE FOOTPRINT ]]</span>
+(Default digital minimalism features (e.g., screen time locks, usage reports).
+
+<span class="policy">[[UNLOCK]]</span>
+(Requires all phones over 2 years old to be legally unlockable.)
+
+<span class="policy">[[CLOSED-LOOP LAW]]</span>
+(Manufacturers must use 15% recycled materials from old phones.)
+
+
+:: SCHOOL REPAIR CAFÉ {"position":"850,675","size":"100,100"}
+circle: circle + 1
+config.footer.center: ""
+--
+<div class="centered">
+<b>SCHOOL REPAIR CAFÉ</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "more people can repair and keep phones longer", first: true}
+
+{continue with technology: "Round3", release: "NewTech1"}
+
+
+:: SELF-DESTRUCT {"position":"325,1650","size":"100,100"}
+happy: happy +1
+tech: tech -1
+config.footer.center: ""
+--
+<div class="centered">
+<b>SELF-DESTRUCT</b><br>
+</div>
+
+{effect row: "happiness", trend: "up", text: "users feel their personal information is better protected", first: true}
+
+{continue after technology: "Round6"}
+
+
+:: SERVICE CONTRACT {"position":"725,925","size":"100,100"}
+happy: happy + 1
+circle: circle + 1
+config.footer.center: ""
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4)) +1
+--
+<div class="centered">
+<b>SERVICE CONTRACT</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "damaged phones are repaired more often", first: true}
+
+{effect row: "happiness", trend: "up", text: "people can get their phones fixed at a lower cost"}
+
+{effect row: "budget", trend: "unchanged", text: "city budget increases slightly due to higher repair activity and tax revenue, but by far less than one Megacoin"}
+
+{continue with events: "Round4", group: 2}
+
+
+:: SMART BINS {"position":"450,1650","size":"100,100"}
+circle: circle + 1
+tech: tech -1
+config.footer.center: ""
+--
+<div class="centered">
+<b>SMART BINS</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "more phones reach recycling facilities", first: true}
+
+{continue after technology: "Round6"}
+
+
+:: SMART-SHATTERING {"position":"325,1900","size":"100,100"}
+circle: circle +1
+tech: tech -1
+config.footer.center: ""
+--
+<div class="centered">
+<b>SMART-SHATTERING</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "phones can be more easily separated for recycling", first: true}
+
+{continue after technology: "End1"}
+
+
+:: SUSTAINABLE DEVICES ACT {"position":"975,1200","size":"100,100"}
+circle: circle + 1
+config.footer.center: ""
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
+--
+<div class="centered">
+<b>SUSTAINABLE DEVICES ACT</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "phones become easier to repair and recycle", first: true}
+
+{effect row: "happiness", trend: "unchanged", text: "the policy has little direct impact on users"}
+
+
+{continue with events: "Round5", group: 3}
+
+
+:: Start {"position":"775,0","size":"100,100"}
+circle: 0
+happy: 5
+money: 5
+tech: 0
+config.header.center: `<img src="images/happy_phone.png" style="height:50px;position:relative; top:10px;"><span style="display:inline-block; margin-left:10px; line-height:0.9;"><span style="font-size:20px; font-weight:bold;" data-i18n="header.title"></span><br><span style="font-size:12px;" data-i18n="header.subtitle"></span></span>`
+config.header.right: " "
+config.header.left: `<select data-language-select onchange="setLanguage(this.value)"><option value="en">English</option><option value="de">Deutsch</option></select>`
+config.footer.left: " "
+config.footer.right: `<passage-link class="link" to="Start5"><span data-i18n="footer.skipExplanations"></span></passage-link>`
+config.footer.center: " "
+--
+<div class="centered">
+<img src="images/government.webp" style="height:150px; position:relative; top:5px; right:1px;">
+
+<p data-i18n="start.title"></p>
+
+
+<p data-i18n="start.intro"></p>
+
+<passage-link class="link" to="Start2">
+    <span data-i18n="common.continue"></span>
+</passage-link>
+
+</div>
+
+
+
+
+:: Start2 {"position":"925,50","size":"100,100"}
+Your goal is to build a circular smartphone economy while balancing citizen happiness and the city budget.
+
+You can decide about <span class="policy">laws and policies</span>, invest in research for <span class="tech">new technologies</span> or may have to deal with <span class="event">events</span>. 
+
+<div class="centered">
+
+[[Continue->Start3]]   
+
+</div>
+
+~~<img src="images/circularity.webp" style="height:25px; position:relative; top:5px; right:15px">[[What is a circular smartphone ecnomy?->explanation.economy]]~~
+
+~~<img src="images/good.png" style="height:25px; position:relative; top:5px; right:12px; margin-right: 10px;">[[What makes people happy?->explanation.happy]]~~
+
+
+
+:: Start3 {"position":"850,175","size":"100,100"}
+<div class="centered">
+As mayor, you must balance citizen <b>happiness</b>, the city <b>budget</b>, and the <b>circularity</b> of the smartphone economy. 
+
+<img src="images/good.webp" style="height:103px; position:relative; top:5px; left:0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="images/money.webp" style="height:103px; position:relative; top:5px; left:0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="images/circularity.webp" style="height:103px; position:relative; top:5px; left:0px;">
+
+Every decision may affect all three!
+
+
+
+[[Continue->Start4]]
+
+</div>
+
+
+
+
+:: Start4 {"position":"700,175","size":"100,100"}
+config.footer.left: `<img src="images/good.webp" style="height:25px; position:relative; top:3px;"> :   {happy}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="images/money.webp" style="height:25px; position:relative; top:3px;"> : {money}` 
+config.footer.right: `<img src="images/circularity.webp" style="height:25px; position:relative; top:5px;"> :   {circle}`
+--
+Here is the current state of Phonopolis:
+{status row: "circularity", value: 0, text: "The circularity index is zero, so your current economy is not circular at all. It cannot get worse.", first: true}
+
+{status row: "happiness", value: 5, text: "The people are medium happy, the happiness index is 5. Make sure it never gets to zero, or you will be thrown out of office!"}
+
+{status row: "budget", value: 5, text: "The current city budget is 5 Megacoins. If it reaches zero, you will be removed from office!"}
+<div class="centered">
+
+
+[[Continue->Start5]]
+
+</div>
+
+
+:: Start5 {"position":"550,150","size":"100,100"}
+config.footer.left: `<img src="images/good.webp" style="height:25px; position:relative; top:3px;"> :   {happy}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="images/money.webp" style="height:25px; position:relative; top:3px;"> : {money}` 
+config.header.right: "[[Restart |Start]]"
+config.footer.right: `<img src="images/circularity.webp" style="height:25px; position:relative; top:5px;"> :   {circle}`
+--
+<div class="centered">
+Would you like to invest some of your budget in research for <span class="tech">new technologies</span>?
+<br><br>
+[[Yes->Tech]] &nbsp;&nbsp;
+<img src="images/tech.webp" style="height:117px; position:relative; top:5px; left:0px;">
+ [[No->Start6]]
+ 
+</div>
+
+
+:: Start6 {"position":"550,425","size":"100,100"}
+<div class="centered">
+During your legislative period, there will be six rounds of decisions about which <span class="policy">policies</span> to enact.<br><br>
+
+<img src="images/law.webp" style="height:110px; position:relative; top:5px; left:10px;">
+
+You can now start the first round.
+
+[[Continue->Round1]]
+
+</div>
+
+
+:: Tech {"position":"400,150","size":"100,100"}
+<div class="centered">
+Each <span class="tech">new technology</span> you invest in costs 1 Megacoin. Your investment may improve people's happiness and the circularity. 
+
+How many new technologies would you like to invest in?
+
+[[1->Tech1]]	,      [[2->Tech2]]   or    [[3->Tech3]]
+</div>
+
+
+:: Tech1 {"position":"350,300","size":"100,100"}
+money: money - 1
+tech: 1
+--
+<div class="centered">
+<img src="images/tech1.webp" style="height:150px; position:relative; top:5px; right:10px;">
+
+Researchers are working on a <span class="tech">new technology</span> now.<br>It will become available at a later point of your legislative period.
+
+[[Continue->Start6]]
+
+</div>
+
+
+:: Tech2 {"position":"475,300","size":"100,100"}
+money: money - 2
+tech: 2
+--
+<div class="centered">
+<img src="images/tech2.webp" style="height:150px; position:relative; top:5px; left:10px;">
+
+Researchers are working on two <span class="tech">new technologies</span> now. <br>
+
+They will become available at a later point of your legislative period. 
+
+[[Continue->Start6]]
+
+</div>
+
+
+:: Tech3 {"position":"600,300","size":"100,100"}
+money: money - 3
+tech: 3
+--
+<div class="centered">
+<img src="images/tech3.webp" style="height:150px; position:relative; top:5px; left:10px;">
+
+Researchers are working on three <span class="tech">new technologies</span> now. <br>
+
+They will become available at a later point of your legislative period.
+
+[[Continue->Start6]]
+
+</div>
+
+
+:: UNLOCK {"position":"975,1725","size":"100,100"}
+happy: happy + 1
+circle: circle + 1
+money: money -1
+config.footer.center: ""
+--
+<div class="centered">
+<b>UNLOCK</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "older phones can be reused, resold, and kept in use for longer", first: true}
+
+{effect row: "happiness", trend: "up", text: "users have more freedom to choose networks and continue using their devices"}
+
+{effect row: "budget", trend: "down", text: "enforcement costs and lower tax revenue from reduced phone sales"}
+
+{continue with technology: "End1", release: "NewTech3"}
+
+
+:: YOUTH PROTECTION {"position":"975,925","size":"100,100"}
+happy: happy - 1
+circle: circle + 1
+money: money - 1
+config.footer.center: ""
+randomEvent: (Math.floor((Math.random() * 1000 + Date.now()) % 4) ) +1
+--
+<div class="centered">
+<b>YOUTH PROTECTION</b><br>
+</div>
+
+{effect row: "circularity", trend: "up", text: "fewer phones are purchased and used", first: true}
+
+{effect row: "happiness", trend: "down", text: "young people lose access to smartphones and parents find communication more difficult"}
+
+{effect row: "budget", trend: "down", text: "fewer phones are sold, resulting in lower tax revenue"}
+
+{continue with events: "Round4", group: 2}
+
+
+:: explanation.economy {"position":"1100,50","size":"100,100"}
+<img src="images/circularity.webp" style="height:50px; position:relative; top:5px;">  
+A circular economy for smartphones means keeping phones useful for as long as possible instead of throwing them away quickly. Key strategies include <b>reduce</b> (buy and use fewer new phones), <b>reuse</b>, <b>repair</b>, and <b>recycle</b>, which help save resources and reduce waste.
+
+<div class="centered">
+
+[[Continue->Start3]]
+
+</div>
+
+~~<img src="images/good.png" style="height:25px; position:relative; top:5px; right:12px; margin-right: 10px;">[[What makes people happy?->explanation.happy]]~~
+
+
+:: explanation.happy {"position":"1075,175","size":"100,100"}
+<img src="images/good.png" style="height:50px; position:relative; top:5px;"> People in Phonopolis are happy when everyone who wants to own a phone, actually owns a phone, phones work well, are easy to use, and user data is protected. Phones should not be too expensive or break easily.
+
+<div class="centered">
+
+[[Continue->Start3]]
+
+</div>
+
+~~<img src="images/circularity.webp" style="height:25px; position:relative; top:5px; right:15px">[[What is a circular smartphone ecnomy?->explanation.economy]]~~
+
+
+:: StoryScript [script]
+let translations = {};
+let translationsReady = false;
+
+async function loadLanguage(lang) {
+  try {
+    const response = await fetch(`i18n/${lang}.json`);
+
+    if (!response.ok) {
+      throw new Error(`Could not load i18n/${lang}.json`);
+    }
+
+    translations = await response.json();
+    translationsReady = true;
+
+    applyTranslations();
+    updateLanguageDropdown();
+
+  } catch (error) {
+    console.error("Language loading failed:", error);
+    alert(`Could not load language file: i18n/${lang}.json`);
+  }
+}
+
+window.setLanguage = async function (lang) {
+  localStorage.setItem("language", lang);
+  await loadLanguage(lang);
+  applyTranslationsSoon();
+};
+
+function applyTranslations() {
+  if (!translationsReady) return;
+
+  document.querySelectorAll("[data-i18n]").forEach(element => {
+    const key = element.getAttribute("data-i18n");
+    element.textContent = translations[key] || `[missing: ${key}]`;
+  });
+}
+
+function updateLanguageDropdown() {
+  document.querySelectorAll("[data-language-select]").forEach(select => {
+    select.value = localStorage.getItem("language") || "en";
+  });
+}
+
+function applyTranslationsSoon() {
+  applyTranslations();
+  updateLanguageDropdown();
+
+  setTimeout(applyTranslations, 50);
+  setTimeout(applyTranslations, 150);
+  setTimeout(applyTranslations, 300);
+
+  setTimeout(updateLanguageDropdown, 50);
+  setTimeout(updateLanguageDropdown, 150);
+  setTimeout(updateLanguageDropdown, 300);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = localStorage.getItem("language") || "en";
+  loadLanguage(lang).then(applyTranslationsSoon);
+});
+
+window.addEventListener("display-change", applyTranslationsSoon);
+window.addEventListener("state-change", applyTranslationsSoon);
+
+// Reusable presentation components. Keeping these behind small Chapbook inserts
+// makes the story passages declarative and gives a later SugarCube port a clear
+// set of components to reimplement.
+engine.extend('2.3.0', () => {
+  const metricIcons = {
+    circularity: 'images/circularity.webp',
+    happiness: 'images/good.webp',
+    budget: 'images/money.webp'
+  };
+
+  const trendIcons = {
+    up: 'images/up.webp',
+    down: 'images/down.webp',
+    unchanged: 'images/nochange.webp'
+  };
+
+  const escapeHtml = value => String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+
+  const metricImage = metric => {
+    const source = metricIcons[metric];
+
+    if (!source) {
+      throw new Error(`Unknown metric in component: ${metric}`);
+    }
+
+    return `<img class="metric-icon" src="${source}" alt="">`;
+  };
+
+  engine.template.inserts.add({
+    match: /^effect row$/i,
+    render(metric, props) {
+      const trend = String(props.trend).toLowerCase();
+      const trendSource = trendIcons[trend];
+
+      if (!trendSource) {
+        throw new Error(`Unknown trend in effect row: ${trend}`);
+      }
+
+      const firstClass = props.first ? ' effect-row-first' : '';
+
+      return `<div class="effect-row${firstClass}">
+        <div class="effect-icons">
+          ${metricImage(String(metric).toLowerCase())} :
+          <img class="trend-icon" src="${trendSource}" alt="">
+        </div>
+        <div class="effect-text">${escapeHtml(props.text)}</div>
+      </div>`;
+    }
+  });
+
+  engine.template.inserts.add({
+    match: /^status row$/i,
+    render(metric, props) {
+      const firstClass = props.first ? ' effect-row-first' : '';
+
+      return `<div class="effect-row${firstClass}">
+        <div class="effect-icons">
+          ${metricImage(String(metric).toLowerCase())} = ${escapeHtml(props.value)}
+        </div>
+        <div class="effect-text">${escapeHtml(props.text)}</div>
+      </div>`;
+    }
+  });
+
+  const stateNumber = name => Number(engine.state.get(name));
+
+  const continueLink = destination => {
+    if (typeof destination !== 'string' || destination.length === 0) {
+      throw new Error('A continuation destination is required.');
+    }
+
+    return `<div class="centered">
+      <passage-link class="link" to="${escapeHtml(destination)}">Continue</passage-link>
+    </div>`;
+  };
+
+  const guardedDestination = destination => {
+    const happiness = stateNumber('happy');
+    const budget = stateNumber('money');
+
+    if (happiness < 1) {
+      return 'Game over';
+    }
+
+    if (happiness > 0 && budget === 0) {
+      return 'Game over2';
+    }
+
+    return happiness > 0 && budget > 0 ? destination : null;
+  };
+
+  engine.template.inserts.add({
+    match: /^continue to$/i,
+    render(destination) {
+      const target = guardedDestination(destination);
+      return target ? continueLink(target) : '';
+    }
+  });
+
+  engine.template.inserts.add({
+    match: /^continue with events$/i,
+    render(fallback, props) {
+      const guarded = guardedDestination(fallback);
+
+      if (guarded !== fallback) {
+        return guarded ? continueLink(guarded) : '';
+      }
+
+      const event = stateNumber('randomEvent');
+      const group = Number(props.group);
+      const target = event >= 1 && event <= 3
+        ? `Event${group}.${event}`
+        : fallback;
+
+      return continueLink(target);
+    }
+  });
+
+  engine.template.inserts.add({
+    match: /^continue with technology$/i,
+    render(fallback, props) {
+      const happiness = stateNumber('happy');
+      const budget = stateNumber('money');
+      const technologies = stateNumber('tech');
+      const release = String(props.release);
+
+      // The original first technology checkpoint checked happy == 0,
+      // whereas the later checkpoints checked happy < 1. Preserve that rule.
+      const gameIsOver = release === 'NewTech1'
+        ? happiness === 0
+        : happiness < 1;
+
+      if (gameIsOver) {
+        return continueLink('Game over');
+      }
+
+      if (happiness > 0 && budget === 0) {
+        return continueLink('Game over2');
+      }
+
+      if (happiness > 0 && budget > 0 && technologies > 0) {
+        return continueLink(release);
+      }
+
+      if (happiness > 0 && budget > 0 && technologies === 0) {
+        return continueLink(fallback);
+      }
+
+      return '';
+    }
+  });
+
+  engine.template.inserts.add({
+    match: /^continue after technology$/i,
+    render(destination) {
+      return continueLink(
+        stateNumber('happy') < 1 ? 'Game over' : destination
+      );
+    }
+  });
+});
+
+:: StoryStylesheet [stylesheet]
+html, body, #page, #passages {
+    font-family: Helvetica, Arial, sans-serif !important;
+}
+
+#page footer {
+    padding-bottom: 50px;
+}
+
+#page header {
+    padding-top: 10px;
+    padding-bottom: 0px !important;
+}
+
+.policy {
+  background-color: cyan !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.tech {
+  background-color: yellow !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.event {
+  background-color: magenta !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* FORCE BLACK LINK TEXT */
+#page .policy,
+#page .policy *,
+#page .event,
+#page .event *,
+#page .tech,
+#page .tech * {
+  color: black !important;
+}
+
+
+.policy *:hover,
+.event *:hover,
+.tech *:hover {
+  background-color: white !important;
+  color: black !important;
+}
+/* Reusable story layout components. */
+.centered {
+  text-align: center;
+}
+
+.effect-row,
+.summary-row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  column-gap: 20px;
+  width: 100%;
+  margin-bottom: 10px;
+  align-items: start;
+}
+
+.effect-row-first {
+  margin-top: 12px;
+}
+
+.effect-icons,
+.summary-icons {
+  white-space: nowrap;
+}
+
+.effect-text,
+.summary-text {
+  width: 100%;
+}
+
+.summary-row {
+  grid-template-columns: 80px 1fr;
+  margin-bottom: 0;
+  align-items: center;
+}
+
+.summary-text {
+  line-height: 1;
+}
+
+.metric-icon,
+.trend-icon {
+  height: 25px;
+  position: relative;
+  top: 5px;
+}

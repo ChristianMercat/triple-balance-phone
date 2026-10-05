@@ -144,3 +144,53 @@ positions are preserved.
   links, images and gameplay values match tb2 for 86 passages. The introduction's
   asynchronous translation content is checked on initial loading separately.
 - Clicking an actual round choice switches the layout to `passage-policy`.
+
+## tb4 — reusable effect rows
+
+Source: `tb3.twee` → [tb4.twee](tb4.twee). StoryTitle is **tb4**, with a new IFID.
+
+Replaced all 102 policy, technology and event-outcome effect rows with the
+`effect row` insert from `tribalance3.twee`. Only that insert and its supporting
+icon maps, HTML escaping and metric-image helper were copied. Other components
+from the reference were not added. The extension targets Chapbook 2.3.1.
+
+### Insert syntax
+
+```text
+{effect row: "circularity", trend: "down", text: "less ability to recycle old smartphones and materials", first: true}
+
+{effect row: "budget", trend: "down", text: "the operation was paid from the city budget"}
+```
+
+| Argument/property | Values and behavior |
+| --- | --- |
+| First argument | `circularity`, `happiness` or `budget` selects the metric icon. |
+| `trend` | `up`, `down` or `unchanged` selects the direction icon. |
+| `text` | Plain-text explanation; HTML characters are escaped. |
+| `first` | Optional boolean; `true` adds the existing 12px first-row top margin. |
+
+The insert is a presentation component: it does not change indicator values.
+Gameplay effects remain in each passage's vars section. Unsupported metrics
+or trends produce an insert error.
+
+The component emits `effect-row`, `effect-icons` and `effect-text` markup.
+Its CSS shares the existing indicator grid rules, retains left-aligned
+descriptions within tag-driven layouts, and uses the reference's consistent
+25px icons with a 5px vertical offset. This replaces the previous mix of 3px and
+5px offsets within effect rows and removes repeated spacer entities and trailing
+line-break markup.
+
+The three introductory status rows and three ending summary rows still use
+their existing markup. They display current values and are separate from this
+effect component. Source length decreased from 3,329 to 2,370 lines.
+
+### Validation
+
+- Original source, tb1–tb3 and `tribalance3.twee` remain unchanged.
+- Passage headings, tags, positions, vars sections, conditions and explicit
+  links match tb3.
+- Chrome checks passed for all 87 passage layouts and actual round-to-policy
+  navigation. Rendered text, icon sources, passage links and gameplay values
+  match tb3 across 86 passages under deterministic sample conditions; the
+  introduction's asynchronous translations are checked on initial loading.
+- Story JavaScript passes the syntax check.
