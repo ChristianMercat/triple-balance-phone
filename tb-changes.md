@@ -194,3 +194,40 @@ effect component. Source length decreased from 3,329 to 2,370 lines.
   match tb3 across 86 passages under deterministic sample conditions; the
   introduction's asynchronous translations are checked on initial loading.
 - Story JavaScript passes the syntax check.
+
+## tb5 — balanced markup and CSS title typography
+
+Source: `tb4.twee` → [tb5.twee](tb5.twee). StoryTitle is **tb5**, with a new IFID.
+
+- Corrected the mismatched div/span closing tags in `End1` and
+  `NewTech1`–`NewTech3`.
+- Removed the redundant, unclosed outer centering div in `RECYCLE BONUS`.
+- Replaced the malformed right-alignment wrappers in `End3` with one balanced
+  `score-details-link` block. Its font size and alignment are defined in CSS.
+- Standardized the nine technology-result titles on `passage-title`.
+- Replaced 57 title `<b>` elements with class-based title typography, and four
+  ending-label `<b>` elements with `game-over-label` spans. Event and ending
+  titles retain inline placement where they sit beside illustrations or labels.
+- Moved the header title's font size and bolding from inline styling into the
+  `header-title` CSS class.
+- Renamed the score assessment wrapper to `ending-assessment`, separating its
+  role from navigation styling.
+- Reduced runs of excessive blank lines in passage content, preserving the
+  vars sections. Existing prose emphasis remains unchanged.
+- Removed 58 redundant trailing or navigation-spacer `<br>` tags in a follow-up
+  edit to this same snapshot. Breaks that separate content within a paragraph,
+  such as the event label/title and header title/subtitle, remain. A source
+  comparison confirms this edit changes only break tags and whitespace.
+
+### Validation
+
+- All 87 story passages have balanced div/span markup.
+- Chrome comparisons confirmed preserved rendered text, links, icon sources
+  and gameplay values across 86 passages under deterministic sample conditions;
+  the introduction's translations were checked on initial loading separately.
+- CSS checks confirmed bold title and ending-label styling without nested
+  `<b>` elements. Passage layouts and actual round-to-policy navigation passed.
+- Passage metadata, explicit links, conditions, gameplay vars and all 102
+  effect-row inserts are unchanged. The only vars-section markup change is the
+  header title's CSS class.
+- `original.twee` and tb1–tb4 remain untouched.
