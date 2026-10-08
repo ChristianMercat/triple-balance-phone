@@ -231,3 +231,266 @@ Source: `tb4.twee` → [tb5.twee](tb5.twee). StoryTitle is **tb5**, with a new I
   effect-row inserts are unchanged. The only vars-section markup change is the
   header title's CSS class.
 - `original.twee` and tb1–tb4 remain untouched.
+
+## tb6 — reusable status and summary rows
+
+Source: `tb5.twee` → [tb6.twee](tb6.twee). StoryTitle is **tb6**, with a new IFID.
+The existing tag colors and all other story metadata are preserved.
+
+The three introductory rows in `Start4` now use `status row`:
+
+```text
+{status row: "circularity", value: 0, text: "The circularity index is zero, so your current economy is not circular at all. It cannot get worse.", first: true}
+```
+
+The ending rows in `End2` use paired summary inserts. The existing conditions,
+explanations and Markdown emphasis remain directly in that passage:
+
+```text
+{summary row: "circularity", value: circle, first: true}
+[if circle < 4]
+Your choices did not really improve the **circularity** of the economy.
+[continue]
+…remaining conditions and explanations…
+{end summary row}
+```
+
+Each `summary row` must have a matching `end summary row`. The opening insert
+creates the metric/value column and opens the explanation column; the closing
+insert closes both. Keep conditional modifiers inside the explanation area,
+and reset them with `[continue]` before closing the row.
+
+Both components share the `effect row` metric-icon helper. Supported metrics
+are `circularity`, `happiness` and `budget`. `value` is displayed as escaped
+text; `first: true` adds the existing first-row spacing. `status row` also
+accepts a plain-text `text` explanation. Neither component changes game state.
+
+Status rows reuse the effect-row grid. Summary rows retain their 80px metric
+column, centered vertical alignment and existing line spacing. Icons use the
+shared 25px sizing and 5px offset already used by effect rows.
+
+### Validation
+
+- Browser comparison passes for all passage layouts and preserves rendered
+  text, links, icons and gameplay values relative to tb5.
+- Twenty-one summary threshold scenarios preserve conditional explanations
+  and Markdown emphasis; each renders three complete summary grids.
+- All conditions and explicit passage links remain unchanged.
+- Story JavaScript passes its syntax check. Earlier snapshots and the existing
+  translation implementation remain untouched.
+
+## tb7 — optional Game Over navigation override
+
+Source: `tb6.twee` → [tb7.twee](tb7.twee). StoryTitle is **tb7**, with a new IFID.
+
+Follow-up cleanup in this same snapshot removed 37 redundant `[continue]`
+statements: 27 in unconditional navigation blocks and 10 immediately before
+another `[if]`. Resets remain before override markers following conditional
+routes and before summary-row closing inserts. Navigation, override and summary
+threshold checks passed again after this cleanup.
+
+Normal routes remain standard Twine links. An optional insert requests an
+end-condition override after Chapbook displays the passage:
+
+```text
+<div class="passage-navigation">
+[[Continue->Round4]]
+
+{game over override}
+</div>
+```
+
+For conditional routes, place the marker after a `[continue]` reset so it renders
+regardless of which branch is selected:
+
+```text
+<div class="passage-navigation">
+[if randomEvent == 1]
+[[Continue->Event1.1]]
+
+[if randomEvent == 2]
+[[Continue->Event1.2]]
+
+[if randomEvent == 3]
+[[Continue->Event1.3]]
+
+[if randomEvent > 3]
+[[Continue->Round2]]
+
+[continue]
+{game over override}
+</div>
+```
+
+The hidden marker is handled on `body-content-change`. It changes the `to`
+attribute of rendered links labeled **Continue** inside the marker's enclosing
+`passage-navigation` block:
+
+1. `happy <= 0` routes to `Game over`.
+2. Otherwise, `money <= 0` routes to `Game over2`.
+3. Otherwise, the normal destination is retained.
+
+Restart, Credits, links outside that navigation block, and header/footer links
+are unaffected. The handler retains each link's original destination for repeat
+invocations. It reads state without changing scores, randomness or history;
+clicking the resulting link uses native Chapbook navigation.
+
+Added markers to 48 passages: 18 event outcomes, 18 policy results, nine
+technology results and three research investments. Removed explicit Game Over
+links and their repeated conditions. Normal branch conditions now depend only
+on event selection or research availability, allowing a Continue link to render
+before the override applies.
+
+All normal route arrows remain discoverable in Twine. Game Over destinations
+exist only in the shared handler and are intentionally hidden from the graph.
+
+### Deliberate behavior changes
+
+Depletion checks now consistently include negative values. This replaces the
+previous zero-only budget checks and the zero-only happiness checks in three
+policies. Technology results also check budget, and research investments use
+the shared override. Happiness failure takes precedence when both indicators
+are depleted.
+
+### Validation
+
+- Browser comparisons preserve normal-state text, links, icons and gameplay
+  values across the story, including the summary threshold checks.
+- 2,304 override scenarios cover all 48 marked passages, both research branches,
+  four event values, normal/zero/negative indicators, simultaneous depletion,
+  link scope, repeat invocation and unchanged state.
+- Actual Continue clicks reach both Game Over passages.
+- Earlier files, passage names/tags/positions, gameplay vars, all normal route
+  links, unrelated passages and translation code remain unchanged.
+- Story JavaScript passes its syntax check.
+
+## tb8 — Shared headers and footers controlled by UI modes
+
+Created `tb8.twee` from `tb7.twee`, with StoryTitle `tb8` and a new IFID.
+Preserved passage names, tags, graph positions, body content and gameplay logic.
+Previous story versions and `original.twee` remain unchanged.
+
+### Mode defaults
+
+| Passage tag | Default `ui.mode` | Footer |
+| --- | --- | --- |
+| `intro`, `explanation` | `intro` | Skip explanations |
+| `round` | `round` | Indicators and round number |
+| `policy`, `event`, `outcome`, `technology` | `gameplay` | Indicators |
+| `ending` | `results` | Restart and Credits |
+
+`game-over` is an explicit mode for the two Game Over passages, with Restart
+and Credits and no indicators. Gameplay and round modes also show Restart in
+the header. Every mode shares the story identity and language selector.
+The `prose` tag continues to control body styling independently of UI modes.
+
+Removed repeated `config.header.*` and `config.footer.*` assignments from
+passages. The shared renderer replaces all six slots after Chapbook renders
+each passage, so controls and indicators cannot leak from earlier passages.
+It does not change gameplay state or trigger another passage render.
+
+### Passage settings
+
+Settings live in the passage's vars section, before `--`. Each setting must be
+a JSON literal: use double quotes for strings, numbers for rounds, and
+`true`/`false` for switches. The renderer reads the current passage's settings
+fresh; it does not use inherited `ui.*` state from earlier passages.
+
+```text
+ui.mode: "gameplay"
+ui.status: true
+ui.skip: false
+ui.headerRight: "[[Restart|Start]]"
+ui.footerCenter: "[[Credits->End.Credits]]"
+--
+Passage content here.
+```
+
+Supported overrides:
+
+- `ui.mode`: `intro`, `gameplay`, `round`, `results`, or `game-over`.
+- `ui.round`: number from 1 to 6; required for round mode.
+- `ui.status`: show or hide the three indicators.
+- `ui.skip`: show or hide Skip explanations; it occupies the right footer slot.
+- `ui.headerRight`: replace the right header controls.
+- `ui.footerLeft`, `ui.footerCenter`, `ui.footerRight`: replace a footer slot.
+  These explicit slot overrides take precedence over mode defaults.
+
+Control strings support ordinary Twine links and Chapbook inserts. An empty
+string clears a slot. Shared CSS controls identity, indicator and control
+spacing without inline styles or nonbreaking-space padding.
+
+### Story exceptions
+
+Start4 shows the introductory indicator preview without Skip explanations.
+Start5 and Start6 use gameplay mode. Round1–Round6 declare their round numbers.
+End1–End3 retain their indicator displays and individual control choices.
+The credits and score passages retain their explicit controls and score label.
+Other results and Game Over pages have no inherited indicators; this removes
+the accidental circularity display in End4 and End5.
+
+Translation implementation remains deferred. Existing translation code and
+header/skip translation hooks are preserved.
+
+### Validation
+
+- 99 browser transitions cover all 87 passages, mode defaults and overrides,
+  cross-mode resets, round numbers, indicators, ending controls, score label,
+  language selector and shared styling.
+- Browser regression comparisons check passage layouts, content, links, icons,
+  gameplay values, actual navigation and 21 summary threshold scenarios.
+- Story JavaScript passes its syntax check; prior story files are hash-verified
+  unchanged.
+
+## tb9 — Passage illustration and layout cleanup
+
+Created `tb9.twee` from the current `tb8.twee`, with StoryTitle `tb9` and a new
+IFID. Original and previous story files remain unchanged.
+
+### Presentation changes
+
+- Replaced every remaining passage-body inline style with shared CSS classes:
+  welcome/research/policy illustrations, score chart, explanation icons and
+  links, Game Over icons, and the credits funding notice.
+- Kept existing image heights and relative offsets. Illustration variants use
+  the shared `story-illustration` class with an explicit modifier.
+- Replaced nonbreaking-space padding in Start3 and Start5 with wrapping image
+  and choice groups, using CSS gaps.
+- Removed five redundant `text-center` wrappers from End1, NewTech1–NewTech3
+  and Tech, plus the unused CSS rule. Their passage tags already center content;
+  none of these wrappers contained conditional modifiers. Navigation and
+  conditional wrappers remain intact.
+- Escaped the apostrophe in Tech's `people&#39;s` to retain its displayed wording
+  when removing the wrapper enables Chapbook's smart punctuation processing.
+- Omitted the credits notice's invalid unitless `padding:0.1` declaration, which
+  browsers already ignored.
+
+### Shared UI rendering correction
+
+The current tb8 snapshot's `display-change` listener could run after Chapbook
+had consumed the header/footer payload, leaving default controls on screen.
+In tb9, the shared UI renderer listens for `body-content-change` and commits
+all six slots in a microtask after Chapbook finishes updating them. This also
+handles passage transitions without changing config variables or game state.
+The modes, tag defaults and per-passage override settings are unchanged.
+
+### Validation
+
+Browser comparisons cover all 87 passage layouts and preserve displayed body
+text, links, image sources and computed sizes/offsets, gameplay values, actual
+navigation and 21 summary threshold scenarios. Start's existing translation is
+checked on initial load. Prior story hashes, passage headers (including graph
+positions), vars, conditional modifiers, link expressions and translation code
+are unchanged. JavaScript passes its syntax check. No inline styles remain in
+the story source.
+The shared UI additionally passes 99 browser transitions covering all 87
+passages, mode defaults/overrides, resets, round numbers, indicators, ending
+controls, score labels and the language selector.
+
+## Follow-up — Score initialization on alternate ending routes
+
+Before refactoring ending conditions/scoring, remind the user to fix this:
+End4 and End6 can be reached through End.Credits without visiting End3.
+The `final` variable is calculated only in End3, so it can be undefined in
+End4 and End6 on that route. Ensure the score is available regardless of the
+entry route. Recorded for later; no gameplay fix applied yet.
