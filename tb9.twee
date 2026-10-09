@@ -16,7 +16,7 @@ tb9
     "outcome": "red",
     "round": "orange"
   },
-  "zoom": 0.3
+  "zoom": 0.6
 }
 
 
@@ -576,7 +576,6 @@ Find out about your achievements in office.<br>
 [[Continue->End2]]
 
 
-
 :: End2 [ending prose] {"position":"100,2375","size":"100,100"}
 ui.status: true
 ui.headerRight: "[[Restart|Start]]"
@@ -634,7 +633,7 @@ You earned more **money** than you spent.
 </div>
 
 
-:: End3 [ending] {"position":"125,1225","size":"100,100"}
+:: End3 [ending] {"position":"125,1250","size":"100,100"}
 final: 2.5*circle + 1.5*happy + money
 ui.footerCenter: "[[Credits->End.Credits]]"
 ui.status: true
@@ -864,7 +863,7 @@ Your policies pushed the city budget to zero. The city can no longer function, a
 <span class="game-over-label"> Over!</span>
 
 
-:: LIMIT ONLINE FOOTPRINT\  [policy] {"position":"1275,1775","size":"100,100"}
+:: LIMIT ONLINE FOOTPRINT [policy] {"position":"1275,1775","size":"100,100"}
 happy: happy - 1
 circle: circle + 1
 --
@@ -1047,7 +1046,6 @@ Your research investment pays off now: **A <span class="tech">new technology</sp
 [[Continue->NewTech1a]]
 
 
-
 :: NewTech1a [technology prose] {"position":"775,675","size":"100,100"}
 You can choose one of the new technologies by clicking on it.
 
@@ -1069,7 +1067,6 @@ Your research investment pays off again: **A <span class="tech">new technology</
 [[Continue->NewTech2a]]
 
 
-
 :: NewTech2a [technology prose] {"position":"825,1550","size":"100,100"}
 You can choose one of the new technologies by clicking on it.
 
@@ -1089,7 +1086,6 @@ Your research investment pays off again: **A <span class="tech">new technology</
 <img src="images/tech1.webp" class="story-illustration">
 
 [[Continue->NewTech3a]]
-
 
 
 :: NewTech3a [technology prose] {"position":"700,1900","size":"100,100"}
@@ -1328,7 +1324,7 @@ ui.round: 6
 
 Choose one of the possible new policies by clicking on it. (This will be the last round.)
 
-<span class="policy">[[LIMIT ONLINE FOOTPRINT ]]</span>
+<span class="policy">[[LIMIT ONLINE FOOTPRINT]]</span>
 (Default digital minimalism features (e.g., screen time locks, usage reports).
 
 <span class="policy">[[UNLOCK]]</span>

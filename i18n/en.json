@@ -12,5 +12,12 @@
   "inventory_other": "{{name}}, you have {{count}} apples.",
 
   "next": "next",
-  "second": "second"
+  "second": "second",
+
+  "Policy_Deposit": {
+    "title": "Return Deposit",
+    "description": "Mandatory deposit when buying a new phone, to ensure recycling.",
+    "effect-circularity": "Returning old phones for recycling is encouraged.",
+    "effect-happiness": "Prices increase, even if the deposit is refunded later."
+  }
 }

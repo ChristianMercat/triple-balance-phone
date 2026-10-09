@@ -494,3 +494,194 @@ End4 and End6 can be reached through End.Credits without visiting End3.
 The `final` variable is calculated only in End3, so it can be undefined in
 End4 and End6 on that route. Ensure the score is available regardless of the
 entry route. Recorded for later; no gameplay fix applied yet.
+
+## tb10 — Derived score and native assessment flow
+
+Created `tb10.twee` from the latest `tb9.twee`, preserving its corrected
+LIMIT ONLINE FOOTPRINT name/link and updated passage positions. StoryTitle is
+`tb10`, with a new IFID. Earlier versions and the original remain untouched.
+
+### Score calculation
+
+Renamed the derived variable from `final` to `score` throughout tb10.
+
+The formula lives once in StoryScript, registered as the native Chapbook
+`engine.state.setLookup('score', ...)` lookup:
+
+```javascript
+2.5 * (get('circle') ?? 0) + 1.5 * (get('happy') ?? 0) + (get('money') ?? 0)
+```
+
+A lookup calculates on every read, so `score`, `{score}` and expressions using
+it always see the current resources. It requires no dependency-update listener
+or stored score copy. Missing resources before initialization contribute zero.
+Removed the End3 vars assignment. End4 and End6 now work through Credits without
+visiting End3, and restarting or restoring resources cannot expose a stale
+stored score. This resolves the score-initialization follow-up recorded above.
+
+### End3 assessment
+
+No custom flow-control extensions were added. Chapbook 2.3.1's native `[if]`
+modifiers start independent text blocks; a new `[if]` replaces the previous
+condition rather than nesting inside it. `[continue]` starts an unmodified
+block. A div does not close a modifier.
+
+End3 uses explicit, mutually exclusive native `[if]` ranges, so writers can
+edit the score boundaries directly beside each assessment. No intermediate
+classification variable or custom `else if` modifier is needed. For example:
+
+```text
+[if score > 32.5 && score <= 50]
+```
+
+A `[continue]` explicitly ends assessment formatting before the separate
+restart-link condition.
+
+| Condition | Assessment |
+| --- | --- |
+| `score > 50` | High score |
+| `score > 32.5 && score <= 50` | Outstanding |
+| `score > 28.5 && score <= 32.5` | Good |
+| `score > 22.5 && score <= 28.5` | Average |
+| `score > 14.5 && score <= 22.5` | Poor |
+| `score > 2 && score <= 14.5` | Barely survived |
+| `score <= 2` | No assessment, preserving existing behavior |
+
+The resource formula produces half-unit scores, and all old assessment choices
+on that grid remain unchanged. Score wording, gameplay effects, random events,
+normal links, translations and primary resources were not changed.
+
+### Validation
+
+- Browser comparison of 141 scores from -10 through 60, in steps of 0.5,
+  preserves End3 text, icons and links.
+- Score reads update immediately after each resource changes; restored stale
+  score data cannot override the formula. Restart and the Credits → End4 →
+  End5 → End6 route display the correct score.
+- Browser passage/gameplay comparisons and summary scenarios check the rest
+  of the story, using a consistent reference score for the old implementation.
+- Story JavaScript passes its syntax check; prior story hashes and all passage
+  headings, tags, positions and normal link expressions are unchanged.
+
+## tb11 — Simplified random-event selection
+
+Created `tb11.twee` from the latest `tb10.twee`, with StoryTitle `tb11` and a
+new IFID. Replaced all nine randomEvent assignments with:
+
+```text
+randomEvent: Math.floor(Math.random() * 4) + 1
+```
+
+The browser supplies the pseudorandom stream. Each affected passage draws once
+in its vars section and stores the result, so all conditions inspect the same
+roll. Outcomes 1–3 select their existing events; outcome 4 keeps the existing
+no-event route. No custom random helper, seed setting or Date.now adjustment
+was added. Repeated individual outcomes are valid and remain possible.
+
+### Validation
+
+- 108 browser comparisons against tb10 cover all nine passages, all four rolls,
+  and normal/low-happiness/low-budget states. Displayed text, destinations,
+  primary resources and score match for each controlled roll.
+- With the browser's unmodified Math.random, 100,000 draws produced counts
+  24,920 / 24,737 / 24,948 / 25,395 for outcomes 1 / 2 / 3 / 4. Every draw was an
+  integer in range; the sample was consistent with an approximately uniform
+  distribution.
+- Twelve Start restarts, each followed by visits to all nine rolling passages,
+  produced twelve distinct nine-roll sequences. Eight page reloads produced
+  eight distinct twenty-roll sequences. These checks show that tested runs did
+  not repeat an identical sequence; they do not establish true randomness or
+  prohibit chance repetitions.
+- Only the nine formulas, StoryTitle and IFID changed from tb10. Earlier story
+  files are hash-verified unchanged; passage tags/positions, gameplay effects,
+  scoring, translations and link expressions remain intact. Story JavaScript
+  passes its syntax check.
+
+## tb12 — Small copy corrections and unused CSS cleanup
+
+Created `tb12.twee` from `tb11.twee`, with StoryTitle `tb12` and a new IFID.
+Original and earlier story versions remain untouched.
+
+### Changes
+
+- Corrected `avarage` to `average` in the End3 assessment.
+- Corrected `ecnomy` to `economy` in the two explanation links.
+- Closed the missing outer parenthesis in Round6's digital minimalism description.
+- Changed the two Game Over footer labels from `End.Credits` to `Credits`,
+  keeping `End.Credits` as the destination.
+- Removed unused selector entries for `no-wrap`, `full-width`, `tight-lines`,
+  `indicator-row`, `indicator-row-summary` and `indicator-row-first`.
+  Shared rules and their declarations remain for the active classes.
+
+### Validation
+
+Verified that the removed class names are absent from passage markup and
+StoryScript. CSS declarations and active selectors are unchanged. Passage
+names, tags, graph positions, scripts, resource effects, score logic, random
+selection and link destinations are unchanged. Previous story hashes are
+unchanged. Translation integration has not started.
+
+## Deferred improvements from the tb11 assessment
+
+These proposals are recorded for later; they were not implemented in tb12.
+Translation is the next planned iteration.
+
+### Score presentation and playthrough statistics
+
+- Display the numeric score in every End3 assessment, including the top band.
+  Remove `of 50`: the current reachable maximum is 53 (circularity 16,
+  happiness 8, budget 1). Rename the above-50 assessment so it does not imply
+  every score above 50 is the maximum. Keep the current formula and explicit
+  mutually exclusive ranges unless a deliberate design change is agreed.
+- Define what counts as a playthrough. Current model enumeration yields
+  3,597,500 successful routes and 4,054,180 terminal routes including failures,
+  counting distinct decision/event sequences, stopping at Game Over and
+  excluding restarts. The current End6 value, 3,824,020, does not match this
+  definition.
+- Generate the displayed count and score graph from the same gameplay model.
+  Distinguish route counts from probabilities: routes need not be equally
+  likely. Recalculate after balancing, since balance changes may alter survival
+  and maximum scores.
+
+### Technology, policy and event balance
+
+- Give equal-cost technologies distinct strengths or situational advantages.
+  Triple-Diamond Glass dominates Magnetic Break-Apart and Low-Orbit Signal
+  Mesh; Regenerative Port Matrix dominates Smart Bins and Self-Destruct;
+  Modular Smartphone dominates Smart-Shattering. The battery offers a budget
+  benefit, but only at the end of the game, limiting its strategic usefulness.
+- Review dominated policies with identical subsequent routes: Mobile Detox Day
+  over Return Deposit; School Repair Café over One-Phone Law; Sustainable
+  Devices Act over Don't Phone and Drive; Closed-Loop Law over Limit Online
+  Footprint.
+- Review dominated event responses: promoting minimalism over encouraging
+  spending, and circular recession support over purchase support at equal cost.
+  Decide whether these choices deliberately teach consequences or should offer
+  competing benefits.
+- Clarify that policies staying in effect currently means their resource changes
+  remain in the totals. They do not create recurring effects or change later
+  events; implementing such interactions would be a separate gameplay change.
+
+### Presentation, accessibility and content
+
+- Add accessible names for indicator values and trend directions. Decide which
+  illustrations are decorative and which need meaningful alternative text.
+  Use semantic headings for passage titles.
+- Check the fixed-height score graph and shared header/footer layout on narrow
+  screens, including aspect ratio and wrapping.
+- Review the cyan/yellow/magenta category highlighting while retaining explicit
+  category labels.
+- Explain that the score weights are the game's simplified model, rather than
+  an objective measure of good policy.
+
+### Maintainability and translation-related cleanup
+
+- Replace the Game Over handler's dependence on the visible English label
+  `Continue` with an explicit navigation role before translating those labels.
+- Retire the abandoned translation loader and its repeated timers during the
+  separate migration to the new Chapbook internationalization mechanism.
+- Make link/asset validation and gameplay enumeration reusable project tools,
+  so future edits can verify routes, score bounds and statistics.
+- Keep resource assignments, native score conditions and normal destination
+  links in the passages: they remain readable for beginner writers and useful
+  in the graphical Twine editor.
