@@ -356,6 +356,78 @@ inside the content is a Markdown horizontal rule.
   story.
 - Keep gameplay effects tied to gameplay actions, rather than language changes.
 
+## Story navigation roles (tb14 and later)
+
+The story integration in `tb14.twee` extends `{translated link}` with an optional
+`role` property. This addition belongs to the story integration; the isolated
+prototype remains unchanged.
+
+```text
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+{game over override}
+</div>
+```
+
+`role: "continue"` adds `data-navigation-role="continue"` to the native link.
+The Game Over override selects this attribute inside its enclosing navigation
+block, independently of the translated label. Language switching updates the
+label without replacing the destination or rerunning the override. The role is
+not passed to i18next as an interpolation option. If supplied, it must be a
+nonempty string.
+
+Keep a `[continue]` reset before `{game over override}` when the preceding route
+links use conditional modifiers, so the marker always renders. The marker is
+not needed on every Continue link: it remains on passages that check depletion.
+Normal destinations stay in the quoted `[[...]]` argument for the Twine graph;
+Game Over destinations remain in the shared handler.
+
+## Story effect-row translations (tb15 and later)
+
+The story's `{effect row}` insert accepts `textKey` for a translation key:
+
+```text
+{effect row: "circularity", trend: "up", textKey: "policies.returnDeposit.effects.circularity", first: true}
+```
+
+`textKey` must be a nonempty string. The row keeps its existing metric/trend
+icons, CSS layout and `first` spacing. Its description is a live translated-text
+element, so changing language updates it in place without rerendering the
+passage, reapplying resource changes or drawing another event.
+
+During migration, existing literal `text` properties remain supported. Supply
+one of `textKey` or `text`, not both. Literal text stays escaped; translations
+stay plain text. English fallback applies if the selected language lacks a key.
+This effect-row extension is part of the story, not the isolated i18n prototype.
+
+Both the Round1 choice and RETURN DEPOSIT result use
+`policies.returnDeposit.title`; the choice also uses `.description`, and result
+rows use `.effects.circularity` and `.effects.happiness`. Standard destination
+notation remains inside the translated-link insert to preserve the Twine graph.
+
+The story API additionally exposes `window.ChapbookI18n.renderText(key, options)`
+for shared JavaScript components. It returns the same escaped custom-element
+HTML used by `{translate text}`, without paragraph wrappers. `options` defaults
+to an empty object; these values are captured when the element is created.
+
+## Policy migration conventions (tb16 and later)
+
+All policy blocks use camelCase identifiers under `policies`, with shared
+`title`, `description` and `effects` keys. Round choices and result headings
+reuse the title; result rows use `textKey`. Passage identifiers remain in all
+caps. Descriptions and effects start with capitals and end with full stops;
+titles have no final full stop.
+
+For apostrophes in passage names, a translated label inside a standard link
+avoids conflicting quotes in an insert argument and keeps the graph target
+exact:
+
+```text
+[[{translate text: "policies.dontPhoneAndDrive.title"}->DON'T PHONE AND DRIVE]]
+```
+
+This choice uses native Chapbook navigation and a live translated-text label.
+
 ## Browser diagnostics
 
 `window.ChapbookI18n.ready` settles after the initial loading attempt, including

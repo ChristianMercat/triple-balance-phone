@@ -4,5 +4,15 @@
   "header.title": "Triple Balance",
   "header.subtitle": "Die Handy Variante",
   "footer.skipExplanations": "Erklärungen überspringen",
-  "common.continue": "Weiter"
+  "common.continue": "Weiter",
+  "common": {
+    "restart": "Neu starten",
+    "credits": "Mitwirkende",
+    "yes": "Ja",
+    "no": "Nein",
+    "runAgain": "Erneut kandidieren",
+    "learnScore": "Mehr über die Punktzahl erfahren",
+    "explainEconomy": "Was ist eine zirkuläre Smartphone-Wirtschaft?",
+    "explainHappiness": "Was macht die Menschen glücklich?"
+  }
 }

@@ -685,3 +685,422 @@ Translation is the next planned iteration.
 - Keep resource assignments, native score conditions and normal destination
   links in the passages: they remain readable for beginner writers and useful
   in the graphical Twine editor.
+
+## tb13 — Translation stage 1: replace the JavaScript integration
+
+Created `tb13.twee` from `tb12.twee`, with StoryTitle `tb13` and a new IFID.
+Original, prior story versions, the isolated i18n prototype and all language
+JSON files remain untouched. Passage renaming remains deferred.
+
+### Integration
+
+- Removed the abandoned translation loader, global setLanguage function,
+  data-i18n updates, language-dropdown updates and timer-based retries on
+  display/state changes.
+- Installed the new Chapbook i18next integration inline in StoryScript, adapted
+  from `twine-i18n-chapbook.js`. The story includes the translation inserts,
+  custom elements and initialization code; importing its Twee file does not
+  require copying a separate script into Twine.
+- Registered `{translate text}`, `{language selector}` and `{translated link}`.
+  Translation changes update connected text elements in place and never
+  rerender passages or execute vars sections.
+- Preserved English/German support and the existing `language` preference in
+  localStorage, outside Chapbook gameplay state. English is the fallback and
+  the default when no supported preference is stored. A successful switch saves
+  the preference; a failed language download retains the previous language.
+- Configured `keySeparator: "."` for nested translation blocks and
+  `ignoreJSONStructure: true` so existing flat dotted keys still work during
+  migration. The existing `Policy_Deposit` sketch remains unmodified and can be
+  addressed through keys such as `Policy_Deposit.title`.
+- Rewired only already-translated content: Start's title, introduction and
+  Continue label; shared header identity; Skip explanations; and the language
+  selector. Existing native destinations are preserved.
+- Kept template loading/error recovery, English fallback, interpolation,
+  pluralization and plain-text rendering. Runtime libraries load from the
+  template's jsDelivr URLs (i18next 25 and HTTP backend 4); JSON loads from
+  `i18n/{{lng}}.json` over HTTP.
+
+### Remaining stages
+
+Stage 2 will migrate common navigation labels and make the Game Over handler
+independent of the English Continue label. Other navigation controls remain
+unchanged in tb13. Effect-row translation support and the Return Deposit pilot
+come later, followed by grouped story-text migration. No language dictionary
+reorganization or full text extraction was performed in stage 1.
+
+### Validation
+
+- Browser checks cover English/German Start/header/footer text, existing flat
+  keys, nested policy keys, interpolation, pluralization, missing-key English
+  fallback and the translated-link insert.
+- Switching language on a resource-changing, event-rolling policy preserves the
+  complete saved gameplay state, score, random outcome, destinations and trail;
+  it produces zero body rerenders. Native Continue navigation still works.
+- Reload preserves the chosen language. Simulated initialization failure shows
+  Retry and recovers; simulated language-download failure retains the previous
+  language and permits a successful second attempt.
+- Browser regression comparisons cover all 87 passage layouts, body content,
+  images, routes, primary resources and score, plus 21 summary scenarios.
+  Start's existing translations are checked separately.
+- Story JavaScript passes its syntax check. Prior story/prototype/dictionary
+  hashes, passage headings/tags/positions, vars sections, body graph links and
+  CSS are unchanged.
+
+Browser tests used cached copies of the template's runtime libraries while
+exercising its script-loading path and actual local JSON requests.
+
+## tb14 — Translation stage 2: shared navigation and end-condition roles
+
+Created `tb14.twee` from `tb13.twee`, with StoryTitle `tb14` and a new IFID.
+Original and earlier story versions remain untouched. Passage names, tags and
+graph positions are unchanged.
+
+### Navigation migration
+
+- Converted common Continue, Restart, Credits, Yes/No, Run for office again,
+  score-help and explanation links to the template's `{translated link}` form.
+  Shared header/footer controls and per-passage UI overrides use the same insert.
+- Restored the Start → Start2 graph edge by replacing its manually written
+  native HTML link with an insert containing `to: '[[Continue->Start2]]'`.
+- Every migrated link keeps standard Twine notation, single-quoted inside its
+  `to` property. Runtime labels come from translations, while editor labels and
+  normal destinations remain visible in source.
+- Added shared navigation labels under the nested `common` block in en.json and
+  de.json. Existing flat keys, prototype strings and the Policy_Deposit sketch
+  remain intact. The existing flat `common.continue` key is still supported by
+  the migration-compatible lookup configuration.
+- Policy/technology titles and event-choice labels remain for their respective
+  content migration stages. Numeric research choices remain unchanged.
+
+### Translation-independent Game Over override
+
+The story's translated-link insert accepts an optional `role` property:
+
+```text
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+```
+
+Continue links carry `data-navigation-role="continue"`. The override selects
+that role within its marker's enclosing `passage-navigation` block, replacing
+the former comparison against visible English text. The role is validated and
+excluded from translation options. The isolated i18n prototype is unchanged;
+the story-specific extension is documented in twine-i18n-macro-api-cpb.md.
+
+Depletion rules, precedence and destinations are unchanged. Switching language
+only updates the label, preserving the normal or overridden destination. Existing
+conditional resets and marker locations remain unchanged. Game Over arrows stay
+hidden from the Twine graph; normal route arrows remain discoverable.
+
+### Validation
+
+- 2,304 override scenarios across all 48 marked passages run with translated
+  labels, covering resource thresholds, simultaneous depletion, event/research
+  branches, scope, repeat invocation and unchanged state. Actual clicks reach
+  both Game Over passages after changing language on the overridden links.
+- Browser regression comparisons preserve English body text, links, images,
+  gameplay resources and score across the story, including 21 summary scenarios.
+- Dedicated checks confirm graph-readable Start → Start2 source, native Start
+  navigation and German labels in shared controls, explanatory links, headers
+  and footers. Language switching preserves gameplay state and causes no body
+  rerenders.
+- JavaScript passes its syntax check. Earlier story hashes, passage metadata,
+  primary-resource assignments and CSS are unchanged. JSON-literal UI override
+  strings remain valid after inserting translated links.
+
+## tb15 — Return Deposit translation pilot and translated effect rows
+
+Created `tb15.twee` from the latest `tb14.twee`, with StoryTitle `tb15` and a
+new IFID. Preserved the current graph positions and passage names. Original,
+earlier stories and all language dictionaries remain untouched.
+
+### Shared policy keys
+
+Used the existing nested `policies.returnDeposit` block in en.json:
+
+- Round1's choice becomes a translated link using `.title`, with the original
+  `[[RETURN DEPOSIT]]` destination, and its description uses `.description`.
+- RETURN DEPOSIT's heading uses the same `.title` key.
+- Its effect descriptions use `.effects.circularity` and `.effects.happiness`.
+
+English presentation follows the existing dictionary's wording, capitalization
+and punctuation, including the shared title `Return Deposit`. German currently
+has no corresponding policy block, so those strings use the English fallback.
+No German policy translation was authored in this iteration.
+
+### Effect-row API
+
+Added `textKey` support, for example:
+
+```text
+{effect row: "circularity", trend: "up", textKey: "policies.returnDeposit.effects.circularity", first: true}
+```
+
+The description is rendered as a connected translated-text element, preserving
+its icons, layout and spacing. It updates immediately when language changes,
+without running passage vars, changing resources or rerolling an event.
+
+Literal `text` remains supported for passages not yet migrated. Supplying both
+`text` and `textKey`, or an empty/non-string key, produces an authoring error.
+Added `ChapbookI18n.renderText(key, options)` so shared components can use the
+same safe translated-text renderer without extra paragraph wrappers; omitted
+options default to an empty object. Updated twine-i18n-macro-api-cpb.md with the
+story-specific API and shared-key usage.
+
+### Validation
+
+- Browser tests verify English dictionary text in both passages, normal policy
+  choice navigation and English fallback when German lacks the policy block.
+- German test fixtures (not saved to the project) verify that the shared title,
+  choice description and both effects update to their translated values.
+  Repeated language switches preserve saved gameplay state, score, event roll,
+  link destinations and trail, and produce zero body rerenders.
+- Existing literal effect rows remain compatible. Browser regression checks
+  cover all 87 passage layouts and primary game values, plus 21 summary
+  threshold scenarios. The pilot's intended dictionary wording is verified
+  separately from the unchanged-content comparisons.
+- JavaScript passes its syntax check. Prior story/dictionary hashes, passage
+  headers/tags/positions, gameplay vars, graph link expressions and CSS are
+  unchanged. Browser tests exercised the actual CDN libraries and local JSON
+  requests.
+
+## tb16 — Translate all remaining policies
+
+Created `tb16.twee` from the latest `tb15.twee`, with StoryTitle `tb16` and a
+new IFID. Kept all passage names, including all-caps policy names, and graph
+positions unchanged. Original and earlier stories remain untouched.
+
+### Policy content migration
+
+- Converted the 17 remaining policy result headings and effect rows to keys in
+  the nested `policies` block. All 18 policies now use shared title, description
+  and effects entries, following the Return Deposit pattern.
+- Converted policy choices and descriptions in Round1–Round6 to those same
+  keys. Display titles use normal title capitalization (preserving BYOD), while
+  passage identifiers remain unchanged and in all caps.
+- Added camelCase policy identifiers: extremeEcoTax, mobileDetoxDay,
+  schoolRepairCafe, phoneSubscription, onePhoneLaw, byod, youthProtection,
+  serviceContract, dontPhoneAndDrive, sustainableDevicesAct, recycleBonus,
+  noExploitativeFeatures, consumptionLimit, bioPhone, limitOnlineFootprint,
+  unlock and closedLoopLaw. Kept returnDeposit and its existing values intact.
+- Capitalized descriptions and effect strings and added final full stops.
+  Titles have no final full stop. The policy block contains 18 titles,
+  18 descriptions and 44 effect strings, organized in round order.
+- Corrected Consumption Limit's copied result title, which previously said
+  NO EXPLOITATIVE FEATURES, by using its own shared title key.
+- The apostrophe in DON'T PHONE AND DRIVE conflicts with a single-quoted
+  translated-link argument. Its choice instead uses a translated-text insert
+  inside an ordinary link:
+
+```text
+[[{translate text: "policies.dontPhoneAndDrive.title"}->DON'T PHONE AND DRIVE]]
+```
+
+This preserves the exact passage identifier and graph-readable destination,
+while the live label updates normally when the language changes. Other policy
+choices use the standard translated-link insert.
+
+Only the policies block of en.json changed, preserving other JSON blocks and
+the surrounding text exactly. German was not modified; missing German policy
+keys use English fallback. Events, event outcomes, technologies, introductions,
+explanations and endings were not migrated. Round instructions remain unchanged.
+
+### Validation
+
+- Browser tests cover all 18 policy choices in all six rounds, native choice
+  clicks, shared titles/descriptions and all 44 effect strings.
+- German fixtures, not saved to the project, verify 36 language switches across
+  all policies. Resource values, score, event rolls, destinations and history
+  remain unchanged, with zero body rerenders on language changes.
+- Row grid layouts remain intact and contain no additional paragraph wrappers.
+  The apostrophe-containing choice is verified through actual native navigation.
+- Static checks preserve all passage headings/tags/positions, normal graph
+  destinations, gameplay vars, StoryScript and CSS. Non-policy/non-round
+  passages and non-policy JSON content are unchanged. All policy identifiers
+  are camelCase; descriptions/effects start with capitals and end with full
+  stops, and titles have no full stops.
+- Earlier stories and German dictionary are hash-verified unchanged.
+  Story JavaScript passes its syntax check.
+
+## tb17 — Wire the recycling-plant fire event and rename its passages
+
+Created `tb17.twee` from `tb16.twee`, with StoryTitle `tb17` and a new IFID.
+Original, earlier stories and all language dictionaries remain untouched.
+
+### Passage names and links
+
+| Previous passage | New passage |
+| --- | --- |
+| Event1.1 | FIRE AT RECYCLING PLANT |
+| 1.1OutFire | FIRE AT RECYCLING PLANT - PUT OUT FIRE |
+| 1.1Fire | FIRE AT RECYCLING PLANT - DO NOTHING |
+
+Kept tags, positions and sizes unchanged. Updated the event's two choice
+links and its three incoming policy routes (Extreme Eco-Tax, Mobile Detox Day
+and Return Deposit). Standard link notation retains the normal graph edges.
+Both outcomes still continue to Round2 or use their existing Game Over override.
+
+### Existing JSON wiring
+
+Used only the existing `events.fireAtRecyclingPlant` block:
+
+- Event heading and description use `.title` and `.description`.
+- Choice labels use `.outcomes.putOutFire.title` and `.outcomes.doNothing.title`.
+- Outcome headings use the corresponding `.description`, retaining the
+  distinction between the action label and the resulting situation.
+- Effect rows use the corresponding nested `.effects` keys through `textKey`.
+- The existing `common.yourChoice` key replaces this event's choice prompt.
+
+The shared introductory marker `An EVENT happens:` remains as existing text;
+its migration can be addressed with shared event presentation later. The JSON's
+existing displayed event title is preserved. No other event or outcome was
+wired or renamed.
+
+### Validation
+
+- Browser checks exercise all three incoming policy Continue links, both native
+  outcome choices, event descriptions/headings and every translated effect.
+- German fixtures, not saved to the project, verify live language switching in
+  both the event and outcomes. Gameplay state, score, event roll, destinations
+  and trail remain unchanged; language changes cause zero body rerenders.
+- Both normal outcomes retain Round2 destinations. Budget depletion after
+  putting out the fire still reaches Game over2, including after a language
+  change. Doing nothing at zero circularity keeps the circularity floor intact.
+- Static checks preserve all gameplay vars, scripts, CSS and graph metadata.
+  Other passage bodies are unchanged except the required renamed incoming
+  destinations. No old identifiers remain in the story, and every normal
+  destination is preserved under the rename mapping.
+- Prior story and dictionary hashes are unchanged. JavaScript passes its
+  syntax check.
+
+### tb17 link-label cleanup
+
+Removed the redundant editor labels from the two fire-event choice inserts.
+Their `to` arguments now contain only `[[PASSAGE NAME]]`; JSON keys still
+supply the displayed labels. Runtime destinations and graph edges are unchanged.
+
+## tb18 — Convert the remaining events and outcomes
+
+Created `tb18.twee` from `tb17.twee`, with StoryTitle `tb18` and a new IFID.
+Original, previous stories and the German dictionary remain untouched.
+
+### Approved event names
+
+| Previous passage | New passage | Key under events |
+| --- | --- | --- |
+| Event1.2 | REPAIR PARTS MARKET COLLAPSE | repairPartsMarketCollapse |
+| Event1.3 | MINIMALIST TECH MOVEMENT | minimalistTechMovement |
+| Event2.1 | NEW PINEAPPLE PHONE | newPineapplePhone |
+| Event2.2 | PHONE PRICE DROP | phonePriceDrop |
+| Event2.3 | GLOBAL CHIP CRISIS | globalChipCrisis |
+| Event3.1 | TOXIC WASTE | toxicWaste |
+| Event3.2 | FEAR OF DATA THEFT | fearOfDataTheft |
+| Event3.3 | GLOBAL RECESSION | globalRecession |
+
+Renamed all sixteen outcomes using the approved `EVENT NAME - ACTION` pattern:
+
+- Repair parts collapse: DO NOTHING; PROVIDE FINANCIAL SUPPORT.
+- Minimalist movement: PROMOTE MINIMALISM; ENCOURAGE SPENDING.
+- Pineapple Phone: PROMOTE LONGER PHONE USE; DO NOTHING.
+- Phone price drop: DO NOTHING; PROTECT REPAIR AND REUSE.
+- Chip crisis: SUPPORT REPAIR AND REUSE; SUBSIDIZE PHONE PURCHASES.
+- Toxic waste: INTRODUCE STRICTER REGULATIONS; CONTINUE RECYCLING.
+- Data theft: LAUNCH INFORMATION CAMPAIGN; DO NOTHING.
+- Recession: SUPPORT CIRCULAR SOLUTIONS; SUPPORT PHONE PURCHASES.
+
+Updated every incoming reference, preserving all tags, positions and sizes.
+No old event/outcome identifiers from this migration remain in the story.
+
+### JSON and text wiring
+
+Added the eight approved camelCase event blocks to en.json. Each has `title`,
+`description` and `outcomes`; each camelCase outcome has a choice `title`,
+result `description` and metric-specific `effects`.
+
+Event headings/descriptions and choice labels use those keys. Outcome headings
+use the result description; effect rows use `textKey`. The existing
+`common.yourChoice` key supplies choice prompts. Choice inserts contain only the
+standard destination in their `to` arguments, without redundant editor labels.
+
+Capitalized descriptions/effects and added final full stops; choice and event
+titles have no final full stops. Preserved existing wording apart from these
+presentation adjustments. The shared `An EVENT happens:` prefix remains as in
+the fire event, pending a later shared-prompt translation pass.
+
+The existing fire-event JSON block and its passages remain unchanged. Only the
+`events` block of en.json changed; all other JSON content is preserved exactly.
+German event translations remain pending and use English fallback. Policies,
+technologies, introductions, explanations and endings are unchanged except for
+necessary incoming destination renames.
+
+### Validation
+
+- 48 browser comparisons against tb17 cover the sixteen migrated outcomes in
+  normal, low-happiness and low-budget states. Primary resources, event rolls,
+  score, normal/Game Over destinations and icons match.
+- Browser checks exercise all eight event headings/descriptions, all sixteen
+  choice labels and native outcome clicks, result descriptions and effect rows.
+- German fixtures, not saved to the project, verify 32 language switches with
+  live outcome headings/effects, unchanged state/score/destinations/history and
+  zero body rerenders.
+- All 27 event-selection policy routes (nine policies, three event rolls each)
+  point to valid renamed event passages. Translated rows retain their grid
+  layout without additional paragraph wrappers.
+- Static checks preserve gameplay vars, scripts, CSS and graph metadata, all
+  normal destinations under the rename mapping, unrelated passage bodies,
+  the existing fire JSON block and every other JSON block. Prior story/German
+  hashes remain unchanged; JavaScript passes its syntax check.
+
+## tb19 — Translate all nine technologies
+
+Created `tb19.twee` from `tb18.twee`, with StoryTitle `tb19` and a new IFID.
+Original and earlier stories remain untouched. Passage identifiers, graph
+positions, tags and sizes are unchanged.
+
+### JSON and story wiring
+
+Corrected the draft top-level JSON name `techologies` to `technologies`.
+Preserved the existing `newTripleDiamondGlass` title, description and effects
+exactly. Added the other eight technologies using that structure:
+
+| Passage | Key under technologies |
+| --- | --- |
+| MAGNETIC BREAK-APART | magneticBreakApart |
+| NEW TRIPLE-DIAMOND GLASS | newTripleDiamondGlass |
+| LOW-ORBIT SIGNAL MESH | lowOrbitSignalMesh |
+| SMART BINS | smartBins |
+| REGENERATIVE PORT MATRIX | regenerativePortMatrix |
+| SELF-DESTRUCT | selfDestruct |
+| MODULAR SMARTPHONE | modularSmartphone |
+| NEW SELF-CHARGING BATTERY | newSelfChargingBattery |
+| SMART-SHATTERING | smartShattering |
+
+Each entry contains `title`, `description` and metric-specific `effects`.
+Titles have no final full stops; descriptions and effects start with capitals
+and end with full stops. Entries follow the three choice tiers in order.
+
+NewTech1a–NewTech3a choices now use translated-link inserts referencing the
+shared title, with standard destination-only arguments preserving the graph.
+Choice descriptions use the corresponding description keys. All nine result
+headings reuse the titles, and their fourteen effect rows use `textKey`.
+
+Research-investment passages, announcement passages and shared choice prompts
+remain unchanged. Policies, events, outcomes, introductions, explanations,
+endings and their JSON blocks were not changed. German technology translations
+remain pending and use English fallback.
+
+### Validation
+
+- 27 browser comparisons against tb18 cover all nine results under normal and
+  depleted-resource states. Resource changes, research-stock consumption, event
+  roll, score, icons and normal/Game Over destinations match.
+- Browser checks exercise all three choice passages and nine native clicks,
+  shared descriptions/titles and all fourteen effects, including the supplied
+  Triple-Diamond Glass template values.
+- German fixtures, not saved to the project, verify eighteen language switches
+  with live result titles/effects, unchanged state/history/score/destinations
+  and zero body rerenders. Row layouts retain the existing grid without extra
+  paragraph wrappers.
+- Static checks preserve gameplay vars, passage metadata, graph link expressions,
+  scripts, CSS and all unrelated passages. Other JSON blocks and the provided
+  template values are preserved. Prior story and German hashes are unchanged;
+  JavaScript passes its syntax check.
