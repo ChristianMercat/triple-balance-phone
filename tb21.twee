@@ -1,0 +1,2522 @@
+:: StoryTitle
+tb21
+
+
+:: StoryData
+{
+  "ifid": "974A2F10-D71C-4F53-8DF9-619C3A89C295",
+  "format": "Chapbook",
+  "format-version": "2.3.1",
+  "start": "Start",
+  "tag-colors": {
+    "technology": "yellow",
+    "policy": "blue",
+    "event": "purple",
+    "intro": "green",
+    "outcome": "red",
+    "round": "orange"
+  },
+  "zoom": 0.6
+}
+
+
+:: FIRE AT RECYCLING PLANT - DO NOTHING [event] {"position":"1850,600","size":"100,100"}
+circle: Math.max(0, circle - 1)
+--
+<div class="passage-title">
+{translate text: "events.fireAtRecyclingPlant.outcomes.doNothing.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.fireAtRecyclingPlant.outcomes.doNothing.effects.circularity", first: true}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: FIRE AT RECYCLING PLANT - PUT OUT FIRE [event] {"position":"1725,600","size":"100,100"}
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.fireAtRecyclingPlant.outcomes.putOutFire.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.fireAtRecyclingPlant.outcomes.putOutFire.effects.circularity", first: true}
+
+{effect row: "budget", trend: "down", textKey: "events.fireAtRecyclingPlant.outcomes.putOutFire.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: REPAIR PARTS MARKET COLLAPSE - DO NOTHING [event] {"position":"2175,600","size":"100,100"}
+circle: Math.max(0, circle - 1)
+happy: happy - 1
+--
+<div class="passage-title">
+{translate text: "events.repairPartsMarketCollapse.outcomes.doNothing.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.repairPartsMarketCollapse.outcomes.doNothing.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.repairPartsMarketCollapse.outcomes.doNothing.effects.happiness"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: REPAIR PARTS MARKET COLLAPSE - PROVIDE FINANCIAL SUPPORT [event] {"position":"2050,600","size":"100,100"}
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.effects.circularity", first: true}
+
+{effect row: "budget", trend: "down", textKey: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: MINIMALIST TECH MOVEMENT - PROMOTE MINIMALISM [event] {"position":"2450,600","size":"100,100"}
+circle: circle + 1
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.minimalistTechMovement.outcomes.promoteMinimalism.description"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "events.minimalistTechMovement.outcomes.promoteMinimalism.effects.circularity", first: true}
+
+{effect row: "budget", trend: "down", textKey: "events.minimalistTechMovement.outcomes.promoteMinimalism.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: MINIMALIST TECH MOVEMENT - ENCOURAGE SPENDING [event] {"position":"2325,600","size":"100,100"}
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.minimalistTechMovement.outcomes.encourageSpending.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.minimalistTechMovement.outcomes.encourageSpending.effects.circularity", first: true}
+
+{effect row: "budget", trend: "down", textKey: "events.minimalistTechMovement.outcomes.encourageSpending.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: NEW PINEAPPLE PHONE - PROMOTE LONGER PHONE USE [event] {"position":"1950,1100","size":"100,100"}
+happy: happy - 1
+--
+<div class="passage-title">
+{translate text: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.effects.happiness"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: NEW PINEAPPLE PHONE - DO NOTHING [event] {"position":"1800,1100","size":"100,100"}
+happy: happy + 1
+circle: Math.max(0, circle - 1)
+money: money + 1
+--
+<div class="passage-title">
+{translate text: "events.newPineapplePhone.outcomes.doNothing.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.newPineapplePhone.outcomes.doNothing.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "events.newPineapplePhone.outcomes.doNothing.effects.happiness"}
+
+{effect row: "budget", trend: "up", textKey: "events.newPineapplePhone.outcomes.doNothing.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: PHONE PRICE DROP - DO NOTHING [event] {"position":"2075,1100","size":"100,100"}
+happy: happy + 1
+circle: Math.max(0, circle - 1)
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.phonePriceDrop.outcomes.doNothing.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.phonePriceDrop.outcomes.doNothing.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "events.phonePriceDrop.outcomes.doNothing.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.phonePriceDrop.outcomes.doNothing.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: PHONE PRICE DROP - PROTECT REPAIR AND REUSE [event] {"position":"2200,1100","size":"100,100"}
+happy: happy - 1
+money: money + 1
+--
+<div class="passage-title">
+{translate text: "events.phonePriceDrop.outcomes.protectRepairAndReuse.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.phonePriceDrop.outcomes.protectRepairAndReuse.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.phonePriceDrop.outcomes.protectRepairAndReuse.effects.happiness"}
+
+{effect row: "budget", trend: "up", textKey: "events.phonePriceDrop.outcomes.protectRepairAndReuse.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: GLOBAL CHIP CRISIS - SUPPORT REPAIR AND REUSE [event] {"position":"2375,1100","size":"100,100"}
+happy: happy - 1
+circle: circle + 2
+money: money -1
+--
+<div class="passage-title">
+{translate text: "events.globalChipCrisis.outcomes.supportRepairAndReuse.description"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "events.globalChipCrisis.outcomes.supportRepairAndReuse.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.globalChipCrisis.outcomes.supportRepairAndReuse.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.globalChipCrisis.outcomes.supportRepairAndReuse.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: GLOBAL CHIP CRISIS - SUBSIDIZE PHONE PURCHASES [event] {"position":"2500,1100","size":"100,100"}
+money: Math.max(0, money - 2)
+--
+<div class="passage-title">
+{translate text: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.description"}
+</div>
+
+{effect row: "happiness", trend: "unchanged", textKey: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.effects.happiness", first: true}
+
+{effect row: "budget", trend: "down", textKey: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: TOXIC WASTE - INTRODUCE STRICTER REGULATIONS [event] {"position":"1925,1375","size":"100,100"}
+circle: Math.max(0, circle - 1)
+--
+<div class="passage-title">
+{translate text: "events.toxicWaste.outcomes.introduceStricterRegulations.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.toxicWaste.outcomes.introduceStricterRegulations.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "unchanged", textKey: "events.toxicWaste.outcomes.introduceStricterRegulations.effects.happiness"}
+
+{effect row: "budget", trend: "unchanged", textKey: "events.toxicWaste.outcomes.introduceStricterRegulations.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: TOXIC WASTE - CONTINUE RECYCLING [event] {"position":"1800,1375","size":"100,100"}
+happy: happy - 1
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.toxicWaste.outcomes.continueRecycling.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.toxicWaste.outcomes.continueRecycling.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.toxicWaste.outcomes.continueRecycling.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.toxicWaste.outcomes.continueRecycling.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: FEAR OF DATA THEFT - LAUNCH INFORMATION CAMPAIGN [event] {"position":"2225,1375","size":"100,100"}
+circle: circle + 1
+happy: happy + 1
+money: money -1
+--
+<div class="passage-title">
+{translate text: "events.fearOfDataTheft.outcomes.launchInformationCampaign.description"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "events.fearOfDataTheft.outcomes.launchInformationCampaign.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "events.fearOfDataTheft.outcomes.launchInformationCampaign.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.fearOfDataTheft.outcomes.launchInformationCampaign.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: FEAR OF DATA THEFT - DO NOTHING [event] {"position":"2100,1375","size":"100,100"}
+circle: Math.max(0, circle - 1)
+happy: happy - 1
+--
+<div class="passage-title">
+{translate text: "events.fearOfDataTheft.outcomes.doNothing.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.fearOfDataTheft.outcomes.doNothing.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.fearOfDataTheft.outcomes.doNothing.effects.happiness"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: GLOBAL RECESSION - SUPPORT CIRCULAR SOLUTIONS [event] {"position":"2375,1375","size":"100,100"}
+circle: circle + 2
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.globalRecession.outcomes.supportCircularSolutions.description"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "events.globalRecession.outcomes.supportCircularSolutions.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "unchanged", textKey: "events.globalRecession.outcomes.supportCircularSolutions.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.globalRecession.outcomes.supportCircularSolutions.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: GLOBAL RECESSION - SUPPORT PHONE PURCHASES [event] {"position":"2500,1375","size":"100,100"}
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.globalRecession.outcomes.supportPhonePurchases.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.globalRecession.outcomes.supportPhonePurchases.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "unchanged", textKey: "events.globalRecession.outcomes.supportPhonePurchases.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.globalRecession.outcomes.supportPhonePurchases.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: BIO PHONE [policy] {"position":"1275,1525","size":"100,100"}
+circle: circle + 1
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "policies.bioPhone.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.bioPhone.effects.circularity", first: true}
+
+{effect row: "budget", trend: "down", textKey: "policies.bioPhone.effects.budget"}
+
+<div class="passage-navigation">
+[if tech > 0]
+{translated link: "common.continue", to: '[[Continue->NewTech2]]', role: "continue"}
+
+[if tech == 0]
+{translated link: "common.continue", to: '[[Continue->Round6]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: BYOD [policy] {"position":"1400,975","size":"100,100"}
+circle: circle + 1
+money: money - 1
+randomEvent: Math.floor(Math.random() * 4) + 1
+--
+<div class="passage-title">
+{translate text: "policies.byod.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.byod.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "unchanged", textKey: "policies.byod.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "policies.byod.effects.budget"}
+
+<div class="passage-navigation">
+[if randomEvent == 1]
+{translated link: "common.continue", to: '[[Continue->NEW PINEAPPLE PHONE]]', role: "continue"}
+
+[if randomEvent == 2]
+{translated link: "common.continue", to: '[[Continue->PHONE PRICE DROP]]', role: "continue"}
+
+[if randomEvent == 3]
+{translated link: "common.continue", to: '[[Continue->GLOBAL CHIP CRISIS]]', role: "continue"}
+
+[if randomEvent > 3]
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: CLOSED-LOOP LAW [policy] {"position":"1300,1800","size":"100,100"}
+circle: circle + 1
+--
+<div class="passage-title">
+{translate text: "policies.closedLoopLaw.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.closedLoopLaw.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "unchanged", textKey: "policies.closedLoopLaw.effects.happiness"}
+
+<div class="passage-navigation">
+[if tech > 0]
+{translated link: "common.continue", to: '[[Continue->NewTech3]]', role: "continue"}
+
+[if tech == 0]
+{translated link: "common.continue", to: '[[Continue->End1]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: CONSUMPTION LIMIT [policy] {"position":"1525,1525","size":"100,100"}
+happy: happy - 2
+circle: circle + 2
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "policies.consumptionLimit.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.consumptionLimit.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "policies.consumptionLimit.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "policies.consumptionLimit.effects.budget"}
+
+<div class="passage-navigation">
+[if tech > 0]
+{translated link: "common.continue", to: '[[Continue->NewTech2]]', role: "continue"}
+
+[if tech == 0]
+{translated link: "common.continue", to: '[[Continue->Round6]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: DON'T PHONE AND DRIVE [policy] {"position":"1400,1250","size":"100,100"}
+happy: happy - 1
+randomEvent: Math.floor(Math.random() * 4) + 1
+--
+<div class="passage-title">
+{translate text: "policies.dontPhoneAndDrive.title"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "policies.dontPhoneAndDrive.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "policies.dontPhoneAndDrive.effects.happiness"}
+
+{effect row: "budget", trend: "unchanged", textKey: "policies.dontPhoneAndDrive.effects.budget"}
+
+<div class="passage-navigation">
+[if randomEvent == 1]
+{translated link: "common.continue", to: '[[Continue->TOXIC WASTE]]', role: "continue"}
+
+[if randomEvent == 2]
+{translated link: "common.continue", to: '[[Continue->FEAR OF DATA THEFT]]', role: "continue"}
+
+[if randomEvent == 3]
+{translated link: "common.continue", to: '[[Continue->GLOBAL RECESSION]]', role: "continue"}
+
+[if randomEvent > 3]
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: EXTREME ECO-TAX [policy] {"position":"1400,475","size":"100,100"}
+happy: happy - 2
+circle: circle + 2
+money: money + 2
+randomEvent: Math.floor(Math.random() * 4) + 1
+--
+<div class="passage-title">
+{translate text: "policies.extremeEcoTax.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.extremeEcoTax.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "policies.extremeEcoTax.effects.happiness"}
+
+{effect row: "budget", trend: "up", textKey: "policies.extremeEcoTax.effects.budget"}
+
+<div class="passage-navigation">
+[if randomEvent == 1]
+{translated link: "common.continue", to: '[[Continue->FIRE AT RECYCLING PLANT]]', role: "continue"}
+
+[if randomEvent == 2]
+{translated link: "common.continue", to: '[[Continue->REPAIR PARTS MARKET COLLAPSE]]', role: "continue"}
+
+[if randomEvent == 3]
+{translated link: "common.continue", to: '[[Continue->MINIMALIST TECH MOVEMENT]]', role: "continue"}
+
+[if randomEvent > 3]
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: End.Credits [ending prose] {"position":"50,925","size":"100,100"}
+ui.footerLeft: "{translated link: \"common.learnScore\", to: '[[Learn more about the score->End4]]'}"
+ui.footerCenter: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}"
+--
+This game was developed by  IMAGINARY gGmbH © 2026.
+
+Gameplay and implementation: Bianca Violet
+
+Illustrations: Ariel Kahtan
+
+
+<div class="credits-funding">
+This work is part of the Erasmus+ project Math4Sustainability and co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them. Project number 2024-1-DE03-KA220-SCH-000246047.
+</div>
+
+
+:: End1 [ending] {"position":"425,2450","size":"100,100"}
+ui.status: true
+ui.headerRight: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}"
+ui.footerCenter: ""
+--
+
+<span class="passage-title">Your legislative period in Phonopolis is over</span>.<br> 
+Find out about your achievements in office.<br>
+<img src="images/government.webp" class="story-illustration">
+
+{translated link: "common.continue", to: '[[Continue->End2]]', role: "continue"}
+
+
+:: End2 [ending prose] {"position":"25,1550","size":"100,100"}
+ui.status: true
+ui.headerRight: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}"
+ui.footerCenter: ""
+--
+Here is the state of Phonopolis after your legislative period:
+{summary row: "circularity", value: circle, first: true}
+[if circle < 4]
+Your choices did not really improve the **circularity** of the economy.
+[if circle > 3 && circle < 5]
+Your choices were not very efficient in building a **circular** economy.
+[if circle > 4 && circle < 8]
+You have improved the **circularity** of the economy.
+[if circle > 7 && circle < 11]
+You have improved the **circularity** of the economy significantly.
+[if circle > 10]
+You improved the **circularity** of the economy tremendously.
+[continue]
+{end summary row}
+
+{summary row: "happiness", value: happy}
+[if happy < 3]
+People are not very **happy** with your choices.
+
+[if happy > 2 && happy < 7]
+The **happiness** of the people did not change much.
+
+[if happy > 6 && happy < 10]
+People are quite **happy** with your choices.
+
+[if happy > 9]
+People are very **happy** with your choices.
+[continue]
+{end summary row}
+
+{summary row: "budget", value: money}
+[if money < 2]
+You barely managed not to go bankrupt.
+
+[if money > 1 && money < 5]
+You have less **money** left than what you started with.
+
+[if money > 4 && money < 6]
+You spent as much **money** as you earned.
+
+[if money > 5]
+You earned more **money** than you spent.
+[continue]
+{end summary row}
+
+
+[if happy > 0]
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->End3]]', role: "continue"}
+</div>
+
+
+:: End3 [ending] {"position":"475,1275","size":"100,100"}
+ui.footerCenter: "{translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
+ui.status: true
+--
+<div class="ending-assessment">
+[if score > 50]
+<img src="images/very-good.png" class="score-icon"> <img src="images/very-good.png" class="score-icon"> <img src="images/very-good.png" class="score-icon"> <br>
+**You've hit the high score! Congratulations!**
+
+[if score > 32.5 && score <= 50]
+<img src="images/very-good.png" class="score-icon"> <br>
+Your score is {score} of 50. <br><br>
+You have been an outstanding mayor for Phonopolis. **Congratulations!** 
+
+[if score > 28.5 && score <= 32.5]
+<img src="images/good.png" class="score-icon"> <br>
+Your score is {score} of 50. <br><br>
+You have been a good mayor for Phonopolis. 
+
+[if score > 22.5 && score <= 28.5]
+<img src="images/neutral.png" class="score-icon"> <br>
+Your score is {score} of 50. <br><br>
+You have been an average mayor for Phonopolis. 
+
+[if score > 14.5 && score <= 22.5]
+<img src="images/bad.png" class="score-icon"> <br>
+Your score is {score} of 50. <br><br>
+You have been a poor mayor for Phonopolis. 
+
+[if score > 2 && score <= 14.5]
+<img src="images/bad.png" class="score-icon"> <br>
+Your score is {score} of 50. <br><br>
+You barely survived this legislative period in Phonopolis.
+
+
+[continue]
+[if score > -5]
+{translated link: "common.runAgain", to: '[[Run for office again->Start]]'}
+</div>
+
+<div class="score-details-link">
+{translated link: "common.learnScore", to: '[[Learn more about the score->End4]]'}
+</div>
+
+
+:: End4 [ending prose] {"position":"625,1275","size":"100,100"}
+ui.footerCenter: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}       {translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
+--
+The score is calculated from the values for circularity, happiness and your left over budget. 
+
+Score = 2.5 * <img src="images/circularity.webp" class="indicator-icon"> + 1.5 * <img src="images/good.webp" class="indicator-icon indicator-icon-offset-3"> + 1 * <img src="images/money.webp" class="indicator-icon">
+
+With the values from your current game, you reached:<br>
+Score = 2.5 * {circle} + 1.5 * {happy} + 1 * {money} = {score}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->End5]]', role: "continue"}
+</div>
+
+
+:: End5 [ending prose] {"position":"775,1275","size":"100,100"}
+The game contains many decision points where you choose between different options: Six rounds of <span class="policy">policy</span> decisions, up to three rounds of <span class="tech">technology</span> decisions, and up to three <span class="event">events</span> are possible.
+
+Each sequence of decisions creates a unique path through the game, resulting in a large number of possible playthroughs.
+
+<div class="passage-navigation">
+Can you guess the magnitude of that number?
+<br><br>
+{translated link: "common.continue", to: '[[Continue->End6]]', role: "continue"}
+</div>
+
+
+:: End6 [ending] {"position":"925,1275","size":"100,100"}
+ui.footerLeft: "Your score: {score}"
+--
+
+There are close to <b>4 million (3.824.020)</b> different playthroughs.<br> 
+Find out how many there are to reach your score:
+
+
+<img src="images/graph.webp" class="score-chart">
+
+
+:: FIRE AT RECYCLING PLANT [event] {"position":"1725,475","size":"100,100"}
+An <span class="event">EVENT</span> happens:<br>
+<span class="passage-title">{translate text: "events.fireAtRecyclingPlant.title"}</span>
+
+{translate text: "events.fireAtRecyclingPlant.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.fireAtRecyclingPlant.outcomes.putOutFire.title", to: '[[FIRE AT RECYCLING PLANT - PUT OUT FIRE]]'}</span>
+
+<span class="event">{translated link: "events.fireAtRecyclingPlant.outcomes.doNothing.title", to: '[[FIRE AT RECYCLING PLANT - DO NOTHING]]'}</span>
+
+
+:: REPAIR PARTS MARKET COLLAPSE [event] {"position":"2050,475","size":"100,100"}
+An <span class="event">EVENT</span> happens:<br>
+<span class="passage-title">{translate text: "events.repairPartsMarketCollapse.title"}</span>
+
+{translate text: "events.repairPartsMarketCollapse.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.repairPartsMarketCollapse.outcomes.doNothing.title", to: '[[REPAIR PARTS MARKET COLLAPSE - DO NOTHING]]'}</span>
+
+<span class="event">{translated link: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.title", to: '[[REPAIR PARTS MARKET COLLAPSE - PROVIDE FINANCIAL SUPPORT]]'}</span>
+
+
+:: MINIMALIST TECH MOVEMENT [event] {"position":"2325,475","size":"100,100"}
+An <span class="event">EVENT</span> happens:<br>
+<span class="passage-title">{translate text: "events.minimalistTechMovement.title"}</span>
+
+{translate text: "events.minimalistTechMovement.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.minimalistTechMovement.outcomes.encourageSpending.title", to: '[[MINIMALIST TECH MOVEMENT - ENCOURAGE SPENDING]]'}</span>
+
+<span class="event">{translated link: "events.minimalistTechMovement.outcomes.promoteMinimalism.title", to: '[[MINIMALIST TECH MOVEMENT - PROMOTE MINIMALISM]]'}</span>
+
+
+:: NEW PINEAPPLE PHONE [event] {"position":"1800,975","size":"100,100"}
+An <span class="event">EVENT</span> happens:<br>
+<span class="passage-title">{translate text: "events.newPineapplePhone.title"}</span>
+
+{translate text: "events.newPineapplePhone.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.newPineapplePhone.outcomes.doNothing.title", to: '[[NEW PINEAPPLE PHONE - DO NOTHING]]'}</span>
+
+<span class="event">{translated link: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.title", to: '[[NEW PINEAPPLE PHONE - PROMOTE LONGER PHONE USE]]'}</span>
+
+
+:: PHONE PRICE DROP [event] {"position":"2075,975","size":"100,100"}
+An <span class="event">EVENT</span> happens:<br>
+<span class="passage-title">{translate text: "events.phonePriceDrop.title"}</span>
+
+{translate text: "events.phonePriceDrop.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.phonePriceDrop.outcomes.doNothing.title", to: '[[PHONE PRICE DROP - DO NOTHING]]'}</span>
+
+<span class="event">{translated link: "events.phonePriceDrop.outcomes.protectRepairAndReuse.title", to: '[[PHONE PRICE DROP - PROTECT REPAIR AND REUSE]]'}</span>
+
+
+:: GLOBAL CHIP CRISIS [event] {"position":"2375,975","size":"100,100"}
+An <span class="event">EVENT</span> happens:<br>
+<span class="passage-title">{translate text: "events.globalChipCrisis.title"}</span>
+
+{translate text: "events.globalChipCrisis.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.globalChipCrisis.outcomes.supportRepairAndReuse.title", to: '[[GLOBAL CHIP CRISIS - SUPPORT REPAIR AND REUSE]]'}</span>
+
+<span class="event">{translated link: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.title", to: '[[GLOBAL CHIP CRISIS - SUBSIDIZE PHONE PURCHASES]]'}</span>
+
+
+:: TOXIC WASTE [event] {"position":"1800,1250","size":"100,100"}
+An <span class="event">EVENT</span> happens:<br>
+<span class="passage-title">{translate text: "events.toxicWaste.title"}</span>
+
+{translate text: "events.toxicWaste.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.toxicWaste.outcomes.continueRecycling.title", to: '[[TOXIC WASTE - CONTINUE RECYCLING]]'}</span>
+
+<span class="event">{translated link: "events.toxicWaste.outcomes.introduceStricterRegulations.title", to: '[[TOXIC WASTE - INTRODUCE STRICTER REGULATIONS]]'}</span>
+
+
+:: FEAR OF DATA THEFT [event] {"position":"2075,1250","size":"100,100"}
+An <span class="event">EVENT</span> happens:<br>
+<span class="passage-title">{translate text: "events.fearOfDataTheft.title"}</span>
+
+{translate text: "events.fearOfDataTheft.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.fearOfDataTheft.outcomes.doNothing.title", to: '[[FEAR OF DATA THEFT - DO NOTHING]]'}</span>
+
+<span class="event">{translated link: "events.fearOfDataTheft.outcomes.launchInformationCampaign.title", to: '[[FEAR OF DATA THEFT - LAUNCH INFORMATION CAMPAIGN]]'}</span>
+
+
+:: GLOBAL RECESSION [event] {"position":"2375,1250","size":"100,100"}
+An <span class="event">EVENT</span> happens:<br>
+<span class="passage-title">{translate text: "events.globalRecession.title"}</span>
+
+{translate text: "events.globalRecession.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.globalRecession.outcomes.supportCircularSolutions.title", to: '[[GLOBAL RECESSION - SUPPORT CIRCULAR SOLUTIONS]]'}</span>
+
+<span class="event">{translated link: "events.globalRecession.outcomes.supportPhonePurchases.title", to: '[[GLOBAL RECESSION - SUPPORT PHONE PURCHASES]]'}</span>
+
+
+:: Game over [ending] {"position":"75,350","size":"100,100"}
+ui.footerCenter: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}       {translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
+ui.mode: "game-over"
+--
+
+<img src="images/game_over.png" class="game-over-heading-icon">
+<span class="passage-title">The People Revolt</span>
+<img src="images/game_over.png" class="game-over-heading-icon">
+
+The city no longer trusts your leadership. Angry citizens and political rivals have pushed you out of office.
+
+<span class="game-over-label">Game </span>
+<img src="images/dead.webp" class="game-over-icon">
+<span class="game-over-label"> Over!</span>
+
+
+:: Game over2 [ending] {"position":"200,350","size":"100,100"}
+ui.footerCenter: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}       {translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
+ui.mode: "game-over"
+--
+
+<img src="images/no_money.webp" class="game-over-budget-icon">
+<span class="passage-title">City Budget Depleted</span>
+
+Your policies pushed the city budget to zero. The city can no longer function, and you have been removed from office.<br>
+<span class="game-over-label">Game </span>
+<img src="images/dead.webp" class="game-over-icon">
+<span class="game-over-label"> Over!</span>
+
+
+:: LIMIT ONLINE FOOTPRINT [policy] {"position":"1425,1800","size":"100,100"}
+happy: happy - 1
+circle: circle + 1
+--
+<div class="passage-title">
+{translate text: "policies.limitOnlineFootprint.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.limitOnlineFootprint.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "policies.limitOnlineFootprint.effects.happiness"}
+
+<div class="passage-navigation">
+[if tech > 0]
+{translated link: "common.continue", to: '[[Continue->NewTech3]]', role: "continue"}
+
+[if tech == 0]
+{translated link: "common.continue", to: '[[Continue->End1]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: LOW-ORBIT SIGNAL MESH [technology] {"position":"1100,850","size":"100,100"}
+happy: happy +1
+tech: tech -1
+--
+<div class="passage-title">
+{translate text: "technologies.lowOrbitSignalMesh.title"}
+</div>
+
+{effect row: "happiness", trend: "up", textKey: "technologies.lowOrbitSignalMesh.effects.happiness", first: true}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round3]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: MAGNETIC BREAK-APART [technology] {"position":"975,850","size":"100,100"}
+happy: happy +1
+circle: circle + 1
+tech: tech -1
+--
+<div class="passage-title">
+{translate text: "technologies.magneticBreakApart.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "technologies.magneticBreakApart.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "technologies.magneticBreakApart.effects.happiness"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round3]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: MOBILE DETOX DAY [policy] {"position":"1525,475","size":"100,100"}
+circle: circle + 1
+randomEvent: Math.floor(Math.random() * 4) + 1
+--
+<div class="passage-title">
+{translate text: "policies.mobileDetoxDay.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.mobileDetoxDay.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "unchanged", textKey: "policies.mobileDetoxDay.effects.happiness"}
+
+<div class="passage-navigation">
+[if randomEvent == 1]
+{translated link: "common.continue", to: '[[Continue->FIRE AT RECYCLING PLANT]]', role: "continue"}
+
+[if randomEvent == 2]
+{translated link: "common.continue", to: '[[Continue->REPAIR PARTS MARKET COLLAPSE]]', role: "continue"}
+
+[if randomEvent == 3]
+{translated link: "common.continue", to: '[[Continue->MINIMALIST TECH MOVEMENT]]', role: "continue"}
+
+[if randomEvent > 3]
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: MODULAR SMARTPHONE [technology] {"position":"850,2125","size":"100,100"}
+happy: happy +1
+circle: circle +2
+tech: tech -1
+--
+<div class="passage-title">
+{translate text: "technologies.modularSmartphone.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "technologies.modularSmartphone.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "technologies.modularSmartphone.effects.happiness"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->End1]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: NEW SELF-CHARGING BATTERY [technology] {"position":"1000,2125","size":"100,100"}
+happy: happy +1
+tech: tech -1
+money: money + 1
+--
+<div class="passage-title">
+{translate text: "technologies.newSelfChargingBattery.title"}
+</div>
+
+{effect row: "happiness", trend: "up", textKey: "technologies.newSelfChargingBattery.effects.happiness", first: true}
+
+{effect row: "budget", trend: "up", textKey: "technologies.newSelfChargingBattery.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->End1]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: NEW TRIPLE-DIAMOND GLASS [technology] {"position":"850,850","size":"100,100"}
+happy: happy +2
+circle: circle + 1
+tech: tech -1
+--
+<div class="passage-title">
+{translate text: "technologies.newTripleDiamondGlass.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "technologies.newTripleDiamondGlass.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "technologies.newTripleDiamondGlass.effects.happiness"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round3]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: NO EXPLOITATIVE FEATURES [policy] {"position":"1400,1525","size":"100,100"}
+happy: happy + 1
+circle: circle + 1
+--
+<div class="passage-title">
+{translate text: "policies.noExploitativeFeatures.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.noExploitativeFeatures.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "policies.noExploitativeFeatures.effects.happiness"}
+
+<div class="passage-navigation">
+[if tech > 0]
+{translated link: "common.continue", to: '[[Continue->NewTech2]]', role: "continue"}
+
+[if tech == 0]
+{translated link: "common.continue", to: '[[Continue->Round6]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: NewTech1 [technology] {"position":"1075,675","size":"100,100"}
+{translate rich text: "techRounds.newTech1.text1"}
+
+<img src="images/tech3.webp" class="story-illustration">
+
+{translated link: "common.continue", to: '[[Continue->NewTech1a]]', role: "continue"}
+
+
+:: NewTech1a [technology prose] {"position":"925,700","size":"100,100"}
+{translate text: "techRounds.newTech1a.text1"}
+
+<span class="tech">{translated link: "technologies.magneticBreakApart.title", to: '[[MAGNETIC BREAK-APART]]'}</span>
+({translate text: "technologies.magneticBreakApart.description"})
+
+<span class="tech">{translated link: "technologies.newTripleDiamondGlass.title", to: '[[NEW TRIPLE-DIAMOND GLASS]]'}</span>
+({translate text: "technologies.newTripleDiamondGlass.description"})
+
+<span class="tech">{translated link: "technologies.lowOrbitSignalMesh.title", to: '[[LOW-ORBIT SIGNAL MESH]]'}</span>
+({translate text: "technologies.lowOrbitSignalMesh.description"})
+
+
+:: NewTech2 [technology] {"position":"1100,1550","size":"100,100"}
+{translate rich text: "techRounds.newTech2.text1"}
+
+<img src="images/tech2.webp" class="story-illustration">
+
+{translated link: "common.continue", to: '[[Continue->NewTech2a]]', role: "continue"}
+
+
+:: NewTech2a [technology prose] {"position":"975,1575","size":"100,100"}
+{translate text: "techRounds.newTech2a.text1"}
+
+<span class="tech">{translated link: "technologies.smartBins.title", to: '[[SMART BINS]]'}</span>
+({translate text: "technologies.smartBins.description"})
+
+<span class="tech">{translated link: "technologies.regenerativePortMatrix.title", to: '[[REGENERATIVE PORT MATRIX]]'}</span>
+({translate text: "technologies.regenerativePortMatrix.description"})
+
+<span class="tech">{translated link: "technologies.selfDestruct.title", to: '[[SELF-DESTRUCT]]'}</span>
+({translate text: "technologies.selfDestruct.description"})
+
+
+:: NewTech3 [technology] {"position":"1050,1925","size":"100,100"}
+{translate rich text: "techRounds.newTech3.text1"}
+
+<img src="images/tech1.webp" class="story-illustration">
+
+{translated link: "common.continue", to: '[[Continue->NewTech3a]]', role: "continue"}
+
+
+:: NewTech3a [technology prose] {"position":"850,1925","size":"100,100"}
+{translate text: "techRounds.newTech3a.text1"}
+
+<span class="tech">{translated link: "technologies.modularSmartphone.title", to: '[[MODULAR SMARTPHONE]]'}</span>
+({translate text: "technologies.modularSmartphone.description"})
+
+<span class="tech">{translated link: "technologies.newSelfChargingBattery.title", to: '[[NEW SELF-CHARGING BATTERY]]'}</span>
+({translate text: "technologies.newSelfChargingBattery.description"})
+
+<span class="tech">{translated link: "technologies.smartShattering.title", to: '[[SMART-SHATTERING]]'}</span>
+({translate text: "technologies.smartShattering.description"})
+
+
+:: ONE-PHONE LAW [policy] {"position":"1275,725","size":"100,100"}
+happy: happy - 2
+circle: circle + 1
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "policies.onePhoneLaw.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.onePhoneLaw.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "policies.onePhoneLaw.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "policies.onePhoneLaw.effects.budget"}
+
+<div class="passage-navigation">
+[if tech > 0]
+{translated link: "common.continue", to: '[[Continue->NewTech1]]', role: "continue"}
+
+[if tech == 0]
+{translated link: "common.continue", to: '[[Continue->Round3]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: PHONE SUBSCRIPTION [policy] {"position":"1525,725","size":"100,100"}
+happy: happy + 1
+circle: Math.max(0, circle - 2)
+money: money +1
+--
+<div class="passage-title">
+{translate text: "policies.phoneSubscription.title"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "policies.phoneSubscription.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "policies.phoneSubscription.effects.happiness"}
+
+{effect row: "budget", trend: "up", textKey: "policies.phoneSubscription.effects.budget"}
+
+
+<div class="passage-navigation">
+[if tech > 0]
+{translated link: "common.continue", to: '[[Continue->NewTech1]]', role: "continue"}
+
+[if tech == 0]
+{translated link: "common.continue", to: '[[Continue->Round3]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: RECYCLE BONUS [policy] {"position":"1275,1250","size":"100,100"}
+happy: happy + 1
+circle: Math.max(0, circle - 1)
+randomEvent: Math.floor(Math.random() * 4) + 1
+--
+<div class="passage-title">
+{translate text: "policies.recycleBonus.title"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "policies.recycleBonus.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "policies.recycleBonus.effects.happiness"}
+
+<div class="passage-navigation">
+[if randomEvent == 1]
+{translated link: "common.continue", to: '[[Continue->TOXIC WASTE]]', role: "continue"}
+
+[if randomEvent == 2]
+{translated link: "common.continue", to: '[[Continue->FEAR OF DATA THEFT]]', role: "continue"}
+
+[if randomEvent == 3]
+{translated link: "common.continue", to: '[[Continue->GLOBAL RECESSION]]', role: "continue"}
+
+[if randomEvent > 3]
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: REGENERATIVE PORT MATRIX [technology] {"position":"1125,1700","size":"100,100"}
+happy: happy +1
+circle: circle + 1
+tech: tech -1
+--
+<div class="passage-title">
+{translate text: "technologies.regenerativePortMatrix.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "technologies.regenerativePortMatrix.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "technologies.regenerativePortMatrix.effects.happiness"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round6]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: RETURN DEPOSIT [policy] {"position":"1275,475","size":"100,100"}
+happy: happy - 1
+circle: circle + 1
+randomEvent: Math.floor(Math.random() * 4) + 1
+--
+<div class="passage-title">
+{translate text: "policies.returnDeposit.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.returnDeposit.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "policies.returnDeposit.effects.happiness"}
+
+<div class="passage-navigation">
+[if randomEvent == 1]
+{translated link: "common.continue", to: '[[Continue->FIRE AT RECYCLING PLANT]]', role: "continue"}
+
+[if randomEvent == 2]
+{translated link: "common.continue", to: '[[Continue->REPAIR PARTS MARKET COLLAPSE]]', role: "continue"}
+
+[if randomEvent == 3]
+{translated link: "common.continue", to: '[[Continue->MINIMALIST TECH MOVEMENT]]', role: "continue"}
+
+[if randomEvent > 3]
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: Round1 [round] {"position":"1400,350","size":"100,100"}
+ui.round: 1
+--
+
+Choose one of the possible new policies by clicking on it.
+
+<span class="policy">{translated link: "policies.extremeEcoTax.title", to: '[[EXTREME ECO-TAX]]'}</span>
+({translate text: "policies.extremeEcoTax.description"})
+
+<span class="policy">{translated link: "policies.mobileDetoxDay.title", to: '[[MOBILE DETOX DAY]]'}</span>
+({translate text: "policies.mobileDetoxDay.description"})
+
+<span class="policy">{translated link: "policies.returnDeposit.title", to: '[[RETURN DEPOSIT]]'}</span>
+({translate text: "policies.returnDeposit.description"})
+
+
+:: Round2 [round] {"position":"1400,600","size":"100,100"}
+ui.round: 2
+--
+
+Your chosen policy will stay in effect. You can choose an additional one now.
+
+<span class="policy">{translated link: "policies.schoolRepairCafe.title", to: '[[SCHOOL REPAIR CAFÉ]]'}</span>
+({translate text: "policies.schoolRepairCafe.description"})
+
+<span class="policy">{translated link: "policies.phoneSubscription.title", to: '[[PHONE SUBSCRIPTION]]'}</span>
+({translate text: "policies.phoneSubscription.description"})
+
+<span class="policy">{translated link: "policies.onePhoneLaw.title", to: '[[ONE-PHONE LAW]]'}</span>
+({translate text: "policies.onePhoneLaw.description"})
+
+
+:: Round3 [round] {"position":"1400,850","size":"100,100"}
+ui.round: 3
+--
+
+Choose one of the possible new policies by clicking on it.
+
+<span class="policy">{translated link: "policies.byod.title", to: '[[BYOD]]'}</span>
+({translate text: "policies.byod.description"})
+
+<span class="policy">{translated link: "policies.youthProtection.title", to: '[[YOUTH PROTECTION]]'}</span>
+({translate text: "policies.youthProtection.description"})
+
+<span class="policy">{translated link: "policies.serviceContract.title", to: '[[SERVICE CONTRACT]]'}</span>
+({translate text: "policies.serviceContract.description"})
+
+
+:: Round4 [round] {"position":"1400,1125","size":"100,100"}
+ui.round: 4
+--
+
+Choose one of the possible new policies by clicking on it.
+
+<span class="policy">[[{translate text: "policies.dontPhoneAndDrive.title"}->DON'T PHONE AND DRIVE]]</span>
+({translate text: "policies.dontPhoneAndDrive.description"})
+
+<span class="policy">{translated link: "policies.sustainableDevicesAct.title", to: '[[SUSTAINABLE DEVICES ACT]]'}</span>
+({translate text: "policies.sustainableDevicesAct.description"})
+
+<span class="policy">{translated link: "policies.recycleBonus.title", to: '[[RECYCLE BONUS]]'}</span>
+({translate text: "policies.recycleBonus.description"})
+
+
+:: Round5 [round] {"position":"1400,1400","size":"100,100"}
+ui.round: 5
+--
+
+Choose one of the possible new policies by clicking on it.
+
+<span class="policy">{translated link: "policies.noExploitativeFeatures.title", to: '[[NO EXPLOITATIVE FEATURES]]'}</span>
+({translate text: "policies.noExploitativeFeatures.description"})
+
+<span class="policy">{translated link: "policies.consumptionLimit.title", to: '[[CONSUMPTION LIMIT]]'}</span>
+({translate text: "policies.consumptionLimit.description"})
+
+<span class="policy">{translated link: "policies.bioPhone.title", to: '[[BIO PHONE]]'}</span>
+({translate text: "policies.bioPhone.description"})
+
+
+:: Round6 [round] {"position":"1400,1650","size":"100,100"}
+ui.round: 6
+--
+
+Choose one of the possible new policies by clicking on it. (This will be the last round.)
+
+<span class="policy">{translated link: "policies.limitOnlineFootprint.title", to: '[[LIMIT ONLINE FOOTPRINT]]'}</span>
+({translate text: "policies.limitOnlineFootprint.description"})
+
+<span class="policy">{translated link: "policies.unlock.title", to: '[[UNLOCK]]'}</span>
+({translate text: "policies.unlock.description"})
+
+<span class="policy">{translated link: "policies.closedLoopLaw.title", to: '[[CLOSED-LOOP LAW]]'}</span>
+({translate text: "policies.closedLoopLaw.description"})
+
+
+:: SCHOOL REPAIR CAFÉ [policy] {"position":"1400,725","size":"100,100"}
+circle: circle + 1
+--
+<div class="passage-title">
+{translate text: "policies.schoolRepairCafe.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.schoolRepairCafe.effects.circularity", first: true}
+
+<div class="passage-navigation">
+[if tech > 0]
+{translated link: "common.continue", to: '[[Continue->NewTech1]]', role: "continue"}
+
+[if tech == 0]
+{translated link: "common.continue", to: '[[Continue->Round3]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: SELF-DESTRUCT [technology] {"position":"875,1700","size":"100,100"}
+happy: happy +1
+tech: tech -1
+--
+<div class="passage-title">
+{translate text: "technologies.selfDestruct.title"}
+</div>
+
+{effect row: "happiness", trend: "up", textKey: "technologies.selfDestruct.effects.happiness", first: true}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round6]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: SERVICE CONTRACT [policy] {"position":"1275,975","size":"100,100"}
+happy: happy + 1
+circle: circle + 1
+randomEvent: Math.floor(Math.random() * 4) + 1
+--
+<div class="passage-title">
+{translate text: "policies.serviceContract.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.serviceContract.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "policies.serviceContract.effects.happiness"}
+
+{effect row: "budget", trend: "unchanged", textKey: "policies.serviceContract.effects.budget"}
+
+<div class="passage-navigation">
+[if randomEvent == 1]
+{translated link: "common.continue", to: '[[Continue->NEW PINEAPPLE PHONE]]', role: "continue"}
+
+[if randomEvent == 2]
+{translated link: "common.continue", to: '[[Continue->PHONE PRICE DROP]]', role: "continue"}
+
+[if randomEvent == 3]
+{translated link: "common.continue", to: '[[Continue->GLOBAL CHIP CRISIS]]', role: "continue"}
+
+[if randomEvent > 3]
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: SMART BINS [technology] {"position":"1000,1700","size":"100,100"}
+circle: circle + 1
+tech: tech -1
+--
+<div class="passage-title">
+{translate text: "technologies.smartBins.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "technologies.smartBins.effects.circularity", first: true}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round6]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: SMART-SHATTERING [technology] {"position":"700,2125","size":"100,100"}
+circle: circle +1
+tech: tech -1
+--
+<div class="passage-title">
+{translate text: "technologies.smartShattering.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "technologies.smartShattering.effects.circularity", first: true}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->End1]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: SUSTAINABLE DEVICES ACT [policy] {"position":"1525,1250","size":"100,100"}
+circle: circle + 1
+randomEvent: Math.floor(Math.random() * 4) + 1
+--
+<div class="passage-title">
+{translate text: "policies.sustainableDevicesAct.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.sustainableDevicesAct.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "unchanged", textKey: "policies.sustainableDevicesAct.effects.happiness"}
+
+
+<div class="passage-navigation">
+[if randomEvent == 1]
+{translated link: "common.continue", to: '[[Continue->TOXIC WASTE]]', role: "continue"}
+
+[if randomEvent == 2]
+{translated link: "common.continue", to: '[[Continue->FEAR OF DATA THEFT]]', role: "continue"}
+
+[if randomEvent == 3]
+{translated link: "common.continue", to: '[[Continue->GLOBAL RECESSION]]', role: "continue"}
+
+[if randomEvent > 3]
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: Start [intro] {"position":"650,75","size":"100,100"}
+circle: 0
+happy: 5
+money: 5
+tech: 0
+--
+
+<img src="images/government.webp" class="story-illustration welcome-illustration">
+
+<p>{translate text: "start.start1.title"}</p>
+
+
+<p>{translate text: "start.start1.text1"}</p>
+
+{translated link: "common.continue", to: '[[Continue->Start2]]', role: "continue"}
+
+
+:: Start2 [intro prose] {"position":"1400,25","size":"100,100"}
+{translate text: "start.start2.text1"}
+
+{translate rich text: "start.start2.text2"} 
+
+<div class="passage-navigation">
+
+{translated link: "common.continue", to: '[[Continue->Start3]]', role: "continue"}   
+
+</div>
+
+~~<img src="images/circularity.webp" class="explanation-link-icon">{translated link: "common.explainEconomy", to: '[[What is a circular smartphone economy?->explanation.economy]]'}~~
+
+~~<img src="images/good.png" class="explanation-link-icon explanation-happiness-link-icon">{translated link: "common.explainHappiness", to: '[[What makes people happy?->explanation.happy]]'}~~
+
+
+:: Start3 [intro] {"position":"1400,200","size":"100,100"}
+{translate rich text: "start.start3.text1"} 
+
+<span class="illustration-group">
+<img src="images/good.webp" class="balance-illustration">
+<img src="images/money.webp" class="balance-illustration">
+<img src="images/circularity.webp" class="balance-illustration">
+</span>
+
+{translate text: "start.start3.text2"}
+
+
+{translated link: "common.continue", to: '[[Continue->Start4]]', role: "continue"}
+
+
+:: Start4 [intro prose] {"position":"1250,200","size":"100,100"}
+ui.status: true
+ui.skip: false
+--
+{translate text: "start.start4.text1"}
+{status row: "circularity", value: 0, textKey: "start.start4.row-circularity", first: true}
+
+{status row: "happiness", value: 5, textKey: "start.start4.row-happiness"}
+
+{status row: "budget", value: 5, textKey: "start.start4.row-budget"}
+<div class="passage-navigation">
+
+
+{translated link: "common.continue", to: '[[Continue->Start5]]', role: "continue"}
+
+</div>
+
+
+:: Start5 [intro] {"position":"1100,150","size":"100,100"}
+ui.headerRight: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}"
+ui.mode: "gameplay"
+--
+
+{translate rich text: "start.start5.text1"}
+<br><br>
+<span class="research-choice">
+{translated link: "common.yes", to: '[[Yes->Tech]]'}
+<img src="images/tech.webp" class="research-illustration">
+{translated link: "common.no", to: '[[No->Start6]]'}
+</span>
+
+
+:: Start6 [intro] {"position":"1050,500","size":"100,100"}
+ui.mode: "gameplay"
+--
+{translate rich text: "start.start6.text1"}
+
+<img src="images/law.webp" class="policy-illustration">
+
+{translate text: "start.start6.text2"}
+
+{translated link: "common.continue", to: '[[Continue->Round1]]', role: "continue"}
+
+
+:: Tech [technology] {"position":"850,175","size":"100,100"}
+{translate rich text: "techRounds.tech.text1"} 
+
+{translate text: "techRounds.tech.text2"}
+
+[[1->Tech1]]	,      [[2->Tech2]]   {translate text: "techRounds.tech.choiceSeparator"}    [[3->Tech3]]
+
+
+:: Tech1 [technology] {"position":"700,375","size":"100,100"}
+money: money - 1
+tech: 1
+--
+
+<img src="images/tech1.webp" class="story-illustration research-result-illustration">
+
+{translate rich text: "techRounds.tech1.text1"}<br>{translate text: "techRounds.tech1.text2"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Start6]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: Tech2 [technology] {"position":"850,325","size":"100,100"}
+money: money - 2
+tech: 2
+--
+
+<img src="images/tech2.webp" class="story-illustration">
+
+{translate rich text: "techRounds.tech2.text1"} 
+
+{translate text: "techRounds.tech2.text2"} 
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Start6]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: Tech3 [technology] {"position":"975,300","size":"100,100"}
+money: money - 3
+tech: 3
+--
+
+<img src="images/tech3.webp" class="story-illustration">
+
+{translate rich text: "techRounds.tech3.text1"} 
+
+{translate text: "techRounds.tech3.text2"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Start6]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: UNLOCK [policy] {"position":"1550,1800","size":"100,100"}
+happy: happy + 1
+circle: circle + 1
+money: money -1
+--
+<div class="passage-title">
+{translate text: "policies.unlock.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.unlock.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "policies.unlock.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "policies.unlock.effects.budget"}
+
+<div class="passage-navigation">
+[if tech > 0]
+{translated link: "common.continue", to: '[[Continue->NewTech3]]', role: "continue"}
+
+[if tech == 0]
+{translated link: "common.continue", to: '[[Continue->End1]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: YOUTH PROTECTION [policy] {"position":"1525,975","size":"100,100"}
+happy: happy - 1
+circle: circle + 1
+money: money - 1
+randomEvent: Math.floor(Math.random() * 4) + 1
+--
+<div class="passage-title">
+{translate text: "policies.youthProtection.title"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "policies.youthProtection.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "policies.youthProtection.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "policies.youthProtection.effects.budget"}
+
+<div class="passage-navigation">
+[if randomEvent == 1]
+{translated link: "common.continue", to: '[[Continue->NEW PINEAPPLE PHONE]]', role: "continue"}
+
+[if randomEvent == 2]
+{translated link: "common.continue", to: '[[Continue->PHONE PRICE DROP]]', role: "continue"}
+
+[if randomEvent == 3]
+{translated link: "common.continue", to: '[[Continue->GLOBAL CHIP CRISIS]]', role: "continue"}
+
+[if randomEvent > 3]
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+[continue]
+{game over override}
+</div>
+
+
+:: explanation.economy [explanation] {"position":"1700,50","size":"100,100"}
+<img src="images/circularity.webp" class="explanation-icon">  
+A circular economy for smartphones means keeping phones useful for as long as possible instead of throwing them away quickly. Key strategies include <b>reduce</b> (buy and use fewer new phones), <b>reuse</b>, <b>repair</b>, and <b>recycle</b>, which help save resources and reduce waste.
+
+<div class="passage-navigation">
+
+{translated link: "common.continue", to: '[[Continue->Start3]]', role: "continue"}
+
+</div>
+
+~~<img src="images/good.png" class="explanation-link-icon explanation-happiness-link-icon">{translated link: "common.explainHappiness", to: '[[What makes people happy?->explanation.happy]]'}~~
+
+
+:: explanation.happy [explanation] {"position":"1700,225","size":"100,100"}
+<img src="images/good.png" class="explanation-icon"> People in Phonopolis are happy when everyone who wants to own a phone, actually owns a phone, phones work well, are easy to use, and user data is protected. Phones should not be too expensive or break easily.
+
+<div class="passage-navigation">
+
+{translated link: "common.continue", to: '[[Continue->Start3]]', role: "continue"}
+
+</div>
+
+~~<img src="images/circularity.webp" class="explanation-link-icon">{translated link: "common.explainEconomy", to: '[[What is a circular smartphone economy?->explanation.economy]]'}~~
+
+
+:: StoryScript [script]
+/* Derived score (tb10). */
+engine.extend('2.3.1', () => {
+  // Lookup variables are calculated on every read, including after restart or
+  // save restoration. Keep the formula here rather than in ending passages.
+  engine.state.setLookup('score', get =>
+    2.5 * (get('circle') ?? 0) + 1.5 * (get('happy') ?? 0) + (get('money') ?? 0)
+  );
+});
+
+/* Optional end-condition override. Normal route links stay visible to Twine. */
+engine.extend("2.3.1", () => {
+  engine.template.inserts.add({
+    match: /^game over override$/i,
+    render: () => '<div hidden data-game-over-override></div>'
+  });
+
+  function overrideContinueDestination(event) {
+    const article = event.target;
+    if (!(article instanceof HTMLElement) || !article.matches("#page article")) return;
+    const happiness = Number(engine.state.get("happy"));
+    const budget = Number(engine.state.get("money"));
+    const destination = happiness <= 0 ? "Game over" : budget <= 0 ? "Game over2" : null;
+    const visited = new Set();
+    article.querySelectorAll("[data-game-over-override]").forEach(marker => {
+      const navigation = marker.closest(".passage-navigation");
+      if (!navigation || visited.has(navigation)) return;
+      visited.add(navigation);
+      navigation.querySelectorAll('passage-link[data-navigation-role="continue"]').forEach(link => {
+        // Retain the normal destination if the hook is invoked again on this body.
+        if (!link.dataset.normalDestination) link.dataset.normalDestination = link.getAttribute("to");
+        link.setAttribute("to", destination || link.dataset.normalDestination);
+      });
+    });
+  }
+
+  window.addEventListener("body-content-change", overrideContinueDestination);
+});
+
+/* Reusable effect-row presentation, adapted from tribalance3.twee. */
+engine.extend('2.3.1', () => {
+  const metricIcons = {
+    circularity: 'images/circularity.webp',
+    happiness: 'images/good.webp',
+    budget: 'images/money.webp'
+  };
+
+  const trendIcons = {
+    up: 'images/up.webp',
+    down: 'images/down.webp',
+    unchanged: 'images/nochange.webp'
+  };
+
+  const escapeHtml = value => String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+
+  const metricImage = metric => {
+    const source = metricIcons[metric];
+
+    if (!source) {
+      throw new Error(`Unknown metric in component: ${metric}`);
+    }
+
+    return `<img class="metric-icon" src="${source}" alt="">`;
+  };
+
+  function rowDescription(props) {
+    if (props.textKey !== undefined && props.text !== undefined) {
+      throw new Error('Use either textKey or text in a row, not both.');
+    }
+    if (props.textKey !== undefined) {
+      if (typeof props.textKey !== 'string' || !props.textKey.trim()) {
+        throw new Error('A row textKey must be a nonempty string.');
+      }
+      return window.ChapbookI18n.renderText(props.textKey);
+    }
+    return escapeHtml(props.text);
+  }
+
+  engine.template.inserts.add({
+    match: /^effect row$/i,
+    render(metric, props) {
+      const trend = String(props.trend).toLowerCase();
+      const trendSource = trendIcons[trend];
+
+      if (!trendSource) {
+        throw new Error(`Unknown trend in effect row: ${trend}`);
+      }
+
+      const description = rowDescription(props);
+
+      const firstClass = props.first ? ' effect-row-first' : '';
+
+      return `<div class="effect-row${firstClass}">
+        <div class="effect-icons">
+          ${metricImage(String(metric).toLowerCase())} :
+          <img class="trend-icon" src="${trendSource}" alt="">
+        </div>
+        <div class="effect-text">${description}</div>
+      </div>`;
+    }
+  });
+
+  engine.template.inserts.add({
+    match: /^status row$/i,
+    render(metric, props) {
+      const firstClass = props.first ? ' effect-row-first' : '';
+      return `<div class="effect-row status-row${firstClass}">
+        <div class="effect-icons">
+          ${metricImage(String(metric).toLowerCase())} = ${escapeHtml(props.value)}
+        </div>
+        <div class="effect-text">${rowDescription(props)}</div>
+      </div>`;
+    }
+  });
+
+  // Paired inserts keep conditional explanations in the passage source.
+  engine.template.inserts.add({
+    match: /^summary row$/i,
+    render(metric, props) {
+      const firstClass = props.first ? ' effect-row-first' : '';
+      return `<div class="summary-row${firstClass}">
+        <div class="summary-icons">
+          ${metricImage(String(metric).toLowerCase())} = ${escapeHtml(props.value)}
+        </div>
+        <div class="summary-text">`;
+    }
+  });
+
+  engine.template.inserts.add({
+    match: /^end summary row$/i,
+    render: () => '</div></div>'
+  });
+
+
+  /* Resolve UI settings from this passage's vars section, never inherited state.
+     Settings are JSON literals; strings can contain normal Twine links/inserts. */
+  const uiModesByTag = {
+    intro: 'intro', explanation: 'intro', round: 'round',
+    policy: 'gameplay', event: 'gameplay', outcome: 'gameplay',
+    technology: 'gameplay', ending: 'results'
+  };
+
+  function passageUiSettings(passage) {
+    const separator = /^--\s*$/m.exec(passage.source);
+    const vars = separator ? passage.source.slice(0, separator.index) : '';
+    const settings = {};
+    for (const line of vars.split('\n')) {
+      const match = /^ui\.(mode|round|status|skip|headerRight|footerLeft|footerCenter|footerRight):\s*(.+)$/.exec(line);
+      if (match) settings[match[1]] = JSON.parse(match[2]);
+    }
+    return settings;
+  }
+
+  function renderUiControls(source) {
+    return source ? `<div class="ui-controls">${engine.template.render(source)}</div>` : '';
+  }
+
+  function uiMetric(metric, value) {
+    return `<span class="ui-metric">${metricImage(metric)}<span>: ${escapeHtml(value)}</span></span>`;
+  }
+
+  function renderPassageUi(event) {
+    const passage = engine.story.passageNamed(engine.state.get('passage.name'));
+    if (!passage) return;
+    const settings = passageUiSettings(passage);
+    const tag = passage.tags.find(value => Object.hasOwn(uiModesByTag, value));
+    const mode = settings.mode || uiModesByTag[tag] || 'gameplay';
+    if (!['intro', 'gameplay', 'round', 'results', 'game-over'].includes(mode)) {
+      throw new Error(`Unknown UI mode: ${mode}`);
+    }
+    const gameplay = mode === 'gameplay' || mode === 'round';
+    const status = settings.status ?? gameplay;
+    const skip = settings.skip ?? mode === 'intro';
+    const footer = { left: '', center: '', right: '' };
+    const header = {
+      left: engine.template.render("{language selector}"),
+      center: engine.template.render(`<div class="ui-identity"><img class="ui-logo" src="images/happy_phone.png" alt=""><span class="ui-title-group"><span class="header-title">{translate text: "header.title"}</span><br><span class="ui-subtitle">{translate text: "header.subtitle"}</span></span></div>`),
+      right: renderUiControls(settings.headerRight ?? (gameplay ? `{translated link: "common.restart", to: '[[Restart->Start]]'}` : ''))
+    };
+    if (status) {
+      footer.left = `<div class="ui-status">${uiMetric('happiness', engine.state.get('happy'))}${uiMetric('budget', engine.state.get('money'))}</div>`;
+      footer.right = `<div class="ui-status">${uiMetric('circularity', engine.state.get('circle'))}</div>`;
+    }
+    if (skip) {
+      footer.right = engine.template.render(`{translated link: "footer.skipExplanations", to: '[[Skip explanations->Start5]]'}`);
+    }
+    if (mode === 'round') {
+      if (!Number.isInteger(settings.round) || settings.round < 1 || settings.round > 6) {
+        throw new Error('Round UI requires ui.round between 1 and 6');
+      }
+      footer.center = `Round ${settings.round}/6`;
+    }
+    if (mode === 'results' || mode === 'game-over') {
+      footer.center = renderUiControls(`{translated link: "common.restart", to: '[[Restart->Start]]'} {translated link: "common.credits", to: '[[Credits->End.Credits]]'}`);
+    }
+    for (const slot of ['left', 'center', 'right']) {
+      const key = `footer${slot[0].toUpperCase()}${slot.slice(1)}`;
+      if (Object.hasOwn(settings, key)) footer[slot] = renderUiControls(settings[key]);
+    }
+    // Chapbook updates its slots after inserting the body. Commit the complete
+    // layout once that render finishes, without changing config or game state.
+    queueMicrotask(() => {
+      const page = document.querySelector('#page');
+      for (const [name, slots] of Object.entries({ header, footer })) {
+        const element = page.querySelector(`:scope > ${name}`);
+        element.innerHTML = ['left', 'center', 'right']
+          .map(slot => `<div class="${slot}">${slots[slot]}</div>`).join('');
+        element.toggleAttribute('hidden', !Object.values(slots).some(Boolean));
+      }
+      page.dataset.uiMode = mode;
+    });
+  }
+
+  document.addEventListener('body-content-change', renderPassageUi);
+
+});
+
+/* Connect passage tags to layouts after Chapbook inserts the new body. */
+engine.extend("2.3.1", () => {
+  const types = ["intro", "explanation", "round", "policy", "event", "outcome", "ending", "technology"];
+
+  function applyPassageLayout(event) {
+    const article = event.target;
+    if (!(article instanceof HTMLElement) || !article.matches("#page article")) return;
+    const passage = engine.story.passageNamed(engine.state.get("passage.name"));
+    const tags = passage?.tags || [];
+    const type = types.find(value => tags.includes(value));
+    types.forEach(value => article.classList.remove(`passage-${value}`));
+    article.classList.toggle("passage-prose", tags.includes("prose"));
+    if (type) article.classList.add(`passage-${type}`);
+    article.dataset.passageType = type || "";
+  }
+
+  window.addEventListener("body-content-change", applyPassageLayout);
+});
+
+/* Chapbook i18next integration, adapted from twine-i18n-chapbook.js (tb13). */
+engine.extend("2.3.1", () => {
+  const languages = [
+    { code: "en", label: "English" },
+    { code: "de", label: "Deutsch" },
+  ];
+  const texts = new Set();
+  const selectors = new Set();
+  let translator;
+  let ready = false;
+  let busy = true;
+  let errorMessage = "";
+  let initialization;
+
+  function escapeAttribute(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+    })[character]);
+  }
+
+  function refresh() {
+    texts.forEach(element => element.update());
+    selectors.forEach(element => element.update());
+    if (ready) document.documentElement.lang = translator.resolvedLanguage || translator.language;
+  }
+
+  function loadScript(url, globalName) {
+    if (window[globalName]) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = url;
+      script.onload = () => window[globalName]
+        ? resolve()
+        : reject(new Error(`Missing library: ${globalName}`));
+      script.onerror = () => {
+        script.remove();
+        reject(new Error(`Could not load ${url}`));
+      };
+      document.head.appendChild(script);
+    });
+  }
+
+  // Language preference is separate from Chapbook gameplay/save state.
+  function savedLanguage() {
+    try {
+      const code = localStorage.getItem("language");
+      return languages.some(language => language.code === code) ? code : "en";
+    } catch {
+      return "en";
+    }
+  }
+
+  function rememberLanguage(code) {
+    try {
+      localStorage.setItem("language", code);
+    } catch {
+      // Switching still succeeds when browser storage is unavailable.
+    }
+  }
+
+  function initialize() {
+    if (initialization) return initialization;
+    busy = true;
+    errorMessage = "";
+    refresh();
+    initialization = (async () => {
+      try {
+        await loadScript("https://cdn.jsdelivr.net/npm/i18next@25/dist/umd/i18next.min.js", "i18next");
+        await loadScript("https://cdn.jsdelivr.net/npm/i18next-http-backend@4/i18nextHttpBackend.min.js", "i18nextHttpBackend");
+        translator = await createTranslator(savedLanguage());
+        ready = true;
+      } catch (error) {
+        errorMessage = "Could not load translations. Check your connection and retry.";
+        console.error("Chapbook i18n initialization failed:", error);
+      } finally {
+        busy = false;
+        refresh();
+      }
+    })();
+    return initialization;
+  }
+
+  async function createTranslator(language, resources) {
+    const instance = window.i18next.createInstance();
+    instance.use(window.i18nextHttpBackend);
+    await new Promise((resolve, reject) => instance.init({
+      lng: language,
+      fallbackLng: "en",
+      supportedLngs: languages.map(item => item.code),
+      load: "languageOnly",
+      keySeparator: ".",
+      // Existing flat dotted keys still resolve while content migrates to blocks.
+      ignoreJSONStructure: true,
+      // Reuse downloaded JSON, but isolate a failed attempt from the active instance.
+      resources: resources ? JSON.parse(JSON.stringify(resources)) : undefined,
+      partialBundledLanguages: true,
+      interpolation: { escapeValue: false }, // Output is assigned via textContent.
+      backend: { loadPath: "i18n/{{lng}}.json" },
+    }, error => error ? reject(error) : resolve()));
+    return instance;
+  }
+
+  async function changeLanguage(code) {
+    if (!ready || busy) return;
+    if (!languages.some(language => language.code === code)) {
+      throw new Error(`Unsupported language: ${code}`);
+    }
+    busy = true;
+    errorMessage = "";
+    refresh();
+    try {
+      // Commit only after loading succeeds. A fresh candidate also permits retrying
+      // downloads that i18next's backend has previously marked as failed.
+      translator = await createTranslator(code, translator.store.data);
+      rememberLanguage(code);
+    } catch (error) {
+      errorMessage = "Could not load this language. Your previous language is still active.";
+      console.error("Chapbook language change failed:", error);
+    } finally {
+      busy = false;
+      // Update only text nodes and controls. Never rerender a passage or change state.
+      refresh();
+    }
+  }
+
+  class TranslatedText extends HTMLElement {
+    connectedCallback() {
+      texts.add(this);
+      this.update();
+    }
+    disconnectedCallback() { texts.delete(this); }
+    update() {
+      const key = this.getAttribute("key");
+      const options = JSON.parse(this.getAttribute("options") || "{}");
+      this.textContent = ready ? translator.t(key, options) : key;
+    }
+  }
+
+  function inlineRichText(source) {
+    const template = document.createElement("template");
+    template.innerHTML = source;
+    const fragment = document.createDocumentFragment();
+    const allowedTags = new Set(["B", "STRONG", "SPAN"]);
+    const allowedClasses = new Set(["policy", "tech", "event"]);
+    const blockedTags = new Set(["SCRIPT", "STYLE", "IFRAME", "OBJECT", "EMBED", "SVG", "MATH", "TEMPLATE"]);
+    function copy(node, parent) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        parent.appendChild(document.createTextNode(node.textContent));
+      } else if (node.nodeType === Node.ELEMENT_NODE && !blockedTags.has(node.tagName)) {
+        let target = parent;
+        if (allowedTags.has(node.tagName)) {
+          target = document.createElement(node.tagName.toLowerCase());
+          if (node.tagName === "SPAN") {
+            const classes = Array.from(node.classList).filter(value => allowedClasses.has(value));
+            if (classes.length) target.className = classes.join(" ");
+          }
+          parent.appendChild(target);
+        }
+        for (const child of node.childNodes) copy(child, target);
+      }
+    }
+    for (const child of template.content.childNodes) copy(child, fragment);
+    return fragment;
+  }
+
+  class TranslatedRichText extends TranslatedText {
+    update() {
+      const key = this.getAttribute("key");
+      const options = JSON.parse(this.getAttribute("options") || "{}");
+      // Interpolated values remain literal text, even within a rich translation.
+      const value = ready ? translator.t(key, {
+        ...options, interpolation: { ...options.interpolation, escapeValue: true }
+      }) : key;
+      this.replaceChildren(inlineRichText(value));
+    }
+  }
+
+  class LanguageSelector extends HTMLElement {
+    connectedCallback() {
+      if (!this.select) {
+        const label = document.createElement("label");
+        label.appendChild(document.createTextNode("Language "));
+        this.select = document.createElement("select");
+        languages.forEach(language => {
+          const option = document.createElement("option");
+          option.value = language.code;
+          option.textContent = language.label;
+          this.select.appendChild(option);
+        });
+        this.select.addEventListener("change", () => changeLanguage(this.select.value));
+        label.appendChild(this.select);
+        this.status = document.createElement("span");
+        this.status.setAttribute("role", "status");
+        this.retry = document.createElement("button");
+        this.retry.type = "button";
+        this.retry.textContent = "Retry";
+        this.retry.addEventListener("click", () => {
+          initialization = undefined;
+          initialize();
+        });
+        this.append(label, this.status, this.retry);
+      }
+      selectors.add(this);
+      this.update();
+    }
+    disconnectedCallback() { selectors.delete(this); }
+    update() {
+      this.select.disabled = busy || !ready;
+      this.select.value = ready ? translator.resolvedLanguage || translator.language : "en";
+      this.status.textContent = busy ? " Loading…" : errorMessage ? ` ${errorMessage}` : "";
+      this.retry.hidden = ready || busy || !errorMessage;
+    }
+  }
+
+  customElements.define("chapbook-translated-text", TranslatedText);
+  customElements.define("chapbook-translated-rich-text", TranslatedRichText);
+  customElements.define("chapbook-language-selector", LanguageSelector);
+
+  function translatedText(key, options = {}, rich = false) {
+    if (typeof key !== "string" || !key) throw new Error("Translation key required");
+    const tag = rich ? "chapbook-translated-rich-text" : "chapbook-translated-text";
+    return `<${tag} key="${escapeAttribute(key)}" options="${escapeAttribute(JSON.stringify(options))}"></${tag}>`;
+  }
+
+  engine.template.inserts.add({
+    match: /^translate\s+text$/i,
+    render: (key, options) => translatedText(key, options),
+  });
+  engine.template.inserts.add({
+    match: /^translate\s+rich\s+text$/i,
+    render: (key, options) => translatedText(key, options, true),
+  });
+  engine.template.inserts.add({
+    match: /^language\s+selector$/i,
+    render: () => "<chapbook-language-selector></chapbook-language-selector>",
+  });
+  engine.template.inserts.add({
+    match: /^translated\s+link$/i,
+    render(key, { to, role, ...options }) {
+      // Standard link notation inside a quoted argument keeps Twine map arrows.
+      // Chapbook expands [[links]] before evaluating custom insert arguments.
+      // Single quotes around the argument preserve the generated double-quoted HTML.
+      const template = document.createElement("template");
+      template.innerHTML = typeof to === "string" ? to : "";
+      const link = template.content.firstElementChild;
+      if (link?.tagName !== "PASSAGE-LINK" || template.content.childNodes.length !== 1) {
+        throw new Error("Use to: '[[editor-label|Passage]]'");
+      }
+      const passage = link.getAttribute("to");
+      if (!engine.story.passageNamed(passage)) throw new Error(`Unknown passage: ${passage}`);
+      if (role !== undefined && (typeof role !== "string" || !role.trim())) {
+        throw new Error("A navigation role must be a nonempty string.");
+      }
+      const roleAttribute = role ? ` data-navigation-role="${escapeAttribute(role)}"` : "";
+      return `<passage-link class="link" to="${escapeAttribute(passage)}"${roleAttribute}>${translatedText(key, options)}</passage-link>`;
+    },
+  });
+
+  // Useful for diagnostics; language is deliberately kept outside story state.
+  window.ChapbookI18n = { languages, changeLanguage, renderText: translatedText, ready: initialize() };
+});
+
+:: StoryStylesheet [stylesheet]
+html, body, #page, #passages {
+    font-family: Helvetica, Arial, sans-serif !important;
+}
+
+#page footer {
+    padding-bottom: 50px;
+}
+
+#page header {
+    padding-top: 10px;
+    padding-bottom: 0px !important;
+}
+
+.policy {
+  background-color: cyan !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.tech {
+  background-color: yellow !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.event {
+  background-color: magenta !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* FORCE BLACK LINK TEXT */
+#page .policy,
+#page .policy *,
+#page .event,
+#page .event *,
+#page .tech,
+#page .tech * {
+  color: black !important;
+}
+
+
+.policy *:hover,
+.event *:hover,
+.tech *:hover {
+  background-color: white !important;
+  color: black !important;
+}
+
+/* Shared presentation classes (tb1). */
+#page .effect-icons,
+#page .summary-icons {
+  white-space: nowrap;
+}
+
+#page .effect-text,
+#page .summary-text {
+  width: 100%;
+}
+
+#page .summary-text {
+  line-height: 1;
+}
+
+#page .effect-row,
+#page .summary-row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  column-gap: 20px;
+  width: 100%;
+  margin-bottom: 10px;
+  align-items: start;
+}
+
+#page .summary-row {
+  grid-template-columns: 80px 1fr;
+  margin-bottom: 0;
+  align-items: center;
+}
+
+#page .effect-row-first {
+  margin-top: 12px;
+}
+
+#page .indicator-icon,
+#page .metric-icon,
+#page .trend-icon {
+  height: 25px;
+  position: relative;
+  top: 5px;
+}
+
+#page .indicator-icon-offset-3 {
+  top: 3px;
+}
+
+#page .score-icon {
+  height: 50px;
+  position: relative;
+  top: 3px;
+  right: 5px;
+}
+
+#page .balance-illustration {
+  height: 103px;
+  position: relative;
+  top: 5px;
+  left: 0;
+}
+
+#page .story-illustration {
+  height: 150px;
+  position: relative;
+  top: 5px;
+  left: 10px;
+}
+
+
+/* Tag-driven passage layouts (tb3).
+   Passage tags select these article classes through StoryScript.
+   Add the prose tag when a passage needs left-aligned reading text. */
+#page article.passage-intro,
+#page article.passage-round,
+#page article.passage-event,
+#page article.passage-ending,
+#page article.passage-technology {
+  text-align: center;
+}
+
+#page article.passage-explanation,
+#page article.passage-policy,
+#page article.passage-outcome,
+#page article.passage-prose {
+  text-align: left;
+}
+
+#page article .passage-title,
+#page article .passage-navigation {
+  text-align: center;
+}
+
+/* Indicator descriptions stay readable inside centered passage types. */
+#page article .effect-row,
+#page article .summary-row {
+  text-align: left;
+}
+
+
+/* Title typography and ending details (tb5). */
+#page article .passage-title,
+#page article .game-over-label {
+  font-weight: bold;
+}
+
+#page header .header-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#page article .ending-assessment {
+  text-align: center;
+}
+
+#page article .score-details-link {
+  font-size: 15px;
+  text-align: right;
+}
+
+/* Shared header/footer interface (tb8). */
+#page .ui-identity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#page .ui-logo {
+  height: 50px;
+}
+
+#page .ui-title-group {
+  display: inline-block;
+  line-height: 0.9;
+}
+
+#page .ui-subtitle {
+  font-size: 12px;
+}
+
+#page .ui-status,
+#page .ui-metric,
+#page .ui-controls,
+#page .ui-controls > p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#page .ui-status {
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#page .ui-metric {
+  white-space: nowrap;
+}
+
+#page .ui-controls,
+#page .ui-controls > p {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 0;
+}
+
+#page header .right .ui-controls,
+#page footer .right .ui-status {
+  justify-content: flex-end;
+}
+
+
+/* Passage illustrations and remaining body layout (tb9). */
+#page .welcome-illustration {
+  left: auto;
+  right: 1px;
+}
+
+#page .research-result-illustration {
+  left: auto;
+  right: 10px;
+}
+
+#page .research-illustration,
+#page .policy-illustration {
+  position: relative;
+  top: 5px;
+}
+
+#page .research-illustration {
+  height: 117px;
+}
+
+#page .policy-illustration {
+  height: 110px;
+  left: 10px;
+}
+
+#page .score-chart {
+  height: 250px;
+}
+
+#page .explanation-icon,
+#page .explanation-link-icon {
+  position: relative;
+  top: 5px;
+}
+
+#page .explanation-icon {
+  height: 50px;
+}
+
+#page .explanation-link-icon {
+  height: 25px;
+  right: 15px;
+}
+
+#page .explanation-happiness-link-icon {
+  right: 12px;
+  margin-right: 10px;
+}
+
+#page .game-over-heading-icon,
+#page .game-over-icon,
+#page .game-over-budget-icon {
+  height: 50px;
+  position: relative;
+  top: 20px;
+}
+
+#page .game-over-heading-icon {
+  top: 10px;
+}
+
+#page .game-over-budget-icon {
+  height: 70px;
+}
+
+#page .credits-funding {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  position: relative;
+  top: 40px;
+}
+
+#page .illustration-group,
+#page .research-choice {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 100%;
+}
+
+#page .research-choice {
+  gap: 16px;
+}

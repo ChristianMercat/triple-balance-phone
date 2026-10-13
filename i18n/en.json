@@ -11,6 +11,34 @@
   "next": "next",
   "second": "second",
 
+  "start": {
+    "start1": {
+      "title": "Welcome to office!",
+      "text1": "You are the new mayor of Phonopolis, a fictional city-state, where smartphones play a central role in everyday life."
+    },
+    "start2": {
+      "text1": "Your goal is to build a circular smartphone economy while balancing citizen happiness and the city budget.",
+      "text2": "You can decide about <span class=\"policy\">laws and policies</span>, invest in research for <span class=\"tech\">new technologies</span> or may have to deal with <span class=\"event\">events</span>."
+    },
+    "start3": {
+      "text1": "As mayor, you must balance citizen <b>happiness</b>, the city <b>budget</b>, and the <b>circularity</b> of the smartphone economy.",
+      "text2": "Every decision may affect all three!"
+    },
+    "start4": {
+      "text1": "Here is the current state of Phonopolis:",
+      "row-circularity": "The circularity index is zero, so your current economy is not circular at all. It cannot get worse.",
+      "row-happiness": "The people are medium happy, the happiness index is 5. Make sure it never gets to zero, or you will be thrown out of office!",
+      "row-budget": "The current city budget is 5 Megacoins. If it reaches zero, you will be removed from office!"
+    },
+    "start5": {
+      "text1": "Would you like to invest some of your budget in research for <span class=\"tech\">new technologies</span>?"
+    },
+    "start6": {
+      "text1": "During your legislative period, there will be six rounds of decisions about which <span class=\"policy\">policies</span> to enact.",
+      "text2": "You can now start the first round."
+    }
+  },
+
   "policies": {
     "extremeEcoTax": {
       "title": "Extreme Eco-Tax",
@@ -455,6 +483,166 @@
     "learnScore": "Learn more about the score",
     "explainEconomy": "What is a circular smartphone economy?",
     "explainHappiness": "What makes people happy?",
-    "yourChoice": "Your choice:"
+    "yourChoice": "Your choice:",
+    "eventHappens": "An <span class=\"event\">EVENT</span> happens:",
+    "roundProgress": "Round {{round}}/{{total}}",
+    "languageLabel": "Language",
+    "languageRetry": "Retry",
+    "languageLoading": "Loading…",
+    "translationLoadError": "Could not load translations. Check your connection and retry.",
+    "languageLoadError": "Could not load this language. Your previous language is still active."
+  },
+
+  "techRounds": {
+    "tech": {
+      "text1": "Each <span class=\"tech\">new technology</span> you invest in costs 1 Megacoin. Your investment may improve people's happiness and the circularity.",
+      "text2": "How many new technologies would you like to invest in?",
+      "choiceSeparator": "or"
+    },
+    "tech1": {
+      "text1": "Researchers are working on a <span class=\"tech\">new technology</span> now.",
+      "text2": "It will become available at a later point of your legislative period."
+    },
+    "tech2": {
+      "text1": "Researchers are working on two <span class=\"tech\">new technologies</span> now.",
+      "text2": "They will become available at a later point of your legislative period."
+    },
+    "tech3": {
+      "text1": "Researchers are working on three <span class=\"tech\">new technologies</span> now.",
+      "text2": "They will become available at a later point of your legislative period."
+    },
+    "newTech1": {
+      "text1": "Your research investment pays off now: <strong>A <span class=\"tech\">new technology</span> is ready!</strong>"
+    },
+    "newTech1a": {
+      "text1": "You can choose one of the new technologies by clicking on it."
+    },
+    "newTech2": {
+      "text1": "Your research investment pays off again: <strong>A <span class=\"tech\">new technology</span> is ready!</strong>"
+    },
+    "newTech2a": {
+      "text1": "You can choose one of the new technologies by clicking on it."
+    },
+    "newTech3": {
+      "text1": "Your research investment pays off again: <strong>A <span class=\"tech\">new technology</span> is ready!</strong>"
+    },
+    "newTech3a": {
+      "text1": "You can choose one of the new technologies by clicking on it."
+    }
+  },
+
+  "end": {
+    "end1": {
+      "title": "Your legislative period in Phonopolis is over",
+      "text1": "Find out about your achievements in office."
+    },
+    "end2": {
+      "text1": "Here is the state of Phonopolis after your legislative period:",
+      "circularity": {
+        "minimal": "Your choices did not really improve the <strong>circularity</strong> of the economy.",
+        "limited": "Your choices were not very efficient in building a <strong>circular</strong> economy.",
+        "improved": "You have improved the <strong>circularity</strong> of the economy.",
+        "significant": "You have improved the <strong>circularity</strong> of the economy significantly.",
+        "tremendous": "You improved the <strong>circularity</strong> of the economy tremendously."
+      },
+      "happiness": {
+        "low": "People are not very <strong>happy</strong> with your choices.",
+        "stable": "The <strong>happiness</strong> of the people did not change much.",
+        "high": "People are quite <strong>happy</strong> with your choices.",
+        "veryHigh": "People are very <strong>happy</strong> with your choices."
+      },
+      "budget": {
+        "nearBankruptcy": "You barely managed not to go bankrupt.",
+        "decreased": "You have less <strong>money</strong> left than what you started with.",
+        "unchanged": "You spent as much <strong>money</strong> as you earned.",
+        "increased": "You earned more <strong>money</strong> than you spent."
+      }
+    },
+    "end3": {
+      "highScore": {
+        "text1": "<strong>You've hit the high score! Congratulations!</strong>"
+      },
+      "outstanding": {
+        "scoreText": "Your score is {{score}} of 50.",
+        "text1": "You have been an outstanding mayor for Phonopolis. <strong>Congratulations!</strong>"
+      },
+      "good": {
+        "scoreText": "Your score is {{score}} of 50.",
+        "text1": "You have been a good mayor for Phonopolis."
+      },
+      "average": {
+        "scoreText": "Your score is {{score}} of 50.",
+        "text1": "You have been an average mayor for Phonopolis."
+      },
+      "poor": {
+        "scoreText": "Your score is {{score}} of 50.",
+        "text1": "You have been a poor mayor for Phonopolis."
+      },
+      "barelySurvived": {
+        "scoreText": "Your score is {{score}} of 50.",
+        "text1": "You barely survived this legislative period in Phonopolis."
+      }
+    },
+    "end4": {
+      "text1": "The score is calculated from the values for circularity, happiness and your left over budget.",
+      "scoreLabel": "Score",
+      "text2": "With the values from your current game, you reached:"
+    },
+    "end5": {
+      "text1": "The game contains many decision points where you choose between different options: Six rounds of <span class=\"policy\">policy</span> decisions, up to three rounds of <span class=\"tech\">technology</span> decisions, and up to three <span class=\"event\">events</span> are possible.",
+      "text2": "Each sequence of decisions creates a unique path through the game, resulting in a large number of possible playthroughs.",
+      "text3": "Can you guess the magnitude of that number?"
+    },
+    "end6": {
+      "scoreText": "Your score: {{score}}",
+      "text1": "There are close to <strong>4 million ({{playthroughCount}})</strong> different playthroughs.",
+      "text2": "Find out how many there are to reach your score:"
+    },
+    "credits": {
+      "text1": "This game was developed by IMAGINARY gGmbH © 2026.",
+      "text2": "Gameplay and implementation: Bianca Violet",
+      "text3": "Illustrations: Ariel Kahtan",
+      "funding": "This work is part of the Erasmus+ project Math4Sustainability and co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them. Project number 2024-1-DE03-KA220-SCH-000246047."
+    },
+    "gamOver": {
+      "title": "The People Revolt",
+      "text1": "The city no longer trusts your leadership. Angry citizens and political rivals have pushed you out of office.",
+      "label": "Game Over!"
+    },
+    "gameOver2": {
+      "title": "City Budget Depleted",
+      "text1": "Your policies pushed the city budget to zero. The city can no longer function, and you have been removed from office.",
+      "label": "Game Over!"
+    }
+  },
+
+  "explanations": {
+    "economy": {
+      "text1": "A circular economy for smartphones means keeping phones useful for as long as possible instead of throwing them away quickly. Key strategies include <b>reduce</b> (buy and use fewer new phones), <b>reuse</b>, <b>repair</b>, and <b>recycle</b>, which help save resources and reduce waste."
+    },
+    "happiness": {
+      "text1": "People in Phonopolis are happy when everyone who wants to own a phone, actually owns a phone, phones work well, are easy to use, and user data is protected. Phones should not be too expensive or break easily."
+    }
+  },
+
+  "rounds": {
+    "round1": {
+      "text1": "Choose one of the possible new policies by clicking on it."
+    },
+    "round2": {
+      "text1": "Your chosen policy will stay in effect. You can choose an additional one now."
+    },
+    "round3": {
+      "text1": "Choose one of the possible new policies by clicking on it."
+    },
+    "round4": {
+      "text1": "Choose one of the possible new policies by clicking on it."
+    },
+    "round5": {
+      "text1": "Choose one of the possible new policies by clicking on it."
+    },
+    "round6": {
+      "text1": "Choose one of the possible new policies by clicking on it. (This will be the last round.)"
+    }
   }
 }

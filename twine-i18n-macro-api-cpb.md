@@ -428,6 +428,44 @@ exact:
 
 This choice uses native Chapbook navigation and a live translated-text label.
 
+## Rich inline translations (tb20 and later)
+
+Use `{translate rich text}` for complete sentences containing inline emphasis:
+
+```text
+{translate rich text: "start.start2.text2"}
+```
+
+The story supports `<b>`, `<strong>` and `<span>` with `policy`, `tech` or
+`event` classes. These are the existing colored categories. Attributes such as
+`style` and event handlers are removed. Other markup does not introduce layout,
+links or images; unsupported tags are removed while ordinary child text is
+retained, and executable/embedded content is discarded. Keep paragraph
+containers, images, links and spacing in Twee.
+
+JSON still requires double-quoted strings. Backticks are JavaScript template
+string syntax, not JSON syntax. Escape double quotes inside the HTML:
+
+```json
+{
+  "text2": "You can enact <span class=\"policy\">laws and policies</span>."
+}
+```
+
+Alternatively, HTML attribute values can use single quotes inside the outer
+JSON double quotes. Literal line breaks in JSON strings must be written as
+`\n`; separate paragraphs should normally use separate keys.
+
+Rich inserts support the same named interpolation options as plain inserts.
+Interpolated values are escaped and remain literal text; only the translation's
+approved inline markup creates emphasis. Markdown and Chapbook instructions
+inside translations are not executed. Language switching rebuilds only the
+inline text/emphasis, without rerendering the passage or changing game state.
+
+Plain `{translate text}` remains the default for text without emphasis. Status
+rows now accept `textKey`, following effect rows, with literal `text` retained
+for migration and the same mutual-exclusion/key validation.
+
 ## Browser diagnostics
 
 `window.ChapbookI18n.ready` settles after the initial loading attempt, including

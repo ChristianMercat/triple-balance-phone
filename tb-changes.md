@@ -1104,3 +1104,198 @@ remain pending and use English fallback.
   scripts, CSS and all unrelated passages. Other JSON blocks and the provided
   template values are preserved. Prior story and German hashes are unchanged;
   JavaScript passes its syntax check.
+
+## tb20 — Rich inline translations and Start passage migration
+
+Created `tb20.twee` from `tb19.twee`, with StoryTitle `tb20` and a new IFID.
+Original and earlier stories remain untouched. Passage names, graph positions,
+tags, sizes, navigation and gameplay vars are unchanged.
+
+### JSON quoting and rich text
+
+Fixed the three backquoted Start values in en.json by using JSON double-quoted
+strings and escaping double quotes in HTML attributes. JSON does not support
+JavaScript backtick strings; inline HTML is stored as ordinary string content.
+The supplied wording and key structure are preserved.
+
+Added `{translate rich text}` to the story integration. It supports only inline
+bold (`b`/`strong`) and span classes `policy`, `tech` and `event`. Inert parsing
+and reconstruction remove unapproved attributes/markup and executable content.
+Interpolated values are escaped and remain literal text. Plain translation
+inserts keep their existing text-only behavior.
+
+Rich translated elements share the existing language-update lifecycle, so
+switching language updates text and emphasis without rerendering the passage,
+executing vars sections, changing history or rolling an event again. Layout,
+images, links and spacing remain in Twee. Documented JSON quoting and the new
+insert in twine-i18n-macro-api-cpb.md.
+
+### Start wiring
+
+Wired Start–Start6 to the supplied nested `start.start1`–`start.start6` entries.
+Use plain inserts for ordinary text and rich inserts for sentences containing
+color/bold emphasis. Kept the existing flat Start keys for older story versions.
+
+Added `textKey` support to status rows using the same description helper and
+validation as effect rows. Start4's three descriptions use their supplied row
+keys while icons and numeric values remain in the row component.
+
+Copied the existing German Start greeting/introduction into the two new
+start.start1 keys, preserving current German coverage. Other new German Start
+strings remain pending and use English fallback. No other story content was
+migrated in this iteration.
+
+### Validation
+
+- Browser comparisons preserve English text, bold/color emphasis, images,
+  destinations and primary game values across all six Start passages.
+- German fixtures verify live rich emphasis and status-row descriptions, with
+  unchanged state and zero body rerenders on language changes.
+- Tests retain approved tags/classes, remove unwanted attributes and embedded
+  content, and display HTML-looking interpolation values literally.
+- JSON parses successfully. Prior story hashes, unrelated passage bodies,
+  gameplay vars, graph metadata/links and CSS are unchanged. Story JavaScript
+  passes its syntax check.
+
+## tb21 — Wire the reviewed technology complement text
+
+Created `tb21.twee` from `tb20.twee`, with StoryTitle `tb21` and a new IFID.
+Merged i18n/tech-rounds.en.review.json's `techRounds` block into en.json exactly
+as reviewed. Kept the review file as a reference; runtime translations use the
+main English dictionary.
+
+### Passage wiring
+
+Wired Tech, Tech1, Tech2, Tech3, NewTech1, NewTech1a, NewTech2, NewTech2a,
+NewTech3 and NewTech3a to their respective camelCase passage sections.
+
+All passages retain their own text keys. Repeated availability sentences,
+announcements and selection instructions are independent entries: no aliases,
+shared references or enforced synchronization were introduced.
+
+Used plain inserts for ordinary sentences and the choice separator, and rich
+inserts for sentences containing colored technology references or bold
+announcements. Images, paragraph structure, the Tech1 line break, numeric
+research choices, normal navigation and depletion markers remain in Twee.
+Existing technology-specific choices/descriptions continue to use `technologies`.
+German techRounds text remains pending and uses English fallback.
+
+### Validation
+
+- Browser comparisons preserve English wording, bold/color emphasis, images,
+  link labels/destinations and primary game values across all ten passages.
+- German fixtures, not saved to the project, verify twenty language switches
+  with live passage text, unchanged spending/stock/score/history/destinations
+  and zero body rerenders.
+- Static checks confirm the merged block exactly matches the reviewed JSON,
+  while all pre-existing dictionary entries remain unchanged. Prior stories,
+  German and the review file are hash-verified unchanged.
+- Other passage bodies, gameplay vars, passage metadata, normal link expressions,
+  StoryScript and CSS are unchanged. JSON is valid; JavaScript passes its
+  syntax check.
+
+## tb22 — Wire the reviewed ending text
+
+Created `tb22.twee` from `tb21.twee`, with StoryTitle `tb22` and a new IFID.
+Merged the reviewed `end` block into en.json exactly as approved, preserving
+its per-passage structure and `gamOver` key spelling. Kept the review file as a
+reference. Prior stories and German remain untouched.
+
+### Passage wiring
+
+Wired End1–End6, End.Credits, Game over and Game over2 to their own sections.
+Plain inserts render ordinary text and rich inserts retain bold/color emphasis.
+End2's thirteen metric assessments and End3's six score assessments keep their
+existing native conditions, reset modifiers and passage-local placement.
+
+Score-bearing sentences pass `score: score` to interpolation; End6's footer uses
+its own scoreText key. End4's translated scoreLabel precedes the existing icon
+and numeric formulas, which remain in Twee. End6 passes the current legacy count
+string `3.824.020` as playthroughCount, preserving the reviewed presentation.
+The earlier maximum-score/playthrough-statistics corrections remain deferred:
+this migration intentionally retains the reviewed `of 50`/high-score wording
+and the old count rather than changing those claims silently.
+
+Game Over uses one complete translated label per passage, with its illustration
+beside the phrase instead of splitting translated words around the image.
+Images, credits-funding layout, score graph, navigation and normal destinations
+remain in the story. German ending translations remain pending and use English
+fallback. No other passages were migrated.
+
+### Validation
+
+- 171 browser comparisons against tb21 cover the nine ending passages, 141
+  half-unit scores from -10 to 60, and 21 End2 metric threshold scenarios.
+  English wording, bold emphasis, images, links, footer text and primary game
+  values match (normalizing whitespace and typographic apostrophes).
+- German fixtures, not saved to the project, verify eighteen language switches
+  with live ending text, numeric interpolation, unchanged gameplay state,
+  score/history/destinations and zero body rerenders.
+- Static checks confirm the dictionary block matches the review exactly and
+  existing dictionary entries are unchanged. Previous stories, German and the
+  review file are hash-verified unchanged.
+- All conditional modifiers, passage metadata, graph links, scripts, CSS and
+  other passage bodies are unchanged. JSON is valid; JavaScript passes its
+  syntax check.
+
+## tb23 — Wire the existing explanation entries
+
+Created `tb23.twee` from `tb22.twee`, with StoryTitle `tb23` and a new IFID.
+Wired explanation.economy to `explanations.economy.text1` using the rich-text
+insert, preserving the supplied bold strategy names. Wired explanation.happy
+to `explanations.happiness.text1` using the plain-text insert.
+
+Kept passage names, graph metadata, images, navigation and gameplay unchanged.
+All language dictionaries and prior story versions remain untouched. Missing
+German explanation entries use English fallback.
+
+Browser comparisons preserve English wording, bold emphasis, images,
+destinations and primary game values. German fixtures verify live text/emphasis
+updates without saved-state changes or body rerenders. Static checks confirm
+all other passage bodies, scripts, CSS, gameplay vars and graph links are
+unchanged; JavaScript passes its syntax check.
+
+## tb24 — Migrate the remaining rounds and shared interface text
+
+Created `tb24.twee` from `tb23.twee`, with StoryTitle `tb24` and a new IFID.
+Original and earlier stories remain untouched.
+
+### Dictionary and story wiring
+
+- Added `rounds.round1`–`rounds.round6`, each with its own text1 entry. Repeated
+  instructions remain independent, following the per-passage organization.
+- Added `common.eventHappens` and wired the introductory marker in all nine
+  event passages through the rich-text insert, retaining its colored emphasis.
+- Added `common.roundProgress` with round/total interpolation. The footer uses
+  the shared inline renderer without adding a paragraph wrapper.
+- Added common.languageLabel, languageRetry, languageLoading,
+  translationLoadError and languageLoadError. Selector labels/status messages
+  resolve through the active dictionary; errors store keys rather than already
+  translated strings. Language names remain endonyms in the supported-language
+  list.
+- Kept small emergency English copies of the common UI keys in the integration,
+  sourced from the new English entries, so controls, loading status and Retry
+  remain readable before dictionaries are available or when their download
+  fails. Once initialized, dictionary values take precedence.
+
+Existing English entries remain unchanged. German was not modified; its new
+round/common entries remain pending and use English fallback. Developer-only
+console/authoring diagnostics remain outside the player-facing dictionary.
+
+### Validation
+
+Browser comparisons preserve the English text, emphasis, footer contents,
+destinations and primary game values for all six rounds and nine event
+introductions. German fixtures verify round instructions, interpolated footer
+and selector labels updating without saved-state changes or body rerenders.
+Dictionary-loading failure uses readable emergency controls, and Retry recovers.
+Static checks preserve previous versions, German, existing dictionary values,
+gameplay vars, graph metadata/links and CSS. JSON is valid; JavaScript passes
+its syntax check.
+
+## Follow-up — Translation icon for the language selector
+
+Replace the visible `Language` label with a translation icon in a later
+iteration. Retain a localized accessible name for the selector and its normal
+keyboard operation. Recorded at the user's request; no icon replacement was
+implemented in tb24.

@@ -14,5 +14,11 @@
     "learnScore": "Mehr über die Punktzahl erfahren",
     "explainEconomy": "Was ist eine zirkuläre Smartphone-Wirtschaft?",
     "explainHappiness": "Was macht die Menschen glücklich?"
+  },
+  "start": {
+    "start1": {
+      "title": "Willkommen im Amt!",
+      "text1": "Du regierst den fiktiven Stadtstaat Phonopolis, in dem Handys eine zentrale Rolle im Alltag spielen."
+    }
   }
 }
