@@ -1,9 +1,7 @@
 # Chapbook i18n template
 
 `i18n-test-cpb.html` is the runnable, Twine-importable Chapbook 2.3.1 template.
-It ports the i18next integration from `i18n-test.html`; the original story and
-SugarCube template are untouched. Both demos use the existing `i18n/en.json`
-and `i18n/pl.json` files.
+It demonstrates the i18next integration using `i18n/en.json` and `i18n/pl.json`.
 
 ## Run and edit
 
@@ -33,14 +31,14 @@ also copy `twine-i18n-chapbook.js` into Story JavaScript and select Chapbook 2.3
 
 ## Inserts
 
-Chapbook custom inserts need multiword names. The SugarCube equivalents are:
+Chapbook custom inserts use multiword names:
 
-| SugarCube | Chapbook |
+| Purpose | Insert |
 | --- | --- |
-| `<<t "key">>` | `{translate text: "key"}` |
-| `<<t "inventory" ...>>` | `{translate text: "inventory", name: playerName, count: apples}` |
-| `<<tlink "next" [[next\|Second]]>>` | `{translated link: "next", to: '[[next\|Second]]'}` |
-| `<<languageSelector>>` | `{language selector}` |
+| Translate text | `{translate text: "key"}` |
+| Interpolate values | `{translate text: "inventory", name: playerName, count: apples}` |
+| Translate a link label | `{translated link: "next", to: '[[Second]]'}` |
+| Select a language | `{language selector}` |
 
 ### Translated text
 
@@ -92,7 +90,7 @@ Additional properties support interpolation in link labels:
 
 Configure the language list at the top of `twine-i18n-chapbook.js`, using
 endonyms for labels, and supply `i18n/<code>.json` for each language. The default
-and fallback language are English, as in the SugarCube template. Selection is
+and fallback language are English. Selection is
 not persisted between page reloads.
 
 The selector works in passages, headers and footers. All visible translation

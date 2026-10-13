@@ -1,0 +1,9 @@
+{
+  "greeting": "Hello, {{name}}!",
+
+  "inventory_one": "{{name}}, you have {{count}} apple.",
+  "inventory_other": "{{name}}, you have {{count}} apples.",
+
+  "next": "next",
+  "second": "second"
+}
