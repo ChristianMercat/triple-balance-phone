@@ -1,7 +1,7 @@
 # Pending tasks
 
-Baseline: `tb24.twee` and its English dictionary. This list consolidates
-unimplemented follow-ups from `tb-changes.md` and the project reviews.
+Baseline: `tripleBalance.twee` and its English dictionary, following tb24. This list
+consolidates unimplemented follow-ups from `change-log.md` and the project reviews.
 Balance changes and repository cleanup proposals still require decisions;
 listing them here does not implement them.
 

@@ -2052,7 +2052,7 @@ engine.extend("2.3.1", () => {
       supportedLngs: languages.map(item => item.code),
       load: "languageOnly",
       keySeparator: ".",
-      // Existing flat dotted keys still resolve while content migrates to blocks.
+      // Resolve nested dictionary sections; also accept legacy flat German keys.
       ignoreJSONStructure: true,
       // Reuse downloaded JSON, but isolate a failed attempt from the active instance.
       resources: resources ? JSON.parse(JSON.stringify(resources)) : undefined,

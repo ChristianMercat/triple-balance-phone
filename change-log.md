@@ -1,9 +1,14 @@
-# Triple Balance refactoring versions
+# Triple Balance changelog
 
-`original.twee` is the unchanged reference source. Each `tbN.twee` is a complete
-story snapshot with `tbN` as its StoryTitle and a distinct IFID, so versions can
-be imported into Twine as separate stories. Passage names, positions and explicit
-links are preserved for comparison in the graphical editor.
+The active source is `tripleBalance.twee`. From now on, changes are made directly
+in that file and tracked with Git and this changelog; no further `tbN.twee`
+snapshots will be created.
+
+Historical sources remain in `archive/`. `archive/original.twee` is the unchanged
+reference source. Each archived `tbN.twee` is a complete story snapshot with
+`tbN` as its StoryTitle and a distinct IFID, so versions can be imported into
+Twine as separate stories. Passage names, positions and explicit links are
+preserved for comparison in the graphical editor.
 
 ## tb1 — shared CSS classes
 
@@ -1299,3 +1304,26 @@ Replace the visible `Language` label with a translation icon in a later
 iteration. Retain a localized accessible name for the selector and its normal
 keyboard operation. Recorded at the user's request; no icon replacement was
 implemented in tb24.
+
+## 2026-10-13 — Group shared English entries and adopt Git tracking
+
+- Replaced the flat `header.title` and `header.subtitle` entries in `i18n/en.json`
+  with a `header` object containing `title` and `subtitle`.
+- Replaced the flat `footer.skipExplanations` entry with a `footer` object
+  containing `skipExplanations`.
+- Moved the flat `common.continue` entry into the existing `common` object as
+  `continue`, alongside the other shared navigation labels.
+- Verified the active story's inserts and shared UI already use these exact
+  dotted paths. With `keySeparator: "."`, they resolve the nested objects
+  directly, so no key renaming or passage link changes are needed. Updated the
+  integration comment in `tripleBalance.twee` to explain that nested sections
+  and legacy flat German keys are both supported. German and example dictionaries
+  were left unchanged.
+- Adopted `tripleBalance.twee` as the source for all future edits, tracked through
+  Git and `change-log.md` rather than new numbered story snapshots. Updated the
+  README, TODO reference and changelog introduction to reflect this workflow.
+
+Validation: English JSON parses successfully; all four reorganized paths retain
+their values and are referenced by the active story. All 312 English entries
+remain used. The existing German JSON also parses successfully. Gameplay,
+passage names, graph links and the HTML export were not modified.

@@ -8,6 +8,9 @@ An interactive text-based adventure created with Twine. It explores the dilemma 
 
 Main file is `tripleBalance.twee`. You can use the Twine graphical editor to inspect, modify, or and export it as `index.html` for testing and deployment. You can also use a text editor or IDE for development.
 
+Edit `tripleBalance.twee` directly and record changes in [change-log.md](change-log.md).
+Git tracks future revisions; historical `tbN.twee` snapshots are kept in `archive/`.
+
 You will need a local server for testing locally (for instance `python3 -m http.server`).
 
 This game uses a custom internationalization setup (see `twine-i18n-macro-api-cpb.md`).

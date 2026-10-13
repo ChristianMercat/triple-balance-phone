@@ -1,8 +1,11 @@
 {
-  "header.title": "Triple Balance",
-  "header.subtitle": "The Phone Edition",
-  "footer.skipExplanations": "Skip Explanations",
-  "common.continue": "Continue",
+  "header": {
+    "title": "Triple Balance",
+    "subtitle": "The Phone Edition"
+  },
+  "footer": {
+    "skipExplanations": "Skip Explanations"
+  },
 
   "start": {
     "start1": {
@@ -468,6 +471,7 @@
   },
 
   "common": {
+    "continue": "Continue",
     "restart": "Restart",
     "credits": "Credits",
     "yes": "Yes",
