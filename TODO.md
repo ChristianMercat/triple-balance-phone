@@ -71,8 +71,9 @@ listing them here does not implement them.
 
 ## Translation
 
-- [ ] Complete and review the German dictionary. The tb24 audit found **298 of
-      312 referenced keys** missing in German; these currently fall back to English.
+- [x] Generate a complete German dictionary mirroring English: all 312 entries
+      are translated, with matching nested keys, placeholders and inline markup.
+- [ ] Have a German-speaking collaborator review wording and terminology.
 - [ ] Review the complete German story in context, including interpolation,
       inline emphasis, navigation labels and layout with longer text.
 - [ ] Review passage naming when translation work makes it useful. Event names

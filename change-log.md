@@ -1327,3 +1327,23 @@ Validation: English JSON parses successfully; all four reorganized paths retain
 their values and are referenced by the active story. All 312 English entries
 remain used. The existing German JSON also parses successfully. Gameplay,
 passage names, graph links and the HTML export were not modified.
+
+## 2026-10-13 — Complete the German dictionary
+
+- Regenerated `i18n/de.json` with German translations for all 312 English entries,
+  mirroring the English dictionary's nested structure and key order, including
+  the `header`, `footer` and `common` sections.
+- Translated introductions, policies, technologies, events and outcomes,
+  navigation and language controls, technology rounds, endings, explanations
+  and round instructions. Used informal singular address and consistent
+  terminology for satisfaction, circularity and the city budget.
+- Preserved every interpolation placeholder, emphasis tag and category class.
+  Proper names and the BYOD acronym remain unchanged. Existing score wording
+  and playthrough claims were translated as supplied; their corrections remain
+  separate TODO items.
+- Updated TODO.md to record completed dictionary coverage while retaining
+  linguistic review and in-context layout review as pending tasks.
+
+Validation: both dictionaries parse as JSON and have exactly the same 312 leaf
+paths. Every German value is a nonempty string; placeholders and inline HTML
+tags match English entry by entry. No story, export or example files changed.
