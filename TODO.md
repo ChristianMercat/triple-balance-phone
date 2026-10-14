@@ -86,9 +86,10 @@ listing them here does not implement them.
 
 ## Maintainability and validation
 
-- [ ] Turn link/asset validation, dictionary-key checks and gameplay enumeration
-      into reusable project tools so collaborators can verify edits and regenerate
-      statistics.
+- [x] Add reusable gameplay path and score analysis in `analysis/`, with grouped
+      results, optional individual path export and a final-score histogram.
+- [ ] Turn link/asset validation and dictionary-key checks into reusable project
+      tools so collaborators can verify edits.
 - [ ] Document how to build or export the current story reproducibly; the
       existing Python builder builds only the isolated Chapbook demonstration.
 - [ ] Keep resource assignments, native score conditions and graph-readable

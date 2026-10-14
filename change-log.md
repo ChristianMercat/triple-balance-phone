@@ -18,20 +18,20 @@ Replaced 683 inline style attributes across 13 repeated patterns with shared
 classes in `StoryStylesheet`. This includes attributes inside header/footer
 configuration strings.
 
-| Classes | Purpose |
-| --- | --- |
-| `text-center` | Center passage content and navigation blocks. |
-| `no-wrap` | Keep indicator icons and values together. |
-| `full-width` | Fill the available row width. |
-| `tight-lines` | Preserve the ending summary's line spacing. |
-| `indicator-row` | Shared two-column indicator layout. |
-| `indicator-row-first` | Add the existing first-row top spacing. |
-| `indicator-row-summary` | Use the ending summary's wider icon column and alignment. |
-| `indicator-icon` | Shared 25px indicator icon sizing and positioning. |
-| `indicator-icon-offset-3` | Preserve the existing 3px vertical offset where used. |
-| `score-icon` | Shared 50px ending score icons. |
-| `balance-illustration` | Shared 103px illustrations in the introduction. |
-| `story-illustration` | Shared 150px illustrations with the existing left offset. |
+| Classes                   | Purpose                                                   |
+| ------------------------- | --------------------------------------------------------- |
+| `text-center`             | Center passage content and navigation blocks.             |
+| `no-wrap`                 | Keep indicator icons and values together.                 |
+| `full-width`              | Fill the available row width.                             |
+| `tight-lines`             | Preserve the ending summary's line spacing.               |
+| `indicator-row`           | Shared two-column indicator layout.                       |
+| `indicator-row-first`     | Add the existing first-row top spacing.                   |
+| `indicator-row-summary`   | Use the ending summary's wider icon column and alignment. |
+| `indicator-icon`          | Shared 25px indicator icon sizing and positioning.        |
+| `indicator-icon-offset-3` | Preserve the existing 3px vertical offset where used.     |
+| `score-icon`              | Shared 50px ending score icons.                           |
+| `balance-illustration`    | Shared 103px illustrations in the introduction.           |
+| `story-illustration`      | Shared 150px illustrations with the existing left offset. |
 
 The stylesheet scopes these classes to `#page`. Twenty-three inline style
 attributes remain for more specialized layouts and images.
@@ -66,16 +66,16 @@ Source: `tb1.twee` → [tb2.twee](tb2.twee).
 Added one type tag to each of the 87 story passages. StoryTitle is **tb2**,
 with a distinct IFID for importing as a separate story in Twine.
 
-| Tag | Passages | Count |
-| --- | --- | --- |
-| `intro` | `Start`, `Start2`–`Start6` | 6 |
-| `explanation` | `explanation.economy`, `explanation.happy` | 2 |
-| `round` | `Round1`–`Round6` | 6 |
-| `policy` | The named policy results offered by the six rounds | 18 |
-| `event` | `Event1.1`–`Event3.3` | 9 |
-| `outcome` | The 18 numbered event results, such as `1.1Fire` | 18 |
-| `ending` | `End1`–`End6`, `End.Credits`, `Game over`, `Game over2` | 9 |
-| `technology` | `Tech`, `Tech1`–`Tech3`, the six `NewTech*` passages and nine named technology results | 19 |
+| Tag           | Passages                                                                               | Count |
+| ------------- | -------------------------------------------------------------------------------------- | ----- |
+| `intro`       | `Start`, `Start2`–`Start6`                                                             | 6     |
+| `explanation` | `explanation.economy`, `explanation.happy`                                             | 2     |
+| `round`       | `Round1`–`Round6`                                                                      | 6     |
+| `policy`      | The named policy results offered by the six rounds                                     | 18    |
+| `event`       | `Event1.1`–`Event3.3`                                                                  | 9     |
+| `outcome`     | The 18 numbered event results, such as `1.1Fire`                                       | 18    |
+| `ending`      | `End1`–`End6`, `End.Credits`, `Game over`, `Game over2`                                | 9     |
+| `technology`  | `Tech`, `Tech1`–`Tech3`, the six `NewTech*` passages and nine named technology results | 19    |
 
 For example:
 
@@ -104,17 +104,17 @@ Classes are replaced on each display, so a previous passage's layout cannot
 carry over. The integration reads metadata only; it does not modify story state
 or render passages again.
 
-| Passage tag | Article class | Default alignment |
-| --- | --- | --- |
-| `intro` | `passage-intro` | Center |
-| `explanation` | `passage-explanation` | Left |
-| `round` | `passage-round` | Center |
-| `policy` | `passage-policy` | Left, with centered title and navigation |
-| `event` | `passage-event` | Center |
-| `outcome` | `passage-outcome` | Left, with centered title and navigation |
-| `ending` | `passage-ending` | Center |
-| `technology` | `passage-technology` | Center |
-| `prose` (additional tag) | `passage-prose` | Left; overrides the type default |
+| Passage tag              | Article class         | Default alignment                        |
+| ------------------------ | --------------------- | ---------------------------------------- |
+| `intro`                  | `passage-intro`       | Center                                   |
+| `explanation`            | `passage-explanation` | Left                                     |
+| `round`                  | `passage-round`       | Center                                   |
+| `policy`                 | `passage-policy`      | Left, with centered title and navigation |
+| `event`                  | `passage-event`       | Center                                   |
+| `outcome`                | `passage-outcome`     | Left, with centered title and navigation |
+| `ending`                 | `passage-ending`      | Center                                   |
+| `technology`             | `passage-technology`  | Center                                   |
+| `prose` (additional tag) | `passage-prose`       | Left; overrides the type default         |
 
 The `prose` tag is assigned to `Start2`, `Start4`, `End.Credits`, `End2`, `End4`,
 `End5`, and `NewTech1a`–`NewTech3a`. It supports reading-heavy passages without
@@ -167,12 +167,12 @@ from the reference were not added. The extension targets Chapbook 2.3.1.
 {effect row: "budget", trend: "down", text: "the operation was paid from the city budget"}
 ```
 
-| Argument/property | Values and behavior |
-| --- | --- |
-| First argument | `circularity`, `happiness` or `budget` selects the metric icon. |
-| `trend` | `up`, `down` or `unchanged` selects the direction icon. |
-| `text` | Plain-text explanation; HTML characters are escaped. |
-| `first` | Optional boolean; `true` adds the existing 12px first-row top margin. |
+| Argument/property | Values and behavior                                                   |
+| ----------------- | --------------------------------------------------------------------- |
+| First argument    | `circularity`, `happiness` or `budget` selects the metric icon.       |
+| `trend`           | `up`, `down` or `unchanged` selects the direction icon.               |
+| `text`            | Plain-text explanation; HTML characters are escaped.                  |
+| `first`           | Optional boolean; `true` adds the existing 12px first-row top margin. |
 
 The insert is a presentation component: it does not change indicator values.
 Gameplay effects remain in each passage's vars section. Unsupported metrics
@@ -377,12 +377,12 @@ Previous story versions and `original.twee` remain unchanged.
 
 ### Mode defaults
 
-| Passage tag | Default `ui.mode` | Footer |
-| --- | --- | --- |
-| `intro`, `explanation` | `intro` | Skip explanations |
-| `round` | `round` | Indicators and round number |
-| `policy`, `event`, `outcome`, `technology` | `gameplay` | Indicators |
-| `ending` | `results` | Restart and Credits |
+| Passage tag                                | Default `ui.mode` | Footer                      |
+| ------------------------------------------ | ----------------- | --------------------------- |
+| `intro`, `explanation`                     | `intro`           | Skip explanations           |
+| `round`                                    | `round`           | Indicators and round number |
+| `policy`, `event`, `outcome`, `technology` | `gameplay`        | Indicators                  |
+| `ending`                                   | `results`         | Restart and Credits         |
 
 `game-over` is an explicit mode for the two Game Over passages, with Restart
 and Credits and no indicators. Gameplay and round modes also show Restart in
@@ -514,7 +514,7 @@ The formula lives once in StoryScript, registered as the native Chapbook
 `engine.state.setLookup('score', ...)` lookup:
 
 ```javascript
-2.5 * (get('circle') ?? 0) + 1.5 * (get('happy') ?? 0) + (get('money') ?? 0)
+2.5 * (get("circle") ?? 0) + 1.5 * (get("happy") ?? 0) + (get("money") ?? 0);
 ```
 
 A lookup calculates on every read, so `score`, `{score}` and expressions using
@@ -542,15 +542,15 @@ classification variable or custom `else if` modifier is needed. For example:
 A `[continue]` explicitly ends assessment formatting before the separate
 restart-link condition.
 
-| Condition | Assessment |
-| --- | --- |
-| `score > 50` | High score |
-| `score > 32.5 && score <= 50` | Outstanding |
-| `score > 28.5 && score <= 32.5` | Good |
-| `score > 22.5 && score <= 28.5` | Average |
-| `score > 14.5 && score <= 22.5` | Poor |
-| `score > 2 && score <= 14.5` | Barely survived |
-| `score <= 2` | No assessment, preserving existing behavior |
+| Condition                       | Assessment                                  |
+| ------------------------------- | ------------------------------------------- |
+| `score > 50`                    | High score                                  |
+| `score > 32.5 && score <= 50`   | Outstanding                                 |
+| `score > 28.5 && score <= 32.5` | Good                                        |
+| `score > 22.5 && score <= 28.5` | Average                                     |
+| `score > 14.5 && score <= 22.5` | Poor                                        |
+| `score > 2 && score <= 14.5`    | Barely survived                             |
+| `score <= 2`                    | No assessment, preserving existing behavior |
 
 The resource formula produces half-unit scores, and all old assessment choices
 on that grid remain unchanged. Score wording, gameplay effects, random events,
@@ -933,11 +933,11 @@ Original, earlier stories and all language dictionaries remain untouched.
 
 ### Passage names and links
 
-| Previous passage | New passage |
-| --- | --- |
-| Event1.1 | FIRE AT RECYCLING PLANT |
-| 1.1OutFire | FIRE AT RECYCLING PLANT - PUT OUT FIRE |
-| 1.1Fire | FIRE AT RECYCLING PLANT - DO NOTHING |
+| Previous passage | New passage                            |
+| ---------------- | -------------------------------------- |
+| Event1.1         | FIRE AT RECYCLING PLANT                |
+| 1.1OutFire       | FIRE AT RECYCLING PLANT - PUT OUT FIRE |
+| 1.1Fire          | FIRE AT RECYCLING PLANT - DO NOTHING   |
 
 Kept tags, positions and sizes unchanged. Updated the event's two choice
 links and its three incoming policy routes (Extreme Eco-Tax, Mobile Detox Day
@@ -990,16 +990,16 @@ Original, previous stories and the German dictionary remain untouched.
 
 ### Approved event names
 
-| Previous passage | New passage | Key under events |
-| --- | --- | --- |
-| Event1.2 | REPAIR PARTS MARKET COLLAPSE | repairPartsMarketCollapse |
-| Event1.3 | MINIMALIST TECH MOVEMENT | minimalistTechMovement |
-| Event2.1 | NEW PINEAPPLE PHONE | newPineapplePhone |
-| Event2.2 | PHONE PRICE DROP | phonePriceDrop |
-| Event2.3 | GLOBAL CHIP CRISIS | globalChipCrisis |
-| Event3.1 | TOXIC WASTE | toxicWaste |
-| Event3.2 | FEAR OF DATA THEFT | fearOfDataTheft |
-| Event3.3 | GLOBAL RECESSION | globalRecession |
+| Previous passage | New passage                  | Key under events          |
+| ---------------- | ---------------------------- | ------------------------- |
+| Event1.2         | REPAIR PARTS MARKET COLLAPSE | repairPartsMarketCollapse |
+| Event1.3         | MINIMALIST TECH MOVEMENT     | minimalistTechMovement    |
+| Event2.1         | NEW PINEAPPLE PHONE          | newPineapplePhone         |
+| Event2.2         | PHONE PRICE DROP             | phonePriceDrop            |
+| Event2.3         | GLOBAL CHIP CRISIS           | globalChipCrisis          |
+| Event3.1         | TOXIC WASTE                  | toxicWaste                |
+| Event3.2         | FEAR OF DATA THEFT           | fearOfDataTheft           |
+| Event3.3         | GLOBAL RECESSION             | globalRecession           |
 
 Renamed all sixteen outcomes using the approved `EVENT NAME - ACTION` pattern:
 
@@ -1067,17 +1067,17 @@ Corrected the draft top-level JSON name `techologies` to `technologies`.
 Preserved the existing `newTripleDiamondGlass` title, description and effects
 exactly. Added the other eight technologies using that structure:
 
-| Passage | Key under technologies |
-| --- | --- |
-| MAGNETIC BREAK-APART | magneticBreakApart |
-| NEW TRIPLE-DIAMOND GLASS | newTripleDiamondGlass |
-| LOW-ORBIT SIGNAL MESH | lowOrbitSignalMesh |
-| SMART BINS | smartBins |
-| REGENERATIVE PORT MATRIX | regenerativePortMatrix |
-| SELF-DESTRUCT | selfDestruct |
-| MODULAR SMARTPHONE | modularSmartphone |
+| Passage                   | Key under technologies |
+| ------------------------- | ---------------------- |
+| MAGNETIC BREAK-APART      | magneticBreakApart     |
+| NEW TRIPLE-DIAMOND GLASS  | newTripleDiamondGlass  |
+| LOW-ORBIT SIGNAL MESH     | lowOrbitSignalMesh     |
+| SMART BINS                | smartBins              |
+| REGENERATIVE PORT MATRIX  | regenerativePortMatrix |
+| SELF-DESTRUCT             | selfDestruct           |
+| MODULAR SMARTPHONE        | modularSmartphone      |
 | NEW SELF-CHARGING BATTERY | newSelfChargingBattery |
-| SMART-SHATTERING | smartShattering |
+| SMART-SHATTERING          | smartShattering        |
 
 Each entry contains `title`, `description` and metric-specific `effects`.
 Titles have no final full stops; descriptions and effects start with capitals
@@ -1347,3 +1347,33 @@ passage names, graph links and the HTML export were not modified.
 Validation: both dictionaries parse as JSON and have exactly the same 312 leaf
 paths. Every German value is a nonempty string; placeholders and inline HTML
 tags match English entry by entry. No story, export or example files changed.
+
+## 2026-10-13 — Reproducible gameplay path and score analysis
+
+- Added the standard-library Python tool `analysis/count_paths.py`. It reads
+  passage assignments, native conditional links, random rolls and the score
+  formula directly from `tripleBalance.twee`, accounting for resource floors and
+  Continue-link Game Over overrides. Equivalent states retain path multiplicities.
+- Added generated results: `summary.json` with score bounds and witness paths,
+  `terminal-states.csv` with grouped final resources and scores,
+  `score-histogram.csv` and a standalone successful-score histogram SVG.
+  An optional `--paths` CSV records every individual route and score.
+- Documented the counting definition and limitations in `analysis/README.md`.
+  Successful paths stop at End1; failures stop at Game Over. Informational
+  detours, credits and restarts are excluded. Hidden random rolls suppressed by
+  immediate Game Over count once by default; `--count-hidden-rolls` includes each
+  draw. Counts are not probabilities.
+- Added fixture tests, linked the tool from README and recorded completion of
+  reusable gameplay enumeration in TODO.md. The in-game count, graph image,
+  score wording and gameplay remain unchanged.
+
+Results reproduce the earlier totals: 3,597,500 successful routes, 55,757 happiness
+failures and 400,923 budget failures, for 4,054,180 terminal routes. Successful
+scores range from 7.5 to 53; all terminal scores range from 1 to 53. Including
+hidden rolls gives 4,055,791 terminal routes without changing successful results.
+
+Validation: fixture tests cover branching/aggregation, individual route export,
+resource floors, condition reset, Game Over precedence, hidden rolls and rejected
+cycles/expressions. Generated CSV totals and score bounds match the summary;
+extreme-score examples are replayed against the model. JSON and SVG parse
+successfully. Results record the source SHA-256 for reproducibility.

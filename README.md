@@ -15,6 +15,10 @@ You will need a local server for testing locally (for instance `python3 -m http.
 
 This game uses a custom internationalization setup (see `twine-i18n-macro-api-cpb.md`).
 
+To count gameplay paths and regenerate final-score statistics, run
+`python3 analysis/count_paths.py`. See [analysis/README.md](analysis/README.md)
+for the counting rules, histogram outputs and optional individual path export.
+
 ## Translations
 
 The main game's translation files are in `i18n/`. Use `i18n/en.json` as the
