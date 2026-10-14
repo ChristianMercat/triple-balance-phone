@@ -7,7 +7,7 @@ listing them here does not implement them.
 
 ## Score presentation
 
-- [ ] Remove or correct the misleading “of 50” wording in the endings. The
+- [✓] Remove or correct the misleading “of 50” wording in the endings. The
       current reachable maximum is **53** (circularity 16, happiness 8, budget 1).
 - [ ] Display the numeric score in every End3 assessment, including the top band.
 - [ ] Revise the above-50 assessment so it does not imply that every score above

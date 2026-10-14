@@ -203,6 +203,8 @@ ui.footerCenter: "{translated link: \"common.restart\", to: '[[Restart->Start]]'
 
 {translate text: "end.credits.text3"}
 
+{translate text: "end.credits.text4"}
+
 
 <div class="credits-funding">
 {translate text: "end.credits.funding"}
@@ -284,11 +286,11 @@ ui.footerCenter: "{translated link: \"common.credits\", to: '[[Credits->End.Cred
 ui.status: true
 --
 <div class="ending-assessment">
-[if score > 50]
+[if score > 52]
 <img src="images/very-good.png" class="score-icon"> <img src="images/very-good.png" class="score-icon"> <img src="images/very-good.png" class="score-icon"> <br>
 {translate rich text: "end.end3.highScore.text1"}
 
-[if score > 32.5 && score <= 50]
+[if score > 32.5 && score <= 52]
 <img src="images/very-good.png" class="score-icon"> <br>
 {translate text: "end.end3.outstanding.scoreText", score: score} <br><br>
 {translate rich text: "end.end3.outstanding.text1"} 
@@ -2349,7 +2351,6 @@ html, body, #page, #passages {
    Passage tags select these article classes through StoryScript.
    Add the prose tag when a passage needs left-aligned reading text. */
 #page article.passage-intro,
-#page article.passage-round,
 #page article.passage-event,
 #page article.passage-ending,
 #page article.passage-technology {
@@ -2357,6 +2358,7 @@ html, body, #page, #passages {
 }
 
 #page article.passage-explanation,
+#page article.passage-round,
 #page article.passage-policy,
 #page article.passage-outcome,
 #page article.passage-prose {
