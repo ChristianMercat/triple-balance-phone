@@ -1,6 +1,6 @@
 © 2026 Imaginary gGmbH 
 
-Gameplay and implementation by Bianca Violet, illustrations by Ariel Kahtan.
+Gameplay by Bianca Violet, implementation by Bianca Violet and Daniel Ramos, illustrations by Ariel Kahtan.
 
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
 
