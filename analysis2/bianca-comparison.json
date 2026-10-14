@@ -1,0 +1,111 @@
+{
+  "execution": "Python/NumPy reproduction of numeric MATLAB logic; not native MATLAB execution",
+  "source": "analysis2/Bianca_spiel_v4.m",
+  "source_sha256": "e4fd519731e5b30f13195dccdfcfbeee842d9cb04ea078f877b25c371d418555",
+  "theoretical_combinations": 10001880,
+  "early_terminations": 190776,
+  "skipped_combinations": 6586474,
+  "lucky_playthroughs": 3224630,
+  "actual_successful_ranges": {
+    "happy": [
+      1,
+      16
+    ],
+    "circle": [
+      2,
+      16
+    ],
+    "money": [
+      1,
+      9
+    ],
+    "score": [
+      7.5,
+      53.0
+    ]
+  },
+  "script_printed_ranges_including_skipped_zeros": {
+    "happy": [
+      0,
+      16
+    ],
+    "circle": [
+      0,
+      16
+    ],
+    "money": [
+      0,
+      9
+    ],
+    "score": [
+      0.0,
+      53.0
+    ]
+  },
+  "script_histogram_entries": 9811104,
+  "spurious_zero_score_entries": 6586474,
+  "successful_combinations_before_original_skip_filter": 3597500,
+  "valid_successes_skipped_by_original_filter": 372870,
+  "unfiltered_success_histogram_matches_story_python": true,
+  "independent_original_loop_prefix_checked": 20000,
+  "first_valid_success_skipped": {
+    "row_1_based": 11512,
+    "choices_1_based": [
+      1,
+      1,
+      1,
+      2,
+      1,
+      4,
+      1,
+      2,
+      2,
+      3,
+      1,
+      1
+    ],
+    "initial_research_payment": 2,
+    "first_failure_step": null
+  },
+  "preceding_failure_that_caused_skip": {
+    "row_1_based": 11509,
+    "choices_1_based": [
+      1,
+      1,
+      1,
+      2,
+      1,
+      4,
+      1,
+      2,
+      2,
+      2,
+      3,
+      2
+    ],
+    "initial_research_payment": 3,
+    "first_failure_step": 9
+  },
+  "current_story_python_results": {
+    "success": {
+      "paths": 3597500,
+      "minimum_score": 7.5,
+      "maximum_score": 53.0
+    },
+    "happiness_game_over": {
+      "paths": 55757,
+      "minimum_score": 1.0,
+      "maximum_score": 36.0
+    },
+    "budget_game_over": {
+      "paths": 400923,
+      "minimum_score": 3.0,
+      "maximum_score": 47.0
+    },
+    "all_terminal": {
+      "paths": 4054180,
+      "minimum_score": 1.0,
+      "maximum_score": 53.0
+    }
+  }
+}
