@@ -553,23 +553,23 @@
         "text1": "<strong>Du hast eine Spitzenpunktzahl erreicht! Herzlichen Glückwunsch!</strong>"
       },
       "outstanding": {
-        "scoreText": "Deine Punktzahl beträgt {{score}} von 50.",
+        "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
         "text1": "Du hast Phonopolis hervorragend regiert. <strong>Herzlichen Glückwunsch!</strong>"
       },
       "good": {
-        "scoreText": "Deine Punktzahl beträgt {{score}} von 50.",
+        "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
         "text1": "Du hast Phonopolis gut regiert."
       },
       "average": {
-        "scoreText": "Deine Punktzahl beträgt {{score}} von 50.",
+        "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
         "text1": "Du hast Phonopolis durchschnittlich regiert."
       },
       "poor": {
-        "scoreText": "Deine Punktzahl beträgt {{score}} von 50.",
+        "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
         "text1": "Du hast Phonopolis schlecht regiert."
       },
       "barelySurvived": {
-        "scoreText": "Deine Punktzahl beträgt {{score}} von 50.",
+        "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
         "text1": "Du hast diese Amtszeit in Phonopolis gerade so überstanden."
       }
     },
@@ -590,8 +590,9 @@
     },
     "credits": {
       "text1": "Dieses Spiel wurde von IMAGINARY gGmbH entwickelt © 2026.",
-      "text2": "Spielkonzept und Umsetzung: Bianca Violet",
-      "text3": "Illustrationen: Ariel Kahtan",
+      "text2": "Spielkonzept: Bianca Violet",
+      "text3": "Umsetzung: Bianca Violet und Daniel Ramos",
+      "text4": "Illustrationen: Ariel Kahtan",
       "funding": "Dieses Werk ist Teil des Erasmus+-Projekts Math4Sustainability und wird von der Europäischen Union kofinanziert. Die geäußerten Ansichten und Meinungen sind jedoch ausschließlich die der Autorinnen und Autoren und spiegeln nicht notwendigerweise die Ansichten der Europäischen Union oder der Europäischen Exekutivagentur für Bildung und Kultur (EACEA) wider. Weder die Europäische Union noch die EACEA können dafür verantwortlich gemacht werden. Projektnummer 2024-1-DE03-KA220-SCH-000246047."
     },
     "gamOver": {

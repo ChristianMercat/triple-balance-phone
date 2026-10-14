@@ -560,23 +560,23 @@
         "text1": "<strong>You've hit the high score! Congratulations!</strong>"
       },
       "outstanding": {
-        "scoreText": "Your score is {{score}} of 50.",
+        "scoreText": "Your score is {{score}} of 53.",
         "text1": "You have been an outstanding mayor for Phonopolis. <strong>Congratulations!</strong>"
       },
       "good": {
-        "scoreText": "Your score is {{score}} of 50.",
+        "scoreText": "Your score is {{score}} of 53.",
         "text1": "You have been a good mayor for Phonopolis."
       },
       "average": {
-        "scoreText": "Your score is {{score}} of 50.",
+        "scoreText": "Your score is {{score}} of 53.",
         "text1": "You have been an average mayor for Phonopolis."
       },
       "poor": {
-        "scoreText": "Your score is {{score}} of 50.",
+        "scoreText": "Your score is {{score}} of 53.",
         "text1": "You have been a poor mayor for Phonopolis."
       },
       "barelySurvived": {
-        "scoreText": "Your score is {{score}} of 50.",
+        "scoreText": "Your score is {{score}} of 53.",
         "text1": "You barely survived this legislative period in Phonopolis."
       }
     },
@@ -587,18 +587,19 @@
     },
     "end5": {
       "text1": "The game contains many decision points where you choose between different options: Six rounds of <span class=\"policy\">policy</span> decisions, up to three rounds of <span class=\"tech\">technology</span> decisions, and up to three <span class=\"event\">events</span> are possible.",
-      "text2": "Each sequence of decisions creates a unique path through the game, resulting in a large number of possible playthroughs.",
+      "text2": "Each sequence of decisions creates a unique path through the game, resulting in a large number of possible combinations.",
       "text3": "Can you guess the magnitude of that number?"
     },
     "end6": {
       "scoreText": "Your score: {{score}}",
-      "text1": "There are close to <strong>4 million ({{playthroughCount}})</strong> different playthroughs.",
+      "text1": "There are close to <strong>4 million ({{playthroughCount}})</strong> different combinations.",
       "text2": "Find out how many there are to reach your score:"
     },
     "credits": {
       "text1": "This game was developed by IMAGINARY gGmbH © 2026.",
-      "text2": "Gameplay and implementation: Bianca Violet",
-      "text3": "Illustrations: Ariel Kahtan",
+      "text2": "Gameplay: Bianca Violet",
+      "text3": "Implementation: Bianca Violet and Daniel Ramos",
+      "text4": "Illustrations: Ariel Kahtan",
       "funding": "This work is part of the Erasmus+ project Math4Sustainability and co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them. Project number 2024-1-DE03-KA220-SCH-000246047."
     },
     "gamOver": {

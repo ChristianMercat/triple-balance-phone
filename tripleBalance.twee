@@ -20,360 +20,6 @@ Triple Balance
 }
 
 
-:: FIRE AT RECYCLING PLANT - DO NOTHING [event] {"position":"1850,600","size":"100,100"}
-circle: Math.max(0, circle - 1)
---
-<div class="passage-title">
-{translate text: "events.fireAtRecyclingPlant.outcomes.doNothing.description"}
-</div>
-
-{effect row: "circularity", trend: "down", textKey: "events.fireAtRecyclingPlant.outcomes.doNothing.effects.circularity", first: true}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: FIRE AT RECYCLING PLANT - PUT OUT FIRE [event] {"position":"1725,600","size":"100,100"}
-money: money - 1
---
-<div class="passage-title">
-{translate text: "events.fireAtRecyclingPlant.outcomes.putOutFire.description"}
-</div>
-
-{effect row: "circularity", trend: "unchanged", textKey: "events.fireAtRecyclingPlant.outcomes.putOutFire.effects.circularity", first: true}
-
-{effect row: "budget", trend: "down", textKey: "events.fireAtRecyclingPlant.outcomes.putOutFire.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: REPAIR PARTS MARKET COLLAPSE - DO NOTHING [event] {"position":"2175,600","size":"100,100"}
-circle: Math.max(0, circle - 1)
-happy: happy - 1
---
-<div class="passage-title">
-{translate text: "events.repairPartsMarketCollapse.outcomes.doNothing.description"}
-</div>
-
-{effect row: "circularity", trend: "down", textKey: "events.repairPartsMarketCollapse.outcomes.doNothing.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "down", textKey: "events.repairPartsMarketCollapse.outcomes.doNothing.effects.happiness"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: REPAIR PARTS MARKET COLLAPSE - PROVIDE FINANCIAL SUPPORT [event] {"position":"2050,600","size":"100,100"}
-money: money - 1
---
-<div class="passage-title">
-{translate text: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.description"}
-</div>
-
-{effect row: "circularity", trend: "unchanged", textKey: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.effects.circularity", first: true}
-
-{effect row: "budget", trend: "down", textKey: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: MINIMALIST TECH MOVEMENT - PROMOTE MINIMALISM [event] {"position":"2450,600","size":"100,100"}
-circle: circle + 1
-money: money - 1
---
-<div class="passage-title">
-{translate text: "events.minimalistTechMovement.outcomes.promoteMinimalism.description"}
-</div>
-
-{effect row: "circularity", trend: "up", textKey: "events.minimalistTechMovement.outcomes.promoteMinimalism.effects.circularity", first: true}
-
-{effect row: "budget", trend: "down", textKey: "events.minimalistTechMovement.outcomes.promoteMinimalism.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: MINIMALIST TECH MOVEMENT - ENCOURAGE SPENDING [event] {"position":"2325,600","size":"100,100"}
-money: money - 1
---
-<div class="passage-title">
-{translate text: "events.minimalistTechMovement.outcomes.encourageSpending.description"}
-</div>
-
-{effect row: "circularity", trend: "unchanged", textKey: "events.minimalistTechMovement.outcomes.encourageSpending.effects.circularity", first: true}
-
-{effect row: "budget", trend: "down", textKey: "events.minimalistTechMovement.outcomes.encourageSpending.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: NEW PINEAPPLE PHONE - PROMOTE LONGER PHONE USE [event] {"position":"1950,1100","size":"100,100"}
-happy: happy - 1
---
-<div class="passage-title">
-{translate text: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.description"}
-</div>
-
-{effect row: "circularity", trend: "unchanged", textKey: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "down", textKey: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.effects.happiness"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: NEW PINEAPPLE PHONE - DO NOTHING [event] {"position":"1800,1100","size":"100,100"}
-happy: happy + 1
-circle: Math.max(0, circle - 1)
-money: money + 1
---
-<div class="passage-title">
-{translate text: "events.newPineapplePhone.outcomes.doNothing.description"}
-</div>
-
-{effect row: "circularity", trend: "down", textKey: "events.newPineapplePhone.outcomes.doNothing.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "up", textKey: "events.newPineapplePhone.outcomes.doNothing.effects.happiness"}
-
-{effect row: "budget", trend: "up", textKey: "events.newPineapplePhone.outcomes.doNothing.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: PHONE PRICE DROP - DO NOTHING [event] {"position":"2075,1100","size":"100,100"}
-happy: happy + 1
-circle: Math.max(0, circle - 1)
-money: money - 1
---
-<div class="passage-title">
-{translate text: "events.phonePriceDrop.outcomes.doNothing.description"}
-</div>
-
-{effect row: "circularity", trend: "down", textKey: "events.phonePriceDrop.outcomes.doNothing.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "up", textKey: "events.phonePriceDrop.outcomes.doNothing.effects.happiness"}
-
-{effect row: "budget", trend: "down", textKey: "events.phonePriceDrop.outcomes.doNothing.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: PHONE PRICE DROP - PROTECT REPAIR AND REUSE [event] {"position":"2200,1100","size":"100,100"}
-happy: happy - 1
-money: money + 1
---
-<div class="passage-title">
-{translate text: "events.phonePriceDrop.outcomes.protectRepairAndReuse.description"}
-</div>
-
-{effect row: "circularity", trend: "unchanged", textKey: "events.phonePriceDrop.outcomes.protectRepairAndReuse.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "down", textKey: "events.phonePriceDrop.outcomes.protectRepairAndReuse.effects.happiness"}
-
-{effect row: "budget", trend: "up", textKey: "events.phonePriceDrop.outcomes.protectRepairAndReuse.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: GLOBAL CHIP CRISIS - SUPPORT REPAIR AND REUSE [event] {"position":"2375,1100","size":"100,100"}
-happy: happy - 1
-circle: circle + 2
-money: money -1
---
-<div class="passage-title">
-{translate text: "events.globalChipCrisis.outcomes.supportRepairAndReuse.description"}
-</div>
-
-{effect row: "circularity", trend: "up", textKey: "events.globalChipCrisis.outcomes.supportRepairAndReuse.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "down", textKey: "events.globalChipCrisis.outcomes.supportRepairAndReuse.effects.happiness"}
-
-{effect row: "budget", trend: "down", textKey: "events.globalChipCrisis.outcomes.supportRepairAndReuse.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: GLOBAL CHIP CRISIS - SUBSIDIZE PHONE PURCHASES [event] {"position":"2500,1100","size":"100,100"}
-money: Math.max(0, money - 2)
---
-<div class="passage-title">
-{translate text: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.description"}
-</div>
-
-{effect row: "happiness", trend: "unchanged", textKey: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.effects.happiness", first: true}
-
-{effect row: "budget", trend: "down", textKey: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: TOXIC WASTE - INTRODUCE STRICTER REGULATIONS [event] {"position":"1925,1375","size":"100,100"}
-circle: Math.max(0, circle - 1)
---
-<div class="passage-title">
-{translate text: "events.toxicWaste.outcomes.introduceStricterRegulations.description"}
-</div>
-
-{effect row: "circularity", trend: "down", textKey: "events.toxicWaste.outcomes.introduceStricterRegulations.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "unchanged", textKey: "events.toxicWaste.outcomes.introduceStricterRegulations.effects.happiness"}
-
-{effect row: "budget", trend: "unchanged", textKey: "events.toxicWaste.outcomes.introduceStricterRegulations.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: TOXIC WASTE - CONTINUE RECYCLING [event] {"position":"1800,1375","size":"100,100"}
-happy: happy - 1
-money: money - 1
---
-<div class="passage-title">
-{translate text: "events.toxicWaste.outcomes.continueRecycling.description"}
-</div>
-
-{effect row: "circularity", trend: "unchanged", textKey: "events.toxicWaste.outcomes.continueRecycling.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "down", textKey: "events.toxicWaste.outcomes.continueRecycling.effects.happiness"}
-
-{effect row: "budget", trend: "down", textKey: "events.toxicWaste.outcomes.continueRecycling.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: FEAR OF DATA THEFT - LAUNCH INFORMATION CAMPAIGN [event] {"position":"2225,1375","size":"100,100"}
-circle: circle + 1
-happy: happy + 1
-money: money -1
---
-<div class="passage-title">
-{translate text: "events.fearOfDataTheft.outcomes.launchInformationCampaign.description"}
-</div>
-
-{effect row: "circularity", trend: "up", textKey: "events.fearOfDataTheft.outcomes.launchInformationCampaign.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "up", textKey: "events.fearOfDataTheft.outcomes.launchInformationCampaign.effects.happiness"}
-
-{effect row: "budget", trend: "down", textKey: "events.fearOfDataTheft.outcomes.launchInformationCampaign.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: FEAR OF DATA THEFT - DO NOTHING [event] {"position":"2100,1375","size":"100,100"}
-circle: Math.max(0, circle - 1)
-happy: happy - 1
---
-<div class="passage-title">
-{translate text: "events.fearOfDataTheft.outcomes.doNothing.description"}
-</div>
-
-{effect row: "circularity", trend: "down", textKey: "events.fearOfDataTheft.outcomes.doNothing.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "down", textKey: "events.fearOfDataTheft.outcomes.doNothing.effects.happiness"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: GLOBAL RECESSION - SUPPORT CIRCULAR SOLUTIONS [event] {"position":"2375,1375","size":"100,100"}
-circle: circle + 2
-money: money - 1
---
-<div class="passage-title">
-{translate text: "events.globalRecession.outcomes.supportCircularSolutions.description"}
-</div>
-
-{effect row: "circularity", trend: "up", textKey: "events.globalRecession.outcomes.supportCircularSolutions.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "unchanged", textKey: "events.globalRecession.outcomes.supportCircularSolutions.effects.happiness"}
-
-{effect row: "budget", trend: "down", textKey: "events.globalRecession.outcomes.supportCircularSolutions.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
-
-{game over override}
-</div>
-
-
-:: GLOBAL RECESSION - SUPPORT PHONE PURCHASES [event] {"position":"2500,1375","size":"100,100"}
-money: money - 1
---
-<div class="passage-title">
-{translate text: "events.globalRecession.outcomes.supportPhonePurchases.description"}
-</div>
-
-{effect row: "circularity", trend: "unchanged", textKey: "events.globalRecession.outcomes.supportPhonePurchases.effects.circularity", first: true}
-
-{effect row: "happiness", trend: "unchanged", textKey: "events.globalRecession.outcomes.supportPhonePurchases.effects.happiness"}
-
-{effect row: "budget", trend: "down", textKey: "events.globalRecession.outcomes.supportPhonePurchases.effects.budget"}
-
-<div class="passage-navigation">
-{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
-
-{game over override}
-</div>
-
-
 :: BIO PHONE [policy] {"position":"1275,1525","size":"100,100"}
 circle: circle + 1
 money: money - 1
@@ -557,6 +203,8 @@ ui.footerCenter: "{translated link: \"common.restart\", to: '[[Restart->Start]]'
 
 {translate text: "end.credits.text3"}
 
+{translate text: "end.credits.text4"}
+
 
 <div class="credits-funding">
 {translate text: "end.credits.funding"}
@@ -638,11 +286,11 @@ ui.footerCenter: "{translated link: \"common.credits\", to: '[[Credits->End.Cred
 ui.status: true
 --
 <div class="ending-assessment">
-[if score > 50]
+[if score > 52]
 <img src="images/very-good.png" class="score-icon"> <img src="images/very-good.png" class="score-icon"> <img src="images/very-good.png" class="score-icon"> <br>
 {translate rich text: "end.end3.highScore.text1"}
 
-[if score > 32.5 && score <= 50]
+[if score > 32.5 && score <= 52]
 <img src="images/very-good.png" class="score-icon"> <br>
 {translate text: "end.end3.outstanding.scoreText", score: score} <br><br>
 {translate rich text: "end.end3.outstanding.text1"} 
@@ -716,6 +364,60 @@ ui.footerLeft: "{translate text: \"end.end6.scoreText\", score: score}"
 <img src="images/graph.webp" class="score-chart">
 
 
+:: FEAR OF DATA THEFT [event] {"position":"2075,1250","size":"100,100"}
+{translate rich text: "common.eventHappens"}<br>
+<span class="passage-title">{translate text: "events.fearOfDataTheft.title"}</span>
+
+{translate text: "events.fearOfDataTheft.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.fearOfDataTheft.outcomes.doNothing.title", to: '[[FEAR OF DATA THEFT - DO NOTHING]]'}</span>
+
+<span class="event">{translated link: "events.fearOfDataTheft.outcomes.launchInformationCampaign.title", to: '[[FEAR OF DATA THEFT - LAUNCH INFORMATION CAMPAIGN]]'}</span>
+
+
+:: FEAR OF DATA THEFT - DO NOTHING [event] {"position":"2100,1375","size":"100,100"}
+circle: Math.max(0, circle - 1)
+happy: happy - 1
+--
+<div class="passage-title">
+{translate text: "events.fearOfDataTheft.outcomes.doNothing.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.fearOfDataTheft.outcomes.doNothing.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.fearOfDataTheft.outcomes.doNothing.effects.happiness"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: FEAR OF DATA THEFT - LAUNCH INFORMATION CAMPAIGN [event] {"position":"2225,1375","size":"100,100"}
+circle: circle + 1
+happy: happy + 1
+money: money -1
+--
+<div class="passage-title">
+{translate text: "events.fearOfDataTheft.outcomes.launchInformationCampaign.description"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "events.fearOfDataTheft.outcomes.launchInformationCampaign.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "events.fearOfDataTheft.outcomes.launchInformationCampaign.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.fearOfDataTheft.outcomes.launchInformationCampaign.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
+
+
 :: FIRE AT RECYCLING PLANT [event] {"position":"1725,475","size":"100,100"}
 {translate rich text: "common.eventHappens"}<br>
 <span class="passage-title">{translate text: "events.fireAtRecyclingPlant.title"}</span>
@@ -729,56 +431,38 @@ ui.footerLeft: "{translate text: \"end.end6.scoreText\", score: score}"
 <span class="event">{translated link: "events.fireAtRecyclingPlant.outcomes.doNothing.title", to: '[[FIRE AT RECYCLING PLANT - DO NOTHING]]'}</span>
 
 
-:: REPAIR PARTS MARKET COLLAPSE [event] {"position":"2050,475","size":"100,100"}
-{translate rich text: "common.eventHappens"}<br>
-<span class="passage-title">{translate text: "events.repairPartsMarketCollapse.title"}</span>
+:: FIRE AT RECYCLING PLANT - DO NOTHING [event] {"position":"1850,600","size":"100,100"}
+circle: Math.max(0, circle - 1)
+--
+<div class="passage-title">
+{translate text: "events.fireAtRecyclingPlant.outcomes.doNothing.description"}
+</div>
 
-{translate text: "events.repairPartsMarketCollapse.description"}
+{effect row: "circularity", trend: "down", textKey: "events.fireAtRecyclingPlant.outcomes.doNothing.effects.circularity", first: true}
 
-{translate text: "common.yourChoice"} 
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
 
-<span class="event">{translated link: "events.repairPartsMarketCollapse.outcomes.doNothing.title", to: '[[REPAIR PARTS MARKET COLLAPSE - DO NOTHING]]'}</span>
-
-<span class="event">{translated link: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.title", to: '[[REPAIR PARTS MARKET COLLAPSE - PROVIDE FINANCIAL SUPPORT]]'}</span>
-
-
-:: MINIMALIST TECH MOVEMENT [event] {"position":"2325,475","size":"100,100"}
-{translate rich text: "common.eventHappens"}<br>
-<span class="passage-title">{translate text: "events.minimalistTechMovement.title"}</span>
-
-{translate text: "events.minimalistTechMovement.description"}
-
-{translate text: "common.yourChoice"} 
-
-<span class="event">{translated link: "events.minimalistTechMovement.outcomes.encourageSpending.title", to: '[[MINIMALIST TECH MOVEMENT - ENCOURAGE SPENDING]]'}</span>
-
-<span class="event">{translated link: "events.minimalistTechMovement.outcomes.promoteMinimalism.title", to: '[[MINIMALIST TECH MOVEMENT - PROMOTE MINIMALISM]]'}</span>
+{game over override}
+</div>
 
 
-:: NEW PINEAPPLE PHONE [event] {"position":"1800,975","size":"100,100"}
-{translate rich text: "common.eventHappens"}<br>
-<span class="passage-title">{translate text: "events.newPineapplePhone.title"}</span>
+:: FIRE AT RECYCLING PLANT - PUT OUT FIRE [event] {"position":"1725,600","size":"100,100"}
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.fireAtRecyclingPlant.outcomes.putOutFire.description"}
+</div>
 
-{translate text: "events.newPineapplePhone.description"}
+{effect row: "circularity", trend: "unchanged", textKey: "events.fireAtRecyclingPlant.outcomes.putOutFire.effects.circularity", first: true}
 
-{translate text: "common.yourChoice"} 
+{effect row: "budget", trend: "down", textKey: "events.fireAtRecyclingPlant.outcomes.putOutFire.effects.budget"}
 
-<span class="event">{translated link: "events.newPineapplePhone.outcomes.doNothing.title", to: '[[NEW PINEAPPLE PHONE - DO NOTHING]]'}</span>
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
 
-<span class="event">{translated link: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.title", to: '[[NEW PINEAPPLE PHONE - PROMOTE LONGER PHONE USE]]'}</span>
-
-
-:: PHONE PRICE DROP [event] {"position":"2075,975","size":"100,100"}
-{translate rich text: "common.eventHappens"}<br>
-<span class="passage-title">{translate text: "events.phonePriceDrop.title"}</span>
-
-{translate text: "events.phonePriceDrop.description"}
-
-{translate text: "common.yourChoice"} 
-
-<span class="event">{translated link: "events.phonePriceDrop.outcomes.doNothing.title", to: '[[PHONE PRICE DROP - DO NOTHING]]'}</span>
-
-<span class="event">{translated link: "events.phonePriceDrop.outcomes.protectRepairAndReuse.title", to: '[[PHONE PRICE DROP - PROTECT REPAIR AND REUSE]]'}</span>
+{game over override}
+</div>
 
 
 :: GLOBAL CHIP CRISIS [event] {"position":"2375,975","size":"100,100"}
@@ -794,30 +478,44 @@ ui.footerLeft: "{translate text: \"end.end6.scoreText\", score: score}"
 <span class="event">{translated link: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.title", to: '[[GLOBAL CHIP CRISIS - SUBSIDIZE PHONE PURCHASES]]'}</span>
 
 
-:: TOXIC WASTE [event] {"position":"1800,1250","size":"100,100"}
-{translate rich text: "common.eventHappens"}<br>
-<span class="passage-title">{translate text: "events.toxicWaste.title"}</span>
+:: GLOBAL CHIP CRISIS - SUBSIDIZE PHONE PURCHASES [event] {"position":"2500,1100","size":"100,100"}
+money: Math.max(0, money - 2)
+--
+<div class="passage-title">
+{translate text: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.description"}
+</div>
 
-{translate text: "events.toxicWaste.description"}
+{effect row: "happiness", trend: "unchanged", textKey: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.effects.happiness", first: true}
 
-{translate text: "common.yourChoice"} 
+{effect row: "budget", trend: "down", textKey: "events.globalChipCrisis.outcomes.subsidizePhonePurchases.effects.budget"}
 
-<span class="event">{translated link: "events.toxicWaste.outcomes.continueRecycling.title", to: '[[TOXIC WASTE - CONTINUE RECYCLING]]'}</span>
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
 
-<span class="event">{translated link: "events.toxicWaste.outcomes.introduceStricterRegulations.title", to: '[[TOXIC WASTE - INTRODUCE STRICTER REGULATIONS]]'}</span>
+{game over override}
+</div>
 
 
-:: FEAR OF DATA THEFT [event] {"position":"2075,1250","size":"100,100"}
-{translate rich text: "common.eventHappens"}<br>
-<span class="passage-title">{translate text: "events.fearOfDataTheft.title"}</span>
+:: GLOBAL CHIP CRISIS - SUPPORT REPAIR AND REUSE [event] {"position":"2375,1100","size":"100,100"}
+happy: happy - 1
+circle: circle + 2
+money: money -1
+--
+<div class="passage-title">
+{translate text: "events.globalChipCrisis.outcomes.supportRepairAndReuse.description"}
+</div>
 
-{translate text: "events.fearOfDataTheft.description"}
+{effect row: "circularity", trend: "up", textKey: "events.globalChipCrisis.outcomes.supportRepairAndReuse.effects.circularity", first: true}
 
-{translate text: "common.yourChoice"} 
+{effect row: "happiness", trend: "down", textKey: "events.globalChipCrisis.outcomes.supportRepairAndReuse.effects.happiness"}
 
-<span class="event">{translated link: "events.fearOfDataTheft.outcomes.doNothing.title", to: '[[FEAR OF DATA THEFT - DO NOTHING]]'}</span>
+{effect row: "budget", trend: "down", textKey: "events.globalChipCrisis.outcomes.supportRepairAndReuse.effects.budget"}
 
-<span class="event">{translated link: "events.fearOfDataTheft.outcomes.launchInformationCampaign.title", to: '[[FEAR OF DATA THEFT - LAUNCH INFORMATION CAMPAIGN]]'}</span>
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+{game over override}
+</div>
 
 
 :: GLOBAL RECESSION [event] {"position":"2375,1250","size":"100,100"}
@@ -831,6 +529,47 @@ ui.footerLeft: "{translate text: \"end.end6.scoreText\", score: score}"
 <span class="event">{translated link: "events.globalRecession.outcomes.supportCircularSolutions.title", to: '[[GLOBAL RECESSION - SUPPORT CIRCULAR SOLUTIONS]]'}</span>
 
 <span class="event">{translated link: "events.globalRecession.outcomes.supportPhonePurchases.title", to: '[[GLOBAL RECESSION - SUPPORT PHONE PURCHASES]]'}</span>
+
+
+:: GLOBAL RECESSION - SUPPORT CIRCULAR SOLUTIONS [event] {"position":"2375,1375","size":"100,100"}
+circle: circle + 2
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.globalRecession.outcomes.supportCircularSolutions.description"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "events.globalRecession.outcomes.supportCircularSolutions.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "unchanged", textKey: "events.globalRecession.outcomes.supportCircularSolutions.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.globalRecession.outcomes.supportCircularSolutions.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: GLOBAL RECESSION - SUPPORT PHONE PURCHASES [event] {"position":"2500,1375","size":"100,100"}
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.globalRecession.outcomes.supportPhonePurchases.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.globalRecession.outcomes.supportPhonePurchases.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "unchanged", textKey: "events.globalRecession.outcomes.supportPhonePurchases.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.globalRecession.outcomes.supportPhonePurchases.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
 
 
 :: Game over [ending] {"position":"75,350","size":"100,100"}
@@ -922,6 +661,56 @@ tech: tech -1
 </div>
 
 
+:: MINIMALIST TECH MOVEMENT [event] {"position":"2325,475","size":"100,100"}
+{translate rich text: "common.eventHappens"}<br>
+<span class="passage-title">{translate text: "events.minimalistTechMovement.title"}</span>
+
+{translate text: "events.minimalistTechMovement.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.minimalistTechMovement.outcomes.encourageSpending.title", to: '[[MINIMALIST TECH MOVEMENT - ENCOURAGE SPENDING]]'}</span>
+
+<span class="event">{translated link: "events.minimalistTechMovement.outcomes.promoteMinimalism.title", to: '[[MINIMALIST TECH MOVEMENT - PROMOTE MINIMALISM]]'}</span>
+
+
+:: MINIMALIST TECH MOVEMENT - ENCOURAGE SPENDING [event] {"position":"2325,600","size":"100,100"}
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.minimalistTechMovement.outcomes.encourageSpending.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.minimalistTechMovement.outcomes.encourageSpending.effects.circularity", first: true}
+
+{effect row: "budget", trend: "down", textKey: "events.minimalistTechMovement.outcomes.encourageSpending.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: MINIMALIST TECH MOVEMENT - PROMOTE MINIMALISM [event] {"position":"2450,600","size":"100,100"}
+circle: circle + 1
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.minimalistTechMovement.outcomes.promoteMinimalism.description"}
+</div>
+
+{effect row: "circularity", trend: "up", textKey: "events.minimalistTechMovement.outcomes.promoteMinimalism.effects.circularity", first: true}
+
+{effect row: "budget", trend: "down", textKey: "events.minimalistTechMovement.outcomes.promoteMinimalism.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+{game over override}
+</div>
+
+
 :: MOBILE DETOX DAY [policy] {"position":"1525,475","size":"100,100"}
 circle: circle + 1
 randomEvent: Math.floor(Math.random() * 4) + 1
@@ -967,6 +756,59 @@ tech: tech -1
 
 <div class="passage-navigation">
 {translated link: "common.continue", to: '[[Continue->End1]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: NEW PINEAPPLE PHONE [event] {"position":"1800,975","size":"100,100"}
+{translate rich text: "common.eventHappens"}<br>
+<span class="passage-title">{translate text: "events.newPineapplePhone.title"}</span>
+
+{translate text: "events.newPineapplePhone.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.newPineapplePhone.outcomes.doNothing.title", to: '[[NEW PINEAPPLE PHONE - DO NOTHING]]'}</span>
+
+<span class="event">{translated link: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.title", to: '[[NEW PINEAPPLE PHONE - PROMOTE LONGER PHONE USE]]'}</span>
+
+
+:: NEW PINEAPPLE PHONE - DO NOTHING [event] {"position":"1800,1100","size":"100,100"}
+happy: happy + 1
+circle: Math.max(0, circle - 1)
+money: money + 1
+--
+<div class="passage-title">
+{translate text: "events.newPineapplePhone.outcomes.doNothing.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.newPineapplePhone.outcomes.doNothing.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "events.newPineapplePhone.outcomes.doNothing.effects.happiness"}
+
+{effect row: "budget", trend: "up", textKey: "events.newPineapplePhone.outcomes.doNothing.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: NEW PINEAPPLE PHONE - PROMOTE LONGER PHONE USE [event] {"position":"1950,1100","size":"100,100"}
+happy: happy - 1
+--
+<div class="passage-title">
+{translate text: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.newPineapplePhone.outcomes.promoteLongerPhoneUse.effects.happiness"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
 
 {game over override}
 </div>
@@ -1126,6 +968,62 @@ money: money - 1
 </div>
 
 
+:: PHONE PRICE DROP [event] {"position":"2075,975","size":"100,100"}
+{translate rich text: "common.eventHappens"}<br>
+<span class="passage-title">{translate text: "events.phonePriceDrop.title"}</span>
+
+{translate text: "events.phonePriceDrop.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.phonePriceDrop.outcomes.doNothing.title", to: '[[PHONE PRICE DROP - DO NOTHING]]'}</span>
+
+<span class="event">{translated link: "events.phonePriceDrop.outcomes.protectRepairAndReuse.title", to: '[[PHONE PRICE DROP - PROTECT REPAIR AND REUSE]]'}</span>
+
+
+:: PHONE PRICE DROP - DO NOTHING [event] {"position":"2075,1100","size":"100,100"}
+happy: happy + 1
+circle: Math.max(0, circle - 1)
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.phonePriceDrop.outcomes.doNothing.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.phonePriceDrop.outcomes.doNothing.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "up", textKey: "events.phonePriceDrop.outcomes.doNothing.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.phonePriceDrop.outcomes.doNothing.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: PHONE PRICE DROP - PROTECT REPAIR AND REUSE [event] {"position":"2200,1100","size":"100,100"}
+happy: happy - 1
+money: money + 1
+--
+<div class="passage-title">
+{translate text: "events.phonePriceDrop.outcomes.protectRepairAndReuse.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.phonePriceDrop.outcomes.protectRepairAndReuse.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.phonePriceDrop.outcomes.protectRepairAndReuse.effects.happiness"}
+
+{effect row: "budget", trend: "up", textKey: "events.phonePriceDrop.outcomes.protectRepairAndReuse.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round4]]', role: "continue"}
+
+{game over override}
+</div>
+
+
 :: PHONE SUBSCRIPTION [policy] {"position":"1525,725","size":"100,100"}
 happy: happy + 1
 circle: Math.max(0, circle - 2)
@@ -1200,6 +1098,56 @@ tech: tech -1
 
 <div class="passage-navigation">
 {translated link: "common.continue", to: '[[Continue->Round6]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: REPAIR PARTS MARKET COLLAPSE [event] {"position":"2050,475","size":"100,100"}
+{translate rich text: "common.eventHappens"}<br>
+<span class="passage-title">{translate text: "events.repairPartsMarketCollapse.title"}</span>
+
+{translate text: "events.repairPartsMarketCollapse.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.repairPartsMarketCollapse.outcomes.doNothing.title", to: '[[REPAIR PARTS MARKET COLLAPSE - DO NOTHING]]'}</span>
+
+<span class="event">{translated link: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.title", to: '[[REPAIR PARTS MARKET COLLAPSE - PROVIDE FINANCIAL SUPPORT]]'}</span>
+
+
+:: REPAIR PARTS MARKET COLLAPSE - DO NOTHING [event] {"position":"2175,600","size":"100,100"}
+circle: Math.max(0, circle - 1)
+happy: happy - 1
+--
+<div class="passage-title">
+{translate text: "events.repairPartsMarketCollapse.outcomes.doNothing.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.repairPartsMarketCollapse.outcomes.doNothing.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.repairPartsMarketCollapse.outcomes.doNothing.effects.happiness"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: REPAIR PARTS MARKET COLLAPSE - PROVIDE FINANCIAL SUPPORT [event] {"position":"2050,600","size":"100,100"}
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.effects.circularity", first: true}
+
+{effect row: "budget", trend: "down", textKey: "events.repairPartsMarketCollapse.outcomes.provideFinancialSupport.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round2]]', role: "continue"}
 
 {game over override}
 </div>
@@ -1558,6 +1506,60 @@ ui.mode: "gameplay"
 {translate text: "start.start6.text2"}
 
 {translated link: "common.continue", to: '[[Continue->Round1]]', role: "continue"}
+
+
+:: TOXIC WASTE [event] {"position":"1800,1250","size":"100,100"}
+{translate rich text: "common.eventHappens"}<br>
+<span class="passage-title">{translate text: "events.toxicWaste.title"}</span>
+
+{translate text: "events.toxicWaste.description"}
+
+{translate text: "common.yourChoice"} 
+
+<span class="event">{translated link: "events.toxicWaste.outcomes.continueRecycling.title", to: '[[TOXIC WASTE - CONTINUE RECYCLING]]'}</span>
+
+<span class="event">{translated link: "events.toxicWaste.outcomes.introduceStricterRegulations.title", to: '[[TOXIC WASTE - INTRODUCE STRICTER REGULATIONS]]'}</span>
+
+
+:: TOXIC WASTE - CONTINUE RECYCLING [event] {"position":"1800,1375","size":"100,100"}
+happy: happy - 1
+money: money - 1
+--
+<div class="passage-title">
+{translate text: "events.toxicWaste.outcomes.continueRecycling.description"}
+</div>
+
+{effect row: "circularity", trend: "unchanged", textKey: "events.toxicWaste.outcomes.continueRecycling.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "down", textKey: "events.toxicWaste.outcomes.continueRecycling.effects.happiness"}
+
+{effect row: "budget", trend: "down", textKey: "events.toxicWaste.outcomes.continueRecycling.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
+
+
+:: TOXIC WASTE - INTRODUCE STRICTER REGULATIONS [event] {"position":"1925,1375","size":"100,100"}
+circle: Math.max(0, circle - 1)
+--
+<div class="passage-title">
+{translate text: "events.toxicWaste.outcomes.introduceStricterRegulations.description"}
+</div>
+
+{effect row: "circularity", trend: "down", textKey: "events.toxicWaste.outcomes.introduceStricterRegulations.effects.circularity", first: true}
+
+{effect row: "happiness", trend: "unchanged", textKey: "events.toxicWaste.outcomes.introduceStricterRegulations.effects.happiness"}
+
+{effect row: "budget", trend: "unchanged", textKey: "events.toxicWaste.outcomes.introduceStricterRegulations.effects.budget"}
+
+<div class="passage-navigation">
+{translated link: "common.continue", to: '[[Continue->Round5]]', role: "continue"}
+
+{game over override}
+</div>
 
 
 :: Tech [technology] {"position":"850,175","size":"100,100"}
@@ -2349,7 +2351,6 @@ html, body, #page, #passages {
    Passage tags select these article classes through StoryScript.
    Add the prose tag when a passage needs left-aligned reading text. */
 #page article.passage-intro,
-#page article.passage-round,
 #page article.passage-event,
 #page article.passage-ending,
 #page article.passage-technology {
@@ -2357,6 +2358,7 @@ html, body, #page, #passages {
 }
 
 #page article.passage-explanation,
+#page article.passage-round,
 #page article.passage-policy,
 #page article.passage-outcome,
 #page article.passage-prose {

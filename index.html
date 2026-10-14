@@ -340,7 +340,6 @@ ${i}`),b(i)}function $e(n,e=!1){return Qo(Lo(n),An(),Pn(),e)}class Ko extends fe
    Passage tags select these article classes through StoryScript.
    Add the prose tag when a passage needs left-aligned reading text. */
 #page article.passage-intro,
-#page article.passage-round,
 #page article.passage-event,
 #page article.passage-ending,
 #page article.passage-technology {
@@ -348,6 +347,7 @@ ${i}`),b(i)}function $e(n,e=!1){return Qo(Lo(n),An(),Pn(),e)}class Ko extends fe
 }
 
 #page article.passage-explanation,
+#page article.passage-round,
 #page article.passage-policy,
 #page article.passage-outcome,
 #page article.passage-prose {
@@ -1482,6 +1482,8 @@ ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;
 
 {translate text: &quot;end.credits.text3&quot;}
 
+{translate text: &quot;end.credits.text4&quot;}
+
 
 &lt;div class=&quot;credits-funding&quot;&gt;
 {translate text: &quot;end.credits.funding&quot;}
@@ -1551,11 +1553,11 @@ ui.footerCenter: &quot;&quot;
 ui.status: true
 --
 &lt;div class=&quot;ending-assessment&quot;&gt;
-[if score &gt; 50]
+[if score &gt; 52]
 &lt;img src=&quot;images/very-good.png&quot; class=&quot;score-icon&quot;&gt; &lt;img src=&quot;images/very-good.png&quot; class=&quot;score-icon&quot;&gt; &lt;img src=&quot;images/very-good.png&quot; class=&quot;score-icon&quot;&gt; &lt;br&gt;
 {translate rich text: &quot;end.end3.highScore.text1&quot;}
 
-[if score &gt; 32.5 &amp;&amp; score &lt;= 50]
+[if score &gt; 32.5 &amp;&amp; score &lt;= 52]
 &lt;img src=&quot;images/very-good.png&quot; class=&quot;score-icon&quot;&gt; &lt;br&gt;
 {translate text: &quot;end.end3.outstanding.scoreText&quot;, score: score} &lt;br&gt;&lt;br&gt;
 {translate rich text: &quot;end.end3.outstanding.text1&quot;} 
