@@ -9,24 +9,24 @@
   "start": {
     "start1": {
       "title": "Willkommen im Amt!",
-      "text1": "Du regierst nun Phonopolis, einen fiktiven Stadtstaat, in dem Smartphones eine zentrale Rolle im Alltag spielen."
+      "text1": "Du regierst nun Phonopolis, einen fiktiven Stadtstaat, in dem Handys eine zentrale Rolle im Alltag spielen."
     },
     "start2": {
-      "text1": "Dein Ziel ist es, eine Kreislaufwirtschaft für Smartphones aufzubauen und dabei die Zufriedenheit der Bevölkerung und den Stadthaushalt im Gleichgewicht zu halten.",
-      "text2": "Du kannst über <span class=\"policy\">Gesetze und Maßnahmen</span> entscheiden, in die Erforschung <span class=\"tech\">neuer Technologien</span> investieren oder auf <span class=\"event\">Ereignisse</span> reagieren müssen."
+      "text1": "Dein Ziel ist es, eine Kreislaufwirtschaft für Handys aufzubauen und dabei die Stimmung der Bevölkerung und die Stadtkasse im Auge zu behalten.",
+      "text2": "Du kannst über <span class=\"policy\">Maßnahmen</span> entscheiden, in die Erforschung neuer <span class=\"tech\">Technologien</span> investieren oder musst auf <span class=\"event\">Ereignisse</span> reagieren."
     },
     "start3": {
-      "text1": "Als Stadtoberhaupt musst du die <b>Zufriedenheit</b> der Bevölkerung, den <b>Stadthaushalt</b> und die <b>Kreislauffähigkeit</b> der Smartphone-Wirtschaft miteinander in Einklang bringen.",
+      "text1": "Als Stadtoberhaupt musst du die <b>Stimmung</b> der Bevölkerung, die <b>Stadtkasse</b> und die <b>Kreislaufwirtschaft</b> miteinander in Einklang bringen.",
       "text2": "Jede Entscheidung kann sich auf alle drei auswirken!"
     },
     "start4": {
       "text1": "So sieht es derzeit in Phonopolis aus:",
       "row-circularity": "Der Kreislaufindex liegt bei null. Deine Wirtschaft ist also noch überhaupt keine Kreislaufwirtschaft. Schlechter kann es nicht werden.",
-      "row-happiness": "Die Bevölkerung ist mäßig zufrieden; der Zufriedenheitsindex liegt bei 5. Sorge dafür, dass er niemals auf null sinkt, sonst wirst du aus dem Amt gejagt!",
-      "row-budget": "Der Stadthaushalt verfügt derzeit über 5 Megacoins. Sinkt er auf null, wirst du aus dem Amt entfernt!"
+      "row-happiness": "Die Bevölkerung ist mäßig zufrieden; das Stimmungsbarometer liegt bei 5. Sorge dafür, dass es niemals auf null sinkt, sonst gibt es einen Aufstand!",
+      "row-budget": "In der Stadtkasse sind derzeit über 5 Megacoins. Ist sie leer, fliegst du aus dem Amt!"
     },
     "start5": {
-      "text1": "Möchtest du einen Teil deines Budgets in die Erforschung <span class=\"tech\">neuer Technologien</span> investieren?"
+      "text1": "Möchtest du einen Teil deines Geldes in die Erforschung <span class=\"tech\">neuer Technologien</span> investieren?"
     },
     "start6": {
       "text1": "Während deiner Amtszeit entscheidest du in sechs Runden darüber, welche <span class=\"policy\">Maßnahmen</span> du einführst.",
@@ -38,14 +38,14 @@
       "title": "Extreme Ökosteuer",
       "description": "Hohe Abgaben für Umweltbelastungen.",
       "effects": {
-        "circularity": "Alte Handys länger zu behalten, zu reparieren und wiederzuverwenden wird gefördert.",
+        "circularity": "Alte Handys werden länger behalten, repariert und wiederverwendet.",
         "happiness": "Die Preise steigen.",
         "budget": "Zusätzliche Steuereinnahmen."
       }
     },
     "mobileDetoxDay": {
       "title": "Handy-Auszeit",
-      "description": "Samstags bleiben alle Handys ausgeschaltet.",
+      "description": "Samstags bleiben alle Handys aus.",
       "effects": {
         "circularity": "Handys werden weniger genutzt und halten möglicherweise länger.",
         "happiness": "Manche Menschen genießen den handyfreien Tag, andere fühlen sich dadurch eingeschränkt."
@@ -56,11 +56,11 @@
       "description": "Pflichtpfand beim Kauf eines neuen Handys, um das Recycling sicherzustellen.",
       "effects": {
         "circularity": "Die Rückgabe alter Handys zum Recycling wird gefördert.",
-        "happiness": "Die Preise steigen, auch wenn das Pfand später erstattet wird."
+        "happiness": "Die Preise steigen, auch wenn das Pfandgeld später erstattet wird."
       }
     },
     "schoolRepairCafe": {
-      "title": "Schulisches Reparaturcafé",
+      "title": "Schulfach Reparieren",
       "description": "Neues Schulfach: „Einführung in die Handyreparatur“.",
       "effects": {
         "circularity": "Mehr Menschen können Handys reparieren und länger behalten."
@@ -81,15 +81,15 @@
       "effects": {
         "circularity": "Weniger Handys werden gekauft und genutzt.",
         "happiness": "Die Menschen haben weniger Freiheit, mehrere Geräte zu besitzen.",
-        "budget": "Weniger Handys werden verkauft, wodurch die Steuereinnahmen sinken."
+        "budget": "Weniger Handys werden verkauft, die Steuereinnahmen sinken."
       }
     },
     "byod": {
-      "title": "BYOD",
-      "description": "Bring Your Own Device: das eigene Gerät nutzen. Ein sicheres zweites Profil statt eines Diensthandys.",
+      "title": "BYOD - Bring Your Own Device",
+      "description": "Das eigene Gerät nutzen. Ein sicheres zweites Profil statt eines Diensthandys.",
       "effects": {
         "circularity": "Die Zahl der genutzten Geräte sinkt.",
-        "happiness": "Die Menschen sind etwas zufriedener, weil sie nur ein Handy brauchen; der Effekt ist jedoch zu klein, um den Index zu verändern.",
+        "happiness": "Die Menschen sind etwas zufriedener, weil sie nur ein Handy brauchen; der Effekt ist jedoch zu klein, um das Stimmungsbarometer zu verändern.",
         "budget": "Kosten für die Umsetzung und geringere Steuereinnahmen durch weniger Geräteverkäufe."
       }
     },
@@ -98,7 +98,7 @@
       "description": "Handys erst ab 18 Jahren.",
       "effects": {
         "circularity": "Weniger Handys werden gekauft und genutzt.",
-        "happiness": "Jugendliche verlieren den Zugang zu Smartphones, und für Eltern wird die Kommunikation schwieriger.",
+        "happiness": "Jugendliche verlieren den Zugang zu Handys, und für Eltern wird die Kommunikation schwieriger.",
         "budget": "Weniger Handys werden verkauft, wodurch die Steuereinnahmen sinken."
       }
     },
@@ -108,7 +108,7 @@
       "effects": {
         "circularity": "Beschädigte Handys werden häufiger repariert.",
         "happiness": "Die Menschen können ihre Handys günstiger reparieren lassen.",
-        "budget": "Mehr Reparaturen und Steuereinnahmen erhöhen das Stadtbudget leicht, aber um deutlich weniger als einen Megacoin."
+        "budget": "Mehr Reparaturen und Steuereinnahmen gehen in die Stadtkasse, aber deutlich weniger als ein Megacoin."
       }
     },
     "dontPhoneAndDrive": {
@@ -129,11 +129,11 @@
       }
     },
     "recycleBonus": {
-      "title": "Recyclingbonus",
+      "title": "Abwrackprämie",
       "description": "Ein altes Handy gegen ein neues eintauschen.",
       "effects": {
         "circularity": "Fördert den vorzeitigen Austausch von Handys.",
-        "happiness": "Geld sparen und verantwortungsvoll recyceln."
+        "happiness": "Geld sparen und Verantwortung für Recycling übernehmen."
       }
     },
     "noExploitativeFeatures": {
@@ -170,7 +170,7 @@
       }
     },
     "unlock": {
-      "title": "Entsperrpflicht",
+      "title": "Unlock",
       "description": "Alle Handys, die älter als zwei Jahre sind, müssen rechtmäßig entsperrt werden können.",
       "effects": {
         "circularity": "Ältere Handys können wiederverwendet, weiterverkauft und länger genutzt werden.",
@@ -179,7 +179,7 @@
       }
     },
     "closedLoopLaw": {
-      "title": "Gesetz für geschlossene Materialkreisläufe",
+      "title": "Geschlossene Materialkreisläufe",
       "description": "Hersteller müssen 15 % recycelte Materialien aus alten Handys verwenden.",
       "effects": {
         "circularity": "Mehr Materialien werden zurückgewonnen und in neuen Geräten wiederverwendet.",
@@ -197,7 +197,7 @@
       }
     },
     "newTripleDiamondGlass": {
-      "title": "Neues Dreifach-Diamantglas",
+      "title": "Dreifach-Diamantglas",
       "description": "Starker Schutz dank Elephant™-Diamantglas.",
       "effects": {
         "circularity": "Handys gehen seltener kaputt und können länger genutzt werden.",
@@ -205,7 +205,7 @@
       }
     },
     "lowOrbitSignalMesh": {
-      "title": "Signalnetz im niedrigen Erdorbit",
+      "title": "Signalnetz im Erdorbit",
       "description": "Satellitengestützter, unterbrechungsfreier und schneller Mobilfunk auf der ganzen Welt.",
       "effects": {
         "happiness": "Die Nutzenden können jetzt überall auf der Welt in Verbindung bleiben."
@@ -242,7 +242,7 @@
       }
     },
     "newSelfChargingBattery": {
-      "title": "Neuer selbstladender Akku",
+      "title": "Selbstladender Akku",
       "description": "Der Akku lädt sich mit Energie aus der Umgebung auf.",
       "effects": {
         "happiness": "Handys müssen seltener aufgeladen werden.",
@@ -250,8 +250,8 @@
       }
     },
     "smartShattering": {
-      "title": "Gezielt zerlegbares Gehäuse",
-      "description": "Polymergehäuse, die sich bei Bestrahlung mit einer bestimmten Wellenlänge zersetzen.",
+      "title": "Zerlegbares Gehäuse",
+      "description": "Polymergehäuse, das sich bei Bestrahlung mit einer bestimmten Wellenlänge zersetzt.",
       "effects": {
         "circularity": "Handys lassen sich für das Recycling leichter zerlegen."
       }
@@ -259,7 +259,7 @@
   },
   "events": {
     "fireAtRecyclingPlant": {
-      "title": "Brand in einer Elektroschrott-Sortieranlage",
+      "title": "Brand in einer Recyclinganlage",
       "description": "Eine der größten Recyclinganlagen in Phonopolis droht abzubrennen.",
       "outcomes": {
         "putOutFire": {
@@ -267,20 +267,20 @@
           "description": "Du konntest den Brand stoppen.",
           "effects": {
             "circularity": "Dank deines Eingreifens ist der Kreislaufindex nicht gesunken.",
-            "budget": "Der Einsatz wurde aus dem Stadthaushalt bezahlt."
+            "budget": "Der Einsatz wurde aus der Stadtkasse bezahlt."
           }
         },
         "doNothing": {
           "title": "Nichts tun",
           "description": "Die Recyclinganlage brennt ab.",
           "effects": {
-            "circularity": "Alte Smartphones und Materialien können nur noch in geringerem Umfang recycelt werden."
+            "circularity": "Alte Handys und Materialien können nur noch in geringerem Umfang recycelt werden."
           }
         }
       }
     },
     "repairPartsMarketCollapse": {
-      "title": "Zusammenbruch des weltweiten Ersatzteilmarkts",
+      "title": "Zusammenbruch des Ersatzteilmarkts",
       "description": "Ein wichtiger Anbieter von Standardersatzteilen in Phonopolis steht kurz vor der Insolvenz.",
       "outcomes": {
         "doNothing": {
@@ -292,11 +292,11 @@
           }
         },
         "provideFinancialSupport": {
-          "title": "Finanzielle Unterstützung gewähren",
+          "title": "Finanzielle Unterstützung anbieten",
           "description": "Deine Hilfe ermöglicht es dem Anbieter, weiterzuarbeiten.",
           "effects": {
             "circularity": "Dank deines Eingreifens ist der Kreislaufindex nicht gesunken.",
-            "budget": "Die finanzielle Hilfe wurde aus dem Stadthaushalt bezahlt."
+            "budget": "Die finanzielle Hilfe wurde aus der Stadtkasse bezahlt."
           }
         }
       }
@@ -307,7 +307,7 @@
       "outcomes": {
         "promoteMinimalism": {
           "title": "Den Minimalismus-Trend fördern",
-          "description": "Die Menschen besitzen weniger Geräte.",
+          "description": "Die Menschen besitzen weniger Handys.",
           "effects": {
             "circularity": "Weniger neue Handys werden benötigt.",
             "budget": "Geringere Steuereinnahmen."
@@ -315,16 +315,16 @@
         },
         "encourageSpending": {
           "title": "Den Konsum fördern",
-          "description": "Du wirbst für neue Technik und den Austausch von Geräten.",
+          "description": "Du wirbst für neue Technik und den Neukauf von Handys.",
           "effects": {
             "circularity": "Deine Maßnahmen heben den positiven Effekt auf.",
-            "budget": "Geld aus dem Stadthaushalt wurde ausgegeben."
+            "budget": "Geld aus der Stadtkasse wurde ausgegeben."
           }
         }
       }
     },
     "newPineapplePhone": {
-      "title": "Neues Pineapple Phone",
+      "title": "Pineapple Phone",
       "description": "Ein neues Handymodell mit beliebten Funktionen steht in Phonopolis kurz vor der Markteinführung.",
       "outcomes": {
         "promoteLongerPhoneUse": {
@@ -354,7 +354,7 @@
           "title": "Nichts tun",
           "description": "Neue Handys sind günstig.",
           "effects": {
-            "circularity": "Ältere Geräte werden schneller ersetzt.",
+            "circularity": "Ältere Handys werden schneller ersetzt.",
             "happiness": "Niedrigere Handypreise.",
             "budget": "Da die Produkte günstiger sind, erhält die Stadt weniger Steuereinnahmen."
           }
@@ -380,7 +380,7 @@
           "effects": {
             "circularity": "Weniger neue Handys werden gekauft.",
             "happiness": "Es fehlt an neuen Geräten.",
-            "budget": "Die Kampagne wurde aus dem Stadthaushalt bezahlt."
+            "budget": "Die Kampagne wurde aus der Stadtkasse bezahlt."
           }
         },
         "subsidizePhonePurchases": {
@@ -388,7 +388,7 @@
           "description": "Du bezuschusst den Kauf neuer Handys.",
           "effects": {
             "happiness": "Die Menschen bleiben genauso zufrieden wie vor der Chipkrise.",
-            "budget": "Geld aus dem Stadthaushalt wird ausgegeben."
+            "budget": "Geld aus der Stadtkasse wird ausgegeben."
           }
         }
       }
@@ -402,8 +402,8 @@
           "description": "Du schreibst sicherere Recyclingverfahren und eine Behandlung der Abfälle vor.",
           "effects": {
             "circularity": "Kurzfristig werden weniger Materialien verarbeitet.",
-            "happiness": "Deine Maßnahmen verhindern eine Veränderung der Zufriedenheit.",
-            "budget": "Die Recyclingkosten steigen, aber das Stadtbudget bleibt unverändert."
+            "happiness": "Deine Maßnahmen verhindern, dass die Stimmung sinkt.",
+            "budget": "Die Recyclingkosten steigen, aber das hat keine Auswirkungen auf die Stadtkasse."
           }
         },
         "continueRecycling": {
@@ -412,7 +412,7 @@
           "effects": {
             "circularity": "Materialien werden weiterhin recycelt.",
             "happiness": "Giftige Abfälle schaden der Umwelt und der Gesundheit der Bevölkerung.",
-            "budget": "Mehr Erkrankungen belasten den Stadthaushalt finanziell."
+            "budget": "Mehr Erkrankungen belasten die Stadtkasse."
           }
         }
       }
@@ -422,17 +422,17 @@
       "description": "Eine Nachricht verbreitet sich in Phonopolis rasant und lässt die Menschen davor zurückschrecken, alte Geräte weiterzugeben oder zu recyceln.",
       "outcomes": {
         "launchInformationCampaign": {
-          "title": "Eine öffentliche Informationskampagne starten",
-          "description": "Du hast eine öffentliche Informationskampagne gestartet.",
+          "title": "Eine Informationskampagne starten",
+          "description": "Du hast eine Informationskampagne gestartet.",
           "effects": {
             "circularity": "Mehr Handys werden gespendet, wiederverwendet und recycelt.",
             "happiness": "Die Menschen fühlen sich beim Schutz ihrer persönlichen Daten sicherer, sogar noch sicherer als vor dem Ereignis.",
-            "budget": "Die Kampagne wurde aus dem Stadthaushalt bezahlt."
+            "budget": "Die Kampagne wurde aus der Stadtkasse bezahlt."
           }
         },
         "doNothing": {
           "title": "Nichts tun",
-          "description": "Die Menschen haben Angst, alte Geräte weiterzugeben oder zu recyceln.",
+          "description": "Die Menschen haben Angst, alte Handys weiterzugeben oder zu recyceln.",
           "effects": {
             "circularity": "Weniger Handys werden wiederverwendet, repariert oder recycelt.",
             "happiness": "Angst vor Datendiebstahl."
@@ -450,7 +450,7 @@
           "effects": {
             "circularity": "Handys und Bauteile bleiben länger in Gebrauch.",
             "happiness": "Trotz der Rezession sind erschwingliche Geräte verfügbar.",
-            "budget": "Die Anreize werden aus dem Stadthaushalt finanziert."
+            "budget": "Die Anreize werden aus der Stadtkasse bezahlt."
           }
         },
         "supportPhonePurchases": {
@@ -459,7 +459,7 @@
           "effects": {
             "circularity": "Handys werden genauso häufig ersetzt wie zuvor.",
             "happiness": "Die Menschen haben trotz der Rezession weiterhin Zugang zu neuen Geräten.",
-            "budget": "Gutscheine oder Steuerermäßigungen werden aus dem Stadthaushalt finanziert."
+            "budget": "Gutscheine oder Steuerermäßigungen werden aus der Stadtkasse bezahlt."
           }
         }
       }
@@ -468,13 +468,13 @@
   "common": {
     "continue": "Weiter",
     "restart": "Neu starten",
-    "credits": "Mitwirkende",
+    "credits": "Credits",
     "yes": "Ja",
     "no": "Nein",
     "runAgain": "Erneut kandidieren",
     "learnScore": "Mehr über die Punktzahl erfahren",
-    "explainEconomy": "Was ist eine Kreislaufwirtschaft für Smartphones?",
-    "explainHappiness": "Was macht die Menschen zufrieden?",
+    "explainEconomy": "Was ist eine Kreislaufwirtschaft für Handys?",
+    "explainHappiness": "Was beeinflusst die Stimmung der Menschen?",
     "yourChoice": "Deine Entscheidung:",
     "eventHappens": "Ein <span class=\"event\">EREIGNIS</span> tritt ein:",
     "roundProgress": "Runde {{round}}/{{total}}",
@@ -486,7 +486,7 @@
   },
   "techRounds": {
     "tech": {
-      "text1": "Jede <span class=\"tech\">neue Technologie</span>, in die du investierst, kostet 1 Megacoin. Deine Investition kann die Zufriedenheit der Bevölkerung und die Kreislauffähigkeit verbessern.",
+      "text1": "Jede <span class=\"tech\">neue Technologie</span>, in die du investierst, kostet 1 Megacoin. Deine Investition kann die Stimmung der Einwohner und den Kreislaufindex verbessern.",
       "text2": "In wie viele neue Technologien möchtest du investieren?",
       "choiceSeparator": "oder"
     },
@@ -529,20 +529,20 @@
     "end2": {
       "text1": "So sieht es nach deiner Amtszeit in Phonopolis aus:",
       "circularity": {
-        "minimal": "Deine Entscheidungen haben die <strong>Kreislauffähigkeit</strong> der Wirtschaft nicht wirklich verbessert.",
+        "minimal": "Deine Entscheidungen haben die <strong>Kreislaufwirtschaft</strong> nicht wirklich verbessert.",
         "limited": "Deine Entscheidungen waren beim Aufbau einer <strong>Kreislaufwirtschaft</strong> nicht besonders wirksam.",
-        "improved": "Du hast die <strong>Kreislauffähigkeit</strong> der Wirtschaft verbessert.",
-        "significant": "Du hast die <strong>Kreislauffähigkeit</strong> der Wirtschaft deutlich verbessert.",
-        "tremendous": "Du hast die <strong>Kreislauffähigkeit</strong> der Wirtschaft enorm verbessert."
+        "improved": "Du hast die <strong>Kreislaufwirtschaft</strong> verbessert.",
+        "significant": "Du hast die <strong>Kreislaufwirtschaft</strong> deutlich verbessert.",
+        "tremendous": "Du hast die <strong>Kreislaufwirtschaft</strong> enorm verbessert."
       },
       "happiness": {
-        "low": "Die Menschen sind mit deinen Entscheidungen nicht besonders <strong>zufrieden</strong>.",
-        "stable": "Die <strong>Zufriedenheit</strong> der Bevölkerung hat sich kaum verändert.",
+        "low": "Die Menschen haben duch deine Entscheidungen schlechte <strong>Laune</strong>.",
+        "stable": "Die <strong>Stimmung</strong> der Bevölkerung hat sich kaum verändert.",
         "high": "Die Menschen sind mit deinen Entscheidungen ziemlich <strong>zufrieden</strong>.",
-        "veryHigh": "Die Menschen sind mit deinen Entscheidungen sehr <strong>zufrieden</strong>."
+        "veryHigh": "Die Menschen haben duch deine Entscheidungen sehr gute <strong>Laune</strong>."
       },
       "budget": {
-        "nearBankruptcy": "Du hast es gerade noch geschafft, eine Insolvenz zu vermeiden.",
+        "nearBankruptcy": "Du hast es gerade so geschafft, eine Insolvenz zu vermeiden.",
         "decreased": "Du hast weniger <strong>Geld</strong> übrig als zu Beginn.",
         "unchanged": "Du hast genauso viel <strong>Geld</strong> ausgegeben wie eingenommen.",
         "increased": "Du hast mehr <strong>Geld</strong> eingenommen als ausgegeben."
@@ -550,7 +550,7 @@
     },
     "end3": {
       "highScore": {
-        "text1": "<strong>Du hast eine Spitzenpunktzahl erreicht! Herzlichen Glückwunsch!</strong>"
+        "text1": "<strong>Du hast den High-Score geknackt! Herzlichen Glückwunsch!</strong>"
       },
       "outstanding": {
         "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
@@ -574,12 +574,12 @@
       }
     },
     "end4": {
-      "text1": "Die Punktzahl wird aus den Werten für Kreislauffähigkeit, Zufriedenheit und dein verbleibendes Budget berechnet.",
+      "text1": "Die Punktzahl wird aus den Werten für Kreislaufwirtschaft, Stimmungsbarometer und dein verbleibendes Geld berechnet.",
       "scoreLabel": "Punktzahl",
       "text2": "Mit den Werten aus deinem aktuellen Spiel hast du Folgendes erreicht:"
     },
     "end5": {
-      "text1": "Das Spiel enthält viele Entscheidungspunkte, an denen du zwischen verschiedenen Möglichkeiten wählst: Möglich sind sechs Runden mit <span class=\"policy\">politischen Maßnahmen</span>, bis zu drei Runden mit <span class=\"tech\">Technologieentscheidungen</span> und bis zu drei <span class=\"event\">Ereignisse</span>.",
+      "text1": "Das Spiel enthält viele Punkte, an denen du zwischen verschiedenen Möglichkeiten wählst: Möglich sind sechs Runden mit <span class=\"policy\">politischen Maßnahmen</span>, bis zu drei Runden mit <span class=\"tech\">Technologien</span> und bis zu drei <span class=\"event\">Ereignisse</span>.",
       "text2": "Jede Entscheidungsfolge ergibt einen eigenen Weg durch das Spiel. Dadurch gibt es sehr viele mögliche Spielverläufe.",
       "text3": "Kannst du abschätzen, in welcher Größenordnung diese Zahl liegt?"
     },
@@ -596,22 +596,22 @@
       "funding": "Dieses Werk ist Teil des Erasmus+-Projekts Math4Sustainability und wird von der Europäischen Union kofinanziert. Die geäußerten Ansichten und Meinungen sind jedoch ausschließlich die der Autorinnen und Autoren und spiegeln nicht notwendigerweise die Ansichten der Europäischen Union oder der Europäischen Exekutivagentur für Bildung und Kultur (EACEA) wider. Weder die Europäische Union noch die EACEA können dafür verantwortlich gemacht werden. Projektnummer 2024-1-DE03-KA220-SCH-000246047."
     },
     "gamOver": {
-      "title": "Die Bevölkerung revoltiert",
+      "title": "Es gibt einen Aufstand!",
       "text1": "Die Stadt vertraut deiner Führung nicht mehr. Wütende Bürgerinnen und Bürger sowie politische Rivalen haben dich aus dem Amt gedrängt.",
-      "label": "Spiel vorbei!"
+      "label": "Game Over!"
     },
     "gameOver2": {
-      "title": "Stadthaushalt aufgebraucht",
-      "text1": "Deine Maßnahmen haben das Stadtbudget auf null sinken lassen. Die Stadt kann nicht mehr funktionieren, und du wurdest aus dem Amt entfernt.",
-      "label": "Spiel vorbei!"
+      "title": "Die Stadtkasse ist leer!",
+      "text1": "Deine Maßnahmen haben die Stadtkasse auf null sinken lassen. Die Stadt kann nicht mehr funktionieren, und du wurdest vorzeitig abgewählt.",
+      "label": "Game Over!"
     }
   },
   "explanations": {
     "economy": {
-      "text1": "Eine Kreislaufwirtschaft für Smartphones bedeutet, Handys möglichst lange nutzbar zu halten, statt sie schnell wegzuwerfen. Wichtige Strategien sind <b>reduzieren</b> (weniger neue Handys kaufen und nutzen), <b>wiederverwenden</b>, <b>reparieren</b> und <b>recyceln</b>. Sie helfen, Ressourcen zu schonen und Abfall zu vermeiden."
+      "text1": "Eine Kreislaufwirtschaft für Handys bedeutet, Handys möglichst lange nutzbar zu halten, statt sie schnell wegzuwerfen. Wichtige Strategien sind <b>reduzieren</b> (weniger neue Handys kaufen und nutzen), <b>wiederverwenden</b>, <b>reparieren</b> und <b>recyceln</b>. Sie helfen, Ressourcen zu schonen und Abfall zu vermeiden."
     },
     "happiness": {
-      "text1": "Die Menschen in Phonopolis sind zufrieden, wenn alle, die ein Handy besitzen möchten, auch eines haben, die Handys gut funktionieren, leicht zu bedienen sind und persönliche Daten geschützt werden. Handys sollten nicht zu teuer sein oder leicht kaputtgehen."
+      "text1": "Die Menschen in Phonopolis haben gute Laune, wenn alle, die ein Handy besitzen möchten, auch eines haben, die Handys gut funktionieren, leicht zu bedienen sind und persönliche Daten geschützt werden. Handys sollten nicht zu teuer sein oder leicht kaputtgehen."
     }
   },
   "rounds": {
