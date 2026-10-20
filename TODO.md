@@ -7,10 +7,16 @@ listing them here does not implement them.
 
 ## Score presentation
 
+- [x] Generate successful-score distribution lookup data from `analysis/` and
+      expose `percentile(score)` / `minimumScore(percentile)` in the game.
+- [x] Display the percentile in End3 and calibrate assessment boundaries using
+      the generated quantiles. Keep raw percentile values for calculation and
+      round down only for integer display.
+
 - [✓] Remove or correct the misleading “of 50” wording in the endings. The
       current reachable maximum is **53** (circularity 16, happiness 8, budget 1).
-- [ ] Display the numeric score in every End3 assessment, including the top band.
-- [ ] Revise the above-50 assessment so it does not imply that every score above
+- [x] Display the numeric score in every End3 assessment, including the top band.
+- [x] Revise the above-50 assessment so it does not imply that every score above
       50 is the maximum. Preserve the current formula and explicit, mutually
       exclusive score ranges unless a gameplay change is agreed.
 - [ ] Explain that the score weights are a simplified model for this game,
@@ -18,18 +24,17 @@ listing them here does not implement them.
 
 ## Playthrough statistics and graph
 
-- [ ] Agree on the definition of a playthrough before replacing the current
-      End6 count of **3,824,020**. The previous model enumeration counted distinct
-      decision/event sequences, stopped at Game Over and excluded restarts:
-      **3,597,500 successful routes** and **4,054,180 terminal routes**, including
-      failures. Revalidate these figures against the current story.
-- [ ] Generate the displayed count and score distribution graph from the same
+- [x] Use successful playthroughs as End6's reference population, excluding
+      restarts and explanatory detours. The displayed count is generated from
+      the same distribution as the graph: **3,597,500 successful routes**.
+      Including failures gives **4,054,180 terminal routes**.
+- [x] Generate the displayed count and score distribution graph from the same
       gameplay model. Recalculate the counts, score bounds and graph after balancing.
-- [ ] Distinguish route counts from probabilities: different routes need not
+- [x] Distinguish route counts from probabilities: different routes need not
       be equally likely.
-- [ ] Localize the graph labels “score” and “Number of playthroughs”, currently
-      embedded in `images/graph.webp`. Decide between localized image variants and
-      a generated graph with translated labels.
+- [x] Replace the main game's `images/graph.webp` with a generated inline SVG
+      histogram, translated labels and a dynamic score marker. The historical
+      image remains available for archived versions.
 
 ## Gameplay and balance
 
@@ -62,8 +67,10 @@ listing them here does not implement them.
       text, while decorative images should be marked accordingly. Provide an
       accessible description or equivalent data for the score graph.
 - [ ] Use semantic headings for passage titles, preserving the existing CSS.
-- [ ] Check the score graph on narrow screens, especially its fixed height and
-      aspect ratio. Check shared header/footer wrapping with longer translations.
+- [x] Replace the fixed-height score graph with a responsive SVG and verify
+      narrow-screen scrolling and score-marker visibility.
+- [ ] Check shared header/footer wrapping with longer translations throughout
+      the story.
 - [ ] Review cyan/yellow/magenta category highlighting for readability and
       contrast, retaining explicit category labels.
 - [ ] Replace the visible “Language” label with a translation icon. Retain a

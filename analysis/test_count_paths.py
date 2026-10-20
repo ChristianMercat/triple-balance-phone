@@ -2,10 +2,13 @@
 import tempfile
 import unittest
 import csv
+import json
+import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
 
-from count_paths import ModelError, Story, analyze, expression, export_paths
+from count_paths import (ModelError, Story, analyze, expression, export_paths,
+                         distribution_lookup, update_story_distribution, histogram_svg)
 
 SCORE_SCRIPT = """:: StoryScript [script]
 engine.state.setLookup('score', get =>
@@ -22,6 +25,45 @@ def fixture(root, body):
 
 
 class CountingTests(unittest.TestCase):
+    def test_histogram_svg_has_exact_half_point_bins_and_translation_hooks(self):
+        svg = ET.fromstring(histogram_svg(Counter({7.5: 2, 8.5: 4})))
+        ns = {'s': 'http://www.w3.org/2000/svg'}
+        bars = {float(node.attrib['data-score']): node for node in svg.findall('.//s:rect',ns)
+                if 'data-score' in node.attrib}
+        self.assertEqual(sorted(bars),[7.5,8.5])
+        self.assertEqual(sum(int(node.attrib['data-paths']) for node in bars.values()),6)
+        self.assertEqual(float(bars[7.5].attrib['height']),180)
+        self.assertEqual(float(bars[8.5].attrib['height']),360)
+        self.assertNotIn(8,bars)
+        self.assertNotIn(0,bars)
+        self.assertIsNotNone(svg.find('.//s:g[@data-score-marker]',ns))
+        hooks={node.attrib['data-chart-text'] for node in svg.iter() if 'data-chart-text' in node.attrib}
+        self.assertEqual(hooks,{'title','description','binLabel','scoreAxis','pathsAxis'})
+
+    def test_distribution_uses_sorted_nonempty_bins_and_integer_counts(self):
+        lookup = distribution_lookup(Counter({3: 2, 1: 1, 2: 0}))
+        self.assertEqual(lookup, {'population': 'successful_paths', 'totalPaths': 3,
+                                 'scores': [1, 3], 'cumulativeCounts': [1, 3]})
+        with self.assertRaises(ModelError):
+            distribution_lookup(Counter())
+
+    def test_generated_data_replacement_preserves_other_story_text(self):
+        text = ('before\n  // BEGIN GENERATED SCORE DISTRIBUTION\n'
+                '  const distribution = {};\n  // END GENERATED SCORE DISTRIBUTION\nafter\n')
+        lookup = distribution_lookup(Counter({1: 2}))
+        with tempfile.TemporaryDirectory() as root:
+            path = Path(root)/'story.twee'
+            path.write_text(text)
+            update_story_distribution(path, lookup)
+            expected = text.replace('const distribution = {};', 'const distribution = '
+                                    + json.dumps(lookup,separators=(',', ':'))+';')
+            self.assertEqual(path.read_text(), expected)
+            update_story_distribution(path, lookup)
+            self.assertEqual(path.read_text(), expected)
+            path.write_text('no markers')
+            with self.assertRaises(ModelError):
+                update_story_distribution(path,lookup)
+
     def test_distinct_choices_merge_without_losing_multiplicity(self):
         body = ''':: Start
 circle: 0

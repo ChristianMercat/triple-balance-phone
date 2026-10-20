@@ -240,41 +240,78 @@ def analyze(story):
 
 
 def histogram_svg(histogram):
-    """Standalone SVG of successful route counts, with half-unit bins."""
+    """Standalone SVG with stable hooks for the game's translated score overlay."""
     lo, hi = min(histogram), max(histogram)
     scores = [lo + i * 0.5 for i in range(int((hi-lo)*2)+1)]
     peak = max(histogram.values())
-    left, top, width, height = 90, 40, 900, 360
-    bars = []
+    left, top, width, height = 100, 50, 900, 360
+    baseline = top + height
     step = width / len(scores)
+    bars = []
     for i, score in enumerate(scores):
         count = histogram.get(score, 0); h = height * count / peak
-        bars.append(f'<rect x="{left+i*step:.2f}" y="{top+height-h:.2f}" '
-                    f'width="{step:.2f}" height="{h:.2f}" fill="#3678a8">'
-                    f'<title>Score {score:g}: {count:,} successful paths</title></rect>')
+        if not count:
+            continue  # Keep physical spacing but do not emit empty rectangles.
+        bars.append(f'<rect data-score="{score:g}" data-paths="{count}" '
+                    f'x="{left+i*step:.4f}" y="{baseline-h:.4f}" '
+                    f'width="{step:.4f}" height="{h:.4f}" fill="#3678a8">'
+                    f'<title data-chart-text="binLabel">Score {score:g}: {count:,} successful playthroughs.</title></rect>')
     labels = []
     for i in range(5):
-        y = top + height - i*height/4
-        labels.append(f'<text x="80" y="{y+5}" text-anchor="end">{round(peak*i/4):,}</text>')
+        y = baseline - i*height/4; count = round(peak*i/4)
+        labels.append(f'<text data-chart-number="{count}" x="90" y="{y+6}" text-anchor="end">{count:,}</text>')
     for i, score in enumerate(scores):
         if i == 0 or i == len(scores)-1 or score % 5 == 0:
-            labels.append(f'<text x="{left+(i+0.5)*step:.2f}" y="425" text-anchor="middle">{score:g}</text>')
-    return ('<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="490" '
-            'viewBox="0 0 1040 490" role="img" aria-labelledby="title desc">'
-            '<title id="title">Successful gameplay paths by final score</title>'
-            '<desc id="desc">Each bar counts distinct successful routes in a half-point score bin. '
-            'These counts are not probabilities. Exact data is in score-histogram.csv.</desc>'
-            '<rect width="1040" height="490" fill="white"/>'
-            '<g font-family="sans-serif" font-size="14" fill="#222">'
-            '<text x="540" y="25" text-anchor="middle">Successful gameplay paths by final score</text>'
+            labels.append(f'<text data-chart-number="{score:g}" data-score-tick="" '
+                          f'x="{left+(i+0.5)*step:.4f}" y="{baseline+25}" '
+                          f'text-anchor="middle">{score:g}</text>')
+    return ('<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="530" '
+            'viewBox="0 0 1060 530" role="img" aria-labelledby="score-chart-title score-chart-description">'
+            '<title id="score-chart-title" data-chart-text="title">Successful playthroughs by final score</title>'
+            '<desc id="score-chart-description" data-chart-text="description">'
+            'Number of successful playthroughs at each final score. Counts are not probabilities.</desc>'
+            '<rect width="1060" height="530" fill="white"/>'
+            '<g font-family="sans-serif" font-size="18" fill="#222">'
+            '<text data-chart-text="title" x="550" y="28" font-size="21" text-anchor="middle">'
+            'Successful playthroughs by final score</text>'
             + ''.join(bars+labels)
-            + '<path d="M90 40 V400 H990" fill="none" stroke="#222"/>'
-            '<text x="540" y="465" text-anchor="middle">Final score</text>'
-            '<text transform="translate(22 220) rotate(-90)" text-anchor="middle">Number of paths</text>'
+            + f'<path d="M{left} {top} V{baseline} H{left+width}" fill="none" stroke="#222"/>'
+            '<text data-chart-text="scoreAxis" x="550" y="510" text-anchor="middle">Final score</text>'
+            '<text data-chart-text="pathsAxis" transform="translate(24 230) rotate(-90)" '
+            'text-anchor="middle">Number of successful playthroughs</text>'
+            '<g data-score-marker=""></g>'
             '</g></svg>\n')
 
 
-def write_results(story, terminal, examples, visited, source, output):
+def distribution_lookup(histogram):
+    """Only attainable successful scores; integer cumulative path counts."""
+    scores = sorted(score for score, count in histogram.items() if count > 0)
+    if not scores:
+        raise ModelError("Cannot generate a distribution without successful paths")
+    cumulative = []
+    total = 0
+    for score in scores:
+        total += histogram[score]
+        cumulative.append(total)
+    return {"population": "successful_paths", "totalPaths": total,
+            "scores": scores, "cumulativeCounts": cumulative}
+
+
+def update_story_distribution(source, lookup):
+    """Replace only the explicitly marked generated data in StoryScript."""
+    text = source.read_text(encoding="utf-8")
+    pattern = r"(?m)^  // BEGIN GENERATED SCORE DISTRIBUTION\n.*?^  // END GENERATED SCORE DISTRIBUTION"
+    replacement = ("  // BEGIN GENERATED SCORE DISTRIBUTION\n"
+                   + "  const distribution = " + json.dumps(lookup, separators=(',', ':')) + ";\n"
+                   + "  // END GENERATED SCORE DISTRIBUTION")
+    if len(re.findall(pattern, text, flags=re.DOTALL)) != 1:
+        raise ModelError("Expected exactly one generated score-distribution block in the story")
+    updated = re.sub(pattern, lambda _: replacement, text, flags=re.DOTALL)
+    if updated != text:
+        source.write_text(updated, encoding="utf-8")
+
+
+def write_results(story, terminal, examples, visited, source, output, update_story=False):
     output.mkdir(parents=True, exist_ok=True)
     histograms = {kind: Counter() for kind in TERMINALS.values()}
     for (kind, circle, happy, money, tech), count in terminal.items():
@@ -283,6 +320,11 @@ def write_results(story, terminal, examples, visited, source, output):
             raise ModelError("SVG currently requires half-unit scores; update its binning")
         histograms[kind][score] += count
     all_scores = sum(histograms.values(), Counter())
+    lookup = distribution_lookup(histograms['success'])
+    if update_story:
+        update_story_distribution(source, lookup)
+    (output/"score-distribution.json").write_text(
+        json.dumps(lookup, separators=(',', ':'))+'\n', encoding="utf-8")
     summaries = {}
     for kind, hist in {**histograms, "all_terminal": all_scores}.items():
         if not hist: summaries[kind] = {"paths": 0}; continue
@@ -312,7 +354,12 @@ def write_results(story, terminal, examples, visited, source, output):
             score = lo+i*0.5
             writer.writerow([f'{score:g}', *(h.get(score,0) for h in histograms.values()), all_scores.get(score,0)])
     if histograms['success']:
-        (output/"score-histogram.svg").write_text(histogram_svg(histograms['success']), encoding="utf-8")
+        svg = histogram_svg(histograms['success'])
+        (output/"score-histogram.svg").write_text(svg, encoding="utf-8")
+        if update_story:
+            image = source.parent / "images" / "score-histogram.svg"
+            image.parent.mkdir(parents=True, exist_ok=True)
+            image.write_text(svg, encoding="utf-8")
     return summaries
 
 
@@ -337,11 +384,12 @@ def main():
     parser.add_argument('--output', type=Path, default=ROOT/'analysis'/'results')
     parser.add_argument('--count-hidden-rolls', action='store_true', help='Count each random draw even when Game Over suppresses its event')
     parser.add_argument('--paths', type=Path, help='Also write every individual path to this CSV (millions of rows)')
+    parser.add_argument('--update-story', action='store_true', help='Also refresh embedded distribution data and images/score-histogram.svg; does not update index.html')
     args = parser.parse_args()
     try:
         story = Story(args.source, args.count_hidden_rolls)
         terminal, examples, visited = analyze(story)
-        summaries = write_results(story,terminal,examples,visited,args.source,args.output)
+        summaries = write_results(story,terminal,examples,visited,args.source,args.output,args.update_story)
         if args.paths:
             args.paths.parent.mkdir(parents=True,exist_ok=True)
             export_paths(story,args.paths)

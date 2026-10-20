@@ -18,6 +18,13 @@ This game uses a custom internationalization setup (see `twine-i18n-macro-api-cp
 To count gameplay paths and regenerate final-score statistics, run
 `python3 analysis/count_paths.py`. See [analysis/README.md](analysis/README.md)
 for the counting rules, histogram outputs and optional individual path export.
+After gameplay changes, use `python3 analysis/count_paths.py --update-story`
+to also refresh the distribution embedded in StoryScript and the histogram SVG,
+then republish
+`index.html` from the updated source. The game exposes
+`window.TripleBalanceScores.percentile(score)` and
+`window.TripleBalanceScores.minimumScore(percentile)`; their definitions and
+usage are documented in the analysis guide.
 
 ## Translations
 

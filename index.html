@@ -434,6 +434,8 @@ ${i}`),b(i)}function $e(n,e=!1){return Qo(Lo(n),An(),Pn(),e)}class Ko extends fe
 }
 
 #page header .right .ui-controls,
+#page footer .right .ui-controls,
+#page footer .right .ui-controls > p,
 #page footer .right .ui-status {
   justify-content: flex-end;
 }
@@ -465,8 +467,29 @@ ${i}`),b(i)}function $e(n,e=!1){return Qo(Lo(n),An(),Pn(),e)}class Ko extends fe
   left: 10px;
 }
 
-#page .score-chart {
-  height: 250px;
+#page article.passage-ending {
+  min-width: 0;
+}
+
+#page chapbook-score-histogram {
+  display: block;
+  width: 100%;
+  max-width: 1060px;
+  margin: 1rem auto;
+  overflow-x: auto;
+}
+
+#page chapbook-score-histogram svg {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  #page chapbook-score-histogram svg {
+    min-width: 680px;
+  }
 }
 
 #page .explanation-icon,
@@ -532,7 +555,71 @@ engine.extend('2.3.1', () => {
   engine.state.setLookup('score', get =>
     2.5 * (get('circle') ?? 0) + 1.5 * (get('happy') ?? 0) + (get('money') ?? 0)
   );
+  // Only an End1 reached in this playthrough counts as successful. Reading
+  // history avoids a saved completion flag surviving a restart or Game Over.
+  engine.state.setLookup('gameSuccessful', get => {
+    const trail = get('trail');
+    if (!Array.isArray(trail)) return false;
+    const lastResetOrFailure = Math.max(trail.lastIndexOf('Start'),
+      trail.lastIndexOf('Game over'), trail.lastIndexOf('Game over2'));
+    return trail.lastIndexOf('End1') > lastResetOrFailure
+      && get('happy') > 0 && get('money') > 0;
+  });
 });
+
+/* Score distribution lookup. */
+engine.extend('2.3.1', () => {
+  // Refresh with: python3 analysis/count_paths.py --update-story
+  // BEGIN GENERATED SCORE DISTRIBUTION
+  const distribution = {"population":"successful_paths","totalPaths":3597500,"scores":[7.5,8.5,9.0,9.5,10.0,10.5,11.0,11.5,12.0,12.5,13.0,13.5,14.0,14.5,15.0,15.5,16.0,16.5,17.0,17.5,18.0,18.5,19.0,19.5,20.0,20.5,21.0,21.5,22.0,22.5,23.0,23.5,24.0,24.5,25.0,25.5,26.0,26.5,27.0,27.5,28.0,28.5,29.0,29.5,30.0,30.5,31.0,31.5,32.0,32.5,33.0,33.5,34.0,34.5,35.0,35.5,36.0,36.5,37.0,37.5,38.0,38.5,39.0,39.5,40.0,40.5,41.0,41.5,42.0,42.5,43.0,43.5,44.0,44.5,45.0,45.5,46.0,46.5,47.0,47.5,48.0,48.5,49.0,49.5,50.0,50.5,51.0,51.5,52.0,53.0],"cumulativeCounts":[52,133,308,417,1253,1807,2932,5203,7352,12278,17772,24595,36020,47986,66143,87711,111765,144955,181295,225711,277634,334048,400603,473239,555068,642775,737180,840558,946580,1062250,1179932,1300137,1427523,1551300,1680743,1808730,1932446,2060679,2180093,2299124,2415658,2521704,2629183,2726741,2817958,2907371,2984299,3059204,3127656,3186413,3244054,3292624,3336116,3377092,3409735,3440330,3466935,3488140,3508388,3524326,3537657,3549952,3558924,3566966,3573664,3578474,3583027,3586332,3588825,3591147,3592646,3593906,3594936,3595564,3596159,3596552,3596808,3597055,3597184,3597291,3597374,3597407,3597448,3597468,3597477,3597490,3597493,3597497,3597499,3597500]};
+  // END GENERATED SCORE DISTRIBUTION
+
+  Object.freeze(distribution.scores);
+  Object.freeze(distribution.cumulativeCounts);
+  Object.freeze(distribution);
+
+  function requireNumber(value) {
+    if (typeof value !== 'number' || !Number.isFinite(value)) {
+      throw new TypeError('Expected a finite number.');
+    }
+  }
+
+  // Unrounded percentage of successful paths scoring at or below this score.
+  // A display can use Math.floor(percentile(score)) without changing the lookup.
+  function percentile(score) {
+    requireNumber(score);
+    let low = 0;
+    let high = distribution.scores.length;
+    while (low < high) {
+      const middle = Math.floor((low + high) / 2);
+      if (distribution.scores[middle] <= score) low = middle + 1;
+      else high = middle;
+    }
+    return low === 0 ? 0
+      : 100 * distribution.cumulativeCounts[low - 1] / distribution.totalPaths;
+  }
+
+  // Lowest attainable score reaching the requested cumulative percentage.
+  // Percentile 0 is explicitly defined as the minimum successful score.
+  function minimumScore(percentileValue) {
+    requireNumber(percentileValue);
+    if (percentileValue < 0 || percentileValue > 100) {
+      throw new RangeError('Percentile must be between 0 and 100.');
+    }
+    let low = 0;
+    let high = distribution.scores.length - 1;
+    while (low < high) {
+      const middle = Math.floor((low + high) / 2);
+      if (100 * distribution.cumulativeCounts[middle] / distribution.totalPaths
+          >= percentileValue) high = middle;
+      else low = middle + 1;
+    }
+    return distribution.scores[low];
+  }
+
+  window.TripleBalanceScores = Object.freeze({ distribution, percentile, minimumScore });
+});
+/* End score distribution lookup. */
 
 /* Optional end-condition override. Normal route links stay visible to Twine. */
 engine.extend("2.3.1", () => {
@@ -956,6 +1043,153 @@ engine.extend("2.3.1", () => {
     }
   }
 
+  // The generated SVG supplies static geometry; this component adds the score
+  // marker and translates text without rerendering passages or changing state.
+  let scoreChartTemplate;
+  let scoreChartSequence = 0;
+  function loadScoreChart() {
+    if (!scoreChartTemplate) {
+      scoreChartTemplate = fetch('images/score-histogram.svg')
+        .then(response => {
+          if (!response.ok) throw new Error('Could not load the score histogram.');
+          return response.text();
+        })
+        .then(source => {
+          const document = new DOMParser().parseFromString(source, 'image/svg+xml');
+          if (document.querySelector('parsererror') || document.documentElement.localName !== 'svg') {
+            throw new Error('Invalid score histogram SVG.');
+          }
+          return document.documentElement;
+        })
+        .catch(error => { scoreChartTemplate = undefined; throw error; });
+    }
+    return scoreChartTemplate;
+  }
+
+  class ScoreHistogram extends HTMLElement {
+    connectedCallback() {
+      texts.add(this);
+      this.tabIndex = 0; // Allows keyboard scrolling on narrow screens.
+      this.resizeObserver ??= new ResizeObserver(() => this.centerMarker());
+      this.resizeObserver.observe(this);
+      if (!this.svg && !this.loading) {
+        this.loading = true;
+        this.failed = false;
+        loadScoreChart().then(template => {
+          this.svg = document.importNode(template, true);
+          const id = `score-chart-${++scoreChartSequence}`;
+          this.svg.querySelector('title').id = `${id}-title`;
+          this.svg.querySelector('desc').id = `${id}-description`;
+          this.svg.setAttribute('aria-labelledby', `${id}-title ${id}-description`);
+          this.replaceChildren(this.svg);
+          this.loading = false;
+          this.drawMarker();
+          this.update();
+        }).catch(error => {
+          this.loading = false;
+          this.failed = true;
+          console.error('Score histogram failed:', error);
+          this.update();
+        });
+      }
+      this.update();
+    }
+    disconnectedCallback() {
+      texts.delete(this);
+      this.resizeObserver.disconnect();
+    }
+
+    drawMarker() {
+      if (this.getAttribute('successful') !== 'true') return;
+      const score = Number(this.getAttribute('score'));
+      const bars = [...this.svg.querySelectorAll('rect[data-score]')];
+      const first = bars[0];
+      const last = bars[bars.length - 1];
+      const step = Number(first.getAttribute('width'));
+      const left = Number(first.getAttribute('x')) + step / 2;
+      const right = Number(last.getAttribute('x')) + step / 2;
+      const baseline = Number(first.getAttribute('y')) + Number(first.getAttribute('height'));
+      const x = Math.max(left, Math.min(right,
+        left + (score - Number(first.dataset.score)) / 0.5 * step));
+      this.markerX = x;
+      this.bin = bars.find(bar => Number(bar.dataset.score) === score);
+      if (this.bin) {
+        this.bin.setAttribute('fill', '#efb477');
+        this.bin.setAttribute('stroke', '#803b13');
+        this.bin.setAttribute('stroke-width', '1');
+        this.bin.setAttribute('data-current-score', '');
+      }
+      const marker = this.svg.querySelector('[data-score-marker]');
+      const add = (tag, attrs) => {
+        const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
+        Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+        marker.append(node);
+        return node;
+      };
+      add('line', { x1: x, x2: x, y1: this.bin?.getAttribute('y') ?? baseline,
+        y2: baseline, stroke: '#803b13', 'stroke-width': 2, 'data-score-line': '' });
+      add('path', { d: `M${x - 6} ${baseline + 10} L${x} ${baseline + 2} L${x + 6} ${baseline + 10} M${x} ${baseline + 2} V${baseline + 37}`,
+        fill: 'none', stroke: '#803b13', 'stroke-width': 2, 'data-score-arrow': '' });
+      add('text', { x, y: baseline + 60, 'text-anchor': x > right - 35 ? 'end' : x < left + 35 ? 'start' : 'middle',
+        fill: '#803b13', 'font-size': 22, 'font-weight': 'bold', 'data-chart-text': 'you' });
+      // Do not let an arrow drawn on a tick obscure the tick's number.
+      this.svg.querySelectorAll('[data-score-tick]').forEach(tick => {
+        if (Math.abs(Number(tick.getAttribute('x')) - x) < 15) tick.style.visibility = 'hidden';
+      });
+      this.centerMarker();
+    }
+
+    centerMarker() {
+      if (this.svg && this.markerX !== undefined && this.scrollWidth > this.clientWidth) {
+        this.scrollLeft = this.markerX * this.svg.getBoundingClientRect().width / 1060 - this.clientWidth / 2;
+      }
+    }
+
+    update() {
+      if (!this.svg) {
+        this.textContent = ready
+          ? translator.t(`end.end6.chart.${this.failed ? 'loadError' : 'loading'}`)
+          : interfaceText('common.languageLoading');
+        return;
+      }
+      const language = ready ? translator.resolvedLanguage || translator.language : 'en';
+      const format = new Intl.NumberFormat(language);
+      const score = Number(this.getAttribute('score'));
+      const options = {
+        score: format.format(score),
+        percentile: Math.floor(window.TripleBalanceScores.percentile(score)),
+        total: format.format(window.TripleBalanceScores.distribution.totalPaths),
+        paths: format.format(Number(this.bin?.dataset.paths ?? 0))
+      };
+      this.svg.setAttribute('lang', language);
+      this.svg.querySelectorAll('[data-chart-text]').forEach(node => {
+        if (!ready) return;
+        const bin = node.closest('rect[data-score]');
+        const values = bin ? { score: format.format(Number(bin.dataset.score)), paths: format.format(Number(bin.dataset.paths)) } : options;
+        const key = node.dataset.chartText === 'description' && this.getAttribute('successful') !== 'true'
+          ? 'descriptionWithoutScore' : node.dataset.chartText;
+        node.textContent = translator.t(`end.end6.chart.${key}`, values);
+      });
+      this.svg.querySelectorAll('[data-chart-number]').forEach(node => {
+        node.textContent = format.format(Number(node.dataset.chartNumber));
+      });
+      if (ready) this.setAttribute('aria-label', translator.t('end.end6.chart.title'));
+    }
+  }
+  customElements.define('chapbook-score-histogram', ScoreHistogram);
+  engine.template.inserts.add({
+    match: /^score histogram$/i,
+    render(score, { successful = false } = {}) {
+      if (typeof score !== 'number' || !Number.isFinite(score)) {
+        throw new TypeError('The score histogram requires a finite score.');
+      }
+      if (typeof successful !== 'boolean') {
+        throw new TypeError('Histogram success must be a boolean.');
+      }
+      return `<chapbook-score-histogram score="${escapeAttribute(score)}" successful="${successful}"></chapbook-score-histogram>`;
+    }
+  });
+
   class LanguageSelector extends HTMLElement {
     connectedCallback() {
       if (!this.select) {
@@ -1191,8 +1425,9 @@ randomEvent: Math.floor(Math.random() * 4) + 1
 
 [continue]
 {game over override}
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="End.Credits" tags="ending prose" position="50,925" size="100,100">ui.footerLeft: &quot;{translated link: \&quot;common.learnScore\&quot;, to: &#39;[[Learn more about the score-&gt;End4]]&#39;}&quot;
-ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;}&quot;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="End.Credits" tags="ending prose" position="50,925" size="100,100">ui.footerLeft: &quot;{translated link: \&quot;common.learnScore\&quot;, to: &#x27;[[Learn more about the score-&gt;End4]]&#x27;}&quot;
+ui.footerRight: &quot;{translated link: \&quot;common.restart\&quot;, to: &#x27;[[Restart-&gt;Start]]&#x27;}&quot;
+ui.footerCenter: &quot;&quot;
 --
 {translate text: &quot;end.credits.text1&quot;}
 
@@ -1267,47 +1502,43 @@ ui.footerCenter: &quot;&quot;
 [if happy &gt; 0]
 &lt;div class=&quot;passage-navigation&quot;&gt;
 {translated link: &quot;common.continue&quot;, to: &#39;[[Continue-&gt;End3]]&#39;, role: &quot;continue&quot;}
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="End3" tags="ending" position="475,1275" size="100,100">ui.footerCenter: &quot;{translated link: \&quot;common.credits\&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}&quot;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="End3" tags="ending" position="475,1275" size="100,100">ui.footerCenter: &quot;{translated link: \&quot;common.credits\&quot;, to: &#x27;[[Credits-&gt;End.Credits]]&#x27;}&quot;
 ui.status: true
 --
 &lt;div class=&quot;ending-assessment&quot;&gt;
-[if score &gt; 52]
+{translate text: &quot;end.end3.scoreText&quot;, score: score, percentile: Math.floor(window.TripleBalanceScores.percentile(score))} &lt;br&gt;&lt;br&gt;
+
+[if score &gt;= window.TripleBalanceScores.minimumScore(100)]
 &lt;img src=&quot;images/very-good.png&quot; class=&quot;score-icon&quot;&gt; &lt;img src=&quot;images/very-good.png&quot; class=&quot;score-icon&quot;&gt; &lt;img src=&quot;images/very-good.png&quot; class=&quot;score-icon&quot;&gt; &lt;br&gt;
 {translate rich text: &quot;end.end3.highScore.text1&quot;}
 
-[if score &gt; 32.5 &amp;&amp; score &lt;= 52]
+[if score &gt;= window.TripleBalanceScores.minimumScore(90) &amp;&amp; score &lt; window.TripleBalanceScores.minimumScore(100)]
 &lt;img src=&quot;images/very-good.png&quot; class=&quot;score-icon&quot;&gt; &lt;br&gt;
-{translate text: &quot;end.end3.outstanding.scoreText&quot;, score: score} &lt;br&gt;&lt;br&gt;
 {translate rich text: &quot;end.end3.outstanding.text1&quot;} 
 
-[if score &gt; 28.5 &amp;&amp; score &lt;= 32.5]
+[if score &gt;= window.TripleBalanceScores.minimumScore(60) &amp;&amp; score &lt; window.TripleBalanceScores.minimumScore(90)]
 &lt;img src=&quot;images/good.png&quot; class=&quot;score-icon&quot;&gt; &lt;br&gt;
-{translate text: &quot;end.end3.good.scoreText&quot;, score: score} &lt;br&gt;&lt;br&gt;
 {translate text: &quot;end.end3.good.text1&quot;} 
 
-[if score &gt; 22.5 &amp;&amp; score &lt;= 28.5]
+[if score &gt;= window.TripleBalanceScores.minimumScore(40) &amp;&amp; score &lt; window.TripleBalanceScores.minimumScore(60)]
 &lt;img src=&quot;images/neutral.png&quot; class=&quot;score-icon&quot;&gt; &lt;br&gt;
-{translate text: &quot;end.end3.average.scoreText&quot;, score: score} &lt;br&gt;&lt;br&gt;
 {translate text: &quot;end.end3.average.text1&quot;} 
 
-[if score &gt; 14.5 &amp;&amp; score &lt;= 22.5]
+[if score &gt;= window.TripleBalanceScores.minimumScore(20) &amp;&amp; score &lt; window.TripleBalanceScores.minimumScore(40)]
 &lt;img src=&quot;images/bad.png&quot; class=&quot;score-icon&quot;&gt; &lt;br&gt;
-{translate text: &quot;end.end3.poor.scoreText&quot;, score: score} &lt;br&gt;&lt;br&gt;
 {translate text: &quot;end.end3.poor.text1&quot;} 
 
-[if score &gt; 2 &amp;&amp; score &lt;= 14.5]
+[if score &gt;= window.TripleBalanceScores.minimumScore(0) &amp;&amp; score &lt; window.TripleBalanceScores.minimumScore(20)]
 &lt;img src=&quot;images/bad.png&quot; class=&quot;score-icon&quot;&gt; &lt;br&gt;
-{translate text: &quot;end.end3.barelySurvived.scoreText&quot;, score: score} &lt;br&gt;&lt;br&gt;
 {translate text: &quot;end.end3.barelySurvived.text1&quot;}
 
 
 [continue]
-[if score &gt; -5]
-{translated link: &quot;common.runAgain&quot;, to: &#39;[[Run for office again-&gt;Start]]&#39;}
+{translated link: &quot;common.runAgain&quot;, to: &#x27;[[Run for office again-&gt;Start]]&#x27;}
 &lt;/div&gt;
 
 &lt;div class=&quot;score-details-link&quot;&gt;
-{translated link: &quot;common.learnScore&quot;, to: &#39;[[Learn more about the score-&gt;End4]]&#39;}
+{translated link: &quot;common.learnScore&quot;, to: &#x27;[[Learn more about the score-&gt;End4]]&#x27;}
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="End4" tags="ending prose" position="625,1275" size="100,100">ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;}       {translated link: \&quot;common.credits\&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}&quot;
 --
 {translate text: &quot;end.end4.text1&quot;} 
@@ -1327,14 +1558,22 @@ ui.status: true
 {translate text: &quot;end.end5.text3&quot;}
 &lt;br&gt;&lt;br&gt;
 {translated link: &quot;common.continue&quot;, to: &#39;[[Continue-&gt;End6]]&#39;, role: &quot;continue&quot;}
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="End6" tags="ending" position="925,1275" size="100,100">ui.footerLeft: &quot;{translate text: \&quot;end.end6.scoreText\&quot;, score: score}&quot;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="End6" tags="ending" position="925,1275" size="100,100">ui.footerLeft: &quot;[if gameSuccessful]\n{translate text: \&quot;end.end6.scoreText\&quot;, score: score, percentile: Math.floor(window.TripleBalanceScores.percentile(score))}\n[continue]&quot;
+ui.footerRight: &quot;{translated link: \&quot;common.restart\&quot;, to: &#x27;[[Restart-&gt;Start]]&#x27;} {translated link: \&quot;common.credits\&quot;, to: &#x27;[[Credits-&gt;End.Credits]]&#x27;}&quot;
+ui.footerCenter: &quot;&quot;
 --
 
-{translate rich text: &quot;end.end6.text1&quot;, playthroughCount: &quot;3.824.020&quot;}&lt;br&gt; 
+{translate rich text: &quot;end.end6.text1&quot;, playthroughCount: window.TripleBalanceScores.distribution.totalPaths}&lt;br&gt;
+[if gameSuccessful]
 {translate text: &quot;end.end6.text2&quot;}
 
+[if !gameSuccessful]
+{translate text: &quot;end.end6.text3&quot;}
 
-&lt;img src=&quot;images/graph.webp&quot; class=&quot;score-chart&quot;&gt;</tw-passagedata><tw-passagedata pid="14" name="FEAR OF DATA THEFT" tags="event" position="2075,1250" size="100,100">{translate rich text: &quot;common.eventHappens&quot;}&lt;br&gt;
+[continue]
+
+
+{score histogram: score, successful: gameSuccessful}</tw-passagedata><tw-passagedata pid="14" name="FEAR OF DATA THEFT" tags="event" position="2075,1250" size="100,100">{translate rich text: &quot;common.eventHappens&quot;}&lt;br&gt;
 &lt;span class=&quot;passage-title&quot;&gt;{translate text: &quot;events.fearOfDataTheft.title&quot;}&lt;/span&gt;
 
 {translate text: &quot;events.fearOfDataTheft.description&quot;}
@@ -1494,7 +1733,8 @@ money: money - 1
 {translated link: &quot;common.continue&quot;, to: &#39;[[Continue-&gt;Round5]]&#39;, role: &quot;continue&quot;}
 
 {game over override}
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Game over" tags="ending" position="75,350" size="100,100">ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;}       {translated link: \&quot;common.credits\&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}&quot;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Game over" tags="ending" position="75,350" size="100,100">ui.footerLeft: &quot;{translated link: \&quot;common.learnScore\&quot;, to: &#x27;[[Learn more about the score-&gt;End4]]&#x27;}&quot;
+ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#x27;[[Restart-&gt;Start]]&#x27;}       {translated link: \&quot;common.credits\&quot;, to: &#x27;[[Credits-&gt;End.Credits]]&#x27;}&quot;
 ui.mode: &quot;game-over&quot;
 --
 
@@ -1505,7 +1745,8 @@ ui.mode: &quot;game-over&quot;
 {translate text: &quot;end.gamOver.text1&quot;}
 
 &lt;span class=&quot;game-over-label&quot;&gt;{translate text: &quot;end.gamOver.label&quot;}&lt;/span&gt;
-&lt;img src=&quot;images/dead.webp&quot; class=&quot;game-over-icon&quot;&gt;</tw-passagedata><tw-passagedata pid="27" name="Game over2" tags="ending" position="200,350" size="100,100">ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;}       {translated link: \&quot;common.credits\&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}&quot;
+&lt;img src=&quot;images/dead.webp&quot; class=&quot;game-over-icon&quot;&gt;</tw-passagedata><tw-passagedata pid="27" name="Game over2" tags="ending" position="200,350" size="100,100">ui.footerLeft: &quot;{translated link: \&quot;common.learnScore\&quot;, to: &#x27;[[Learn more about the score-&gt;End4]]&#x27;}&quot;
+ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#x27;[[Restart-&gt;Start]]&#x27;}       {translated link: \&quot;common.credits\&quot;, to: &#x27;[[Credits-&gt;End.Credits]]&#x27;}&quot;
 ui.mode: &quot;game-over&quot;
 --
 

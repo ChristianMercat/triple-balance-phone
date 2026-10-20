@@ -556,27 +556,23 @@
       }
     },
     "end3": {
+      "scoreText": "Your score is {{score}} of 53 (percentile {{percentile}} / 100).",
       "highScore": {
         "text1": "<strong>You've hit the high score! Congratulations!</strong>"
       },
       "outstanding": {
-        "scoreText": "Your score is {{score}} of 53.",
         "text1": "You have been an outstanding mayor for Phonopolis. <strong>Congratulations!</strong>"
       },
       "good": {
-        "scoreText": "Your score is {{score}} of 53.",
         "text1": "You have been a good mayor for Phonopolis."
       },
       "average": {
-        "scoreText": "Your score is {{score}} of 53.",
         "text1": "You have been an average mayor for Phonopolis."
       },
       "poor": {
-        "scoreText": "Your score is {{score}} of 53.",
         "text1": "You have been a poor mayor for Phonopolis."
       },
       "barelySurvived": {
-        "scoreText": "Your score is {{score}} of 53.",
         "text1": "You barely survived this legislative period in Phonopolis."
       }
     },
@@ -588,12 +584,24 @@
     "end5": {
       "text1": "The game contains many decision points where you choose between different options: Six rounds of <span class=\"policy\">policy</span> decisions, up to three rounds of <span class=\"tech\">technology</span> decisions, and up to three <span class=\"event\">events</span> are possible.",
       "text2": "Each sequence of decisions creates a unique path through the game, resulting in a large number of possible combinations.",
-      "text3": "Can you guess the magnitude of that number?"
+      "text3": "There are over 4 million (4,054,180) possible games in total!"
     },
     "end6": {
-      "scoreText": "Your score: {{score}}",
-      "text1": "There are close to <strong>4 million ({{playthroughCount}})</strong> different combinations.",
-      "text2": "Find out how many there are to reach your score:"
+      "scoreText": "Your score: {{score}} (percentile {{percentile}} / 100).",
+      "text1": "There are <strong>{{playthroughCount, number}}</strong> different successful playthroughs.",
+      "text2": "See how many successful playthroughs reach every score:",
+      "text3": "See how many successful playthroughs reach every score:",
+      "chart": {
+        "title": "Successful playthroughs by final score",
+        "scoreAxis": "Final score",
+        "pathsAxis": "Number of successful playthroughs",
+        "you": "You",
+        "binLabel": "Score {{score}}: {{paths}} successful playthroughs.",
+        "description": "Distribution of {{total}} successful playthroughs. Your score is {{score}} (percentile {{percentile}}/100). There are {{paths}} successful playthroughs with that score. Counts are not probabilities.",
+        "descriptionWithoutScore": "Distribution of {{total}} successful playthroughs by final score. Counts are not probabilities.",
+        "loading": "Loading histogram…",
+        "loadError": "The histogram could not be loaded."
+      }
     },
     "credits": {
       "text1": "This game was developed by IMAGINARY gGmbH © 2026.",

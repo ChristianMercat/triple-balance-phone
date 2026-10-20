@@ -1377,3 +1377,139 @@ resource floors, condition reset, Game Over precedence, hidden rolls and rejecte
 cycles/expressions. Generated CSV totals and score bounds match the summary;
 extreme-score examples are replayed against the model. JSON and SVG parse
 successfully. Results record the source SHA-256 for reproducibility.
+
+## 2026-10-20 — Generate score distribution lookup and add game functions
+
+- `analysis/count_paths.py` now generates `score-distribution.json` from the
+  successful-path histogram, with sorted attainable scores, cumulative integer
+  counts and the successful population total. No `analysis2/` data is used.
+- Added `--update-story` to refresh only the generated data block in
+  `tripleBalance.twee`. The normal analysis command still writes outputs only.
+  Reports record the source hash after an embedded-data update. Future HTML
+  exports should be published from the updated source in Twine.
+- Added `window.TripleBalanceScores.percentile(score)` and
+  `window.TripleBalanceScores.minimumScore(percentile)` in StoryScript and the
+  current HTML export. They are synchronous, read-only helpers over embedded
+  data, with no extra network request or saved-state changes.
+- Percentile is the unrounded percentage of successful paths scoring at or
+  below the supplied score. Integer display will use `Math.floor`. Quantiles
+  return the lowest attainable score reaching the target; percentile 0 returns
+  the minimum score. Invalid inputs and percentile targets outside 0–100 are
+  rejected. Both functions handle tied scores without interpolation.
+- Added Python generation checks and dependency-free Node.js lookup checks;
+  documented the API and regeneration workflow. Existing ending text,
+  assessment boundaries, dictionaries and the graph are unchanged.
+
+Validation: seven Python tests and JavaScript lookup checks pass. Scores 37 and
+53 give approximately 97.523% and 100%; percentile targets 0, 20, 40, 60, 90 and
+100 map to scores 7.5, 21, 24.5, 27, 33 and 53. Counts remain 3,597,500 successful
+paths and 4,054,180 terminal paths. Source/export script and embedded/generated
+data match; the generated report hash matches the final source.
+
+## 2026-10-20 — Use percentile-based evaluation in End3
+
+- Replaced End3's eyeballed boundaries with direct calls to
+  `window.TripleBalanceScores.minimumScore(0/20/40/60/90/100)`. Native mutually
+  exclusive conditions include each lower boundary and exclude the next upper
+  boundary: barely survived 7.5–<21, poor 21–<24.5, average 24.5–<27,
+  good 27–<33, outstanding 33–<53, and the perfect-score assessment at 53.
+- Added one shared `end.end3.scoreText` line before the assessments, displaying
+  score and the percentile rounded down. English reads
+  `Your score is {{score}} of 53 (percentile {{percentile}}/100)`.
+  Updated the German equivalent and removed five redundant per-band score
+  strings from each dictionary. The perfect-score case now also shows the line.
+- Removed the inherited `[if score > -5]` guard on the replay link: it was
+  always true for successful endings (whose minimum score is 7.5). Kept
+  `[continue]` so replay and subsequent markup are outside all assessment
+  conditions and remain unconditional.
+- Updated the matching End3 passage in `index.html`, documented the intervals,
+  completed the corresponding TODO items and extended the lookup tests with
+  End3 boundary and dictionary checks. No resource effects or graph changes.
+
+Validation: seven Python tests and JavaScript lookup/End3 checks pass. Headless
+Chrome checks cover 12 boundary/interior scores, one assessment per case, one
+score line including perfect score, German live translation without resource
+changes and replay resetting the game. The analysis still gives 3,597,500
+successful paths and 4,054,180 terminal paths; histogram data are unchanged.
+
+## 2026-10-20 — Replace End6's histogram with a translated score-marked SVG
+
+- Extended the analysis SVG generator with exact half-point bins, raw path
+  counts and stable hooks for chart labels and the score marker. Its axis
+  includes zero for unfinished/failed scores reached through Credits; bar
+  heights continue to count successful paths only. `--update-story` now also
+  writes `images/score-histogram.svg`, identical to the analysis SVG output.
+- Added `{score histogram: score}` and its custom element in StoryScript.
+  The component loads the static SVG once, highlights the current bin and adds
+  a vertical line through its height plus an arrow labelled “You”. Chart updates
+  do not rerender passages or change gameplay state.
+- Added matching `end.end6.chart` English/German keys for the title, axes,
+  marker, bar tooltips, accessible description and loading/error messages.
+  Language changes update text and locale-formatted numbers in place. Each SVG
+  instance has unique accessible title/description IDs.
+- Replaced End6's obsolete count with the generated 3,597,500 successful
+  playthroughs, using translated number formatting and text that describes the
+  histogram's actual population. Counts are distinguished from probabilities
+  in the accessible description. The old WebP remains for archived stories.
+- Replaced fixed-height chart CSS with a proportional SVG. Narrow screens use
+  a keyboard-focusable internal scroller centered on the score marker; the
+  chart does not widen the page. Updated the current HTML export, documentation
+  and relevant TODO items.
+
+Validation: Python SVG checks cover exact bins, totals, heights, empty bins and
+translation hooks. JavaScript lookup/End3 checks still pass. Chrome checks cover
+minimum/maximum, interior, zero-height and failed-game score bins, marker
+geometry, all 3,597,500 paths, one cached template request, English/German labels
+and formatted counts, in-place language switching with unchanged resources,
+unique accessible IDs and narrow-screen layout. No policy effects, score formula
+or route counts changed.
+
+## 2026-10-20 — Restrict the histogram to successful games and improve ending links
+
+- Changed the generated SVG axis to the successful-score range, 7.5–53.
+  Empty rectangles are omitted without changing score spacing or route counts.
+- Added the derived `gameSuccessful` lookup: End1 must occur after the latest
+  Start or Game Over, with positive happiness and budget. No stored flag is
+  introduced, so an earlier win cannot carry over after restarting.
+- End6 passes this boolean to `{score histogram}`. Failed and unfinished runs
+  have no highlighted bin, arrow, vertical line, personal accessible description
+  or percentile footer; they use the general `end.end6.text3` introduction.
+  Successful runs retain their marker and percentile summary.
+- Added “Learn more about the score” to both Game Over footers, linking directly
+  to End4. Updated the English/German score-free chart description and translated
+  the user's revised End5/End6 text into German, preserving the English edits.
+  Wired the missing percentile interpolation argument into End6's footer.
+- Regenerated the SVGs, synchronized the HTML export and updated documentation
+  and tests for successful-history detection and the new graph range.
+
+Validation: Python SVG and JavaScript lookup/history checks cover omitted empty
+bins, unchanged counts, successful and failed runs, unfinished runs and restart
+history. Chrome route checks cover the new Game Over → End4 → End5 → End6 links,
+a 37-point win versus 37-point failures, marker/summary visibility, translated
+percentiles and general English/German histogram text without state changes.
+
+## 2026-10-20 — Align asymmetric ending footers
+
+- Moved Credits' restart link and End6's restart/credits controls into the
+  explicit right footer slot, clearing the default center controls on those
+  passages. The explanatory link and score summary stay on the left.
+- Right-aligned the footer's right-side flex controls, including paragraph
+  wrappers, so the links align with the footer edge and wrap toward the right.
+- Synchronized the HTML export and refreshed the analysis report's source hash.
+
+Validation: Chrome layout checks compare text and footer edges on both passages
+in English/German at desktop and mobile widths. Story content, score evaluation
+and path counts are unchanged.
+
+## 2026-10-20 — Synchronize English and German dictionary entries
+
+- Restored the English `end.end6.text3` referenced by failed/unfinished End6
+  routes, using the same general histogram introduction as `text2`.
+- Aligned German End6 `text2` with the English wording about every score,
+  corrected the starting budget from “over 5” to exactly 5 Megacoins and fixed
+  both occurrences of “duch” to “durch”.
+- Matched the German End3 score sentence's slash spacing and final period to
+  English. Story source, HTML export and gameplay are unchanged.
+
+Validation: both dictionaries contain the same 319 nonempty string entries,
+with matching interpolation placeholders and HTML markup.

@@ -23,7 +23,7 @@
       "text1": "So sieht es derzeit in Phonopolis aus:",
       "row-circularity": "Der Kreislaufindex liegt bei null. Deine Wirtschaft ist also noch überhaupt keine Kreislaufwirtschaft. Schlechter kann es nicht werden.",
       "row-happiness": "Die Bevölkerung ist mäßig zufrieden; das Stimmungsbarometer liegt bei 5. Sorge dafür, dass es niemals auf null sinkt, sonst gibt es einen Aufstand!",
-      "row-budget": "In der Stadtkasse sind derzeit über 5 Megacoins. Ist sie leer, fliegst du aus dem Amt!"
+      "row-budget": "In der Stadtkasse sind derzeit 5 Megacoins. Ist sie leer, fliegst du aus dem Amt!"
     },
     "start5": {
       "text1": "Möchtest du einen Teil deines Geldes in die Erforschung <span class=\"tech\">neuer Technologien</span> investieren?"
@@ -536,10 +536,10 @@
         "tremendous": "Du hast die <strong>Kreislaufwirtschaft</strong> enorm verbessert."
       },
       "happiness": {
-        "low": "Die Menschen haben duch deine Entscheidungen schlechte <strong>Laune</strong>.",
+        "low": "Die Menschen haben durch deine Entscheidungen schlechte <strong>Laune</strong>.",
         "stable": "Die <strong>Stimmung</strong> der Bevölkerung hat sich kaum verändert.",
         "high": "Die Menschen sind mit deinen Entscheidungen ziemlich <strong>zufrieden</strong>.",
-        "veryHigh": "Die Menschen haben duch deine Entscheidungen sehr gute <strong>Laune</strong>."
+        "veryHigh": "Die Menschen haben durch deine Entscheidungen sehr gute <strong>Laune</strong>."
       },
       "budget": {
         "nearBankruptcy": "Du hast es gerade so geschafft, eine Insolvenz zu vermeiden.",
@@ -549,27 +549,23 @@
       }
     },
     "end3": {
+      "scoreText": "Deine Punktzahl beträgt {{score}} von 53 (Perzentil {{percentile}} / 100).",
       "highScore": {
         "text1": "<strong>Du hast den High-Score geknackt! Herzlichen Glückwunsch!</strong>"
       },
       "outstanding": {
-        "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
         "text1": "Du hast Phonopolis hervorragend regiert. <strong>Herzlichen Glückwunsch!</strong>"
       },
       "good": {
-        "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
         "text1": "Du hast Phonopolis gut regiert."
       },
       "average": {
-        "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
         "text1": "Du hast Phonopolis durchschnittlich regiert."
       },
       "poor": {
-        "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
         "text1": "Du hast Phonopolis schlecht regiert."
       },
       "barelySurvived": {
-        "scoreText": "Deine Punktzahl beträgt {{score}} von 53.",
         "text1": "Du hast diese Amtszeit in Phonopolis gerade so überstanden."
       }
     },
@@ -581,12 +577,24 @@
     "end5": {
       "text1": "Das Spiel enthält viele Punkte, an denen du zwischen verschiedenen Möglichkeiten wählst: Möglich sind sechs Runden mit <span class=\"policy\">politischen Maßnahmen</span>, bis zu drei Runden mit <span class=\"tech\">Technologien</span> und bis zu drei <span class=\"event\">Ereignisse</span>.",
       "text2": "Jede Entscheidungsfolge ergibt einen eigenen Weg durch das Spiel. Dadurch gibt es sehr viele mögliche Spielverläufe.",
-      "text3": "Kannst du abschätzen, in welcher Größenordnung diese Zahl liegt?"
+      "text3": "Insgesamt gibt es über 4 Millionen (4.054.180) mögliche Spielverläufe!"
     },
     "end6": {
-      "scoreText": "Deine Punktzahl: {{score}}",
-      "text1": "Es gibt fast <strong>4 Millionen ({{playthroughCount}})</strong> verschiedene Spielverläufe.",
-      "text2": "Finde heraus, wie viele davon zu deiner Punktzahl führen:"
+      "scoreText": "Deine Punktzahl: {{score}} (Perzentil {{percentile}} / 100).",
+      "text1": "Es gibt <strong>{{playthroughCount, number}}</strong> verschiedene erfolgreiche Spielverläufe.",
+      "text2": "Sieh nach, wie viele erfolgreiche Spielverläufe die jeweilige Punktzahl erreichen:",
+      "text3": "Sieh nach, wie viele erfolgreiche Spielverläufe die jeweilige Punktzahl erreichen:",
+      "chart": {
+        "title": "Erfolgreiche Spielverläufe nach Punktzahl",
+        "scoreAxis": "Punktzahl",
+        "pathsAxis": "Anzahl erfolgreicher Spielverläufe",
+        "you": "Du",
+        "binLabel": "Punktzahl {{score}}: {{paths}} erfolgreiche Spielverläufe.",
+        "description": "Verteilung von {{total}} erfolgreichen Spielverläufen. Deine Punktzahl beträgt {{score}} (Perzentil {{percentile}}/100). Es gibt {{paths}} erfolgreiche Spielverläufe mit dieser Punktzahl. Die Anzahlen sind keine Wahrscheinlichkeiten.",
+        "descriptionWithoutScore": "Verteilung von {{total}} erfolgreichen Spielverläufen nach Punktzahl. Die Anzahlen sind keine Wahrscheinlichkeiten.",
+        "loading": "Histogramm wird geladen…",
+        "loadError": "Das Histogramm konnte nicht geladen werden."
+      }
     },
     "credits": {
       "text1": "Dieses Spiel wurde von IMAGINARY gGmbH entwickelt © 2026.",

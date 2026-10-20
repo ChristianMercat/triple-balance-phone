@@ -1,6 +1,6 @@
 {
   "source": "tripleBalance.twee",
-  "source_sha256": "607cbce9a8a7012b4a39116deddc87274e819fbe784a33a6291c38a18759f2e5",
+  "source_sha256": "f40f0aa1b0ca48a3d9f2b725c7dacaffc332af371c342fc414255d0f57f512e3",
   "score_formula": "2.5 * circle + 1.5 * happy + money",
   "count_hidden_rolls": false,
   "definition": "Distinct gameplay choices and visible random outcomes; stop at End1 or Game Over; exclude explanatory detours, UI controls, credits and restarts.",
