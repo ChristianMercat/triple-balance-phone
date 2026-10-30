@@ -1513,3 +1513,21 @@ and path counts are unchanged.
 
 Validation: both dictionaries contain the same 319 nonempty string entries,
 with matching interpolation placeholders and HTML markup.
+
+## 2026-10-30 — Add student explanation and decision-diagram proposal
+
+- Reviewed both pages of `educational_material/en/decision_tree.pdf` against the
+  current story and the main `analysis/` counting rules. Recorded the correct
+  round order and the missing distinctions between automatic technology skips,
+  paid choices, and early Game Over endings in `decision_tree_review.md`.
+- Added `gameplay_paths.md`, a short high-school explanation of branching,
+  research investment, theoretical full plans and actual terminal paths.
+- Added `decision_tree_proposal.svg`, a compressed flow with explicit investment
+  conditions, policy/event branch examples and Game Over exits. Rejoining lines
+  are explicitly a visual shortcut, not a merger of separately counted paths.
+- Counts are 10,001,880 full plans before resource checks, 3,597,500 successful
+  paths and 456,680 early endings: 4,054,180 terminal playthroughs in total.
+
+Validation: rendered and inspected the SVG; checked XML, document links,
+arithmetic and the saved analysis source hash. The original PDF's SHA-256 is
+unchanged. No story, dictionaries, game export or analysis data were modified.
