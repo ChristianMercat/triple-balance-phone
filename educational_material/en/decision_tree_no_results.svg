@@ -1,0 +1,1247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1400"
+   height="2140"
+   viewBox="0 0 1400 2140"
+   role="img"
+   aria-labelledby="title description"
+   version="1.1"
+   id="svg91"
+   sodipodi:docname="decision_tree3.svg"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   inkscape:export-filename="decision_tree2.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview91"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.682"
+     inkscape:cx="690"
+     inkscape:cy="915"
+     inkscape:window-width="1776"
+     inkscape:window-height="985"
+     inkscape:window-x="8"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg91" />
+  <title
+     id="title">Triple Balance: a compressed decision diagram</title>
+  <desc
+     id="description">Pay once for zero to three technologies, then follow six policy rounds, three random-event slots, and up to three technology choices. Events follow policy rounds 1, 3 and 4; technology slots follow rounds 2, 5 and 6. Each policy has three options; each event slot has seven routes. Technology slots are skipped automatically unless paid for. Dashed red branches end at Game Over when happiness or money reaches zero. Lines rejoin to save space, but different routes keep their own resources. There are 3,597,500 successful playthroughs and 456,680 early endings, totalling 4,054,180.</desc>
+  <defs
+     id="defs2">
+    <marker
+       id="arrow"
+       markerWidth="9"
+       markerHeight="9"
+       refX="8"
+       refY="4.5"
+       orient="auto">
+      <path
+         d="M0 0 L9 4.5 L0 9 Z"
+         fill="#475569"
+         id="path1" />
+    </marker>
+    <marker
+       id="stop-arrow"
+       markerWidth="8"
+       markerHeight="8"
+       refX="7"
+       refY="4"
+       orient="auto">
+      <path
+         d="M0 0 L8 4 L0 8 Z"
+         fill="#b42336"
+         id="path2" />
+    </marker>
+    <style
+       id="style2">&#10;text{font-family:Arial,Helvetica,sans-serif;fill:#172b42}&#10;.title{font-size:34px;font-weight:bold}.section{font-size:24px;font-weight:bold}&#10;.main{font-size:21px;font-weight:bold}.body{font-size:19px}.small{font-size:17px}.tiny{font-size:15px}&#10;.box{stroke:#354b63;stroke-width:2;rx:10}&#10;.flow{fill:none;stroke:#475569;stroke-width:2;marker-end:url(#arrow)}&#10;.fail{fill:none;stroke:#b42336;stroke-width:2;stroke-dasharray:6 5;marker-end:url(#stop-arrow)}&#10;</style>
+    <marker
+       id="arrow-4"
+       markerWidth="9"
+       markerHeight="9"
+       refX="8"
+       refY="4.5"
+       orient="auto">
+      <path
+         d="M 0,0 9,4.5 0,9 Z"
+         fill="#475569"
+         id="path1-8" />
+    </marker>
+    <marker
+       id="marker2"
+       markerWidth="9"
+       markerHeight="9"
+       refX="8"
+       refY="4.5"
+       orient="auto">
+      <path
+         d="M 0,0 9,4.5 0,9 Z"
+         fill="#475569"
+         id="path2-0" />
+    </marker>
+    <marker
+       id="marker3"
+       markerWidth="9"
+       markerHeight="9"
+       refX="8"
+       refY="4.5"
+       orient="auto">
+      <path
+         d="M 0,0 9,4.5 0,9 Z"
+         fill="#475569"
+         id="path3" />
+    </marker>
+    <marker
+       id="marker4"
+       markerWidth="9"
+       markerHeight="9"
+       refX="8"
+       refY="4.5"
+       orient="auto">
+      <path
+         d="M 0,0 9,4.5 0,9 Z"
+         fill="#475569"
+         id="path4" />
+    </marker>
+    <marker
+       id="arrow-4-7"
+       markerWidth="9"
+       markerHeight="9"
+       refX="8"
+       refY="4.5"
+       orient="auto">
+      <path
+         d="M 0,0 9,4.5 0,9 Z"
+         fill="#475569"
+         id="path1-8-8" />
+    </marker>
+    <marker
+       id="arrow-4-3"
+       markerWidth="9"
+       markerHeight="9"
+       refX="8"
+       refY="4.5"
+       orient="auto">
+      <path
+         d="M 0,0 9,4.5 0,9 Z"
+         fill="#475569"
+         id="path1-8-81" />
+    </marker>
+  </defs>
+  <rect
+     width="1400"
+     height="2140"
+     fill="#ffffff"
+     id="rect2"
+     x="0"
+     y="0" />
+  <rect
+     x="740"
+     y="1284"
+     width="600"
+     height="392"
+     rx="16"
+     fill="#f7f9fc"
+     stroke="#cbd5e1"
+     id="rect78"
+     style="stroke-width:1.0017"
+     ry="16" />
+  <text
+     x="64"
+     y="145"
+     class="section"
+     text-anchor="start"
+     id="text4">1. Pay for research before the first policy round</text>
+  <rect
+     class="box"
+     x="500"
+     y="165"
+     width="400"
+     height="56"
+     fill="#fff1c9"
+     id="rect4" />
+  <text
+     x="700"
+     y="200"
+     class="main"
+     text-anchor="middle"
+     id="text5">Choose your investment</text>
+  <path
+     class="flow"
+     d="M700 221 V243 H210 V270"
+     id="path5" />
+  <rect
+     class="box"
+     x="65"
+     y="270"
+     width="290"
+     height="90"
+     fill="#fff1c9"
+     id="rect5" />
+  <text
+     x="210.0"
+     y="309.0"
+     class="main"
+     text-anchor="middle"
+     id="text6">0 Megacoins</text>
+  <text
+     x="210.0"
+     y="335.0"
+     class="small"
+     text-anchor="middle"
+     id="text7">n = 0 technologies</text>
+  <path
+     class="flow"
+     d="M 210,360 V 378 H 420 V 538"
+     id="path7"
+     sodipodi:nodetypes="cccc" />
+  <path
+     class="flow"
+     d="M700 221 V243 H530 V270"
+     id="path8" />
+  <rect
+     class="box"
+     x="385"
+     y="270"
+     width="290"
+     height="90"
+     fill="#fff1c9"
+     id="rect8" />
+  <text
+     x="530.0"
+     y="309.0"
+     class="main"
+     text-anchor="middle"
+     id="text8">1 Megacoin</text>
+  <text
+     x="530.0"
+     y="335.0"
+     class="small"
+     text-anchor="middle"
+     id="text9">n = 1 technology</text>
+  <path
+     class="flow"
+     d="M 530,360 V 378 H 420 V 538"
+     id="path9"
+     sodipodi:nodetypes="cccc" />
+  <path
+     class="flow"
+     d="M700 221 V243 H850 V270"
+     id="path10" />
+  <rect
+     class="box"
+     x="705"
+     y="270"
+     width="290"
+     height="90"
+     fill="#fff1c9"
+     id="rect10" />
+  <text
+     x="850.0"
+     y="309.0"
+     class="main"
+     text-anchor="middle"
+     id="text10">2 Megacoins</text>
+  <text
+     x="850.0"
+     y="335.0"
+     class="small"
+     text-anchor="middle"
+     id="text11">n = 2 technologies</text>
+  <path
+     class="flow"
+     d="M 850,360 V 378 H 420 V 537"
+     id="path11"
+     sodipodi:nodetypes="cccc" />
+  <path
+     class="flow"
+     d="M700 221 V243 H1170 V270"
+     id="path12" />
+  <rect
+     class="box"
+     x="1025"
+     y="270"
+     width="290"
+     height="90"
+     fill="#fff1c9"
+     id="rect12" />
+  <text
+     x="1170.0"
+     y="309.0"
+     class="main"
+     text-anchor="middle"
+     id="text12">3 Megacoins</text>
+  <text
+     x="1170.0"
+     y="335.0"
+     class="small"
+     text-anchor="middle"
+     id="text13">n = 3 technologies</text>
+  <path
+     class="flow"
+     d="M 1170,360 V 378 H 420 V 537"
+     id="path13"
+     sodipodi:nodetypes="cccc" />
+  <text
+     x="64"
+     y="510"
+     class="section"
+     text-anchor="start"
+     id="text16">2. Follow the rounds</text>
+  <text
+     x="740"
+     y="510"
+     class="section"
+     text-anchor="start"
+     id="text17">How the branches work</text>
+  <path
+     d="M100 575 V1805"
+     fill="none"
+     stroke="#b42336"
+     stroke-width="2"
+     stroke-dasharray="6 5"
+     id="path17" />
+  <rect
+     class="box"
+     x="190"
+     y="540"
+     width="460"
+     height="70"
+     fill="#e2effd"
+     id="rect17" />
+  <text
+     x="420.0"
+     y="569.0"
+     class="main"
+     text-anchor="middle"
+     id="text18">1. Policy round 1</text>
+  <text
+     x="420.0"
+     y="595.0"
+     class="small"
+     text-anchor="middle"
+     id="text19">Choose 1 of 3 policies.</text>
+  <path
+     class="flow"
+     d="M420 610 V645"
+     id="path19" />
+  <path
+     class="fail"
+     d="M190 575 H100"
+     id="path20" />
+  <rect
+     class="box"
+     x="190"
+     y="645"
+     width="460"
+     height="70"
+     fill="#f3e0ec"
+     id="rect20" />
+  <text
+     x="420"
+     y="674"
+     class="main"
+     text-anchor="middle"
+     id="text20">2. Random-event round 1</text>
+  <text
+     x="420.0"
+     y="700.0"
+     class="small"
+     text-anchor="middle"
+     id="text21">No event, or an event with 2 responses.</text>
+  <path
+     class="flow"
+     d="M420 715 V750"
+     id="path21" />
+  <path
+     class="fail"
+     d="M190 680 H100"
+     id="path22" />
+  <rect
+     class="box"
+     x="190"
+     y="750"
+     width="460"
+     height="70"
+     fill="#e2effd"
+     id="rect22" />
+  <text
+     x="420.0"
+     y="779.0"
+     class="main"
+     text-anchor="middle"
+     id="text22">3. Policy round 2</text>
+  <text
+     x="420.0"
+     y="805.0"
+     class="small"
+     text-anchor="middle"
+     id="text23">Choose 1 of 3 policies.</text>
+  <path
+     class="flow"
+     d="M420 820 V855"
+     id="path23" />
+  <path
+     class="fail"
+     d="M190 785 H100"
+     id="path24" />
+  <rect
+     class="box"
+     x="190"
+     y="855"
+     width="460"
+     height="70"
+     fill="#fff1c9"
+     id="rect24" />
+  <text
+     x="420"
+     y="884"
+     class="main"
+     text-anchor="middle"
+     id="text24">4. Technology round 1</text>
+  <text
+     x="420.0"
+     y="910.0"
+     class="small"
+     text-anchor="middle"
+     id="text25">If n ≥ 1: choose 1 of 3. Otherwise: skip.</text>
+  <path
+     class="flow"
+     d="M420 925 V960"
+     id="path25" />
+  <rect
+     class="box"
+     x="190"
+     y="960"
+     width="460"
+     height="70"
+     fill="#e2effd"
+     id="rect25" />
+  <text
+     x="420.0"
+     y="989.0"
+     class="main"
+     text-anchor="middle"
+     id="text26">5. Policy round 3</text>
+  <text
+     x="420.0"
+     y="1015.0"
+     class="small"
+     text-anchor="middle"
+     id="text27">Choose 1 of 3 policies.</text>
+  <path
+     class="flow"
+     d="M420 1030 V1065"
+     id="path27" />
+  <path
+     class="fail"
+     d="M190 995 H100"
+     id="path28" />
+  <rect
+     class="box"
+     x="190"
+     y="1065"
+     width="460"
+     height="70"
+     fill="#f3e0ec"
+     id="rect28" />
+  <text
+     x="420"
+     y="1094"
+     class="main"
+     text-anchor="middle"
+     id="text28">6. Random-event round 2</text>
+  <text
+     x="420.0"
+     y="1120.0"
+     class="small"
+     text-anchor="middle"
+     id="text29">No event, or an event with 2 responses.</text>
+  <path
+     class="flow"
+     d="M420 1135 V1170"
+     id="path29" />
+  <path
+     class="fail"
+     d="M190 1100 H100"
+     id="path30" />
+  <rect
+     class="box"
+     x="190"
+     y="1170"
+     width="460"
+     height="70"
+     fill="#e2effd"
+     id="rect30" />
+  <text
+     x="420.0"
+     y="1199.0"
+     class="main"
+     text-anchor="middle"
+     id="text30">7. Policy round 4</text>
+  <text
+     x="420.0"
+     y="1225.0"
+     class="small"
+     text-anchor="middle"
+     id="text31">Choose 1 of 3 policies.</text>
+  <path
+     class="flow"
+     d="M420 1240 V1275"
+     id="path31" />
+  <path
+     class="fail"
+     d="M190 1205 H100"
+     id="path32" />
+  <rect
+     class="box"
+     x="190"
+     y="1275"
+     width="460"
+     height="70"
+     fill="#f3e0ec"
+     id="rect32" />
+  <text
+     x="420"
+     y="1304"
+     class="main"
+     text-anchor="middle"
+     id="text32">8. Random-event round 3</text>
+  <text
+     x="420.0"
+     y="1330.0"
+     class="small"
+     text-anchor="middle"
+     id="text33">No event, or an event with 2 responses.</text>
+  <path
+     class="flow"
+     d="M420 1345 V1380"
+     id="path33" />
+  <path
+     class="fail"
+     d="M190 1310 H100"
+     id="path34" />
+  <rect
+     class="box"
+     x="190"
+     y="1380"
+     width="460"
+     height="70"
+     fill="#e2effd"
+     id="rect34" />
+  <text
+     x="420.0"
+     y="1409.0"
+     class="main"
+     text-anchor="middle"
+     id="text34">9. Policy round 5</text>
+  <text
+     x="420.0"
+     y="1435.0"
+     class="small"
+     text-anchor="middle"
+     id="text35">Choose 1 of 3 policies.</text>
+  <path
+     class="flow"
+     d="M420 1450 V1485"
+     id="path35" />
+  <path
+     class="fail"
+     d="M190 1415 H100"
+     id="path36" />
+  <rect
+     class="box"
+     x="190"
+     y="1485"
+     width="460"
+     height="70"
+     fill="#fff1c9"
+     id="rect36" />
+  <text
+     x="420"
+     y="1514"
+     class="main"
+     text-anchor="middle"
+     id="text36">10. Technology round 2</text>
+  <text
+     x="420.0"
+     y="1540.0"
+     class="small"
+     text-anchor="middle"
+     id="text37">If n ≥ 2: choose 1 of 3. Otherwise: skip.</text>
+  <path
+     class="flow"
+     d="M420 1555 V1590"
+     id="path37" />
+  <rect
+     class="box"
+     x="190"
+     y="1590"
+     width="460"
+     height="70"
+     fill="#e2effd"
+     id="rect37" />
+  <text
+     x="420.0"
+     y="1619.0"
+     class="main"
+     text-anchor="middle"
+     id="text38">11. Policy round 6</text>
+  <text
+     x="420.0"
+     y="1645.0"
+     class="small"
+     text-anchor="middle"
+     id="text39">Choose 1 of 3 policies.</text>
+  <path
+     class="flow"
+     d="M420 1660 V1695"
+     id="path39" />
+  <path
+     class="fail"
+     d="M190 1625 H100"
+     id="path40" />
+  <rect
+     class="box"
+     x="190"
+     y="1695"
+     width="460"
+     height="70"
+     fill="#fff1c9"
+     id="rect40" />
+  <text
+     x="420"
+     y="1724"
+     class="main"
+     text-anchor="middle"
+     id="text40">12. Technology round 3</text>
+  <text
+     x="420.0"
+     y="1750.0"
+     class="small"
+     text-anchor="middle"
+     id="text41">If n = 3: choose 1 of 3. Otherwise: skip.</text>
+  <path
+     class="flow"
+     d="M420 1765 V1810"
+     id="path41" />
+  <path
+     class="fail"
+     d="M100 1805 V1810"
+     id="path42" />
+  <rect
+     class="box"
+     x="190"
+     y="1810"
+     width="460"
+     height="90"
+     fill="#e3f4e9"
+     id="rect42" />
+  <text
+     x="420"
+     y="1.86e+03"
+     class="main"
+     text-anchor="middle"
+     id="text42">Finish all rounds</text>
+  <rect
+     class="box"
+     x="25"
+     y="1810"
+     width="140"
+     height="90"
+     fill="#fde8e8"
+     id="rect43" />
+  <text
+     x="95"
+     y="1.86e+03"
+     class="body"
+     text-anchor="middle"
+     id="text44">Game Over</text>
+  <rect
+     x="740"
+     y="540"
+     width="600"
+     height="245"
+     rx="16"
+     fill="#f7f9fc"
+     stroke="#cbd5e1"
+     id="rect46" />
+  <text
+     x="1040"
+     y="578"
+     class="main"
+     text-anchor="middle"
+     id="text47">Policy rounds</text>
+  <rect
+     class="box"
+     x="940"
+     y="600"
+     width="200"
+     height="45"
+     fill="#e2effd"
+     id="rect47" />
+  <text
+     x="1040.0"
+     y="629.5"
+     class="body"
+     text-anchor="middle"
+     id="text48">Your choice</text>
+  <path
+     class="flow"
+     d="M1040 645 V665 H835 V688"
+     id="path48" />
+  <rect
+     class="box"
+     x="760"
+     y="688"
+     width="150"
+     height="45"
+     fill="#e2effd"
+     id="rect48" />
+  <text
+     x="835.0"
+     y="717.5"
+     class="body"
+     text-anchor="middle"
+     id="text49">Policy A</text>
+  <path
+     class="flow"
+     d="M1040 645 V665 H1040 V688"
+     id="path49" />
+  <rect
+     class="box"
+     x="965"
+     y="688"
+     width="150"
+     height="45"
+     fill="#e2effd"
+     id="rect49" />
+  <text
+     x="1040.0"
+     y="717.5"
+     class="body"
+     text-anchor="middle"
+     id="text50">Policy B</text>
+  <path
+     class="flow"
+     d="M1040 645 V665 H1245 V688"
+     id="path50" />
+  <rect
+     class="box"
+     x="1170"
+     y="688"
+     width="150"
+     height="45"
+     fill="#e2effd"
+     id="rect50" />
+  <text
+     x="1245.0"
+     y="717.5"
+     class="body"
+     text-anchor="middle"
+     id="text51">Policy C</text>
+  <text
+     x="1040"
+     y="766"
+     class="small"
+     text-anchor="middle"
+     id="text52">Each option continues with its own resources.</text>
+  <rect
+     x="740"
+     y="815"
+     width="600"
+     height="435"
+     rx="16"
+     fill="#f7f9fc"
+     stroke="#cbd5e1"
+     id="rect52" />
+  <text
+     x="1040"
+     y="853"
+     class="main"
+     text-anchor="middle"
+     id="text53">Event rounds</text>
+  <rect
+     class="box"
+     x="940"
+     y="905"
+     width="200"
+     height="42"
+     fill="#f3e0ec"
+     id="rect54" />
+  <text
+     x="1040.0"
+     y="933.0"
+     class="body"
+     text-anchor="middle"
+     id="text55">Random draw</text>
+  <path
+     class="flow"
+     d="M1040 947 V963 H830 V985"
+     id="path55" />
+  <rect
+     class="box"
+     x="768"
+     y="985"
+     width="124"
+     height="45"
+     fill="#f3e0ec"
+     id="rect55" />
+  <text
+     x="830.0"
+     y="1014.5"
+     class="small"
+     text-anchor="middle"
+     id="text56">No event</text>
+  <path
+     class="flow"
+     d="M1040 947 V963 H980 V985"
+     id="path56" />
+  <rect
+     class="box"
+     x="918"
+     y="985"
+     width="124"
+     height="45"
+     fill="#f3e0ec"
+     id="rect56" />
+  <text
+     x="980.0"
+     y="1014.5"
+     class="small"
+     text-anchor="middle"
+     id="text57">Event A</text>
+  <path
+     class="flow"
+     d="M1040 947 V963 H1130 V985"
+     id="path57" />
+  <rect
+     class="box"
+     x="1068"
+     y="985"
+     width="124"
+     height="45"
+     fill="#f3e0ec"
+     id="rect57" />
+  <text
+     x="1130.0"
+     y="1014.5"
+     class="small"
+     text-anchor="middle"
+     id="text58">Event B</text>
+  <path
+     class="flow"
+     d="M1040 947 V963 H1280 V985"
+     id="path58" />
+  <rect
+     class="box"
+     x="1218"
+     y="985"
+     width="124"
+     height="45"
+     fill="#f3e0ec"
+     id="rect58" />
+  <text
+     x="1280.0"
+     y="1014.5"
+     class="small"
+     text-anchor="middle"
+     id="text59">Event C</text>
+  <path
+     class="flow"
+     d="M830 1030 V1150"
+     id="path59" />
+  <path
+     class="flow"
+     d="M980 1030 V1050 H950 V1080"
+     id="path60" />
+  <rect
+     class="box"
+     x="926"
+     y="1080"
+     width="48"
+     height="43"
+     fill="#fff1c9"
+     id="rect60" />
+  <text
+     x="950.0"
+     y="1108.5"
+     class="body"
+     text-anchor="middle"
+     id="text60">1</text>
+  <path
+     class="flow"
+     d="M950 1123 V1150"
+     id="path61" />
+  <path
+     class="flow"
+     d="M980 1030 V1050 H1010 V1080"
+     id="path62" />
+  <rect
+     class="box"
+     x="986"
+     y="1080"
+     width="48"
+     height="43"
+     fill="#fff1c9"
+     id="rect62" />
+  <text
+     x="1010.0"
+     y="1108.5"
+     class="body"
+     text-anchor="middle"
+     id="text62">2</text>
+  <path
+     class="flow"
+     d="M1010 1123 V1150"
+     id="path63" />
+  <path
+     class="flow"
+     d="M1130 1030 V1050 H1100 V1080"
+     id="path64" />
+  <rect
+     class="box"
+     x="1076"
+     y="1080"
+     width="48"
+     height="43"
+     fill="#fff1c9"
+     id="rect64" />
+  <text
+     x="1100.0"
+     y="1108.5"
+     class="body"
+     text-anchor="middle"
+     id="text64">1</text>
+  <path
+     class="flow"
+     d="M1100 1123 V1150"
+     id="path65" />
+  <path
+     class="flow"
+     d="M1130 1030 V1050 H1160 V1080"
+     id="path66" />
+  <rect
+     class="box"
+     x="1136"
+     y="1080"
+     width="48"
+     height="43"
+     fill="#fff1c9"
+     id="rect66" />
+  <text
+     x="1160.0"
+     y="1108.5"
+     class="body"
+     text-anchor="middle"
+     id="text66">2</text>
+  <path
+     class="flow"
+     d="M1160 1123 V1150"
+     id="path67" />
+  <path
+     class="flow"
+     d="M1280 1030 V1050 H1250 V1080"
+     id="path68" />
+  <rect
+     class="box"
+     x="1226"
+     y="1080"
+     width="48"
+     height="43"
+     fill="#fff1c9"
+     id="rect68" />
+  <text
+     x="1250.0"
+     y="1108.5"
+     class="body"
+     text-anchor="middle"
+     id="text68">1</text>
+  <path
+     class="flow"
+     d="M1250 1123 V1150"
+     id="path69" />
+  <path
+     class="flow"
+     d="M1280 1030 V1050 H1310 V1080"
+     id="path70" />
+  <rect
+     class="box"
+     x="1286"
+     y="1080"
+     width="48"
+     height="43"
+     fill="#fff1c9"
+     id="rect70" />
+  <text
+     x="1310.0"
+     y="1108.5"
+     class="body"
+     text-anchor="middle"
+     id="text70">2</text>
+  <path
+     class="flow"
+     d="M1310 1123 V1150"
+     id="path71" />
+  <circle
+     cx="830"
+     cy="1157"
+     r="6"
+     fill="#475569"
+     id="circle71" />
+  <circle
+     cx="950"
+     cy="1157"
+     r="6"
+     fill="#475569"
+     id="circle72" />
+  <circle
+     cx="1010"
+     cy="1157"
+     r="6"
+     fill="#475569"
+     id="circle73" />
+  <circle
+     cx="1100"
+     cy="1157"
+     r="6"
+     fill="#475569"
+     id="circle74" />
+  <circle
+     cx="1160"
+     cy="1157"
+     r="6"
+     fill="#475569"
+     id="circle75" />
+  <circle
+     cx="1250"
+     cy="1157"
+     r="6"
+     fill="#475569"
+     id="circle76" />
+  <circle
+     cx="1310"
+     cy="1157"
+     r="6"
+     fill="#475569"
+     id="circle77" />
+  <path
+     class="flow"
+     d="M 1190,1480 V 1500 H 1130 V 1530"
+     id="path68-4"
+     style="fill:none;stroke:#475569;stroke-width:2;marker-end:url(#arrow-4)"
+     sodipodi:nodetypes="cccc" />
+  <rect
+     class="box"
+     x="1106"
+     y="1533"
+     width="48"
+     height="43"
+     fill="#fff1c9"
+     id="rect68-6"
+     style="stroke:#354b63;stroke-width:2" />
+  <text
+     x="1.13e+03"
+     y="1560"
+     class="body"
+     text-anchor="middle"
+     id="text68-0"
+     style="font-size:19px;font-family:Arial, Helvetica, sans-serif;fill:#172b42">1</text>
+  <path
+     class="flow"
+     d="M 1130,1580 V 1610"
+     id="path69-3"
+     style="fill:none;stroke:#475569;stroke-width:2;marker-end:url(#arrow-4)" />
+  <path
+     class="flow"
+     d="M 1190,1480 V 1500 H 1190 V 1530"
+     id="path70-2"
+     style="fill:none;stroke:#475569;stroke-width:2;marker-end:url(#arrow-4)"
+     sodipodi:nodetypes="cccc" />
+  <path
+     class="flow"
+     d="M 1190,1480 V 1500 H 1250 V 1530"
+     id="path70-2-8"
+     style="fill:none;stroke:#475569;stroke-width:2;marker-end:url(#arrow-4-7)"
+     sodipodi:nodetypes="cccc" />
+  <rect
+     class="box"
+     x="1166"
+     y="1533"
+     width="48"
+     height="43"
+     fill="#fff1c9"
+     id="rect70-6"
+     style="stroke:#354b63;stroke-width:2" />
+  <text
+     x="1.19e+03"
+     y="1560"
+     class="body"
+     text-anchor="middle"
+     id="text70-9"
+     style="font-size:19px;font-family:Arial, Helvetica, sans-serif;fill:#172b42">2</text>
+  <path
+     class="flow"
+     d="M 1190,1580 V 1610"
+     id="path71-4"
+     style="fill:none;stroke:#475569;stroke-width:2;marker-end:url(#arrow-4)" />
+  <circle
+     cx="1130"
+     cy="1.61e+03"
+     r="6"
+     fill="#475569"
+     id="circle76-1" />
+  <circle
+     cx="1190"
+     cy="1.61e+03"
+     r="6"
+     fill="#475569"
+     id="circle77-3" />
+  <rect
+     class="box"
+     x="1226"
+     y="1533"
+     width="48"
+     height="43"
+     fill="#fff1c9"
+     id="rect70-6-5"
+     style="stroke:#354b63;stroke-width:2" />
+  <text
+     x="1.25e+03"
+     y="1560"
+     class="body"
+     text-anchor="middle"
+     id="text70-9-3"
+     style="font-size:19px;font-family:Arial, Helvetica, sans-serif;fill:#172b42">3</text>
+  <path
+     class="flow"
+     d="M 1250,1580 V 1610"
+     id="path71-4-5"
+     style="fill:none;stroke:#475569;stroke-width:2;marker-end:url(#arrow-4-3)" />
+  <circle
+     cx="1250"
+     cy="1.61e+03"
+     r="6"
+     fill="#475569"
+     id="circle77-3-4" />
+  <text
+     x="1040"
+     y="1318"
+     class="main"
+     text-anchor="middle"
+     id="text79">Technology rounds</text>
+  <rect
+     class="box"
+     x="927"
+     y="1345"
+     width="226"
+     height="45"
+     fill="#fff1c9"
+     id="rect79" />
+  <text
+     x="1040.0"
+     y="1374.5"
+     class="body"
+     text-anchor="middle"
+     id="text80">n ≥ slot number?</text>
+  <path
+     class="flow"
+     d="M1040 1390 V1408 H900 V1430"
+     id="path80" />
+  <path
+     class="flow"
+     d="M1040 1390 V1408 H1190 V1430"
+     id="path81" />
+  <rect
+     class="box"
+     x="1050"
+     y="1.43e+03"
+     width="270"
+     height="50"
+     fill="#fff1c9"
+     id="rect81" />
+  <text
+     x="1180"
+     y="1460"
+     class="body"
+     text-anchor="middle"
+     id="text81">Yes</text>
+  <rect
+     class="box"
+     x="771"
+     y="1430"
+     width="270"
+     height="50"
+     fill="#f0f3f6"
+     id="rect82" />
+  <text
+     x="906"
+     y="1462"
+     class="small"
+     text-anchor="middle"
+     id="text82">No: skip automatically</text>
+  <rect
+     x="740"
+     y="1.7e+03"
+     width="600"
+     height="210"
+     rx="16"
+     fill="#fff0f0"
+     stroke="#b42336"
+     stroke-width="2"
+     id="rect83"
+     ry="16" />
+  <text
+     x="770"
+     y="1.74e+03"
+     class="main"
+     text-anchor="start"
+     id="text84">Dashed red branches: stop at Game Over</text>
+  <text
+     x="770"
+     y="1.78e+03"
+     class="body"
+     text-anchor="start"
+     id="text85">After a policy or event response, stop if:</text>
+  <text
+     x="790"
+     y="1.81e+03"
+     class="body"
+     text-anchor="start"
+     id="text86">• happiness is zero or below, or</text>
+  <text
+     x="790"
+     y="1.85e+03"
+     class="body"
+     text-anchor="start"
+     id="text87">• the budget is zero or below.</text>
+  <text
+     x="770"
+     y="1.89e+03"
+     class="body"
+     text-anchor="start"
+     id="text88">Do not count any decisions after that point.</text>
+  <metadata
+     id="metadata91">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Triple Balance: a compressed decision diagram</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
