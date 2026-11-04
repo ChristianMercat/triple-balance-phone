@@ -218,7 +218,7 @@ ui.headerRight: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}
 ui.footerCenter: ""
 --
 
-<span class="passage-title">{translate text: "end.end1.title"}</span>.<br> 
+<span class="passage-title">{translate text: "end.end1.title"}</span><br> 
 {translate text: "end.end1.text1"}<br>
 <img src="images/government.webp" class="story-illustration">
 
@@ -578,7 +578,6 @@ money: money - 1
 
 
 :: Game over [ending] {"position":"75,350","size":"100,100"}
-ui.footerLeft: "{translated link: \"common.learnScore\", to: '[[Learn more about the score->End4]]'}"
 ui.footerCenter: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}       {translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
 ui.mode: "game-over"
 --
@@ -594,7 +593,6 @@ ui.mode: "game-over"
 
 
 :: Game over2 [ending] {"position":"200,350","size":"100,100"}
-ui.footerLeft: "{translated link: \"common.learnScore\", to: '[[Learn more about the score->End4]]'}"
 ui.footerCenter: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}       {translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
 ui.mode: "game-over"
 --
@@ -2536,6 +2534,16 @@ html, body, #page, #passages {
 #page .trend-icon {
   height: 25px;
   position: relative;
+  top: 5px;
+}
+
+/* Footer happiness and money icons */
+#page footer .left .metric-icon {
+  top: 3px;
+}
+
+/* Footer circularity icon */
+#page footer .right .metric-icon {
   top: 5px;
 }
 

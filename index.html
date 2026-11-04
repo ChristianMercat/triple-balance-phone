@@ -310,6 +310,16 @@ ${i}`),b(i)}function $e(n,e=!1){return Qo(Lo(n),An(),Pn(),e)}class Ko extends fe
   top: 5px;
 }
 
+/* Footer happiness and money icons */
+#page footer .left .metric-icon {
+  top: 3px;
+}
+
+/* Footer circularity icon */
+#page footer .right .metric-icon {
+  top: 5px;
+}
+
 #page .indicator-icon-offset-3 {
   top: 3px;
 }
@@ -1425,8 +1435,8 @@ randomEvent: Math.floor(Math.random() * 4) + 1
 
 [continue]
 {game over override}
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="End.Credits" tags="ending prose" position="50,925" size="100,100">ui.footerLeft: &quot;{translated link: \&quot;common.learnScore\&quot;, to: &#x27;[[Learn more about the score-&gt;End4]]&#x27;}&quot;
-ui.footerRight: &quot;{translated link: \&quot;common.restart\&quot;, to: &#x27;[[Restart-&gt;Start]]&#x27;}&quot;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="End.Credits" tags="ending prose" position="50,925" size="100,100">ui.footerLeft: &quot;{translated link: \&quot;common.learnScore\&quot;, to: &#39;[[Learn more about the score-&gt;End4]]&#39;}&quot;
+ui.footerRight: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;}&quot;
 ui.footerCenter: &quot;&quot;
 --
 {translate text: &quot;end.credits.text1&quot;}
@@ -1445,7 +1455,7 @@ ui.headerRight: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[
 ui.footerCenter: &quot;&quot;
 --
 
-&lt;span class=&quot;passage-title&quot;&gt;{translate text: &quot;end.end1.title&quot;}&lt;/span&gt;.&lt;br&gt; 
+&lt;span class=&quot;passage-title&quot;&gt;{translate text: &quot;end.end1.title&quot;}&lt;/span&gt;&lt;br&gt; 
 {translate text: &quot;end.end1.text1&quot;}&lt;br&gt;
 &lt;img src=&quot;images/government.webp&quot; class=&quot;story-illustration&quot;&gt;
 
@@ -1502,7 +1512,7 @@ ui.footerCenter: &quot;&quot;
 [if happy &gt; 0]
 &lt;div class=&quot;passage-navigation&quot;&gt;
 {translated link: &quot;common.continue&quot;, to: &#39;[[Continue-&gt;End3]]&#39;, role: &quot;continue&quot;}
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="End3" tags="ending" position="475,1275" size="100,100">ui.footerCenter: &quot;{translated link: \&quot;common.credits\&quot;, to: &#x27;[[Credits-&gt;End.Credits]]&#x27;}&quot;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="End3" tags="ending" position="475,1275" size="100,100">ui.footerCenter: &quot;{translated link: \&quot;common.credits\&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}&quot;
 ui.status: true
 --
 &lt;div class=&quot;ending-assessment&quot;&gt;
@@ -1534,11 +1544,11 @@ ui.status: true
 
 
 [continue]
-{translated link: &quot;common.runAgain&quot;, to: &#x27;[[Run for office again-&gt;Start]]&#x27;}
+{translated link: &quot;common.runAgain&quot;, to: &#39;[[Run for office again-&gt;Start]]&#39;}
 &lt;/div&gt;
 
 &lt;div class=&quot;score-details-link&quot;&gt;
-{translated link: &quot;common.learnScore&quot;, to: &#x27;[[Learn more about the score-&gt;End4]]&#x27;}
+{translated link: &quot;common.learnScore&quot;, to: &#39;[[Learn more about the score-&gt;End4]]&#39;}
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="End4" tags="ending prose" position="625,1275" size="100,100">ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;}       {translated link: \&quot;common.credits\&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}&quot;
 --
 {translate text: &quot;end.end4.text1&quot;} 
@@ -1559,7 +1569,7 @@ ui.status: true
 &lt;br&gt;&lt;br&gt;
 {translated link: &quot;common.continue&quot;, to: &#39;[[Continue-&gt;End6]]&#39;, role: &quot;continue&quot;}
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="End6" tags="ending" position="925,1275" size="100,100">ui.footerLeft: &quot;[if gameSuccessful]\n{translate text: \&quot;end.end6.scoreText\&quot;, score: score, percentile: Math.floor(window.TripleBalanceScores.percentile(score))}\n[continue]&quot;
-ui.footerRight: &quot;{translated link: \&quot;common.restart\&quot;, to: &#x27;[[Restart-&gt;Start]]&#x27;} {translated link: \&quot;common.credits\&quot;, to: &#x27;[[Credits-&gt;End.Credits]]&#x27;}&quot;
+ui.footerRight: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;} {translated link: \&quot;common.credits\&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}&quot;
 ui.footerCenter: &quot;&quot;
 --
 
@@ -1733,8 +1743,7 @@ money: money - 1
 {translated link: &quot;common.continue&quot;, to: &#39;[[Continue-&gt;Round5]]&#39;, role: &quot;continue&quot;}
 
 {game over override}
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Game over" tags="ending" position="75,350" size="100,100">ui.footerLeft: &quot;{translated link: \&quot;common.learnScore\&quot;, to: &#x27;[[Learn more about the score-&gt;End4]]&#x27;}&quot;
-ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#x27;[[Restart-&gt;Start]]&#x27;}       {translated link: \&quot;common.credits\&quot;, to: &#x27;[[Credits-&gt;End.Credits]]&#x27;}&quot;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Game over" tags="ending" position="75,350" size="100,100">ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;}       {translated link: \&quot;common.credits\&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}&quot;
 ui.mode: &quot;game-over&quot;
 --
 
@@ -1745,8 +1754,7 @@ ui.mode: &quot;game-over&quot;
 {translate text: &quot;end.gamOver.text1&quot;}
 
 &lt;span class=&quot;game-over-label&quot;&gt;{translate text: &quot;end.gamOver.label&quot;}&lt;/span&gt;
-&lt;img src=&quot;images/dead.webp&quot; class=&quot;game-over-icon&quot;&gt;</tw-passagedata><tw-passagedata pid="27" name="Game over2" tags="ending" position="200,350" size="100,100">ui.footerLeft: &quot;{translated link: \&quot;common.learnScore\&quot;, to: &#x27;[[Learn more about the score-&gt;End4]]&#x27;}&quot;
-ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#x27;[[Restart-&gt;Start]]&#x27;}       {translated link: \&quot;common.credits\&quot;, to: &#x27;[[Credits-&gt;End.Credits]]&#x27;}&quot;
+&lt;img src=&quot;images/dead.webp&quot; class=&quot;game-over-icon&quot;&gt;</tw-passagedata><tw-passagedata pid="27" name="Game over2" tags="ending" position="200,350" size="100,100">ui.footerCenter: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;}       {translated link: \&quot;common.credits\&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}&quot;
 ui.mode: &quot;game-over&quot;
 --
 
