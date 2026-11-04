@@ -12,11 +12,11 @@
       "text1": "Du regierst nun Phonopolis, einen fiktiven Stadtstaat, in dem Handys eine zentrale Rolle im Alltag spielen."
     },
     "start2": {
-      "text1": "Dein Ziel ist es, eine Kreislaufwirtschaft für Handys aufzubauen und dabei die Stimmung der Bevölkerung und die Stadtkasse im Auge zu behalten.",
+      "text1": "Dein Ziel ist es, eine Kreislaufwirtschaft für Handys aufzubauen, und dabei die Stimmung der Bevölkerung und die Stadtkasse im Auge zu behalten.",
       "text2": "Du kannst über <span class=\"policy\">Maßnahmen</span> entscheiden, in die Erforschung neuer <span class=\"tech\">Technologien</span> investieren oder musst auf <span class=\"event\">Ereignisse</span> reagieren."
     },
     "start3": {
-      "text1": "Als Stadtoberhaupt musst du die <b>Stimmung</b> der Bevölkerung, die <b>Stadtkasse</b> und die <b>Kreislaufwirtschaft</b> miteinander in Einklang bringen.",
+      "text1": "Als Stadtoberhaupt musst du die <b>Stimmung</b> der Bevölkerung, die <b>Stadtkasse</b> und die <b>Kreislaufwirtschaft</b> ausbalancieren.",
       "text2": "Jede Entscheidung kann sich auf alle drei auswirken!"
     },
     "start4": {
@@ -29,7 +29,7 @@
       "text1": "Möchtest du einen Teil deines Geldes in die Erforschung <span class=\"tech\">neuer Technologien</span> investieren?"
     },
     "start6": {
-      "text1": "Während deiner Amtszeit entscheidest du in sechs Runden darüber, welche <span class=\"policy\">Maßnahmen</span> du einführst.",
+      "text1": "Während deiner Amtszeit gibt es sechs Entscheidungsrunden. Du kanst wählen, welche <span class=\"policy\">Maßnahmen</span> du einführst.",
       "text2": "Du kannst jetzt die erste Runde beginnen."
     }
   },
@@ -293,7 +293,7 @@
         },
         "provideFinancialSupport": {
           "title": "Finanzielle Unterstützung anbieten",
-          "description": "Deine Hilfe ermöglicht es dem Anbieter, weiterzuarbeiten.",
+          "description": "Deine Hilfe ermöglicht es dem Anbieter weiterzuarbeiten.",
           "effects": {
             "circularity": "Dank deines Eingreifens ist der Kreislaufindex nicht gesunken.",
             "budget": "Die finanzielle Hilfe wurde aus der Stadtkasse bezahlt."
@@ -379,7 +379,7 @@
           "description": "Du ermutigst die Bevölkerung, Handys zu reparieren, wiederzuverwenden und generalüberholte Geräte zu kaufen.",
           "effects": {
             "circularity": "Weniger neue Handys werden gekauft.",
-            "happiness": "Es fehlt an neuen Geräten.",
+            "happiness": "Es gibt nicht genügend neue Geräte.",
             "budget": "Die Kampagne wurde aus der Stadtkasse bezahlt."
           }
         },
@@ -523,7 +523,7 @@
   },
   "end": {
     "end1": {
-      "title": "Deine Amtszeit in Phonopolis ist vorbei",
+      "title": "Deine Amtszeit in Phonopolis ist vorbei.",
       "text1": "Erfahre, was du während deiner Amtszeit erreicht hast."
     },
     "end2": {
@@ -570,20 +570,20 @@
       }
     },
     "end4": {
-      "text1": "Die Punktzahl wird aus den Werten für Kreislaufwirtschaft, Stimmungsbarometer und dein verbleibendes Geld berechnet.",
+      "text1": "Die Punktzahl wird aus den Werten für Kreislaufindex, Stimmungsbarometer und dein verbleibendes Geld berechnet.",
       "scoreLabel": "Punktzahl",
       "text2": "Mit den Werten aus deinem aktuellen Spiel hast du Folgendes erreicht:"
     },
     "end5": {
-      "text1": "Das Spiel enthält viele Punkte, an denen du zwischen verschiedenen Möglichkeiten wählst: Möglich sind sechs Runden mit <span class=\"policy\">politischen Maßnahmen</span>, bis zu drei Runden mit <span class=\"tech\">Technologien</span> und bis zu drei <span class=\"event\">Ereignisse</span>.",
+      "text1": "Es gibt im Spiel viele Stellen, an denen du zwischen verschiedenen Möglichkeiten wählst: Möglich sind sechs Runden mit <span class=\"policy\">Maßnahmen</span>, bis zu drei Runden mit <span class=\"tech\">Technologien</span> und bis zu drei <span class=\"event\">Ereignisse</span>.",
       "text2": "Jede Entscheidungsfolge ergibt einen eigenen Weg durch das Spiel. Dadurch gibt es sehr viele mögliche Spielverläufe.",
-      "text3": "Insgesamt gibt es über 4 Millionen (4.054.180) mögliche Spielverläufe!"
+      "text3": "Es gibt über 4 Millionen (4.054.180) mögliche Spielverläufe!"
     },
     "end6": {
       "scoreText": "Deine Punktzahl: {{score}} (Perzentil {{percentile}} / 100).",
       "text1": "Es gibt <strong>{{playthroughCount, number}}</strong> verschiedene erfolgreiche Spielverläufe.",
-      "text2": "Sieh nach, wie viele erfolgreiche Spielverläufe die jeweilige Punktzahl erreichen:",
-      "text3": "Sieh nach, wie viele erfolgreiche Spielverläufe die jeweilige Punktzahl erreichen:",
+      "text2": "Sieh nach, wie viele die jeweilige Punktzahl erreichen:",
+      "text3": "Sieh nach, wie viele die jeweilige Punktzahl erreichen:",
       "chart": {
         "title": "Erfolgreiche Spielverläufe nach Punktzahl",
         "scoreAxis": "Punktzahl",
@@ -616,7 +616,7 @@
   },
   "explanations": {
     "economy": {
-      "text1": "Eine Kreislaufwirtschaft für Handys bedeutet, Handys möglichst lange nutzbar zu halten, statt sie schnell wegzuwerfen. Wichtige Strategien sind <b>reduzieren</b> (weniger neue Handys kaufen und nutzen), <b>wiederverwenden</b>, <b>reparieren</b> und <b>recyceln</b>. Sie helfen, Ressourcen zu schonen und Abfall zu vermeiden."
+      "text1": "In einer Kreislaufwirtschaft für Handys werden Handys möglichst lange nutzbar gehalten, statt sie schnell wegzuwerfen. Wichtige Strategien sind <b>reduzieren</b> (weniger neue Handys kaufen und nutzen), <b>wiederverwenden</b>, <b>reparieren</b> und <b>recyceln</b>. Sie helfen, Ressourcen zu schonen und Abfall zu vermeiden."
     },
     "happiness": {
       "text1": "Die Menschen in Phonopolis haben gute Laune, wenn alle, die ein Handy besitzen möchten, auch eines haben, die Handys gut funktionieren, leicht zu bedienen sind und persönliche Daten geschützt werden. Handys sollten nicht zu teuer sein oder leicht kaputtgehen."
