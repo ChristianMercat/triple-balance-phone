@@ -345,9 +345,9 @@
      id="path20" />
   <rect
      class="box"
-     x="190"
+     x="185"
      y="645"
-     width="460"
+     width="470"
      height="70"
      fill="#f3e0ec"
      id="rect20" />
@@ -453,9 +453,9 @@
      id="path28" />
   <rect
      class="box"
-     x="190"
+     x="185"
      y="1065"
-     width="460"
+     width="470"
      height="70"
      fill="#f3e0ec"
      id="rect28" />
@@ -509,9 +509,9 @@
      id="path32" />
   <rect
      class="box"
-     x="190"
+     x="185"
      y="1275"
-     width="460"
+     width="470"
      height="70"
      fill="#f3e0ec"
      id="rect32" />
@@ -795,9 +795,9 @@
      id="path55" />
   <rect
      class="box"
-     x="768"
+     x="748"
      y="985"
-     width="124"
+     width="164"
      height="45"
      fill="#f3e0ec"
      id="rect55" />
@@ -1210,19 +1210,19 @@
      y="1.74e+03"
      class="main"
      text-anchor="start"
-     id="text84">Branches rouges en pointillés : s’arrêter à la « Fin du jeu »</text>
+     id="text84">Branches rouges en pointillés : s’arrêter à la fin du jeu</text>
   <text
      x="770"
      y="1.78e+03"
      class="body"
      text-anchor="start"
-     id="text85">Après une réponse à une mesure politique ou à un événement, arrêtez si:</text>
+     id="text85">Après une réponse à une mesure ou un événement, arrêtez si:</text>
   <text
      x="790"
      y="1.81e+03"
      class="body"
      text-anchor="start"
-     id="text86">• Le bonheur est nul ou inférieur, ou</text>
+     id="text86">• Le bonheur est épuisé, ou</text>
   <text
      x="790"
      y="1.85e+03"
