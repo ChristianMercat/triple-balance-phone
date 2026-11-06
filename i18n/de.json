@@ -467,6 +467,7 @@
   },
   "common": {
     "continue": "Weiter",
+    "back": "Zurück",
     "restart": "Neu starten",
     "credits": "Credits",
     "yes": "Ja",
@@ -577,13 +578,11 @@
     "end5": {
       "text1": "Es gibt im Spiel viele Stellen, an denen du zwischen verschiedenen Möglichkeiten wählst: Möglich sind sechs Runden mit <span class=\"policy\">Maßnahmen</span>, bis zu drei Runden mit <span class=\"tech\">Technologien</span> und bis zu drei <span class=\"event\">Ereignisse</span>.",
       "text2": "Jede Entscheidungsfolge ergibt einen eigenen Weg durch das Spiel. Dadurch gibt es sehr viele mögliche Spielverläufe.",
-      "text3": "Es gibt über 4 Millionen (4.054.180) mögliche Spielverläufe!"
+      "text3": "Es gibt über 4 Millionen (4.054.180) mögliche Spielverläufe!<br> Davon sind {{playthroughCount, number}} erfolgreich."
     },
     "end6": {
       "scoreText": "Deine Punktzahl: {{score}} (Perzentil {{percentile}} / 100).",
-      "text1": "Es gibt <strong>{{playthroughCount, number}}</strong> verschiedene erfolgreiche Spielverläufe.",
-      "text2": "Sieh nach, wie viele die jeweilige Punktzahl erreichen:",
-      "text3": "Sieh nach, wie viele die jeweilige Punktzahl erreichen:",
+      "text1": "Sieh nach, wie viele Spielverläufe die jeweilige Punktzahl erreichen:",
       "chart": {
         "title": "Erfolgreiche Spielverläufe nach Punktzahl",
         "scoreAxis": "Punktzahl",
@@ -595,6 +594,12 @@
         "loading": "Histogramm wird geladen…",
         "loadError": "Das Histogramm konnte nicht geladen werden."
       }
+    },
+    "end7": {
+      "text1": "Was ist ein Perzentilwert?",
+      "text2": "Der Perzentilwert gibt an, wie gut deine Punktzahl im Vergleich zu anderen möglichen Ergebnissen abschneidet.",
+      "text3": "Deine Punktzahl ist {{score}} und dein Perzentilwert ist {{percentile}} / 100. Das bedeutet, {{percentile}}% aller möglichen Spielverläufe erreichen eine Punktzahl, die kleiner oder gleich {{score}} ist.",
+      "text4": "Wenn du einen Perzentilwert von X / 100 erhältst, bedeutet das, X% aller möglichen Spielverläufe erreichen eine Punktzahl, die niedriger oder gleich deiner ist."
     },
     "credits": {
       "text1": "Dieses Spiel wurde von IMAGINARY gGmbH entwickelt © 2026.",

@@ -485,7 +485,6 @@ ${i}`),b(i)}function $e(n,e=!1){return Qo(Lo(n),An(),Pn(),e)}class Ko extends fe
   display: block;
   width: 100%;
   max-width: 1060px;
-  margin: 1rem auto;
   overflow-x: auto;
 }
 
@@ -1087,6 +1086,30 @@ engine.extend("2.3.1", () => {
         this.failed = false;
         loadScoreChart().then(template => {
           this.svg = document.importNode(template, true);
+          
+// Reposition the "Final score" X-axis label
+const scoreAxis = this.svg.querySelector('[data-chart-text="scoreAxis"]');
+
+if (scoreAxis) {
+  scoreAxis.setAttribute('transform', 'translate(400, -120)');
+}         
+
+// Remove the visible chart title
+this.svg.querySelector('text[data-chart-text="title"]')?.remove();
+
+// Crop top and bottom to save vertical space
+const { x, y, width, height } = this.svg.viewBox.baseVal;
+
+const cropTop = 30;
+const cropBottom = 40;
+
+this.svg.setAttribute(
+  'viewBox',
+  `${x} ${y + cropTop} ${width} ${height - cropTop - cropBottom}`
+);
+
+this.svg.setAttribute('height', height - cropTop - cropBottom);
+
           const id = `score-chart-${++scoreChartSequence}`;
           this.svg.querySelector('title').id = `${id}-title`;
           this.svg.querySelector('desc').id = `${id}-description`;
@@ -1565,8 +1588,9 @@ ui.status: true
 {translate text: &quot;end.end5.text2&quot;}
 
 &lt;div class=&quot;passage-navigation&quot;&gt;
-{translate text: &quot;end.end5.text3&quot;}
+{translate rich text: &quot;end.end5.text3&quot;, playthroughCount: window.TripleBalanceScores.distribution.totalPaths}
 &lt;br&gt;&lt;br&gt;
+{translated link: &quot;common.back&quot;, to: &#39;[[Continue-&gt;End4]]&#39;, role: &quot;continue&quot;}    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;  
 {translated link: &quot;common.continue&quot;, to: &#39;[[Continue-&gt;End6]]&#39;, role: &quot;continue&quot;}
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="End6" tags="ending" position="925,1275" size="100,100">ui.footerLeft: &quot;[if gameSuccessful]\n{translate text: \&quot;end.end6.scoreText\&quot;, score: score, percentile: Math.floor(window.TripleBalanceScores.percentile(score))}\n[continue]&quot;
 ui.footerRight: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;} {translated link: \&quot;common.credits\&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}&quot;
@@ -1574,16 +1598,17 @@ ui.footerCenter: &quot;&quot;
 --
 
 {translate rich text: &quot;end.end6.text1&quot;, playthroughCount: window.TripleBalanceScores.distribution.totalPaths}&lt;br&gt;
-[if gameSuccessful]
-{translate text: &quot;end.end6.text2&quot;}
-
-[if !gameSuccessful]
-{translate text: &quot;end.end6.text3&quot;}
 
 [continue]
 
 
-{score histogram: score, successful: gameSuccessful}</tw-passagedata><tw-passagedata pid="14" name="FEAR OF DATA THEFT" tags="event" position="2075,1250" size="100,100">{translate rich text: &quot;common.eventHappens&quot;}&lt;br&gt;
+{score histogram: score, successful: gameSuccessful}
+
+
+&lt;div class=&quot;passage-navigation&quot;&gt;
+{translated link: &quot;common.back&quot;, to: &#39;[[Continue-&gt;End5]]&#39;, role: &quot;continue&quot;}    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;  
+{translated link: &quot;common.continue&quot;, to: &#39;[[Continue-&gt;End7]]&#39;, role: &quot;continue&quot;}
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="FEAR OF DATA THEFT" tags="event" position="2075,1250" size="100,100">{translate rich text: &quot;common.eventHappens&quot;}&lt;br&gt;
 &lt;span class=&quot;passage-title&quot;&gt;{translate text: &quot;events.fearOfDataTheft.title&quot;}&lt;/span&gt;
 
 {translate text: &quot;events.fearOfDataTheft.description&quot;}
@@ -2631,4 +2656,24 @@ randomEvent: Math.floor(Math.random() * 4) + 1
 
 &lt;/div&gt;
 
-~~&lt;img src=&quot;images/circularity.webp&quot; class=&quot;explanation-link-icon&quot;&gt;{translated link: &quot;common.explainEconomy&quot;, to: &#39;[[What is a circular smartphone economy?-&gt;explanation.economy]]&#39;}~~</tw-passagedata></tw-storydata></html>
+~~&lt;img src=&quot;images/circularity.webp&quot; class=&quot;explanation-link-icon&quot;&gt;{translated link: &quot;common.explainEconomy&quot;, to: &#39;[[What is a circular smartphone economy?-&gt;explanation.economy]]&#39;}~~</tw-passagedata><tw-passagedata pid="88" name="End7" tags="" position="1075,1275" size="100,100">ui.footerLeft: &quot;[if gameSuccessful]\n{translate text: \&quot;end.end6.scoreText\&quot;, score: score, percentile: Math.floor(window.TripleBalanceScores.percentile(score))}\n[continue]&quot;
+ui.footerRight: &quot;{translated link: \&quot;common.restart\&quot;, to: &#39;[[Restart-&gt;Start]]&#39;}&quot;
+ui.footerCenter: &quot;&quot;
+--
+{translate rich text: &quot;end.end7.text1&quot;}
+
+{translate rich text: &quot;end.end7.text2&quot;}
+
+[if gameSuccessful]
+{translate rich text: &quot;end.end7.text3&quot;, score: score, percentile: Math.floor(window.TripleBalanceScores.percentile(score))}
+
+[if !gameSuccessful]
+{translate rich text: &quot;end.end7.text4&quot;}
+
+[Continue]
+
+&lt;div class=&quot;passage-navigation&quot;&gt;
+{translated link: &quot;common.back&quot;, to: &#39;[[Continue-&gt;End6]]&#39;, role: &quot;continue&quot;}    
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;  
+{translated link: &quot;common.credits&quot;, to: &#39;[[Credits-&gt;End.Credits]]&#39;}
+&lt;/div&gt;</tw-passagedata></tw-storydata></html>

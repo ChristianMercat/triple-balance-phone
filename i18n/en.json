@@ -472,6 +472,7 @@
 
   "common": {
     "continue": "Continue",
+    "back": "Back",
     "restart": "Restart",
     "credits": "Credits",
     "yes": "Yes",
@@ -584,13 +585,11 @@
     "end5": {
       "text1": "The game contains many decision points where you choose between different options: Six rounds of <span class=\"policy\">policy</span> decisions, up to three rounds of <span class=\"tech\">technology</span> decisions, and up to three <span class=\"event\">events</span> are possible.",
       "text2": "Each sequence of decisions creates a unique path through the game, resulting in a large number of possible combinations.",
-      "text3": "There are over 4 million (4,054,180) possible games in total!"
+      "text3": "There are over 4 million (4,054,180) possible game paths in total!<br> {{playthroughCount, number}} of those are successful."
     },
     "end6": {
       "scoreText": "Your score: {{score}} (percentile {{percentile}} / 100).",
-      "text1": "There are <strong>{{playthroughCount, number}}</strong> different successful playthroughs.",
-      "text2": "See how many successful playthroughs reach every score:",
-      "text3": "See how many successful playthroughs reach every score:",
+      "text1": "See how many successful playthroughs reach every score:",
       "chart": {
         "title": "Successful playthroughs by final score",
         "scoreAxis": "Final score",
@@ -602,6 +601,12 @@
         "loading": "Loading histogram…",
         "loadError": "The histogram could not be loaded."
       }
+    },
+    "end7": {
+      "text1": "What is a percentile?",
+      "text2": "The percentile tells you how well your score ranks compared to other possible scores.",
+      "text3": "Since your score is {{score}} and your percentile {{percentile}} / 100, it means that {{percentile}}% of all possible playthroughs achive a score lower than or equal to {{score}}.",
+      "text4": "If you get a percentile of X / 100, it means that X% of all possible playthroughs achieve a score lower than or equal to yours."
     },
     "credits": {
       "text1": "This game was developed by IMAGINARY gGmbH © 2026.",
