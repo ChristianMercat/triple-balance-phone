@@ -283,8 +283,9 @@ ui.footerCenter: ""
 
 
 :: End3 [ending] {"position":"475,1275","size":"100,100"}
-ui.footerCenter: "{translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
+ui.footerRight: "{translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
 ui.status: true
+ui.footerCenter: ""
 --
 <div class="ending-assessment">
 {translate text: "end.end3.scoreText", score: score, percentile: Math.floor(window.TripleBalanceScores.percentile(score))} <br><br>
@@ -324,7 +325,8 @@ ui.status: true
 
 
 :: End4 [ending prose] {"position":"625,1275","size":"100,100"}
-ui.footerCenter: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}       {translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
+ui.footerRight: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}       {translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
+ui.footerCenter: ""
 --
 {translate text: "end.end4.text1"} 
 
@@ -339,13 +341,17 @@ ui.footerCenter: "{translated link: \"common.restart\", to: '[[Restart->Start]]'
 
 
 :: End5 [ending prose] {"position":"775,1275","size":"100,100"}
+ui.footerRight: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}       {translated link: \"common.credits\", to: '[[Credits->End.Credits]]'}"
+ui.footerCenter: ""
+--
 {translate rich text: "end.end5.text1"}
 
 {translate text: "end.end5.text2"}
 
 <div class="passage-navigation">
-{translate text: "end.end5.text3"}
+{translate rich text: "end.end5.text3", playthroughCount: window.TripleBalanceScores.distribution.totalPaths}
 <br><br>
+{translated link: "common.back", to: '[[Continue->End4]]', role: "continue"}    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
 {translated link: "common.continue", to: '[[Continue->End6]]', role: "continue"}
 </div>
 
@@ -357,16 +363,41 @@ ui.footerCenter: ""
 --
 
 {translate rich text: "end.end6.text1", playthroughCount: window.TripleBalanceScores.distribution.totalPaths}<br>
-[if gameSuccessful]
-{translate text: "end.end6.text2"}
-
-[if !gameSuccessful]
-{translate text: "end.end6.text3"}
 
 [continue]
 
 
 {score histogram: score, successful: gameSuccessful}
+
+
+<div class="passage-navigation">
+{translated link: "common.back", to: '[[Continue->End5]]', role: "continue"}    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+{translated link: "common.continue", to: '[[Continue->End7]]', role: "continue"}
+</div>
+
+
+:: End7 {"position":"1075,1275","size":"100,100"}
+ui.footerLeft: "[if gameSuccessful]\n{translate text: \"end.end6.scoreText\", score: score, percentile: Math.floor(window.TripleBalanceScores.percentile(score))}\n[continue]"
+ui.footerRight: "{translated link: \"common.restart\", to: '[[Restart->Start]]'}"
+ui.footerCenter: ""
+--
+{translate rich text: "end.end7.text1"}
+
+{translate rich text: "end.end7.text2"}
+
+[if gameSuccessful]
+{translate rich text: "end.end7.text3", score: score, percentile: Math.floor(window.TripleBalanceScores.percentile(score))}
+
+[if !gameSuccessful]
+{translate rich text: "end.end7.text4"}
+
+[Continue]
+
+<div class="passage-navigation">
+{translated link: "common.back", to: '[[Continue->End6]]', role: "continue"}    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+{translated link: "common.credits", to: '[[Credits->End.Credits]]'}
+</div>
 
 
 :: FEAR OF DATA THEFT [event] {"position":"2075,1250","size":"100,100"}
@@ -2243,6 +2274,30 @@ engine.extend("2.3.1", () => {
         this.failed = false;
         loadScoreChart().then(template => {
           this.svg = document.importNode(template, true);
+          
+// Reposition the "Final score" X-axis label
+const scoreAxis = this.svg.querySelector('[data-chart-text="scoreAxis"]');
+
+if (scoreAxis) {
+  scoreAxis.setAttribute('transform', 'translate(400, -120)');
+}         
+
+// Remove the visible chart title
+this.svg.querySelector('text[data-chart-text="title"]')?.remove();
+
+// Crop top and bottom to save vertical space
+const { x, y, width, height } = this.svg.viewBox.baseVal;
+
+const cropTop = 30;
+const cropBottom = 40;
+
+this.svg.setAttribute(
+  'viewBox',
+  `${x} ${y + cropTop} ${width} ${height - cropTop - cropBottom}`
+);
+
+this.svg.setAttribute('height', height - cropTop - cropBottom);
+
           const id = `score-chart-${++scoreChartSequence}`;
           this.svg.querySelector('title').id = `${id}-title`;
           this.svg.querySelector('desc').id = `${id}-description`;
@@ -2712,7 +2767,6 @@ html, body, #page, #passages {
   display: block;
   width: 100%;
   max-width: 1060px;
-  margin: 1rem auto;
   overflow-x: auto;
 }
 
