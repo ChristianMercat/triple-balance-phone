@@ -1,0 +1,653 @@
+{
+  "header": {
+    "title": "Le triple équilibre",
+    "subtitle": "Édition smartphone"
+  },
+  "footer": {
+    "skipExplanations": "Sauter les explications"
+  },
+
+  "start": {
+    "start1": {
+      "title": "Bienvenue à la mairie!",
+      "text1": "Vous êtes maire de Phonopolis, une cité-État fictive où les smartphones jouent un rôle central dans la vie quotidienne."
+    },
+    "start2": {
+      "text1": "Votre objectif est de bâtir une économie circulaire des smartphones, tout en trouvant un équilibre entre le bien-être des citoyens et le budget de la ville.",
+      "text2": "Vous pouvez faire passer des <span class=\"policy\">mesures politiques</span>, investir dans la recherche de <span class=\"tech\">nouvelles technologies</span> mais gare aux <span class=\"event\">événements</span> perturbateurs."
+    },
+    "start3": {
+      "text1": "En tant que maire, vous devez maintenir l'équilibre entre le <b>bonheur</b> des citoyen·nes, le <b>budget</b> de votre ville, et la <b>circularité</b> de l'économie des smartphones.",
+      "text2": "Toute décision peut les impacter!"
+    },
+    "start4": {
+      "text1": "Voici l'état actuel de Phonopolis:",
+      "row-circularity": "L'indice de circularité est nul, votre économie n'est pas du tout circulaire. La bonne nouvelle: ça ne peut pas être pire.",
+      "row-happiness": "La population est moyennement heureuse; l’indice de bonheur est de 5. Veillez à ce qu’il ne tombe jamais à zéro, sous peine d’être chassé de vos fonctions!",
+      "row-budget": "Les caisses de la ville contiennent 5 Mégapièces. Si votre budget atteint zéro, vous serez démis de vos fonctions!"
+    },
+    "start5": {
+      "text1": "Souhaiteriez-vous investir une partie de votre budget dans la recherche de <span class=\"tech\">nouvelles technologies</span>?"
+    },
+    "start6": {
+      "text1": "Durant votre mandat législatif, il y aura six séries de décisions <span class=\"policy\">politiques</span> à prendre.",
+      "text2": "Vous pouvez maintenant commencer la première manche."
+    }
+  },
+
+  "policies": {
+    "extremeEcoTax": {
+      "title": "Éco-Taxe extrême",
+      "description": "Des taxes élevées sur l’impact environnemental.",
+      "effects": {
+        "circularity": "Il est encouragé de conserver, réparer et réutiliser les anciens téléphones.",
+        "happiness": "Les prix augmentent...",
+        "budget": "Cette taxe vous rapporte!"      }
+    },
+    "mobileDetoxDay": {
+      "title": "Jour de Détox digitale",
+      "description": "Les samedis, les smartphones restent éteints.",
+      "effects": {
+        "circularity": "Les téléphones sont moins utilisés et peuvent durer plus longtemps.",
+        "happiness": "Certaines personnes finissent par apprécier la journée sans téléphone, tandis que d’autres s’y sentent limitées."
+      }
+    },
+    "returnDeposit": {
+      "title": "Consigne",
+      "description": "Consigne obligatoire à l’achat d’un nouveau téléphone, pour en assurer le recyclage.",
+      "effects": {
+        "circularity": "Il est encouragé de rapporter les anciens téléphones en vue de leur recyclage.",
+        "happiness": "Même si le dépôt est remboursé par la suite, les prix augmentent."
+      }
+    },
+    "schoolRepairCafe": {
+      "title": "Repair Café à l'école",
+      "description": "Nouvelle matière scolaire: «Introduction à la réparation de téléphones portables».",
+      "effects": {
+        "circularity": "Davantage de personnes peuvent réparer leurs téléphones et les conserver plus longtemps."
+      }
+    },
+    "phoneSubscription": {
+      "title": "Abonnement téléphonique premium",
+      "description": "Un nouveau téléphone offert chaque année.",
+      "effects": {
+        "circularity": "Plus de téléphones sont produits et jetés.",
+        "happiness": "Les gens reçoivent régulièrement le dernier des appareils.",
+        "budget": "Ventes et recettes fiscales plus élevées."
+      }
+    },
+    "onePhoneLaw": {
+      "title": "Smartphone unique",
+      "description": "Un seul téléphone autorisé par personne.",
+      "effects": {
+        "circularity": "Moins de téléphones sont achetés et utilisés.",
+        "happiness": "Les gens n'ont pas la liberté de posséder plusieurs appareils.",
+        "budget": "Moins de téléphones sont vendus, ce qui entraîne une baisse des recettes fiscales."
+      }
+    },
+    "byod": {
+      "title": "Votre appareil au boulot",
+      "description": "Un profil sécurisé sur votre propre appareil plutôt qu’un deuxième téléphone professionnel.",
+      "effects": {
+        "circularity": "Le nombre d’appareils en utilisation est réduit.",
+        "happiness": "Les gens sont légèrement plus heureux, car ils n’ont besoin que d’un seul téléphone (un élément trop mineur pour influer sur l’indice).",
+        "budget": "Coûts de mise en œuvre et baisse des recettes fiscales due à la diminution des ventes d’appareils."
+      }
+    },
+    "youthProtection": {
+      "title": "Protection de la jeunesse",
+      "description": "Smartphone autorisé à partir de 18 ans.",
+      "effects": {
+        "circularity": "Moins de smartphones sont produits et utilisés.",
+        "happiness": "Les jeunes perdent l’accès aux smartphones et les parents trouvent la communication plus difficile.",
+        "budget": "Moins de téléphones sont vendus, ce qui entraîne une baisse des recettes fiscales."
+      }
+    },
+    "serviceContract": {
+      "title": "Contrat de réparation",
+      "description": "Assurance réparation de votre smartphone.",
+      "effects": {
+        "circularity": "Les smartphones endommagés sont plus souvent réparés.",
+        "happiness": "Les gens peuvent faire réparer leurs téléphones à moindre coût.",
+        "budget": "Le budget municipal augmente légèrement, sous l’effet d’une activité de réparation accrue et de recettes fiscales en hausse, mais dans une proportion nettement inférieure à un Megapièce."
+      }
+    },
+    "dontPhoneAndDrive": {
+      "title": "Tépéphone au volant",
+      "description": "Sanctions sévères pour l'utilisation du téléphone au volant.",
+      "effects": {
+        "circularity": "A peu d’incidence sur l’achat, la réparation ou le recyclage des téléphones.",
+        "happiness": "Les conducteurs sont confrontés à des règles plus strictes et à des amendes plus élevées.",
+        "budget": "Les coûts liés à l’application des règles absorbent la majeure partie des recettes issues des sanctions."
+      }
+    },
+    "sustainableDevicesAct": {
+      "title": "Loi sur les appareils durables",
+      "description": "Les téléphones doivent comporter des composants facilement extractibles et recyclables.",
+      "effects": {
+        "circularity": "Les téléphones deviennent plus faciles à réparer et à recycler.",
+        "happiness": "La politique a peu d’impact direct sur les utilisateurs."
+      }
+    },
+    "recycleBonus": {
+      "title": "Bonus Recyclage",
+      "description": "Vous pouvez échanger un ancien téléphone contre un nouveau.",
+      "effects": {
+        "circularity": "Encourage le remplacement précoce du téléphone.",
+        "happiness": "Économiser de l’argent et recycler de manière responsable."
+      }
+    },
+    "noExploitativeFeatures": {
+      "title": "Fonctionnalités anti-addictives",
+      "description": "Limite les éléments de conception des applis qui incitent les utilisateurs à l’addiction.",
+      "effects": {
+        "circularity": "Les gens utilisent moins leur téléphone et le remplacent moins souvent.",
+        "happiness": "Les gens utilisent leur téléphone de manière plus consciente."
+      }
+    },
+    "consumptionLimit": {
+      "title": "Limite de la consommation",
+      "description": "Les utilisateurs ne peuvent acheter un nouveau téléphone que tous les trois ans.",
+      "effects": {
+        "circularity": "Les téléphones sont conservés et utilisés plus longtemps.",
+        "happiness": "Les gens ont moins de liberté pour effectuer des mises à niveau quand ils le souhaitent.",
+        "budget": "Moins de téléphones sont vendus, ce qui entraîne une baisse des recettes fiscales."
+      }
+    },
+    "bioPhone": {
+      "title": "Smartphone compostable",
+      "description": "Avantages fiscaux liés à la fabrication de téléphones dotés de composants biodégradables.",
+      "effects": {
+        "circularity": "Des matériaux plus respectueux de l’environnement sont utilisés.",
+        "budget": "Les recettes fiscales diminuent."
+      }
+    },
+    "limitOnlineFootprint": {
+      "title": "Limitation de l'empreinte digitale",
+      "description": "Fonctionnalités de minimalisme numérique intégrées par défaut (par ex. verrouillage en fonction du temps d’écran, rapports d’utilisation).",
+      "effects": {
+        "circularity": "Les gens utilisent moins leur téléphone et le remplacent moins souvent.",
+        "happiness": "Les utilisateurs trouvent les restrictions agaçantes ou limitantes."
+      }
+    },
+    "unlock": {
+      "title": "Débloquage",
+      "description": "Exige que tous les téléphones de plus de 2 ans puissent être légalement débloqués.",
+      "effects": {
+        "circularity": "Les téléphones plus anciens peuvent être réutilisés, revendus et maintenus en service plus longtemps.",
+        "happiness": "Les utilisateurs disposent d’une plus grande liberté pour choisir des réseaux et continuer à utiliser leurs appareils.",
+        "budget": "Les coûts liés à l’application de la réglementation et la baisse des recettes fiscales découlant d’une diminution des ventes de téléphones."
+      }
+    },
+    "closedLoopLaw": {
+      "title": "Loi de circularité",
+      "description": "Les fabricants doivent utiliser 15 % de matériaux recyclés issus d’anciens téléphones.",
+      "effects": {
+        "circularity": "Davantage de matériaux sont récupérés et réutilisés dans de nouveaux appareils.",
+        "happiness": "La politique a peu d’impact direct sur les consommateurs."
+      }
+    }
+  },
+
+  "technologies": {
+    "magneticBreakApart": {
+      "title": "Sécurité magnétique",
+      "description": "Lors d'un choc, le téléphone se désassemble en éléments modulaires robustes.",
+      "effects": {
+        "circularity": "Les pièces endommagées peuvent être remplacées, plutôt que de remplacer le téléphone entier.",
+        "happiness": "Les téléphones deviennent plus faciles et moins coûteux à réparer après des accidents."
+      }
+    },
+    "newTripleDiamondGlass": {
+      "title": "Nouveau verre Triple Diamant",
+      "description": "Protection renforcée grâce au verre diamant Éléphant™.",
+      "effects": {
+        "circularity": "Les téléphones risquent moins de se casser et peuvent rester en service plus longtemps.",
+        "happiness": "Les téléphones peuvent être plus durables et nécessiter moins de réparations."
+      }
+    },
+    "lowOrbitSignalMesh": {
+      "title": "Constellation en orbite basse",
+      "description": "Service téléphonique haut débit ininterrompu, assuré par des satellites en orbite basse, à l’échelle mondiale.",
+      "effects": {
+        "happiness": "Les utilisateurs peuvent désormais rester connectés partout dans le monde."
+      }
+    },
+    "smartBins": {
+      "title": "Poubelles intelligentes",
+      "description": "Les poubelles enregistrent le dépôt d’un téléphone grâce à la technologie RFID.",
+      "effects": {
+        "circularity": "Davantage de téléphones parviennent aux centres de recyclage."
+      }
+    },
+    "regenerativePortMatrix": {
+      "title": "Connectique régénératrice",
+      "description": "Une technologie de ports où les connecteurs se régénèrent physiquement lorsqu’ils sont usés.",
+      "effects": {
+        "circularity": "Les téléphones nécessitent moins de réparations ou de remplacements.",
+        "happiness": "Les utilisateurs rencontrent moins de problèmes de chargement."
+      }
+    },
+    "selfDestruct": {
+      "title": "Auto-destruction",
+      "description": "Destruction des données sensibles en cas de détection d’un vol.",
+      "effects": {
+        "happiness": "Les utilisateurs estiment que leurs informations personnelles sont mieux protégées."
+      }
+    },
+    "modularSmartphone": {
+      "title": "Smartphone modulaire",
+      "description": "Composants standard facilement remplaçables.",
+      "effects": {
+        "circularity": "Les téléphones deviennent plus faciles à réparer, à mettre à niveau et à réutiliser.",
+"happiness": "Les réparations sont plus simples et moins coûteuses."
+      }
+    },
+    "newSelfChargingBattery": {
+      "title": "Batterie auto-rechargeable",
+      "description": "La batterie se recharge grâce à l’énergie ambiante (vibrations, solaire, magnétisme).",
+      "effects": {
+        "happiness": "Les téléphones ont besoin d’être rechargés moins souvent.",
+        "budget": "Moins d’argent est consacré à l’énergie, ce qui laisse davantage de fonds disponibles pour d’autres usages."
+      }
+    },
+    "smartShattering": {
+      "title": "Photocompost",
+      "description": "L’enveloppe polymère se dégrade quand elle est exposée à une lumière spécifique.",
+      "effects": {
+        "circularity": "Les téléphones peuvent être plus facilement démontés en vue de leur recyclage."
+      }
+    }
+  },
+
+  "events": {
+    "fireAtRecyclingPlant": {
+      "title": "Incendie à l'usine de tri",
+      "description": "Incendie dans la grande usine de tri de déchets électroniques.",
+      "outcomes": {
+        "putOutFire": {
+          "title": "Éteindre le feu",
+          "description": "Vous réussissez à arrêter l'incendie.",
+          "effects": {
+            "circularity": "Grâce à votre action, la circularité n’a pas diminué.",
+            "budget": "L’opération a été financée par le budget de la ville."
+          }
+        },
+        "doNothing": {
+          "title": "Ne rien faire",
+          "description": "L’usine de recyclage brûle.",
+          "effects": {
+            "circularity": "Moindre capacité à recycler les anciens smartphones et les matériaux."
+          }
+        }
+      }
+    },
+    "repairPartsMarketCollapse": {
+      "title": "Effondrement du marché mondial des pièces détachées",
+      "description": "Un important fournisseur de pièces détachées génériques à Phonopolis est sur le point de faire faillite.",
+      "outcomes": {
+        "doNothing": {
+          "title": "Ne rien faire",
+          "description": "Le fournisseur fait faillite.",
+          "effects": {
+            "circularity": "Moins de téléphones sont réparés et maintenus en usage.",
+            "happiness": "Les réparations deviennent plus coûteuses et plus contraignantes."
+          }
+        },
+        "provideFinancialSupport": {
+          "title": "Apporter un soutien financier",
+          "description": "Votre aide permet au fournisseur de poursuivre ses activités.",
+          "effects": {
+            "circularity": "Grâce à votre action, la circularité n’a pas diminué.",
+            "budget": "Une aide financière a été versée sur le budget de la ville."
+          }
+        }
+      }
+    },
+    "minimalistTechMovement": {
+      "title": "Mouvement Tech Minimaliste",
+      "description": "Une tendance mondiale au minimalisme incite les habitants de Phonopolis à posséder moins d’appareils.",
+      "outcomes": {
+        "promoteMinimalism": {
+          "title": "Promouvoir la tendance du minimalisme",
+          "description": "Les gens possèdent moins d’appareils.",
+          "effects": {
+            "circularity": "Il faut moins de nouveaux téléphones.",
+            "budget": "Moins de recettes fiscales."
+          }
+        },
+        "encourageSpending": {
+          "title": "Encourager la consommation",
+          "description": "Vous promouvez les nouvelles technologies et les mises à niveau.",
+          "effects": {
+            "circularity": "L’effet positif est annulé par vos actions.",
+            "budget": "Des fonds provenant du budget municipal ont été utilisés pour la promotion."
+          }
+        }
+      }
+    },
+    "newPineapplePhone": {
+      "title": "Smartphone Ananas™",
+      "description": "Un nouveau modèle de téléphone portable, doté de fonctionnalités prisées, est sur le point d’être lancé à Phonopolis.",
+      "outcomes": {
+        "promoteLongerPhoneUse": {
+          "title": "Favoriser une utilisation plus prolongée du téléphone",
+          "description": "Vous restreignez le lancement du nouveau  Smartphone Ananas™.",
+          "effects": {
+            "circularity": "Parmi les téléphones en circulation, seule une minorité est remplacée par le nouveau modèle.",
+            "happiness": "Les gens sont déçus de ne pas pouvoir accéder facilement aux nouvelles fonctionnalités."
+          }
+        },
+        "doNothing": {
+          "title": "Ne rien faire",
+          "description": "Lancement sans restriction du nouveau smartphone Ananas™.",
+          "effects": {
+            "circularity": "Davantage de vieux téléphones sont remplacés plus rapidement.",
+            "happiness": "La technologie la plus récente est disponible.",
+            "budget": "Davantage de nouveaux téléphones sont vendus, ce qui génère des recettes fiscales supplémentaires."
+          }
+        }
+      }
+    },
+    "phonePriceDrop": {
+      "title": "Chute des prix",
+      "description": "Une avancée technologique rend les nouveaux téléphones extrêmement bon marché à Phonopolis.",
+      "outcomes": {
+        "doNothing": {
+          "title": "Ne rien faire",
+          "description": "Les nouveaux téléphones sont bon marché.",
+          "effects": {
+            "circularity": "Les appareils plus anciens sont remplacés plus rapidement.",
+            "happiness": "Des prix bas.",
+            "budget": "Moins d’impôts sont versés à la ville, car les produits sont moins chers."
+          }
+        },
+        "protectRepairAndReuse": {
+          "title": "Protéger, réparer et réutiliser",
+          "description": "Vous ajoutez des taxes sur les téléphones bon marché.",
+          "effects": {
+            "circularity": "Les gens achètent juste autant de téléphones qu’auparavant.",
+            "happiness": "Nouvelle taxe.",
+            "budget": "Revenus de la taxe."
+          }
+        }
+      }
+    },
+    "globalChipCrisis": {
+      "title": "Crise des puces",
+      "description": "La production de téléphones portables diminue à Phonopolis. Les nouveaux téléphones portables vont devenir beaucoup plus chers.",
+      "outcomes": {
+        "supportRepairAndReuse": {
+          "title": "Soutenir la réparation et le réemploi",
+          "description": "Vous encouragez les citoyens à réparer, réutiliser et acheter des téléphones reconditionnés.",
+          "effects": {
+            "circularity": "Moins de nouveaux téléphones sont achetés.",
+            "happiness": "Absence de nouveaux appareils.",
+            "budget": "La campagne a utilisé des fonds provenant du budget municipal."
+          }
+        },
+        "subsidizePhonePurchases": {
+          "title": "Subvention à l’achat",
+          "description": "Vous subventionnez l’achat de nouveaux téléphones.",
+          "effects": {
+            "happiness": "Les gens restent tout aussi heureux qu’avant la crise des puces.",
+            "budget": "Des fonds provenant du budget municipal sont utilisés."
+          }
+        }
+      }
+    },
+    "toxicWaste": {
+      "title": "Déchets toxiques",
+      "description": "Les nouveaux matériaux génèrent des déchets toxiques lors du recyclage.",
+      "outcomes": {
+        "introduceStricterRegulations": {
+          "title": "Mettre en place des réglementations plus strictes",
+          "description": "Vous avez besoin de méthodes de recyclage et de traitement des déchets plus sûres.",
+          "effects": {
+            "circularity": "Moins de matériaux sont transformés à court terme.",
+            "happiness": "Vos mesures empêchent tout changement dans le bonheur.",
+            "budget": "Les coûts du recyclage augmentent, mais le budget municipal demeure inchangé."
+          }
+        },
+        "continueRecycling": {
+          "title": "Continuez à recycler comme d’habitude",
+          "description": "Les opérations de recyclage se poursuivent malgré les risques.",
+          "effects": {
+            "circularity": "Les matériaux sont toujours recyclés.",
+            "happiness": "Les déchets toxiques nuisent à l’environnement et à la santé publique.",
+            "budget": "Une augmentation des maladies fait peser une charge financière sur le budget municipal."
+          }
+        }
+      }
+    },
+    "fearOfDataTheft": {
+      "title": "Crainte de vol de données",
+      "description": "Une information devenue virale à Phonopolis incite les gens à craindre de donner ou de recycler leurs anciens appareils.",
+      "outcomes": {
+        "launchInformationCampaign": {
+          "title": "Lancer une campagne d’information publique",
+          "description": "Vous lancez une campagne de debunkage de la fakenews.",
+          "effects": {
+            "circularity": "Davantage de téléphones sont donnés, réutilisés et recyclés.",
+            "happiness": "Les gens se sentent plus en sécurité quant à leurs informations personnelles (encore plus qu’avant l’événement).",
+            "budget": "La campagne a utilisé des fonds provenant du budget municipal."
+          }
+        },
+        "doNothing": {
+          "title": "Ne rien faire",
+          "description": "Les gens craignent de donner ou de recycler leurs anciens appareils.",
+          "effects": {
+            "circularity": "Moins de téléphones sont réutilisés, réparés ou recyclés.",
+            "happiness": "Insécurité, peur du vol de données."
+          }
+        }
+      }
+    },
+    "globalRecession": {
+      "title": "Récession mondiale",
+      "description": "Les habitants de Phonopolis disposent de moins de revenus.",
+      "outcomes": {
+        "supportCircularSolutions": {
+          "title": "Soutenir les solutions circulaires",
+          "description": "Vous proposez des mesures incitatives en faveur de la réparation, de la réutilisation et du reconditionnement.",
+          "effects": {
+            "circularity": "Les téléphones et leurs composants restent utilisés plus longtemps.",
+            "happiness": "Des appareils abordables restent accessibles malgré la récession.",
+            "budget": "Les mesures incitatives sont financées par le budget municipal."
+          }
+        },
+        "supportPhonePurchases": {
+          "title": "Proposer une assistance à l’achat aux consommateurs",
+          "description": "Vous proposez des bons d’achat et des réductions fiscales pour l’achat de nouveaux téléphones.",
+          "effects": {
+            "circularity": "Les taux de remplacement restent inchangés.",
+            "happiness": "Les gens continuent d’avoir accès à de nouveaux appareils, malgré la récession.",
+            "budget": "Les bons ou les réductions d’impôt sont financés par le budget municipal."
+          }
+        }
+      }
+    }
+  },
+
+  "common": {
+    "continue": "Continuer",
+    "restart": "Recommencer",
+    "credits": "Crédits",
+    "yes": "Oui",
+    "no": "Non",
+    "runAgain": "Se présenter aux élections",
+    "learnScore": "Que dit votre score?",
+    "explainEconomy": "Qu’est-ce qu’une économie circulaire des smartphones ?",
+    "explainHappiness": "Qu’est-ce qui rend les gens heureux ?",
+    "yourChoice": "Votre choix:",
+    "eventHappens": "Un <span class=\"event\">ÉVÉNEMENT</span> intervient:",
+    "roundProgress": "Manche {{round}}/{{total}}",
+    "languageLabel": "Langue",
+    "languageRetry": "Essayer de nouveau",
+    "languageLoading": "Chargement…",
+    "translationLoadError": "Impossible de charger les traductions. Vérifiez votre connexion et réessayez.",
+    "languageLoadError": "Impossible de charger cette langue. Votre langue précédente reste active."
+  },
+
+  "techRounds": {
+    "tech": {
+      "text1": "Chaque <span class=\"tech\">nouvelle technologie</span> vous coûte 1 Mégapièce. Votre investissement peut contribuer au bonheur des personnes et à la circularité.",
+      "text2": "Dans combien de nouvelles technologies souhaiteriez-vous investir ?",
+      "choiceSeparator": "ou"
+    },
+    "tech1": {
+      "text1": "Des chercheurs travaillent maintenant sur une <span class=\"tech\">nouvelle technologie</span>.",
+      "text2": "Cela deviendra disponible à un stade ultérieur de votre mandat législatif."
+    },
+    "tech2": {
+      "text1": "Des chercheurs travaillent maintenant sur deux <span class=\"tech\">nouvelles technologies</span>.",
+      "text2": "Elles deviendront disponibles à un stade ultérieur de votre mandat législatif."
+    },
+    "tech3": {
+      "text1": "Des chercheurs travaillent maintenant sur trois <span class=\"tech\">nouvelles technologies</span>.",
+      "text2": "Elles deviendront disponibles à un stade ultérieur de votre mandat législatif."
+    },
+    "newTech1": {
+      "text1": "Votre investissement dans la recherche porte ses fruits: <strong>une <span class=\"tech\">nouvelle technologie</span> est disponible!</strong>"
+    },
+    "newTech1a": {
+      "text1": "Vous pouvez choisir l’une des nouvelles technologies en cliquant dessus."
+    },
+    "newTech2": {
+      "text1": "Votre investissement dans la recherche porte de nouveau ses fruits: <strong>une <span class=\"tech\">nouvelle technologie</span> est disponible!</strong>"
+    },
+    "newTech2a": {
+      "text1": "Vous pouvez choisir l’une des nouvelles technologies en cliquant dessus."
+    },
+    "newTech3": {
+      "text1": "Votre investissement dans la recherche porte de nouveau ses fruits: <strong>une <span class=\"tech\">nouvelle technologie</span> est disponible!</strong>"
+    },
+    "newTech3a": {
+      "text1": "Vous pouvez choisir l’une des nouvelles technologies en cliquant dessus."
+    }
+  },
+
+  "end": {
+    "end1": {
+      "title": "Votre mandat législatif à Phonopolis est terminé.",
+      "text1": "Renseignez-vous sur vos réalisations dans l’exercice de vos fonctions."
+    },
+    "end2": {
+      "text1": "Voici l’état de Phonopolis à l’issue de votre mandat législatif :",
+      "circularity": {
+        "minimal": "Vos choix n’ont pas réellement amélioré la <strong>circularité</strong> de l’économie.",
+        "limited": "Vos choix n’ont pas été très efficaces pour bâtir une économie <strong>circulaire</strong>.",
+        "improved": "You have improved the <strong>circularity</strong> of the economy.",
+        "significant": "Vous avez considérablement amélioré la <strong>circularité</strong> de l’économie.",
+        "tremendous": "Vous avez considérablement amélioré la <strong>circularité</strong> de l’économie."
+      },
+      "happiness": {
+        "low": "Les gens ne sont pas très <strong>contents</strong> de vos choix.",
+        "stable": "Le <strong>bonheur</strong> des gens n’a pas beaucoup changé.",
+        "high": "Les gens sont plutôt <strong>contents</strong> de vos choix.",
+        "veryHigh": "Les gens sont très <strong>contents</strong> de vos choix."
+      },
+      "budget": {
+        "nearBankruptcy": "Vous avez tout juste réussi à ne pas faire faillite.",
+        "decreased": "Il vous reste moins d’<strong>argent</strong> qu’au départ.",
+        "unchanged": "Vous avez dépensé autant d’<strong>argent</strong> que vous en avez gagné.",
+        "increased": "Vous avez gagné plus d’<strong>argent</strong> que vous n’en avez dépensé."
+      }
+    },
+    "end3": {
+      "scoreText": "Votre score est {{score}} sur 53 (pourcentage {{percentile}} / 100).",
+      "highScore": {
+        "text1": "<strong>Vous avez atteint le meilleur score ! Félicitations !</strong>"
+      },
+      "outstanding": {
+        "text1": "Vous avez été un·e maire exceptionnel·le pour Phonopolis. <strong>Félicitations !</strong>"
+      },
+      "good": {
+        "text1": "Vous avez été un·e bon maire pour Phonopolis."
+      },
+      "average": {
+        "text1": "Vous avez été un·e maire moyen pour Phonopolis."
+      },
+      "poor": {
+        "text1": "Vous avez été un·e piètre maire pour Phonopolis."
+      },
+      "barelySurvived": {
+        "text1": "Vous avez survécu de justesse à cette législature à Phonopolis."
+      }
+    },
+    "end4": {
+      "text1": "Le score est calculé à partir des valeurs relatives à la circularité, au bonheur et au budget qu'il vous reste.",
+      "scoreLabel": "Score",
+      "text2": "Avec les valeurs de votre partie actuelle, vous avez atteint :"
+    },
+    "end5": {
+      "text1": "Le jeu comporte de nombreux moments de prise de décision où vous devez choisir entre différentes options : six tours de décisions liées aux <span class=\"policy\">mesures politiques</span>, jusqu’à trois tours de décisions liées aux <span class=\"tech\">technologies</span>, et jusqu’à trois <span class=\"event\">événements</span> peuvent survenir.",
+      "text2": "Chaque séquence de décisions crée un parcours unique à travers le jeu, ce qui donne lieu à un grand nombre de combinaisons possibles.",
+      "text3": "Il y a au total plus de 4 millions (4 054 180) de parties possibles !"
+    },
+    "end6": {
+      "scoreText": "Votre score: {{score}} (pouircentage {{percentile}} / 100).",
+      "text1": "Il y a <strong>{{playthroughCount, number}}</strong> différentes parties réussies.",
+      "text2": "Découvrez combien de parties réussies atteignent chaque score :",
+      "text3": "Découvrez combien de parties réussies atteignent chaque score :",
+      "chart": {
+        "title": "Parties réussies, par score final",
+        "scoreAxis": "Score final",
+        "pathsAxis": "Nombre de parties réussies",
+        "you": "Vous",
+        "binLabel": "Score {{score}}: {{paths}} parties réussies.",
+        "description": "Distribution des {{total}}  parties réussies. Votre score est {{score}} (pourcentage {{percentile}}/100). Il y a {{paths}}  parties réussies avec ce score. Le décompte n'est pas une probabilité.",
+        "descriptionWithoutScore": "Distribution of {{total}} successful playthroughs by final score. Counts are not probabilities.",
+        "loading": "Chargement de l'histogramme…",
+        "loadError": "L'histogramme n'a pas pu être chargé."
+      }
+    },
+    "credits": {
+      "text1": "Ce jeu a été développé par IMAGINARY gGmbH © 2026.",
+      "text2": "Gameplay: Bianca Violet",
+      "text3": "Implementation: Bianca Violet et Daniel Ramos",
+      "text4": "Illustrations: Ariel Kahtan",
+      "funding": "Ce travail s’inscrit dans le cadre du projet Erasmus+ « Math4Sustainability » et est cofinancé par l’Union européenne. Les points de vue et opinions exprimés n’engagent toutefois que leur(s) auteur(s) et ne reflètent pas nécessairement ceux de l’Union européenne ou de l’Agence exécutive européenne pour l’éducation et la culture (EACEA). Ni l’Union européenne ni l’EACEA ne sauraient en être tenues responsables. Numéro de projet : 2024-1-DE03-KA220-SCH-000246047."
+    },
+    "gamOver": {
+      "title": "Le peuple se révolte",
+      "text1": "La ville ne fait plus confiance à votre direction. Des citoyens en colère et des rivaux politiques vous ont évincé de vos fonctions.",
+      "label": "Fin du jeu!"
+    },
+    "gameOver2": {
+      "title": "Le budget est à sec",
+      "text1": "Vos politiques ont ramené le budget de la ville à zéro. La ville n’est plus en mesure de fonctionner, et vous avez été démis de vos fonctions.",
+      "label": "Fin du jeu!"
+    }
+  },
+
+  "explanations": {
+    "economy": {
+      "text1": "Une économie circulaire appliquée aux smartphones consiste à maintenir les appareils en état d’utilisation aussi longtemps que possible, plutôt que de les jeter rapidement. Les stratégies clés incluent la <b>réduction</b> (acheter et utiliser moins de téléphones neufs), la <b>réutilisation</b>, la <b>réparation</b> et le <b>recyclage</b>, ce qui permet d’économiser des ressources et de réduire les déchets."
+    },
+    "happiness": {
+      "text1": "À Phonopolis, les habitants sont heureux lorsque tous ceux qui souhaitent posséder un téléphone en ont effectivement un, que ces appareils fonctionnent bien, sont faciles à utiliser et que les données des utilisateurs sont protégées. Les téléphones ne devraient être ni trop coûteux, ni fragiles."
+    }
+  },
+
+  "rounds": {
+    "round1": {
+      "text1": "Choisissez l’une des nouvelles mesures politiques possibles en cliquant dessus."
+    },
+    "round2": {
+      "text1": "La mesure que vous avez choisie restera en vigueur. Vous pouvez en choisir une supplémentaire dès maintenant."
+    },
+    "round3": {
+      "text1": "Choisissez l’une des nouvelles mesures politiques possibles en cliquant dessus."
+    },
+    "round4": {
+      "text1": "Choisissez l’une des nouvelles politiques possibles en cliquant dessus."
+    },
+    "round5": {
+      "text1": "Choisissez l’une des nouvelles politiques possibles en cliquant dessus."
+    },
+    "round6": {
+      "text1": "Choisissez l’une des nouvelles politiques possibles en cliquant dessus (dernier tour)."
+    }
+  }
+}
