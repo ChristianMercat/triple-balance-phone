@@ -605,8 +605,8 @@
     "end7": {
       "text1": "What is a percentile?",
       "text2": "The percentile tells you how well your score ranks compared to other possible scores.",
-      "text3": "Since your score is {{score}} and your percentile {{percentile}} / 100, it means that {{percentile}}% of all possible playthroughs achive a score lower than or equal to {{score}}.",
-      "text4": "If you get a percentile of X / 100, it means that X% of all possible playthroughs achieve a score lower than or equal to yours."
+      "text3": "Your score is {{score}} and your percentile {{percentile}}. This means that {{percentile}}% of all possible playthroughs achieve a score lower than or equal to {{score}}.",
+      "text4": "If you get a percentile of X, it means that X% of all possible playthroughs achieve a score lower than or equal to yours."
     },
     "credits": {
       "text1": "This game was developed by IMAGINARY gGmbH © 2026.",
